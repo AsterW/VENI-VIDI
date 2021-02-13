@@ -1,0 +1,609 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		92F7EA7725D782350039DF3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7625D782350039DF3C /* AppDelegate.swift */; };
+		92F7EA7925D782350039DF3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7825D782350039DF3C /* SceneDelegate.swift */; };
+		92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7A25D782350039DF3C /* ViewController.swift */; };
+		92F7EA7E25D782350039DF3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA7C25D782350039DF3C /* Main.storyboard */; };
+		92F7EA8125D782350039DF3C /* VENI_VIDI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */; };
+		92F7EA8325D782380039DF3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA8225D782380039DF3C /* Assets.xcassets */; };
+		92F7EA8625D782380039DF3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */; };
+		92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */; };
+		92F7EA9C25D782380039DF3C /* VENI_VIDIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92F7EA8D25D782380039DF3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92F7EA6B25D782350039DF3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92F7EA7225D782350039DF3C;
+			remoteInfo = "VENI VIDI";
+		};
+		92F7EA9825D782380039DF3C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92F7EA6B25D782350039DF3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92F7EA7225D782350039DF3C;
+			remoteInfo = "VENI VIDI";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		92F7EA7325D782350039DF3C /* VENI VIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VENI VIDI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92F7EA7625D782350039DF3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92F7EA7825D782350039DF3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		92F7EA7A25D782350039DF3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92F7EA7D25D782350039DF3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		92F7EA8025D782350039DF3C /* VENI_VIDI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VENI_VIDI.xcdatamodel; sourceTree = "<group>"; };
+		92F7EA8225D782380039DF3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92F7EA8525D782380039DF3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92F7EA8725D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92F7EA8C25D782380039DF3C /* VENI VIDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VENI VIDITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENI_VIDITests.swift; sourceTree = "<group>"; };
+		92F7EA9225D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92F7EA9725D782380039DF3C /* VENI VIDIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VENI VIDIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENI_VIDIUITests.swift; sourceTree = "<group>"; };
+		92F7EA9D25D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92F7EA7025D782350039DF3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92F7EA8925D782380039DF3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92F7EA9425D782380039DF3C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		92F7EA6A25D782350039DF3C = {
+			isa = PBXGroup;
+			children = (
+				92F7EA7525D782350039DF3C /* VENI VIDI */,
+				92F7EA8F25D782380039DF3C /* VENI VIDITests */,
+				92F7EA9A25D782380039DF3C /* VENI VIDIUITests */,
+				92F7EA7425D782350039DF3C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		92F7EA7425D782350039DF3C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92F7EA7325D782350039DF3C /* VENI VIDI.app */,
+				92F7EA8C25D782380039DF3C /* VENI VIDITests.xctest */,
+				92F7EA9725D782380039DF3C /* VENI VIDIUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92F7EA7525D782350039DF3C /* VENI VIDI */ = {
+			isa = PBXGroup;
+			children = (
+				92F7EA7625D782350039DF3C /* AppDelegate.swift */,
+				92F7EA7825D782350039DF3C /* SceneDelegate.swift */,
+				92F7EA7A25D782350039DF3C /* ViewController.swift */,
+				92F7EA7C25D782350039DF3C /* Main.storyboard */,
+				92F7EA8225D782380039DF3C /* Assets.xcassets */,
+				92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */,
+				92F7EA8725D782380039DF3C /* Info.plist */,
+				92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */,
+			);
+			path = "VENI VIDI";
+			sourceTree = "<group>";
+		};
+		92F7EA8F25D782380039DF3C /* VENI VIDITests */ = {
+			isa = PBXGroup;
+			children = (
+				92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */,
+				92F7EA9225D782380039DF3C /* Info.plist */,
+			);
+			path = "VENI VIDITests";
+			sourceTree = "<group>";
+		};
+		92F7EA9A25D782380039DF3C /* VENI VIDIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */,
+				92F7EA9D25D782380039DF3C /* Info.plist */,
+			);
+			path = "VENI VIDIUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92F7EA7225D782350039DF3C /* VENI VIDI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92F7EAA025D782380039DF3C /* Build configuration list for PBXNativeTarget "VENI VIDI" */;
+			buildPhases = (
+				92F7EA6F25D782350039DF3C /* Sources */,
+				92F7EA7025D782350039DF3C /* Frameworks */,
+				92F7EA7125D782350039DF3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "VENI VIDI";
+			productName = "VENI VIDI";
+			productReference = 92F7EA7325D782350039DF3C /* VENI VIDI.app */;
+			productType = "com.apple.product-type.application";
+		};
+		92F7EA8B25D782380039DF3C /* VENI VIDITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92F7EAA325D782380039DF3C /* Build configuration list for PBXNativeTarget "VENI VIDITests" */;
+			buildPhases = (
+				92F7EA8825D782380039DF3C /* Sources */,
+				92F7EA8925D782380039DF3C /* Frameworks */,
+				92F7EA8A25D782380039DF3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92F7EA8E25D782380039DF3C /* PBXTargetDependency */,
+			);
+			name = "VENI VIDITests";
+			productName = "VENI VIDITests";
+			productReference = 92F7EA8C25D782380039DF3C /* VENI VIDITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		92F7EA9625D782380039DF3C /* VENI VIDIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92F7EAA625D782380039DF3C /* Build configuration list for PBXNativeTarget "VENI VIDIUITests" */;
+			buildPhases = (
+				92F7EA9325D782380039DF3C /* Sources */,
+				92F7EA9425D782380039DF3C /* Frameworks */,
+				92F7EA9525D782380039DF3C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92F7EA9925D782380039DF3C /* PBXTargetDependency */,
+			);
+			name = "VENI VIDIUITests";
+			productName = "VENI VIDIUITests";
+			productReference = 92F7EA9725D782380039DF3C /* VENI VIDIUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92F7EA6B25D782350039DF3C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					92F7EA7225D782350039DF3C = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					92F7EA8B25D782380039DF3C = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 92F7EA7225D782350039DF3C;
+					};
+					92F7EA9625D782380039DF3C = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 92F7EA7225D782350039DF3C;
+					};
+				};
+			};
+			buildConfigurationList = 92F7EA6E25D782350039DF3C /* Build configuration list for PBXProject "VENI VIDI" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92F7EA6A25D782350039DF3C;
+			productRefGroup = 92F7EA7425D782350039DF3C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92F7EA7225D782350039DF3C /* VENI VIDI */,
+				92F7EA8B25D782380039DF3C /* VENI VIDITests */,
+				92F7EA9625D782380039DF3C /* VENI VIDIUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92F7EA7125D782350039DF3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92F7EA8625D782380039DF3C /* LaunchScreen.storyboard in Resources */,
+				92F7EA8325D782380039DF3C /* Assets.xcassets in Resources */,
+				92F7EA7E25D782350039DF3C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92F7EA8A25D782380039DF3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92F7EA9525D782380039DF3C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92F7EA6F25D782350039DF3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */,
+				92F7EA7725D782350039DF3C /* AppDelegate.swift in Sources */,
+				92F7EA7925D782350039DF3C /* SceneDelegate.swift in Sources */,
+				92F7EA8125D782350039DF3C /* VENI_VIDI.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92F7EA8825D782380039DF3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92F7EA9325D782380039DF3C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92F7EA9C25D782380039DF3C /* VENI_VIDIUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92F7EA8E25D782380039DF3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92F7EA7225D782350039DF3C /* VENI VIDI */;
+			targetProxy = 92F7EA8D25D782380039DF3C /* PBXContainerItemProxy */;
+		};
+		92F7EA9925D782380039DF3C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92F7EA7225D782350039DF3C /* VENI VIDI */;
+			targetProxy = 92F7EA9825D782380039DF3C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		92F7EA7C25D782350039DF3C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92F7EA7D25D782350039DF3C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92F7EA8525D782380039DF3C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		92F7EA9E25D782380039DF3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92F7EA9F25D782380039DF3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92F7EAA125D782380039DF3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "VENI VIDI/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92F7EAA225D782380039DF3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "VENI VIDI/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDI";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		92F7EAA425D782380039DF3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "VENI VIDITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VENI VIDI.app/VENI VIDI";
+			};
+			name = Debug;
+		};
+		92F7EAA525D782380039DF3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "VENI VIDITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VENI VIDI.app/VENI VIDI";
+			};
+			name = Release;
+		};
+		92F7EAA725D782380039DF3C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "VENI VIDIUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "VENI VIDI";
+			};
+			name = Debug;
+		};
+		92F7EAA825D782380039DF3C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "VENI VIDIUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDIUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "VENI VIDI";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92F7EA6E25D782350039DF3C /* Build configuration list for PBXProject "VENI VIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92F7EA9E25D782380039DF3C /* Debug */,
+				92F7EA9F25D782380039DF3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92F7EAA025D782380039DF3C /* Build configuration list for PBXNativeTarget "VENI VIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92F7EAA125D782380039DF3C /* Debug */,
+				92F7EAA225D782380039DF3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92F7EAA325D782380039DF3C /* Build configuration list for PBXNativeTarget "VENI VIDITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92F7EAA425D782380039DF3C /* Debug */,
+				92F7EAA525D782380039DF3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92F7EAA625D782380039DF3C /* Build configuration list for PBXNativeTarget "VENI VIDIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92F7EAA725D782380039DF3C /* Debug */,
+				92F7EAA825D782380039DF3C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92F7EA8025D782350039DF3C /* VENI_VIDI.xcdatamodel */,
+			);
+			currentVersion = 92F7EA8025D782350039DF3C /* VENI_VIDI.xcdatamodel */;
+			path = VENI_VIDI.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 92F7EA6B25D782350039DF3C /* Project object */;
+}
