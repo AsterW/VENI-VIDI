@@ -1,0 +1,6 @@
+framework module Pods_QuickDCFrame_QuickDCFrameUITests {
+  umbrella header "Pods-QuickDCFrame-QuickDCFrameUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
