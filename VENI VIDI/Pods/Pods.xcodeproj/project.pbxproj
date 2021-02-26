@@ -1,0 +1,1281 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000B33B5A930DA6568A38987F351F12B /* Pods-VENI VIDI-VENI VIDIUITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D970718D9DB7F54247981EFD70919BE /* Pods-VENI VIDI-VENI VIDIUITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		049FC8D781A7ECAED15F25718502D54E /* CosmosAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60B58B67E066455D483289FB7D9132B /* CosmosAccessibility.swift */; };
+		05DFD786F217BD0DFBFB5F57D80236A5 /* CosmosTouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F321205B5F09283D0CE8B07AFDF5BF18 /* CosmosTouch.swift */; };
+		05E9B5B5404C0A72E839D4948ABB3327 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		10A44B18B300E2B0BF5BF88F6F2E585F /* CosmosRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B2681D394F5DF14CE053BE302D7D11 /* CosmosRating.swift */; };
+		12B56829262AFEC55FF8582F75897D56 /* DCListDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEFFEAB76A5E03AAC3BFD51268CB0FD8 /* DCListDataController.swift */; };
+		1A5810E23E078112E50FA75EF52E76B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		24A09119F906D5DFE8B186A1CD1614D8 /* DCFrame+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51DEBE72C64207A80DCC0FB6E9220B0 /* DCFrame+Extension.swift */; };
+		277C0E231150E688CA4B57950B01F5C7 /* DCFrame-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B18E95673C0B2581DF43B21C7D30338 /* DCFrame-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2FADA7115AEFDCC59593DD4201572539 /* CosmosLayers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABC8D1695F6CF7B2CFA89CDD440DEE9 /* CosmosLayers.swift */; };
+		4149844EE59EE6771F952CD8044F97A5 /* DCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675F09E7E0EEBDD328795DA03102DD92 /* DCCell.swift */; };
+		41E5B21F4758B2411A95A7C72523536D /* CosmosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66F86855B81378A2D167CDF0267FAAC /* CosmosView.swift */; };
+		4221AB8F56B1444AE176F2B13F81C557 /* StarLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177B0F0DAF26E19717043B26B13B9AD8 /* StarLayer.swift */; };
+		4404A9C8152865C62A5B59B88640811C /* CosmosSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 326A094A2174783D3126119CCB74249B /* CosmosSize.swift */; };
+		50170A6AD6264E4E96BD4B0A504407C0 /* DCHoverViewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321D88CD4B92D9449147795E09389199 /* DCHoverViewManager.swift */; };
+		56649C72EDC8F6750FF81505C1F3BC56 /* Pods-VENI VIDI-VENI VIDIUITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C5BDD4F2E9A834D0B95918E3D0B1E101 /* Pods-VENI VIDI-VENI VIDIUITests-dummy.m */; };
+		577B51B75E0D8937B04C156ED3CB1F3D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		5C7B76FBAD8574062F60041B012FE052 /* CosmosTouchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A79E2A55409FB02E0FDDB8DC9F528A7 /* CosmosTouchTarget.swift */; };
+		5D5EF3C10688079C9D353F9656E50D52 /* DCEventDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1232863D71BEFC14013571964A5352B /* DCEventDataController.swift */; };
+		5FA0C502ACEC2501DC9F9CACCECBA860 /* DCRefreshContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF02215B700729187728DCD80168000 /* DCRefreshContainerModel.swift */; };
+		61857850A19756A357AD6696D42E69A4 /* RightToLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6B838B6F8E28E8C4496B53C028924D /* RightToLeft.swift */; };
+		66EAE012C8474304D6470848117C7F30 /* Pods-VENI VIDITests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A58B40C401883387EE6F7249B89A306 /* Pods-VENI VIDITests-dummy.m */; };
+		6BD44B3298855D5668C97A990DFDA674 /* Pods-VENI VIDI-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C997DB2AAEFE23121839D28884CA170 /* Pods-VENI VIDI-dummy.m */; };
+		71C216AEFE2F0E455707C7CCB65158EB /* DCFrame-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C0B9DAF7703FA16586ABB23F68E3EEE /* DCFrame-dummy.m */; };
+		785E452CFD30840D53333D31F9D232D3 /* DCConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E46832C30EC15D2EFC1AD46E8A56BF /* DCConfig.swift */; };
+		7B972BEBAD50F1A843F17EC80CCA6962 /* Pods-VENI VIDITests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C10250770365D6204D8CA13D9673360F /* Pods-VENI VIDITests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8D4F73BD16F629DF6B2B87C181680A2D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		95F4A56BEA4E568406DB5B5B8E79FA6F /* DCContainerTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D2DD210F81260C99B7AB7611F0D77D /* DCContainerTableView.swift */; };
+		9706D60B31B94525F3CE6D442D6B7431 /* DCEventProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD54FA2FE09C799F25AF0983DD97F9 /* DCEventProtocols.swift */; };
+		9A214F3DA07FCC8C236719117241DE82 /* DCProtector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3E66EB3BE8DDCA58B3FA3D9B3024EA0 /* DCProtector.swift */; };
+		9D60235277EEB2A0A45939E8F09A7D71 /* Cosmos-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 51AA6623E392ADF94822AC07F22DC4BF /* Cosmos-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC7DAE5B261F8CDE268794A1B7B06F56 /* CosmosText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF135C117C3618595DE145C70D1F260 /* CosmosText.swift */; };
+		B594E04185C4C7522C612C631B8AD97A /* Cosmos-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C75FE090E3856F6AAB3ED2AE83C07418 /* Cosmos-dummy.m */; };
+		B7237B4828DD3CD424370419A333E405 /* DCCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4931086D0E3D01440688271361023CF4 /* DCCellModel.swift */; };
+		BD11644704411365AF68FCAB0111D9D9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		C0D5F472F17B5A0F9824C362F35A7132 /* CosmosLocalizedRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3BB5BB4682162122E1449D11EFE4A4 /* CosmosLocalizedRating.swift */; };
+		C2A0D879FFAC65C74CB6077B09A6DCF3 /* DCSeparatorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2858216433A7F20CF611F7CEB4E2220 /* DCSeparatorCell.swift */; };
+		C4E73316024FDE1986825475E3F08F85 /* DCThrottler.swift in Sources */ = {isa = PBXBuildFile; fileRef = A590D893EBCB483B617F0FE28AECE5C5 /* DCThrottler.swift */; };
+		CB2736110908DF1EDF03A15F5DAE94F5 /* Pods-VENI VIDI-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A566CFEEB4CEE9F4EDCB487973C5008 /* Pods-VENI VIDI-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA2080965EDE877DAD2FA5CF9DD9D8F8 /* DCDuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DD305281694FCAF6AF1BD4717ACB29 /* DCDuration.swift */; };
+		DAF623A90131EE66BF458EFA1CA778CB /* DCTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23FFA3B297E06C65CF0AC429CE44EB11 /* DCTableViewDelegate.swift */; };
+		DDD3C3B8235D7E9908DDB45BA8790E71 /* DCContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF30AFE67FD4A09BF4700E9F884A582 /* DCContainerModel.swift */; };
+		E0FD27E2F7F5C05D3390126C7DF35EA6 /* CosmosSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FA6679EC973791518E743B4AC809D4 /* CosmosSettings.swift */; };
+		E189E12EEDDD9A1484602416282A19F9 /* CosmosLayerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482CBBEB9448496F865F9ACF7793FF4C /* CosmosLayerHelper.swift */; };
+		E236438C7D7837533232C7F47B64C6C1 /* DCContainerTableView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB98758CEDEFFD559858D966434785C6 /* DCContainerTableView+Screenshot.swift */; };
+		E776F53E707AD1ACF7223305E9EEDBFC /* CosmosDefaultSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F55BBC359A5F51C6562AAB0FF991CA5F /* CosmosDefaultSettings.swift */; };
+		E9A920FE6E5FC6F5F58B6F3AA9B3FDAF /* StarFillMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB70445D7495F14573B3624B3199D008 /* StarFillMode.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		018428E70E64184328AE91948CD5C45C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00F31BD5217A20974B5E9AAC6256D98E;
+			remoteInfo = Cosmos;
+		};
+		70EBD8682361264106B190DF3D04B291 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 00F31BD5217A20974B5E9AAC6256D98E;
+			remoteInfo = Cosmos;
+		};
+		C28B4A28912C29F3BEE2B5B7A19FF878 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79AF1B79A3569526CE3DD91E39CEFC90;
+			remoteInfo = DCFrame;
+		};
+		D26FCD4317A6AD4BB7E84BB707A32841 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79AF1B79A3569526CE3DD91E39CEFC90;
+			remoteInfo = DCFrame;
+		};
+		DED3AA8EC2813FAD90FCFAD638BC1CB3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DE1A3D2595ACB0BCFAA1DB646343F616;
+			remoteInfo = "Pods-VENI VIDI";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cosmos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		07CCBA4EF25292AA93644E289373C0A0 /* Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		093468420EB488A1512C08DC8048803F /* Pods-VENI VIDI-VENI VIDIUITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VENI VIDI-VENI VIDIUITests-Info.plist"; sourceTree = "<group>"; };
+		0BF135C117C3618595DE145C70D1F260 /* CosmosText.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosText.swift; path = Cosmos/CosmosText.swift; sourceTree = "<group>"; };
+		0C997DB2AAEFE23121839D28884CA170 /* Pods-VENI VIDI-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VENI VIDI-dummy.m"; sourceTree = "<group>"; };
+		0D6B838B6F8E28E8C4496B53C028924D /* RightToLeft.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RightToLeft.swift; path = Cosmos/Helpers/RightToLeft.swift; sourceTree = "<group>"; };
+		10C8FA95F837E5B12CE6CDC3BF44A4C2 /* Pods-VENI VIDI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VENI VIDI.debug.xcconfig"; sourceTree = "<group>"; };
+		118AB76503EFCB1F20228A7BC811D7AC /* Cosmos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Cosmos.modulemap; sourceTree = "<group>"; };
+		177B0F0DAF26E19717043B26B13B9AD8 /* StarLayer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StarLayer.swift; path = Cosmos/StarLayer.swift; sourceTree = "<group>"; };
+		19BA2A394985BC9A56F951B60060D540 /* Pods-VENI VIDI-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VENI VIDI-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1E0AA2D2C2075985E40B1264F19785BC /* Cosmos-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Cosmos-Info.plist"; sourceTree = "<group>"; };
+		1E7ADD70170E9DA2EB4183661C06DFEA /* Pods-VENI VIDITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VENI VIDITests.debug.xcconfig"; sourceTree = "<group>"; };
+		23FFA3B297E06C65CF0AC429CE44EB11 /* DCTableViewDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCTableViewDelegate.swift; path = Source/View/DCTableViewDelegate.swift; sourceTree = "<group>"; };
+		2449E89882A1888B850FF880FFEECF95 /* Pods-VENI VIDITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VENI VIDITests.release.xcconfig"; sourceTree = "<group>"; };
+		2CF02215B700729187728DCD80168000 /* DCRefreshContainerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCRefreshContainerModel.swift; path = Source/Model/DCRefreshContainerModel.swift; sourceTree = "<group>"; };
+		321D88CD4B92D9449147795E09389199 /* DCHoverViewManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCHoverViewManager.swift; path = Source/View/DCHoverViewManager.swift; sourceTree = "<group>"; };
+		326A094A2174783D3126119CCB74249B /* CosmosSize.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosSize.swift; path = Cosmos/CosmosSize.swift; sourceTree = "<group>"; };
+		3FE6F8BC39F82411DA0726CD43F1A446 /* Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		42E46832C30EC15D2EFC1AD46E8A56BF /* DCConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCConfig.swift; path = Source/Base/DCConfig.swift; sourceTree = "<group>"; };
+		47B7688B43CD4CA54AE8FE3677A9985C /* Pods-VENI VIDI-VENI VIDIUITests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VENI VIDI-VENI VIDIUITests-frameworks.sh"; sourceTree = "<group>"; };
+		482CBBEB9448496F865F9ACF7793FF4C /* CosmosLayerHelper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLayerHelper.swift; path = Cosmos/CosmosLayerHelper.swift; sourceTree = "<group>"; };
+		4931086D0E3D01440688271361023CF4 /* DCCellModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCCellModel.swift; path = Source/Model/DCCellModel.swift; sourceTree = "<group>"; };
+		4A566CFEEB4CEE9F4EDCB487973C5008 /* Pods-VENI VIDI-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VENI VIDI-umbrella.h"; sourceTree = "<group>"; };
+		4B18E95673C0B2581DF43B21C7D30338 /* DCFrame-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DCFrame-umbrella.h"; sourceTree = "<group>"; };
+		51AA6623E392ADF94822AC07F22DC4BF /* Cosmos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cosmos-umbrella.h"; sourceTree = "<group>"; };
+		53E1751BC7429D5D8515F094EFAF08E2 /* DCFrame.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DCFrame.debug.xcconfig; sourceTree = "<group>"; };
+		584B03546DAD5BBF215F8247E3B49A9C /* Pods-VENI VIDI-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VENI VIDI-Info.plist"; sourceTree = "<group>"; };
+		5A58B40C401883387EE6F7249B89A306 /* Pods-VENI VIDITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VENI VIDITests-dummy.m"; sourceTree = "<group>"; };
+		5A79E2A55409FB02E0FDDB8DC9F528A7 /* CosmosTouchTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosTouchTarget.swift; path = Cosmos/Helpers/CosmosTouchTarget.swift; sourceTree = "<group>"; };
+		61D2DD210F81260C99B7AB7611F0D77D /* DCContainerTableView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCContainerTableView.swift; path = Source/View/DCContainerTableView.swift; sourceTree = "<group>"; };
+		630D1B43C32AC5C177806F15567F7E23 /* Cosmos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cosmos.release.xcconfig; sourceTree = "<group>"; };
+		66DD305281694FCAF6AF1BD4717ACB29 /* DCDuration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCDuration.swift; path = Source/Base/DCDuration.swift; sourceTree = "<group>"; };
+		675F09E7E0EEBDD328795DA03102DD92 /* DCCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCCell.swift; path = Source/View/DCCell.swift; sourceTree = "<group>"; };
+		679B5C3431A6F84B5F0F4F29361827FB /* Pods-VENI VIDITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VENI VIDITests.modulemap"; sourceTree = "<group>"; };
+		67C9F8136EB5F8F30BD5B3D13526C16E /* Pods-VENI VIDI-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VENI VIDI-acknowledgements.plist"; sourceTree = "<group>"; };
+		6D970718D9DB7F54247981EFD70919BE /* Pods-VENI VIDI-VENI VIDIUITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VENI VIDI-VENI VIDIUITests-umbrella.h"; sourceTree = "<group>"; };
+		6E5071E327B2A54953234D0D9BF003D5 /* Pods-VENI VIDI-VENI VIDIUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VENI VIDI-VENI VIDIUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6EE882499386C92C61C269976E8EC8B0 /* Cosmos-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Cosmos-prefix.pch"; sourceTree = "<group>"; };
+		6F12D936C9FB444A6139C3A465000989 /* Pods_VENI_VIDITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VENI_VIDITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		706425A918BA074477846EF21204667B /* DCFrame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DCFrame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		725FB086D04C2390A388FD23FA5BA666 /* Pods-VENI VIDITests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VENI VIDITests-Info.plist"; sourceTree = "<group>"; };
+		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		78FA6679EC973791518E743B4AC809D4 /* CosmosSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosSettings.swift; path = Cosmos/CosmosSettings.swift; sourceTree = "<group>"; };
+		83931A059C0B8926501BEA47A1C6BD6F /* DCFrame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DCFrame.release.xcconfig; sourceTree = "<group>"; };
+		83F7899461AF537CDA9A51D4DBCF8018 /* Pods_VENI_VIDI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VENI_VIDI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AF49E5BA71D080DD92756A26A4392D5 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VENI_VIDI_VENI_VIDIUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C0B9DAF7703FA16586ABB23F68E3EEE /* DCFrame-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DCFrame-dummy.m"; sourceTree = "<group>"; };
+		9A0C81BA8020DA7B54FE77ECF62F947D /* Pods-VENI VIDITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VENI VIDITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E4A618A03E8C72FB6D2EC8AC962E50B /* Pods-VENI VIDI-VENI VIDIUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VENI VIDI-VENI VIDIUITests.modulemap"; sourceTree = "<group>"; };
+		9ECB8C3B8CC01F806B9B24FC1550DF52 /* Cosmos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Cosmos.debug.xcconfig; sourceTree = "<group>"; };
+		A0DD54FA2FE09C799F25AF0983DD97F9 /* DCEventProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCEventProtocols.swift; path = Source/View/DCEventProtocols.swift; sourceTree = "<group>"; };
+		A51DEBE72C64207A80DCC0FB6E9220B0 /* DCFrame+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DCFrame+Extension.swift"; path = "Source/Base/DCFrame+Extension.swift"; sourceTree = "<group>"; };
+		A590D893EBCB483B617F0FE28AECE5C5 /* DCThrottler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCThrottler.swift; path = Source/Base/DCThrottler.swift; sourceTree = "<group>"; };
+		AABC8D1695F6CF7B2CFA89CDD440DEE9 /* CosmosLayers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLayers.swift; path = Cosmos/CosmosLayers.swift; sourceTree = "<group>"; };
+		AB98758CEDEFFD559858D966434785C6 /* DCContainerTableView+Screenshot.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DCContainerTableView+Screenshot.swift"; path = "Source/View/DCContainerTableView+Screenshot.swift"; sourceTree = "<group>"; };
+		B2A7E9A23AD947F404D79F3D72DD4154 /* DCFrame-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DCFrame-prefix.pch"; sourceTree = "<group>"; };
+		B60B58B67E066455D483289FB7D9132B /* CosmosAccessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosAccessibility.swift; path = Cosmos/CosmosAccessibility.swift; sourceTree = "<group>"; };
+		B9BA30245C2359FF7CCDAE428A0959B6 /* Pods-VENI VIDITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-VENI VIDITests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BF3BB5BB4682162122E1449D11EFE4A4 /* CosmosLocalizedRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosLocalizedRating.swift; path = Cosmos/CosmosLocalizedRating.swift; sourceTree = "<group>"; };
+		C08F2ABB065D9D3993D11F175ADF4A21 /* Pods-VENI VIDI-VENI VIDIUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-VENI VIDI-VENI VIDIUITests-acknowledgements.plist"; sourceTree = "<group>"; };
+		C10250770365D6204D8CA13D9673360F /* Pods-VENI VIDITests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-VENI VIDITests-umbrella.h"; sourceTree = "<group>"; };
+		C1B2681D394F5DF14CE053BE302D7D11 /* CosmosRating.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosRating.swift; path = Cosmos/CosmosRating.swift; sourceTree = "<group>"; };
+		C2858216433A7F20CF611F7CEB4E2220 /* DCSeparatorCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCSeparatorCell.swift; path = Source/View/DCSeparatorCell.swift; sourceTree = "<group>"; };
+		C5BDD4F2E9A834D0B95918E3D0B1E101 /* Pods-VENI VIDI-VENI VIDIUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-VENI VIDI-VENI VIDIUITests-dummy.m"; sourceTree = "<group>"; };
+		C6C28AECEB850DFC05F5B60963AA79C2 /* Pods-VENI VIDI-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-VENI VIDI-frameworks.sh"; sourceTree = "<group>"; };
+		C75FE090E3856F6AAB3ED2AE83C07418 /* Cosmos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Cosmos-dummy.m"; sourceTree = "<group>"; };
+		D1232863D71BEFC14013571964A5352B /* DCEventDataController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCEventDataController.swift; path = Source/Base/DCEventDataController.swift; sourceTree = "<group>"; };
+		DB83891B241E73E965A0B6865CBA9373 /* Pods-VENI VIDI.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-VENI VIDI.modulemap"; sourceTree = "<group>"; };
+		DEFFEAB76A5E03AAC3BFD51268CB0FD8 /* DCListDataController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCListDataController.swift; path = Source/Base/DCListDataController.swift; sourceTree = "<group>"; };
+		E3E66EB3BE8DDCA58B3FA3D9B3024EA0 /* DCProtector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCProtector.swift; path = Source/Base/DCProtector.swift; sourceTree = "<group>"; };
+		E647A44DE9204AEA54921D120C44A57D /* DCFrame.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = DCFrame.modulemap; sourceTree = "<group>"; };
+		F321205B5F09283D0CE8B07AFDF5BF18 /* CosmosTouch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosTouch.swift; path = Cosmos/CosmosTouch.swift; sourceTree = "<group>"; };
+		F55BBC359A5F51C6562AAB0FF991CA5F /* CosmosDefaultSettings.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosDefaultSettings.swift; path = Cosmos/CosmosDefaultSettings.swift; sourceTree = "<group>"; };
+		F66F86855B81378A2D167CDF0267FAAC /* CosmosView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CosmosView.swift; path = Cosmos/CosmosView.swift; sourceTree = "<group>"; };
+		FA3FA5CAFD99B759C1736355D4DEAD4A /* Pods-VENI VIDI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-VENI VIDI.release.xcconfig"; sourceTree = "<group>"; };
+		FB70445D7495F14573B3624B3199D008 /* StarFillMode.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StarFillMode.swift; path = Cosmos/StarFillMode.swift; sourceTree = "<group>"; };
+		FD4483B8CBAABDEFE3CE58ECCBB4B879 /* DCFrame-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "DCFrame-Info.plist"; sourceTree = "<group>"; };
+		FFF30AFE67FD4A09BF4700E9F884A582 /* DCContainerModel.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DCContainerModel.swift; path = Source/Model/DCContainerModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		027BB3C1122E59C751893D3CF6388488 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A5810E23E078112E50FA75EF52E76B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03F7FA03BDDBEBE22E67569EC64EA8A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D4F73BD16F629DF6B2B87C181680A2D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E74F1D5FA5E6F4597A58F12DD9C46B4C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05E9B5B5404C0A72E839D4948ABB3327 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4D00A56C4F4E72E14C6F5D1F9945F48 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				577B51B75E0D8937B04C156ED3CB1F3D /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE1AF85FC1246D05E670ED0CE453B016 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BD11644704411365AF68FCAB0111D9D9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		011D41E51CE237EFDAD78251B4FA54E3 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				118AB76503EFCB1F20228A7BC811D7AC /* Cosmos.modulemap */,
+				C75FE090E3856F6AAB3ED2AE83C07418 /* Cosmos-dummy.m */,
+				1E0AA2D2C2075985E40B1264F19785BC /* Cosmos-Info.plist */,
+				6EE882499386C92C61C269976E8EC8B0 /* Cosmos-prefix.pch */,
+				51AA6623E392ADF94822AC07F22DC4BF /* Cosmos-umbrella.h */,
+				9ECB8C3B8CC01F806B9B24FC1550DF52 /* Cosmos.debug.xcconfig */,
+				630D1B43C32AC5C177806F15567F7E23 /* Cosmos.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Cosmos";
+			sourceTree = "<group>";
+		};
+		1497AAED8F603695528CFED5DD77C5A9 /* Pods-VENI VIDITests */ = {
+			isa = PBXGroup;
+			children = (
+				679B5C3431A6F84B5F0F4F29361827FB /* Pods-VENI VIDITests.modulemap */,
+				B9BA30245C2359FF7CCDAE428A0959B6 /* Pods-VENI VIDITests-acknowledgements.markdown */,
+				9A0C81BA8020DA7B54FE77ECF62F947D /* Pods-VENI VIDITests-acknowledgements.plist */,
+				5A58B40C401883387EE6F7249B89A306 /* Pods-VENI VIDITests-dummy.m */,
+				725FB086D04C2390A388FD23FA5BA666 /* Pods-VENI VIDITests-Info.plist */,
+				C10250770365D6204D8CA13D9673360F /* Pods-VENI VIDITests-umbrella.h */,
+				1E7ADD70170E9DA2EB4183661C06DFEA /* Pods-VENI VIDITests.debug.xcconfig */,
+				2449E89882A1888B850FF880FFEECF95 /* Pods-VENI VIDITests.release.xcconfig */,
+			);
+			name = "Pods-VENI VIDITests";
+			path = "Target Support Files/Pods-VENI VIDITests";
+			sourceTree = "<group>";
+		};
+		53AD88465742660A904DD7F3E1D730E7 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A8DC784C1298141BEB78B091952A5192 /* Pods-VENI VIDI */,
+				6FDBC0320C4A581FF6D7AA6EAFDAB1B2 /* Pods-VENI VIDI-VENI VIDIUITests */,
+				1497AAED8F603695528CFED5DD77C5A9 /* Pods-VENI VIDITests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		6524595B1A1A4CE642787D8AE05DEF9B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E647A44DE9204AEA54921D120C44A57D /* DCFrame.modulemap */,
+				8C0B9DAF7703FA16586ABB23F68E3EEE /* DCFrame-dummy.m */,
+				FD4483B8CBAABDEFE3CE58ECCBB4B879 /* DCFrame-Info.plist */,
+				B2A7E9A23AD947F404D79F3D72DD4154 /* DCFrame-prefix.pch */,
+				4B18E95673C0B2581DF43B21C7D30338 /* DCFrame-umbrella.h */,
+				53E1751BC7429D5D8515F094EFAF08E2 /* DCFrame.debug.xcconfig */,
+				83931A059C0B8926501BEA47A1C6BD6F /* DCFrame.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DCFrame";
+			sourceTree = "<group>";
+		};
+		6FDBC0320C4A581FF6D7AA6EAFDAB1B2 /* Pods-VENI VIDI-VENI VIDIUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9E4A618A03E8C72FB6D2EC8AC962E50B /* Pods-VENI VIDI-VENI VIDIUITests.modulemap */,
+				6E5071E327B2A54953234D0D9BF003D5 /* Pods-VENI VIDI-VENI VIDIUITests-acknowledgements.markdown */,
+				C08F2ABB065D9D3993D11F175ADF4A21 /* Pods-VENI VIDI-VENI VIDIUITests-acknowledgements.plist */,
+				C5BDD4F2E9A834D0B95918E3D0B1E101 /* Pods-VENI VIDI-VENI VIDIUITests-dummy.m */,
+				47B7688B43CD4CA54AE8FE3677A9985C /* Pods-VENI VIDI-VENI VIDIUITests-frameworks.sh */,
+				093468420EB488A1512C08DC8048803F /* Pods-VENI VIDI-VENI VIDIUITests-Info.plist */,
+				6D970718D9DB7F54247981EFD70919BE /* Pods-VENI VIDI-VENI VIDIUITests-umbrella.h */,
+				3FE6F8BC39F82411DA0726CD43F1A446 /* Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig */,
+				07CCBA4EF25292AA93644E289373C0A0 /* Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig */,
+			);
+			name = "Pods-VENI VIDI-VENI VIDIUITests";
+			path = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests";
+			sourceTree = "<group>";
+		};
+		88EAB3D920AFA694F903F10252E4632E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B1EC54020044CC48CAC902A6FD26C2D6 /* Cosmos */,
+				BE7844273FC6FC81E8D643380F694B28 /* DCFrame */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A8DC784C1298141BEB78B091952A5192 /* Pods-VENI VIDI */ = {
+			isa = PBXGroup;
+			children = (
+				DB83891B241E73E965A0B6865CBA9373 /* Pods-VENI VIDI.modulemap */,
+				19BA2A394985BC9A56F951B60060D540 /* Pods-VENI VIDI-acknowledgements.markdown */,
+				67C9F8136EB5F8F30BD5B3D13526C16E /* Pods-VENI VIDI-acknowledgements.plist */,
+				0C997DB2AAEFE23121839D28884CA170 /* Pods-VENI VIDI-dummy.m */,
+				C6C28AECEB850DFC05F5B60963AA79C2 /* Pods-VENI VIDI-frameworks.sh */,
+				584B03546DAD5BBF215F8247E3B49A9C /* Pods-VENI VIDI-Info.plist */,
+				4A566CFEEB4CEE9F4EDCB487973C5008 /* Pods-VENI VIDI-umbrella.h */,
+				10C8FA95F837E5B12CE6CDC3BF44A4C2 /* Pods-VENI VIDI.debug.xcconfig */,
+				FA3FA5CAFD99B759C1736355D4DEAD4A /* Pods-VENI VIDI.release.xcconfig */,
+			);
+			name = "Pods-VENI VIDI";
+			path = "Target Support Files/Pods-VENI VIDI";
+			sourceTree = "<group>";
+		};
+		B1EC54020044CC48CAC902A6FD26C2D6 /* Cosmos */ = {
+			isa = PBXGroup;
+			children = (
+				B60B58B67E066455D483289FB7D9132B /* CosmosAccessibility.swift */,
+				F55BBC359A5F51C6562AAB0FF991CA5F /* CosmosDefaultSettings.swift */,
+				482CBBEB9448496F865F9ACF7793FF4C /* CosmosLayerHelper.swift */,
+				AABC8D1695F6CF7B2CFA89CDD440DEE9 /* CosmosLayers.swift */,
+				BF3BB5BB4682162122E1449D11EFE4A4 /* CosmosLocalizedRating.swift */,
+				C1B2681D394F5DF14CE053BE302D7D11 /* CosmosRating.swift */,
+				78FA6679EC973791518E743B4AC809D4 /* CosmosSettings.swift */,
+				326A094A2174783D3126119CCB74249B /* CosmosSize.swift */,
+				0BF135C117C3618595DE145C70D1F260 /* CosmosText.swift */,
+				F321205B5F09283D0CE8B07AFDF5BF18 /* CosmosTouch.swift */,
+				5A79E2A55409FB02E0FDDB8DC9F528A7 /* CosmosTouchTarget.swift */,
+				F66F86855B81378A2D167CDF0267FAAC /* CosmosView.swift */,
+				0D6B838B6F8E28E8C4496B53C028924D /* RightToLeft.swift */,
+				FB70445D7495F14573B3624B3199D008 /* StarFillMode.swift */,
+				177B0F0DAF26E19717043B26B13B9AD8 /* StarLayer.swift */,
+				011D41E51CE237EFDAD78251B4FA54E3 /* Support Files */,
+			);
+			path = Cosmos;
+			sourceTree = "<group>";
+		};
+		BE7844273FC6FC81E8D643380F694B28 /* DCFrame */ = {
+			isa = PBXGroup;
+			children = (
+				675F09E7E0EEBDD328795DA03102DD92 /* DCCell.swift */,
+				4931086D0E3D01440688271361023CF4 /* DCCellModel.swift */,
+				42E46832C30EC15D2EFC1AD46E8A56BF /* DCConfig.swift */,
+				FFF30AFE67FD4A09BF4700E9F884A582 /* DCContainerModel.swift */,
+				61D2DD210F81260C99B7AB7611F0D77D /* DCContainerTableView.swift */,
+				AB98758CEDEFFD559858D966434785C6 /* DCContainerTableView+Screenshot.swift */,
+				66DD305281694FCAF6AF1BD4717ACB29 /* DCDuration.swift */,
+				D1232863D71BEFC14013571964A5352B /* DCEventDataController.swift */,
+				A0DD54FA2FE09C799F25AF0983DD97F9 /* DCEventProtocols.swift */,
+				A51DEBE72C64207A80DCC0FB6E9220B0 /* DCFrame+Extension.swift */,
+				321D88CD4B92D9449147795E09389199 /* DCHoverViewManager.swift */,
+				DEFFEAB76A5E03AAC3BFD51268CB0FD8 /* DCListDataController.swift */,
+				E3E66EB3BE8DDCA58B3FA3D9B3024EA0 /* DCProtector.swift */,
+				2CF02215B700729187728DCD80168000 /* DCRefreshContainerModel.swift */,
+				C2858216433A7F20CF611F7CEB4E2220 /* DCSeparatorCell.swift */,
+				23FFA3B297E06C65CF0AC429CE44EB11 /* DCTableViewDelegate.swift */,
+				A590D893EBCB483B617F0FE28AECE5C5 /* DCThrottler.swift */,
+				6524595B1A1A4CE642787D8AE05DEF9B /* Support Files */,
+			);
+			path = DCFrame;
+			sourceTree = "<group>";
+		};
+		CCBF962466EBA0C2637CCD449AD6B61C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos.framework */,
+				706425A918BA074477846EF21204667B /* DCFrame.framework */,
+				83F7899461AF537CDA9A51D4DBCF8018 /* Pods_VENI_VIDI.framework */,
+				8AF49E5BA71D080DD92756A26A4392D5 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework */,
+				6F12D936C9FB444A6139C3A465000989 /* Pods_VENI_VIDITests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */,
+				88EAB3D920AFA694F903F10252E4632E /* Pods */,
+				CCBF962466EBA0C2637CCD449AD6B61C /* Products */,
+				53AD88465742660A904DD7F3E1D730E7 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D210D550F4EA176C3123ED886F8F87F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				578452D2E740E91742655AC8F1636D1F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		55AE73F3E28FCE29B9BBF80F8E2D16EC /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				277C0E231150E688CA4B57950B01F5C7 /* DCFrame-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5BB415334D7295A63A7E35F5BD7A2BC1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B972BEBAD50F1A843F17EC80CCA6962 /* Pods-VENI VIDITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7663787A64A3A138600044E41676C0B0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				000B33B5A930DA6568A38987F351F12B /* Pods-VENI VIDI-VENI VIDIUITests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B322FEDA9FF4BA8B0BEC872F3EE3F648 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D60235277EEB2A0A45939E8F09A7D71 /* Cosmos-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C6C9A55C1A73216FC92FF957C69E28B8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB2736110908DF1EDF03A15F5DAE94F5 /* Pods-VENI VIDI-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		00F31BD5217A20974B5E9AAC6256D98E /* Cosmos */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C4761D1E5276039F76D9BA8BF0272D7 /* Build configuration list for PBXNativeTarget "Cosmos" */;
+			buildPhases = (
+				B322FEDA9FF4BA8B0BEC872F3EE3F648 /* Headers */,
+				53D2AD99A3C2BFB2E1448B62E35F78AB /* Sources */,
+				FE1AF85FC1246D05E670ED0CE453B016 /* Frameworks */,
+				6571FF59854C9ED976246EA41FEA37C1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Cosmos;
+			productName = Cosmos;
+			productReference = 05C4280976BF93DA8B36818DE2E2A5E0 /* Cosmos.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		4B953674A21752BA39A53ACE24C688B7 /* Pods-VENI VIDI-VENI VIDIUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4ABD83CF40ED1E16CEA10DCB4562FF8D /* Build configuration list for PBXNativeTarget "Pods-VENI VIDI-VENI VIDIUITests" */;
+			buildPhases = (
+				7663787A64A3A138600044E41676C0B0 /* Headers */,
+				F40C3D3DD062D9C0389D1019BC790ED5 /* Sources */,
+				03F7FA03BDDBEBE22E67569EC64EA8A2 /* Frameworks */,
+				CAB3AF28700C01D7B05A1482DD9DF2E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				40E6F314DDE395059A60F39EADAA014A /* PBXTargetDependency */,
+				1C2C30A15A7B459AA8D52A88E36BED2B /* PBXTargetDependency */,
+			);
+			name = "Pods-VENI VIDI-VENI VIDIUITests";
+			productName = "Pods-VENI VIDI-VENI VIDIUITests";
+			productReference = 8AF49E5BA71D080DD92756A26A4392D5 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		79AF1B79A3569526CE3DD91E39CEFC90 /* DCFrame */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D0E43A1580F4FD7AF4198EC13955F6A7 /* Build configuration list for PBXNativeTarget "DCFrame" */;
+			buildPhases = (
+				55AE73F3E28FCE29B9BBF80F8E2D16EC /* Headers */,
+				4B58BA2AA4CB489D0D30FE4B9D13288F /* Sources */,
+				F4D00A56C4F4E72E14C6F5D1F9945F48 /* Frameworks */,
+				361D3B13721C1E89CC7E814F0561588F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DCFrame;
+			productName = DCFrame;
+			productReference = 706425A918BA074477846EF21204667B /* DCFrame.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		CB35C7BD2C111982402F4E2D4AE84575 /* Pods-VENI VIDITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E87CEF3D55E6D864545B44C4B046D39A /* Build configuration list for PBXNativeTarget "Pods-VENI VIDITests" */;
+			buildPhases = (
+				5BB415334D7295A63A7E35F5BD7A2BC1 /* Headers */,
+				27B80901C605D9F570F36F4149C9D0E6 /* Sources */,
+				E74F1D5FA5E6F4597A58F12DD9C46B4C /* Frameworks */,
+				C24E56B3DF28BA94C906806138D43ECA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CE961A7749DF555FD962A122F6B46DD8 /* PBXTargetDependency */,
+			);
+			name = "Pods-VENI VIDITests";
+			productName = "Pods-VENI VIDITests";
+			productReference = 6F12D936C9FB444A6139C3A465000989 /* Pods_VENI_VIDITests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DE1A3D2595ACB0BCFAA1DB646343F616 /* Pods-VENI VIDI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B27A8C1352E54716C09DA16D6DFCEAE4 /* Build configuration list for PBXNativeTarget "Pods-VENI VIDI" */;
+			buildPhases = (
+				C6C9A55C1A73216FC92FF957C69E28B8 /* Headers */,
+				4981D3AE902BD9C6B731150B09B46BF9 /* Sources */,
+				027BB3C1122E59C751893D3CF6388488 /* Frameworks */,
+				E40AFA4A8B11C299EA34745E07B4DA48 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EAD0577A8651F64FF0602DF57F3789F3 /* PBXTargetDependency */,
+				134291E5E730631D862225190F0F45BC /* PBXTargetDependency */,
+			);
+			name = "Pods-VENI VIDI";
+			productName = "Pods-VENI VIDI";
+			productReference = 83F7899461AF537CDA9A51D4DBCF8018 /* Pods_VENI_VIDI.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1230;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 10.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = CCBF962466EBA0C2637CCD449AD6B61C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00F31BD5217A20974B5E9AAC6256D98E /* Cosmos */,
+				79AF1B79A3569526CE3DD91E39CEFC90 /* DCFrame */,
+				DE1A3D2595ACB0BCFAA1DB646343F616 /* Pods-VENI VIDI */,
+				4B953674A21752BA39A53ACE24C688B7 /* Pods-VENI VIDI-VENI VIDIUITests */,
+				CB35C7BD2C111982402F4E2D4AE84575 /* Pods-VENI VIDITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		361D3B13721C1E89CC7E814F0561588F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6571FF59854C9ED976246EA41FEA37C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C24E56B3DF28BA94C906806138D43ECA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CAB3AF28700C01D7B05A1482DD9DF2E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E40AFA4A8B11C299EA34745E07B4DA48 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		27B80901C605D9F570F36F4149C9D0E6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66EAE012C8474304D6470848117C7F30 /* Pods-VENI VIDITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4981D3AE902BD9C6B731150B09B46BF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6BD44B3298855D5668C97A990DFDA674 /* Pods-VENI VIDI-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B58BA2AA4CB489D0D30FE4B9D13288F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4149844EE59EE6771F952CD8044F97A5 /* DCCell.swift in Sources */,
+				B7237B4828DD3CD424370419A333E405 /* DCCellModel.swift in Sources */,
+				785E452CFD30840D53333D31F9D232D3 /* DCConfig.swift in Sources */,
+				DDD3C3B8235D7E9908DDB45BA8790E71 /* DCContainerModel.swift in Sources */,
+				E236438C7D7837533232C7F47B64C6C1 /* DCContainerTableView+Screenshot.swift in Sources */,
+				95F4A56BEA4E568406DB5B5B8E79FA6F /* DCContainerTableView.swift in Sources */,
+				DA2080965EDE877DAD2FA5CF9DD9D8F8 /* DCDuration.swift in Sources */,
+				5D5EF3C10688079C9D353F9656E50D52 /* DCEventDataController.swift in Sources */,
+				9706D60B31B94525F3CE6D442D6B7431 /* DCEventProtocols.swift in Sources */,
+				24A09119F906D5DFE8B186A1CD1614D8 /* DCFrame+Extension.swift in Sources */,
+				71C216AEFE2F0E455707C7CCB65158EB /* DCFrame-dummy.m in Sources */,
+				50170A6AD6264E4E96BD4B0A504407C0 /* DCHoverViewManager.swift in Sources */,
+				12B56829262AFEC55FF8582F75897D56 /* DCListDataController.swift in Sources */,
+				9A214F3DA07FCC8C236719117241DE82 /* DCProtector.swift in Sources */,
+				5FA0C502ACEC2501DC9F9CACCECBA860 /* DCRefreshContainerModel.swift in Sources */,
+				C2A0D879FFAC65C74CB6077B09A6DCF3 /* DCSeparatorCell.swift in Sources */,
+				DAF623A90131EE66BF458EFA1CA778CB /* DCTableViewDelegate.swift in Sources */,
+				C4E73316024FDE1986825475E3F08F85 /* DCThrottler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		53D2AD99A3C2BFB2E1448B62E35F78AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B594E04185C4C7522C612C631B8AD97A /* Cosmos-dummy.m in Sources */,
+				049FC8D781A7ECAED15F25718502D54E /* CosmosAccessibility.swift in Sources */,
+				E776F53E707AD1ACF7223305E9EEDBFC /* CosmosDefaultSettings.swift in Sources */,
+				E189E12EEDDD9A1484602416282A19F9 /* CosmosLayerHelper.swift in Sources */,
+				2FADA7115AEFDCC59593DD4201572539 /* CosmosLayers.swift in Sources */,
+				C0D5F472F17B5A0F9824C362F35A7132 /* CosmosLocalizedRating.swift in Sources */,
+				10A44B18B300E2B0BF5BF88F6F2E585F /* CosmosRating.swift in Sources */,
+				E0FD27E2F7F5C05D3390126C7DF35EA6 /* CosmosSettings.swift in Sources */,
+				4404A9C8152865C62A5B59B88640811C /* CosmosSize.swift in Sources */,
+				AC7DAE5B261F8CDE268794A1B7B06F56 /* CosmosText.swift in Sources */,
+				05DFD786F217BD0DFBFB5F57D80236A5 /* CosmosTouch.swift in Sources */,
+				5C7B76FBAD8574062F60041B012FE052 /* CosmosTouchTarget.swift in Sources */,
+				41E5B21F4758B2411A95A7C72523536D /* CosmosView.swift in Sources */,
+				61857850A19756A357AD6696D42E69A4 /* RightToLeft.swift in Sources */,
+				E9A920FE6E5FC6F5F58B6F3AA9B3FDAF /* StarFillMode.swift in Sources */,
+				4221AB8F56B1444AE176F2B13F81C557 /* StarLayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F40C3D3DD062D9C0389D1019BC790ED5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56649C72EDC8F6750FF81505C1F3BC56 /* Pods-VENI VIDI-VENI VIDIUITests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		134291E5E730631D862225190F0F45BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DCFrame;
+			target = 79AF1B79A3569526CE3DD91E39CEFC90 /* DCFrame */;
+			targetProxy = C28B4A28912C29F3BEE2B5B7A19FF878 /* PBXContainerItemProxy */;
+		};
+		1C2C30A15A7B459AA8D52A88E36BED2B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DCFrame;
+			target = 79AF1B79A3569526CE3DD91E39CEFC90 /* DCFrame */;
+			targetProxy = D26FCD4317A6AD4BB7E84BB707A32841 /* PBXContainerItemProxy */;
+		};
+		40E6F314DDE395059A60F39EADAA014A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Cosmos;
+			target = 00F31BD5217A20974B5E9AAC6256D98E /* Cosmos */;
+			targetProxy = 018428E70E64184328AE91948CD5C45C /* PBXContainerItemProxy */;
+		};
+		CE961A7749DF555FD962A122F6B46DD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-VENI VIDI";
+			target = DE1A3D2595ACB0BCFAA1DB646343F616 /* Pods-VENI VIDI */;
+			targetProxy = DED3AA8EC2813FAD90FCFAD638BC1CB3 /* PBXContainerItemProxy */;
+		};
+		EAD0577A8651F64FF0602DF57F3789F3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Cosmos;
+			target = 00F31BD5217A20974B5E9AAC6256D98E /* Cosmos */;
+			targetProxy = 70EBD8682361264106B190DF3D04B291 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11A1E82FC0FAB0EB81847F1477F37E57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10C8FA95F837E5B12CE6CDC3BF44A4C2 /* Pods-VENI VIDI.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VENI VIDI/Pods-VENI VIDI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VENI VIDI/Pods-VENI VIDI.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		125C51B0F88E28C868DC90BD45E4E727 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		314BAA6F5E54DBE3C7704138BA2508C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA3FA5CAFD99B759C1736355D4DEAD4A /* Pods-VENI VIDI.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VENI VIDI/Pods-VENI VIDI-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VENI VIDI/Pods-VENI VIDI.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		4D541C05C26CE3CC8BC0B72F31F8945B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E7ADD70170E9DA2EB4183661C06DFEA /* Pods-VENI VIDITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VENI VIDITests/Pods-VENI VIDITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VENI VIDITests/Pods-VENI VIDITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5482E65723251EA094E1D447D88B27E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53E1751BC7429D5D8515F094EFAF08E2 /* DCFrame.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DCFrame/DCFrame-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DCFrame/DCFrame-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DCFrame/DCFrame.modulemap";
+				PRODUCT_MODULE_NAME = DCFrame;
+				PRODUCT_NAME = DCFrame;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		842EAD2D0D5B7FA43CC0ACD0B169F390 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FE6F8BC39F82411DA0726CD43F1A446 /* Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		85FFEC99E132CD372E50D11BA0D6E7C5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2449E89882A1888B850FF880FFEECF95 /* Pods-VENI VIDITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VENI VIDITests/Pods-VENI VIDITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VENI VIDITests/Pods-VENI VIDITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8744FADA2A43518CFFE46114F8A5AA36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 07CCBA4EF25292AA93644E289373C0A0 /* Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8D92B77E78DC81B40AE4DC7C571D5743 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9ECB8C3B8CC01F806B9B24FC1550DF52 /* Cosmos.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Cosmos/Cosmos-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cosmos/Cosmos-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Cosmos/Cosmos.modulemap";
+				PRODUCT_MODULE_NAME = Cosmos;
+				PRODUCT_NAME = Cosmos;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		92A3E9AC052A7345115439021B218E3B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9BFCFB527EDF553C841F5075E065B7A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 630D1B43C32AC5C177806F15567F7E23 /* Cosmos.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Cosmos/Cosmos-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Cosmos/Cosmos-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Cosmos/Cosmos.modulemap";
+				PRODUCT_MODULE_NAME = Cosmos;
+				PRODUCT_NAME = Cosmos;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DECBC1546F56B95EC534F6683917025D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83931A059C0B8926501BEA47A1C6BD6F /* DCFrame.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/DCFrame/DCFrame-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/DCFrame/DCFrame-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/DCFrame/DCFrame.modulemap";
+				PRODUCT_MODULE_NAME = DCFrame;
+				PRODUCT_NAME = DCFrame;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				125C51B0F88E28C868DC90BD45E4E727 /* Debug */,
+				92A3E9AC052A7345115439021B218E3B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4ABD83CF40ED1E16CEA10DCB4562FF8D /* Build configuration list for PBXNativeTarget "Pods-VENI VIDI-VENI VIDIUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				842EAD2D0D5B7FA43CC0ACD0B169F390 /* Debug */,
+				8744FADA2A43518CFFE46114F8A5AA36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C4761D1E5276039F76D9BA8BF0272D7 /* Build configuration list for PBXNativeTarget "Cosmos" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D92B77E78DC81B40AE4DC7C571D5743 /* Debug */,
+				9BFCFB527EDF553C841F5075E065B7A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B27A8C1352E54716C09DA16D6DFCEAE4 /* Build configuration list for PBXNativeTarget "Pods-VENI VIDI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				11A1E82FC0FAB0EB81847F1477F37E57 /* Debug */,
+				314BAA6F5E54DBE3C7704138BA2508C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D0E43A1580F4FD7AF4198EC13955F6A7 /* Build configuration list for PBXNativeTarget "DCFrame" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5482E65723251EA094E1D447D88B27E8 /* Debug */,
+				DECBC1546F56B95EC534F6683917025D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E87CEF3D55E6D864545B44C4B046D39A /* Build configuration list for PBXNativeTarget "Pods-VENI VIDITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4D541C05C26CE3CC8BC0B72F31F8945B /* Debug */,
+				85FFEC99E132CD372E50D11BA0D6E7C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

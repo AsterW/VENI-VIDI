@@ -1,0 +1,20 @@
+PODS:
+  - Cosmos (23.0.0)
+  - DCFrame (1.0.8)
+
+DEPENDENCIES:
+  - Cosmos
+  - DCFrame
+
+SPEC REPOS:
+  trunk:
+    - Cosmos
+    - DCFrame
+
+SPEC CHECKSUMS:
+  Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
+  DCFrame: 83063a85e204f23fd35593b0ed9f66b9a76c7a0c
+
+PODFILE CHECKSUM: bcc03ca705650f8fab8d6b474ab6f7b57d32d788
+
+COCOAPODS: 1.10.1

@@ -1,0 +1,6 @@
+framework module Pods_VENI_VIDI_VENI_VIDIUITests {
+  umbrella header "Pods-VENI VIDI-VENI VIDIUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
