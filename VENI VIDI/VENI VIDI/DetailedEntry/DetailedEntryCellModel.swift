@@ -17,7 +17,7 @@ class DetailedEntryCellModel:DCCellModel{
     
     required init() {
         super.init()
-        cellHeight = 200
+        cellHeight = 800
         cellClass = DetailedEntryCell.self
     }
 

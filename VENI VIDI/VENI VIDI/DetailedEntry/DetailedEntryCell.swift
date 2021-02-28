@@ -13,12 +13,16 @@ class DetailedEntryCell:DCCell<DetailedEntryCellModel>{
     //poster is the larger image for the entry
     let poster:UIImageView={
         let poster=UIImageView()
+        poster.contentMode = .scaleAspectFit
+        poster.backgroundColor=UIColor.systemYellow
         return poster
     }()
     
     //user-defined title for this entry
     let titleLabel:UILabel={
         let titleLabel=UILabel()
+        titleLabel.backgroundColor=UIColor.systemGray
+        titleLabel.font = UIFont.systemFont(ofSize: 30)
         return titleLabel
     }()
     
@@ -31,7 +35,15 @@ class DetailedEntryCell:DCCell<DetailedEntryCellModel>{
     //user's comment for this movie/book
     let comment:UITextField={
        let comment=UITextField()
+        comment.backgroundColor=UIColor.systemGray2
         return comment
+    }()
+    
+    let smallPoster:UIImageView={
+        let smallPoster=UIImageView()
+        smallPoster.contentMode = .scaleAspectFit
+        smallPoster.backgroundColor=UIColor.systemYellow
+        return smallPoster
     }()
     
     override func setupUI() {
@@ -41,19 +53,23 @@ class DetailedEntryCell:DCCell<DetailedEntryCellModel>{
         contentView.addSubview(titleLabel)
         contentView.addSubview(stars)
         contentView.addSubview(comment)
+        
+        contentView.addSubview(smallPoster)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         let bounds = contentView.bounds
+        print(bounds)
         let left: CGFloat = 15
 
-        //titleLabel.frame = CGRect(x: left, y: bounds.height - 25, width: bounds.width-30, height: 20)
-        titleLabel.frame = CGRect(x: left+95, y: bounds.height - 95, width: bounds.width-125, height: 25)
-        poster.frame = CGRect(x: left, y: bounds.height - 195, width: 90, height: 90)
+
+        //titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width-30, height: 50)
+        poster.frame = CGRect(x: left, y: 15, width: bounds.width-30, height: 150)
         //separateLine.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
-        stars.frame = CGRect(x: left+95, y: bounds.height - 130, width: bounds.width-125, height: 25)
-        comment.frame=CGRect(x: left+95, y: bounds.height - 100, width: bounds.width-125, height: 100)
+        smallPoster.frame = CGRect(x: left, y: 180, width: 100, height: 150)
+        stars.frame = CGRect(x: left+115, y: 300, width: bounds.width-145, height: 30)
+        comment.frame=CGRect(x: left, y: 345, width: bounds.width-30, height: 350)
 
     }
     
@@ -62,6 +78,7 @@ class DetailedEntryCell:DCCell<DetailedEntryCellModel>{
         //label.text = cellModel.timeLabel
         titleLabel.text=cellModel.entryTitle
         poster.image=cellModel.posterImage
+        smallPoster.image=cellModel.posterImage
         comment.text=cellModel.comment
         if let rating=cellModel.rating{
             stars.rating = rating

@@ -14,11 +14,17 @@ class TimelineViewController: DCViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        EDC.subscribeEvent(TimelineCell.touch, target: self) {
+        EDC.subscribeEvent(TimelineCell.touch, target: self) {[weak self] (data:EntryData) in
             print("pushing View Controller")
+            guard let `self` = self else {
+                return
+            }
             let vc = DetailedEntryViewController()
+            vc.entryData.title=data.title
+            vc.entryData.comment=data.comment
+            vc.entryData.rate=data.rate
+            vc.entryData.url=data.url
             self.navigationController?.pushViewController(vc, animated: true)
-
         }
         
         let simpleListCM = SimpleListContainerModel()

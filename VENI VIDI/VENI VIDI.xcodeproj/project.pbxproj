@@ -187,11 +187,11 @@
 		92F7EA7525D782350039DF3C /* VENI VIDI */ = {
 			isa = PBXGroup;
 			children = (
+				770297CE25EB929500A72E5E /* DCViewController.swift */,
 				E0DA6E9C25E8DA80002451BC /* DetailedEntry */,
 				E0DA6E2F25E8D64B002451BC /* Timeline */,
 				92F7EA7625D782350039DF3C /* AppDelegate.swift */,
 				92F7EA7A25D782350039DF3C /* ViewController.swift */,
-				770297CE25EB929500A72E5E /* DCViewController.swift */,
 				92F7EA7C25D782350039DF3C /* Main.storyboard */,
 				92F7EA8225D782380039DF3C /* Assets.xcassets */,
 				92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */,

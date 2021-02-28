@@ -37,6 +37,8 @@ class DetailedEntryContainerModel: DCContainerModel{
         if let commentContent=comment{
             detailModel.comment=commentContent
         }
+        
+        addSubmodel(detailModel)
 
     }
 }

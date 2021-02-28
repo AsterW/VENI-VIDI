@@ -14,8 +14,15 @@ class DetailedEntryViewController: DCViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(entryData.title)
+        print(entryData.rate ?? "no rating")
+        print(entryData.url)
         
         let detailCM = DetailedEntryContainerModel()
+        detailCM.comment=entryData.comment
+        detailCM.entryTitle=entryData.title
+        detailCM.stars=entryData.rate
+        detailCM.poster=UIImage(systemName: "star")
         loadCM(detailCM)
     }
     
