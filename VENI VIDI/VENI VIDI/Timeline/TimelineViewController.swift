@@ -17,6 +17,18 @@ class TimelineViewController:UIInputViewController{
 
         view.addSubview(dcTableView)
         
+        /*
+        EDC.subscribeEvent(TimelineCell.touch, target: self) { [weak self] (title: String) in
+            guard let `self` = self else {
+                return
+            }
+                    let vc = DetailedEntryViewController.init()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    break
+            
+        }
+ */
+        
         let simpleListCM = SimpleListContainerModel()
         dcTableView.loadCM(simpleListCM)
     }
