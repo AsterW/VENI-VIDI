@@ -28,10 +28,12 @@ class TimelineData{
             if(num%2==0){
                 entry.date=1
                 entry.rate=Double.random(in: 0 ..< 5.0)
+                entry.comment="Some Comment"
             }
             else{
                 entry.date=2
                 entry.rate=Double.random(in: 0 ..< 5.0)
+                entry.comment="Some Comment"
             }
             entries.append(entry)
         }

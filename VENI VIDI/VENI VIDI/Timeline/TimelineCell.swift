@@ -11,6 +11,7 @@ import UIKit
 import Cosmos
 
 class TimelineCell: DCCell<TimelineCellModel>{
+    static let touch = DCEventID()
     //Outlets
     let starsCosmosView: CosmosView = {
         let starsCosmosView = CosmosView()
@@ -31,6 +32,16 @@ class TimelineCell: DCCell<TimelineCellModel>{
         pictureView.contentMode = .scaleAspectFit
         return pictureView
     }()
+    
+    var comment:String={
+        var comment=""
+        return comment
+    }()
+    
+    override func didSelect() {
+        super.didSelect()
+        sendEvent(Self.touch)
+    }
     
 
     override func setupUI() {
@@ -64,6 +75,6 @@ class TimelineCell: DCCell<TimelineCellModel>{
         print(cellModel.title)
         pictureView.image=cellModel.picture
         starsCosmosView.rating = cellModel.rating
-
+        comment=cellModel.comment
     }
 }

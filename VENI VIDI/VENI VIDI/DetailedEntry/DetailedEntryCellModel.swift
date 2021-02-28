@@ -6,3 +6,19 @@
 //
 
 import Foundation
+import DCFrame
+import UIKit
+
+class DetailedEntryCellModel:DCCellModel{
+    var entryTitle:String = ""
+    var comment:String = ""
+    var rating:Double?
+    var posterImage: UIImage?
+    
+    required init() {
+        super.init()
+        cellHeight = 200
+        cellClass = DetailedEntryCell.self
+    }
+
+}

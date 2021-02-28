@@ -13,4 +13,5 @@ struct  EntryData:Decodable{
     var url:String = ""
     var date:Int?
     var rate:Double?
+    var comment:String=""
 }

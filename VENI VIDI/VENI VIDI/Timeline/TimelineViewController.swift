@@ -9,25 +9,22 @@ import Foundation
 import DCFrame
 import UIKit
 
-class TimelineViewController:UIInputViewController{
-    let dcTableView = DCContainerTableView()
+class TimelineViewController:DCViewController{
+    //let dcTableView = DCContainerTableView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        EDC.addChildEDC(dcTableView.eventDataController)
+        
+        EDC.subscribeEvent(TimelineCell.touch, target: self) {
+            print("pushing View Controller")
+            let vc=DetailedEntryViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        }
 
         view.addSubview(dcTableView)
-        
-        /*
-        EDC.subscribeEvent(TimelineCell.touch, target: self) { [weak self] (title: String) in
-            guard let `self` = self else {
-                return
-            }
-                    let vc = DetailedEntryViewController.init()
-                    self.navigationController?.pushViewController(vc, animated: true)
-                    break
-            
-        }
- */
         
         let simpleListCM = SimpleListContainerModel()
         dcTableView.loadCM(simpleListCM)
