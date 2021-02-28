@@ -8,6 +8,7 @@ target 'VENI VIDI' do
   # Pods for VENI VIDI
 pod 'DCFrame'
 pod 'Cosmos'
+pod 'SnapKit'
 
   target 'VENI VIDITests' do
     inherit! :search_paths
