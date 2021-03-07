@@ -1,2 +1,8 @@
+# macOS 
+.DS_Store
 
-VENI VIDI/Pods/
+# Xcode
+xcuserdata
+
+# CocoaPods
+Pods/
