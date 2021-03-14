@@ -14,21 +14,33 @@ class TimelineViewController: DCViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Try to add some data
+        if let newEntry=entryDataHandeler.createJournalEntry(aboutWork: "Avengers", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Avengers", isFavorite: true){
+            entryDataHandeler.updateJournalEntry(newEntry)
+        }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd))
+        
         EDC.subscribeEvent(TimelineCell.touch, target: self) {[weak self] (data:EntryData) in
             print("pushing View Controller")
             guard let `self` = self else {
                 return
             }
             let vc = DetailedEntryViewController()
-            vc.entryData.title=data.title
-            vc.entryData.comment=data.comment
-            vc.entryData.rate=data.rate
-            vc.entryData.url=data.url
+            vc.entryData.title = data.title
+            vc.entryData.comment = data.comment
+            vc.entryData.rate = data.rate
+            vc.entryData.url = data.url
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
         let simpleListCM = SimpleListContainerModel()
         loadCM(simpleListCM)
+    }
+    
+    @objc func onAdd(){
+        let vc = UpdateEnrtyViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewDidLayoutSubviews() {

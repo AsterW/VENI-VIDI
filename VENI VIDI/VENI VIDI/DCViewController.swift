@@ -16,6 +16,8 @@ class DCViewController: UIViewController {
         return EDC
     }()
     
+    public var entryDataHandeler = EntryDataHandler()
+    
     public let dcTableView = DCContainerTableView()
 
     override func viewDidLoad() {
