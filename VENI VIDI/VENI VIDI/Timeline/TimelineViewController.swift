@@ -27,6 +27,7 @@ class TimelineViewController: DCViewController{
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
+        navigationItem.title = "Search"
         let simpleListCM = SimpleListContainerModel()
         loadCM(simpleListCM)
     }

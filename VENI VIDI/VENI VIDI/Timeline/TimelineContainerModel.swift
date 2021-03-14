@@ -15,10 +15,13 @@ class SimpleListContainerModel: DCContainerModel {
     override func cmDidLoad() {
         super.cmDidLoad()
         
-        timeLineData=TimelineData()
-        timeLineData!.getEntryData()
+        timeLineData = TimelineData()
+        guard let data = timeLineData else {
+            return
+        }
         
-        timeLineData!.sortByMonth()
+        data.getEntryData()
+        data.sortByMonth()
         
         let filteredOne = timeLineData?.filterDataByMonth(targetMonth: 2)
         let filteredTwo = timeLineData?.filterDataByMonth(targetMonth: 1)

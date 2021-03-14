@@ -15,9 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        let viewController = ViewController()
-        let mainNavigationController = UINavigationController.init(rootViewController: viewController)
-        window?.rootViewController = mainNavigationController
+        let tabBarVC = UITabBarController()
+        let vc = TimelineViewController()
+        let searchView = SearchViewController()
+        
+        vc.title = "Timeline"
+        searchView.title = "Search"
+        
+        tabBarVC.setViewControllers([vc, searchView], animated: false)
+        tabBarVC.modalPresentationStyle = .fullScreen
+        tabBarVC.selectedViewController = vc
+        
+        if let items = tabBarVC.tabBar.items {
+            let images = ["house", "star"]
+            
+            for x in 0..<items.count {
+                items[x].image = UIImage(systemName: images[x])
+            }
+        }
+        
+        window?.rootViewController = tabBarVC
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
         return true

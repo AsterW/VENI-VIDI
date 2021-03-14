@@ -10,6 +10,8 @@
 		0A24DE7A99ADA67CD0283793 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B03D9EE258869A92AF5AB57 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework */; };
 		38B0ECFA1744743E4F644DB4 /* Pods_VENI_VIDITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E554AB3C26B5B70137DF6B3 /* Pods_VENI_VIDITests.framework */; };
 		770297CF25EB929500A72E5E /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770297CE25EB929500A72E5E /* DCViewController.swift */; };
+		7783439C25F6789500226ECF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783439B25F6789500226ECF /* SearchViewController.swift */; };
+		778343A225F682AE00226ECF /* SearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778343A125F682AE00226ECF /* SearchCellModel.swift */; };
 		92B075E725F3F8050006E5FB /* JournalEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B075E525F3F8050006E5FB /* JournalEntry+CoreDataProperties.swift */; };
 		92B075E825F3F8050006E5FB /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B075E425F3F8050006E5FB /* JournalEntry+CoreDataClass.swift */; };
 		92B075E925F3F8050006E5FB /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B075E625F3F8050006E5FB /* Tag+CoreDataClass.swift */; };
@@ -87,6 +89,8 @@
 		53C8036B581A87A9DCD3BB93 /* Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig"; path = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6336FF3F1B0275E343A9D30B /* Pods-VENI VIDI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI.release.xcconfig"; path = "Target Support Files/Pods-VENI VIDI/Pods-VENI VIDI.release.xcconfig"; sourceTree = "<group>"; };
 		770297CE25EB929500A72E5E /* DCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCViewController.swift; sourceTree = "<group>"; };
+		7783439B25F6789500226ECF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		778343A125F682AE00226ECF /* SearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellModel.swift; sourceTree = "<group>"; };
 		92B075E325F3F8050006E5FB /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataProperties.swift"; path = "VENI VIDI/Data/Tag+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		92B075E425F3F8050006E5FB /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JournalEntry+CoreDataClass.swift"; path = "VENI VIDI/Data/JournalEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		92B075E525F3F8050006E5FB /* JournalEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JournalEntry+CoreDataProperties.swift"; path = "VENI VIDI/Data/JournalEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -177,6 +181,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		778343A025F682A100226ECF /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				7783439B25F6789500226ECF /* SearchViewController.swift */,
+				778343A125F682AE00226ECF /* SearchCellModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		92C248C125F3343D0043C2AE /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -215,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				92B4D0E325EC407D0028B7BB /* VENI VIDI.entitlements */,
-				92C248C125F3343D0043C2AE /* Data */,
 				770297CE25EB929500A72E5E /* DCViewController.swift */,
 				92F7EA7625D782350039DF3C /* AppDelegate.swift */,
 				92F7EA7A25D782350039DF3C /* ViewController.swift */,
@@ -224,6 +236,8 @@
 				92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */,
 				92F7EA8725D782380039DF3C /* Info.plist */,
 				92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */,
+				92C248C125F3343D0043C2AE /* Data */,
+				778343A025F682A100226ECF /* Search */,
 				E0DA6E9C25E8DA80002451BC /* DetailedEntry */,
 				E0DA6E2F25E8D64B002451BC /* Timeline */,
 			);
@@ -519,11 +533,13 @@
 				E0DA6E7725E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,
 				E0DA6E8125E8D90F002451BC /* TimeLabelCell.swift in Sources */,
 				92B075E725F3F8050006E5FB /* JournalEntry+CoreDataProperties.swift in Sources */,
+				778343A225F682AE00226ECF /* SearchCellModel.swift in Sources */,
 				E0DA6E6B25E8D87A002451BC /* TimelineCell.swift in Sources */,
 				770297CF25EB929500A72E5E /* DCViewController.swift in Sources */,
 				E0DA6E9625E8D97B002451BC /* TimelineData.swift in Sources */,
 				92F7EA7725D782350039DF3C /* AppDelegate.swift in Sources */,
 				92B075E825F3F8050006E5FB /* JournalEntry+CoreDataClass.swift in Sources */,
+				7783439C25F6789500226ECF /* SearchViewController.swift in Sources */,
 				92B075E925F3F8050006E5FB /* Tag+CoreDataClass.swift in Sources */,
 				92F7EA8125D782350039DF3C /* VENI_VIDI.xcdatamodeld in Sources */,
 				E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
