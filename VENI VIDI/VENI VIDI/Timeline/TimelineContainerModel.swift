@@ -11,9 +11,19 @@ import DCFrame
 
 class SimpleListContainerModel: DCContainerModel {
     var timeLineData:TimelineData?
+    var entryDH:EntryDataHandler?
     
     override func cmDidLoad() {
         super.cmDidLoad()
+        
+        if let handler = entryDH{
+            if let entries = handler.fetchJournalEntries(){
+                for item in entries{
+                    print(item.entryTitle ?? "No Title")
+                }
+            }
+
+        }
         
         timeLineData=TimelineData()
         timeLineData!.getEntryData()
