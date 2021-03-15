@@ -6,6 +6,7 @@
 //
 
 import XCTest
+@testable import VENI_VIDI
 
 class VENI_VIDIUITests: XCTestCase {
 

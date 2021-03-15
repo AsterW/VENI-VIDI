@@ -17,6 +17,26 @@
 		92B4D0E525EC407F0028B7BB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B4D0E425EC407F0028B7BB /* CloudKit.framework */; };
 		92C2868E25FEBC12004E8902 /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770297CE25EB929500A72E5E /* DCViewController.swift */; };
 		92C2869225FEBC13004E8902 /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770297CE25EB929500A72E5E /* DCViewController.swift */; };
+		92E088B825FF9C15007EAED1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AECE25FD962C004016C3 /* CoreDataStack.swift */; };
+		92E088BC25FF9C16007EAED1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AECE25FD962C004016C3 /* CoreDataStack.swift */; };
+		92E088BD25FF9C19007EAED1 /* JournalEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1A25FDA860004016C3 /* JournalEntryService.swift */; };
+		92E088C125FF9C1A007EAED1 /* JournalEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1A25FDA860004016C3 /* JournalEntryService.swift */; };
+		92E088C525FF9C39007EAED1 /* VENI_VIDI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */; };
+		92E088C925FF9C3A007EAED1 /* VENI_VIDI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */; };
+		92E088D025FF9C57007EAED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7625D782350039DF3C /* AppDelegate.swift */; };
+		92E088D425FF9C57007EAED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7625D782350039DF3C /* AppDelegate.swift */; };
+		92E088D825FF9C72007EAED1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7A25D782350039DF3C /* ViewController.swift */; };
+		92E088DC25FF9C73007EAED1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7A25D782350039DF3C /* ViewController.swift */; };
+		92E088E025FF9C89007EAED1 /* UpdateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */; };
+		92E088E425FF9C89007EAED1 /* UpdateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */; };
+		92E088E825FF9C8E007EAED1 /* UpdateEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */; };
+		92E088E925FF9C8E007EAED1 /* UpdateEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F025F689B3009E1AF2 /* UpdateEntryCellModel.swift */; };
+		92E088EA25FF9C8E007EAED1 /* UpdateEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F525F689DD009E1AF2 /* UpdateEntryCell.swift */; };
+		92E088EE25FF9C8F007EAED1 /* UpdateEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */; };
+		92E088EF25FF9C8F007EAED1 /* UpdateEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F025F689B3009E1AF2 /* UpdateEntryCellModel.swift */; };
+		92E088F025FF9C8F007EAED1 /* UpdateEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F525F689DD009E1AF2 /* UpdateEntryCell.swift */; };
+		92E088F425FF9C9C007EAED1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E4625E8D734002451BC /* TimelineViewController.swift */; };
+		92E088F825FF9C9D007EAED1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E4625E8D734002451BC /* TimelineViewController.swift */; };
 		92F7EA7725D782350039DF3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7625D782350039DF3C /* AppDelegate.swift */; };
 		92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7A25D782350039DF3C /* ViewController.swift */; };
 		92F7EA7E25D782350039DF3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA7C25D782350039DF3C /* Main.storyboard */; };
@@ -188,6 +208,7 @@
 		92C248C125F3343D0043C2AE /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */,
 				9247AECE25FD962C004016C3 /* CoreDataStack.swift */,
 				9247AF1A25FDA860004016C3 /* JournalEntryService.swift */,
 			);
@@ -228,7 +249,6 @@
 				92F7EA8225D782380039DF3C /* Assets.xcassets */,
 				92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */,
 				92F7EA8725D782380039DF3C /* Info.plist */,
-				92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */,
 				92C248C125F3343D0043C2AE /* Data */,
 				E0DA6E9C25E8DA80002451BC /* DetailedEntry */,
 				E0DA6E2F25E8D64B002451BC /* Timeline */,
@@ -579,20 +599,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				9247AEF025FDA133004016C3 /* TestCoreDataStack.swift in Sources */,
+				92E088E825FF9C8E007EAED1 /* UpdateEntryContainerModel.swift in Sources */,
 				E0DA6EB725E8DF26002451BC /* DetailedEntryCell.swift in Sources */,
+				92E088E025FF9C89007EAED1 /* UpdateEntryViewController.swift in Sources */,
+				92E088D025FF9C57007EAED1 /* AppDelegate.swift in Sources */,
 				9247AF1325FDA517004016C3 /* CoreDataTests.swift in Sources */,
 				E0DA6E6C25E8D87A002451BC /* TimelineCell.swift in Sources */,
 				E0DA6E7825E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,
 				E0DA6E9F25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */,
+				92E088F425FF9C9C007EAED1 /* TimelineViewController.swift in Sources */,
 				E0DA6E6525E8D832002451BC /* TimelineCellModel.swift in Sources */,
+				92E088C525FF9C39007EAED1 /* VENI_VIDI.xcdatamodeld in Sources */,
+				92E088B825FF9C15007EAED1 /* CoreDataStack.swift in Sources */,
+				92E088D825FF9C72007EAED1 /* ViewController.swift in Sources */,
+				92E088EA25FF9C8E007EAED1 /* UpdateEntryCell.swift in Sources */,
 				E0DA6E8925E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
 				92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */,
+				92E088E925FF9C8E007EAED1 /* UpdateEntryCellModel.swift in Sources */,
 				E0DA6E9025E8D94C002451BC /* EntryData.swift in Sources */,
 				E0DA6E9725E8D97B002451BC /* TimelineData.swift in Sources */,
 				E0DA6EB025E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */,
 				E0DA6EA925E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
 				E0DA6E8225E8D90F002451BC /* TimeLabelCell.swift in Sources */,
 				92C2868E25FEBC12004E8902 /* DCViewController.swift in Sources */,
+				92E088BD25FF9C19007EAED1 /* JournalEntryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,15 +633,25 @@
 				E0DA6EB825E8DF26002451BC /* DetailedEntryCell.swift in Sources */,
 				E0DA6E6D25E8D87A002451BC /* TimelineCell.swift in Sources */,
 				E0DA6E7925E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,
+				92E088EF25FF9C8F007EAED1 /* UpdateEntryCellModel.swift in Sources */,
+				92E088EE25FF9C8F007EAED1 /* UpdateEntryContainerModel.swift in Sources */,
+				92E088F025FF9C8F007EAED1 /* UpdateEntryCell.swift in Sources */,
 				92C2869225FEBC13004E8902 /* DCViewController.swift in Sources */,
 				E0DA6EA025E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */,
 				E0DA6E6625E8D832002451BC /* TimelineCellModel.swift in Sources */,
 				E0DA6E8A25E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
+				92E088F825FF9C9D007EAED1 /* TimelineViewController.swift in Sources */,
+				92E088BC25FF9C16007EAED1 /* CoreDataStack.swift in Sources */,
 				92F7EA9C25D782380039DF3C /* VENI_VIDIUITests.swift in Sources */,
 				E0DA6E9125E8D94C002451BC /* EntryData.swift in Sources */,
 				E0DA6E9825E8D97B002451BC /* TimelineData.swift in Sources */,
+				92E088C925FF9C3A007EAED1 /* VENI_VIDI.xcdatamodeld in Sources */,
+				92E088DC25FF9C73007EAED1 /* ViewController.swift in Sources */,
+				92E088C125FF9C1A007EAED1 /* JournalEntryService.swift in Sources */,
 				E0DA6EB125E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */,
 				E0DA6EAA25E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
+				92E088E425FF9C89007EAED1 /* UpdateEntryViewController.swift in Sources */,
+				92E088D425FF9C57007EAED1 /* AppDelegate.swift in Sources */,
 				E0DA6E8325E8D90F002451BC /* TimeLabelCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
