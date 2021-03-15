@@ -20,7 +20,8 @@ class TimelineData{
         //test with core data 2021-03-08
         
         
-        //fetch user entry data from CloudKit / Firebase
+        //fetch user entry data from Core Data
+        
         //for now, fake some data
         for num in 0...9{
             var entry=EntryData()

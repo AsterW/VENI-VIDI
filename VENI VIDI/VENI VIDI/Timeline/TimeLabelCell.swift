@@ -13,7 +13,7 @@ class TimeLabelCell:DCCell<TimeLabelCellModel>{
     let label: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
-        label.backgroundColor=UIColor.systemGray
+        label.backgroundColor=UIColor.systemGray3
         label.layer.masksToBounds=true
         label.layer.cornerRadius=6
         return label

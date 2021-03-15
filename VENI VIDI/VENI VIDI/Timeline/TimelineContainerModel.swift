@@ -58,15 +58,7 @@ class SimpleListContainerModel: DCContainerModel {
             model.rating = filteredTwo![num].rate!
             addSubmodel(model)
         }
-        
-        /*
-        for num in 0...timeLineData!.count! {
-            let model = TimelineCellModel()
-            model.title = timeLineData!.entries[num].title
-            model.picture = UIImage(systemName: timeLineData!.entries[num].url)
-            addSubmodel(model)
-        }
- */
     }
+    
 }
 
