@@ -11,12 +11,12 @@ import DCFrame
 
 class SimpleListContainerModel: DCContainerModel {
     var timeLineData:TimelineData?
-    var entryDH:EntryDataHandler?
+    var entryService:JournalEntryService?
     
     override func cmDidLoad() {
         super.cmDidLoad()
         
-        if let handler = entryDH{
+        if let handler = entryService{
             if let entries = handler.fetchJournalEntries(){
                 for item in entries{
                     print(item.entryTitle ?? "No Title")

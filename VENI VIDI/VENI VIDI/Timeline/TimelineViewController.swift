@@ -15,9 +15,7 @@ class TimelineViewController: DCViewController{
         super.viewDidLoad()
         
         //Try to add some data
-        if let newEntry=entryDataHandeler.createJournalEntry(aboutWork: "Avengers", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Avengers", isFavorite: true){
-            entryDataHandeler.updateJournalEntry(newEntry)
-        }
+        let newEntry = journalEntryService.createJournalEntry(aboutWork: "Avengers", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Avengers", isFavorite: true)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd))
         
