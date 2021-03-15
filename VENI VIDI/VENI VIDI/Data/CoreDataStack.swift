@@ -21,11 +21,28 @@ import UIKit
 
 class CoreDataStack {
     
-    public init() {}
+    public init() {
+        
+        let persistentStoreDescription = NSPersistentStoreDescription()
+        persistentStoreDescription.type = NSInMemoryStoreType
 
-    public lazy var storeContainer: NSPersistentContainer = {
-        (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-    }()
+        let container = NSPersistentContainer(
+            name: "VENI_VIDI")
+        container.persistentStoreDescriptions = [persistentStoreDescription]
+        
+        container.loadPersistentStores { _, error in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        }
+
+        storeContainer = container
+    }
+
+    public var storeContainer: NSPersistentContainer
+//    public lazy var storeContainer: NSPersistentContainer = {
+//        (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+//    }()
 
     public lazy var mainContext: NSManagedObjectContext = {
         storeContainer.viewContext
