@@ -24,8 +24,8 @@ class TimelineData{
         //for now, fake some data
         for num in 0...9{
             var entry=EntryData()
-            //print(num)
-            entry.title = " \(num) "
+            entry.title = " My First Journal "
+            //entry.title = " \(num) "
             print(entry.title)
             entry.url="star"
             if(num%2==0){

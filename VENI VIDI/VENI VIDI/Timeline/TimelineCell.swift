@@ -21,14 +21,16 @@ class TimelineCell: DCCell<TimelineCellModel>{
     let label: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
-        label.backgroundColor=UIColor.systemBlue
+        label.backgroundColor=UIColor.systemGray6
+        label.layer.masksToBounds=true
+        label.layer.cornerRadius=4
         return label
     }()
     
     let pictureView: UIImageView = {
         let pictureView = UIImageView()
         pictureView.contentMode = .scaleAspectFill
-        pictureView.backgroundColor=UIColor.systemYellow
+        pictureView.backgroundColor=UIColor.systemGray6
         pictureView.contentMode = .scaleAspectFit
         return pictureView
     }()

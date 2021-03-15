@@ -24,6 +24,14 @@ class DetailedEntryViewController: DCViewController{
         detailCM.stars=entryData.rate
         detailCM.poster=UIImage(systemName: "star")
         loadCM(detailCM)
+        
+        //nav bar item to edit
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEdit))
+    }
+    
+    @objc func onEdit(){
+        let vc = UpdateEnrtyViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewDidLayoutSubviews() {

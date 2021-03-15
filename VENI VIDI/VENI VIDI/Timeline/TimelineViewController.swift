@@ -15,9 +15,10 @@ class TimelineViewController: DCViewController{
         super.viewDidLoad()
         
         //Try to add some data
-        let newEntry = journalEntryService.createJournalEntry(aboutWork: "Avengers", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Avengers", isFavorite: true)
+        //let newEntry = journalEntryService.createJournalEntry(aboutWork: "Avengers", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Avengers", isFavorite: true)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd))
+        navigationController?.navigationBar.barTintColor = UIColor.systemBackground
         
         EDC.subscribeEvent(TimelineCell.touch, target: self) {[weak self] (data:EntryData) in
             print("pushing View Controller")

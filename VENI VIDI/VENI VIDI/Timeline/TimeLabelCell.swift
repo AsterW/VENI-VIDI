@@ -14,6 +14,8 @@ class TimeLabelCell:DCCell<TimeLabelCellModel>{
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
         label.backgroundColor=UIColor.systemGray
+        label.layer.masksToBounds=true
+        label.layer.cornerRadius=6
         return label
     }()
     
@@ -27,8 +29,9 @@ class TimeLabelCell:DCCell<TimeLabelCellModel>{
         super.layoutSubviews()
         let bounds = contentView.bounds
         let left: CGFloat = 15
+        print(bounds.height)
 
-        label.frame = CGRect(x: left, y: bounds.height - 25, width: bounds.width-30, height: 20)
+        label.frame = CGRect(x: left, y: bounds.height - 45, width: bounds.width-30, height: 40)
 
     }
     
