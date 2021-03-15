@@ -12,6 +12,7 @@
 		770297CF25EB929500A72E5E /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770297CE25EB929500A72E5E /* DCViewController.swift */; };
 		7783439C25F6789500226ECF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7783439B25F6789500226ECF /* SearchViewController.swift */; };
 		778343A225F682AE00226ECF /* SearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778343A125F682AE00226ECF /* SearchCellModel.swift */; };
+		77E531D325FFB36C002FE062 /* BookInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E531D225FFB36C002FE062 /* BookInfoModel.swift */; };
 		92B075E725F3F8050006E5FB /* JournalEntry+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B075E525F3F8050006E5FB /* JournalEntry+CoreDataProperties.swift */; };
 		92B075E825F3F8050006E5FB /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B075E425F3F8050006E5FB /* JournalEntry+CoreDataClass.swift */; };
 		92B075E925F3F8050006E5FB /* Tag+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92B075E625F3F8050006E5FB /* Tag+CoreDataClass.swift */; };
@@ -91,6 +92,7 @@
 		770297CE25EB929500A72E5E /* DCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCViewController.swift; sourceTree = "<group>"; };
 		7783439B25F6789500226ECF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		778343A125F682AE00226ECF /* SearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellModel.swift; sourceTree = "<group>"; };
+		77E531D225FFB36C002FE062 /* BookInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoModel.swift; sourceTree = "<group>"; };
 		92B075E325F3F8050006E5FB /* Tag+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Tag+CoreDataProperties.swift"; path = "VENI VIDI/Data/Tag+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		92B075E425F3F8050006E5FB /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JournalEntry+CoreDataClass.swift"; path = "VENI VIDI/Data/JournalEntry+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		92B075E525F3F8050006E5FB /* JournalEntry+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JournalEntry+CoreDataProperties.swift"; path = "VENI VIDI/Data/JournalEntry+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
@@ -186,6 +188,7 @@
 			children = (
 				7783439B25F6789500226ECF /* SearchViewController.swift */,
 				778343A125F682AE00226ECF /* SearchCellModel.swift */,
+				77E531D225FFB36C002FE062 /* BookInfoModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -548,6 +551,7 @@
 				92B075EA25F3F8050006E5FB /* Tag+CoreDataProperties.swift in Sources */,
 				92B4D11325EC61D30028B7BB /* EntryDataHandler.swift in Sources */,
 				E0DA6E4725E8D734002451BC /* TimelineViewController.swift in Sources */,
+				77E531D325FFB36C002FE062 /* BookInfoModel.swift in Sources */,
 				E0DA6EAF25E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
