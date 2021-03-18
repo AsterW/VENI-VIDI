@@ -129,13 +129,15 @@ extension JournalEntryService {
         }
         
         if let newTags = tags {
-            for tag in entry.tags ?? [] {
-                if let tagToCheck = (tag as? Tag) {
-                    if !newTags.contains(tagToCheck) {
-                        entry.removeFromTags(tagToCheck)
-                    }
-                }
-            }
+//            for tag in entry.tags ?? [] {
+//                if let tagToCheck = (tag as? Tag) {
+//                    if !newTags.contains(tagToCheck) {
+//                        entry.removeFromTags(tagToCheck)
+//                    }
+//                }
+//            }
+            let oldTags = entry.tags
+            entry.removeFromTags(oldTags ?? [])
             entry.addToTags(NSSet(array: newTags))
         }
         
