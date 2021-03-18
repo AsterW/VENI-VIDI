@@ -123,8 +123,9 @@ extension JournalEntryService {
             if let newLatitude = latitude {
                 entry.longitude = newLongitude
                 entry.latitude = newLatitude
+            } else {
+                print("Entry location not updated. Both longitude and latitude needed for update.")
             }
-            print("Entry location not updated. Both longitude and latitude needed for update.")
         }
         
         if let newTags = tags {
