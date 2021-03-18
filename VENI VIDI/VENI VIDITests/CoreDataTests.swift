@@ -72,7 +72,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.entryContent == "Very very cool")
         XCTAssertTrue(entry1.longitude == 1.11)
         XCTAssertTrue(entry1.latitude == -2.22)
-        XCTAssertTrue(entry1.tags == [tag1, tag2])
+        XCTAssertTrue(entry1.tags == NSSet(array: [tag1, tag2]))
         XCTAssertTrue(entry1.favorite == true)
     }
     
@@ -102,7 +102,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.entryContent == "I don't know what to say")
         XCTAssertTrue(entry0.longitude == 3.14)
         XCTAssertTrue(entry0.latitude == -6.28)
-        XCTAssertTrue(entry0.tags == [tag1, tag2])
+        XCTAssertTrue(entry0.tags == NSSet(array: [tag1, tag2]))
         XCTAssertTrue(entry0.favorite == true)
         
         let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
@@ -135,7 +135,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.entryContent == "Just okay")
         XCTAssertTrue(entry1.longitude == -6.7)
         XCTAssertTrue(entry1.latitude == 239432)
-        XCTAssertTrue(entry1.tags == [tag1, tag3])
+        XCTAssertTrue(entry1.tags == NSSet(array: [tag1, tag3]))
         XCTAssertTrue(entry1.favorite == false)
     }
 
