@@ -150,8 +150,8 @@ class CoreDataTests: XCTestCase {
         
         let date1 = Date(timeIntervalSince1970: 10080)
         let date2 = Date(timeIntervalSince1970: 10080)
-        let tag1 = journalEntryService.createNewTag("Badass")
-        let tag2 = journalEntryService.createNewTag("Superhero")
+        let tag1 = journalEntryService.createNewTag("good")
+        let tag2 = journalEntryService.createNewTag("good2")
         let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
                                                             withStartDate: date1,
                                                             withFinishDate: date2,
