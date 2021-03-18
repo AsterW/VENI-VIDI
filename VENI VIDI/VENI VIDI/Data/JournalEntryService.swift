@@ -137,7 +137,7 @@ extension JournalEntryService {
 //                }
 //            }
             let oldTags = entry.tags
-            entry.removeFromTags(oldTags ?? [])
+            entry.removeFromTags(oldTags ?? NSSet())
             entry.addToTags(NSSet(array: newTags))
         }
         
