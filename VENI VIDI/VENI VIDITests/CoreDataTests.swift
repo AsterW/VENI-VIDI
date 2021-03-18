@@ -15,30 +15,29 @@
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
 
-import XCTest
 @testable import VENI_VIDI
+import XCTest
 
 class CoreDataTests: XCTestCase {
-
     // MARK: - Properties and Set Up
+
     var coreDataStack: CoreDataStack!
     var journalEntryService: JournalEntryService!
 
     override func setUp() {
-      super.setUp()
-      coreDataStack = TestCoreDataStack()
-      journalEntryService = JournalEntryService(coreDataStack: coreDataStack)
+        super.setUp()
+        coreDataStack = TestCoreDataStack()
+        journalEntryService = JournalEntryService(coreDataStack: coreDataStack)
     }
 
     override func tearDown() {
-      super.tearDown()
-      coreDataStack = nil
+        super.tearDown()
+        coreDataStack = nil
     }
     
     // MARK: - Journal Entry Test Cases
     
     func testCreateJournalEntry() {
-        
         let entry0 = journalEntryService.createJournalEntry()
         XCTAssertNotNil(entry0, "Entry0 should not be nil")
         XCTAssertNotNil(entry0.startDate)
@@ -77,7 +76,6 @@ class CoreDataTests: XCTestCase {
     }
     
     func testUpdateJournalEntry() {
-        
         let entry0 = journalEntryService.createJournalEntry()
         XCTAssertNotNil(entry0, "Entry0 should not be nil")
         
@@ -140,7 +138,6 @@ class CoreDataTests: XCTestCase {
     }
 
     func testDeleteJournalEntry() {
-        
         let entry0 = journalEntryService.createJournalEntry()
         XCTAssertNotNil(entry0, "Entry0 should not be nil before deletion")
         
@@ -166,9 +163,7 @@ class CoreDataTests: XCTestCase {
         journalEntryService.deleteJournalEntry(entry1)
         let result1 = journalEntryService.fetchJournalEntries()
         XCTAssertTrue(result1?.count == 0, "There should be no entry after entry1 is deleted")
-        
     }
     
     // MARK: - TODO: Tag Test Cases
-    
 }
