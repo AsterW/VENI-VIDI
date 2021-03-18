@@ -105,8 +105,6 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.tags == [tag1, tag2])
         XCTAssertTrue(entry0.favorite == true)
         
-        let date3 = Date(timeIntervalSince1970: 20060)
-        let tag3 = journalEntryService.createNewTag("NVM")
         let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
                                                             withStartDate: date1,
                                                             withFinishDate: date2,
@@ -118,6 +116,8 @@ class CoreDataTests: XCTestCase {
                                                             isFavorite: true)
         XCTAssertNotNil(entry1, "Entry1 should not be nil")
         
+        let date3 = Date(timeIntervalSince1970: 20060)
+        let tag3 = journalEntryService.createNewTag("NVM")
         journalEntryService.updateJournalEntry(entry1,
                                                aboutWork: "Hitman",
                                                withStartDate: date1,
