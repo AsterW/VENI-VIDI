@@ -54,6 +54,7 @@ extension JournalEntryService {
     
     func createNewTag(_ tagText: String) -> Tag {
         let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: self.managedObjectContext) as! Tag
+        // Solution by https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
 //        let newTag = Tag(context: self.managedObjectContext)
         newTag.name = tagText
         self.coreDataStack.saveContext()
@@ -86,6 +87,7 @@ extension JournalEntryService {
                             isFavorite favorite: Bool? = false) -> JournalEntry
     {
         let newJournalEntry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: self.managedObjectContext) as! JournalEntry
+        // Solution by https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
 //        let newJournalEntry = JournalEntry(context: self.managedObjectContext)
         
         self.coreDataStack.saveContext()
