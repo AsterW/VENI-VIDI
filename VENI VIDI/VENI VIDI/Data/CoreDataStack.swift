@@ -20,7 +20,6 @@ import Foundation
 import UIKit
 
 class CoreDataStack {
-    
     public init() {}
 
     public lazy var storeContainer: NSPersistentContainer = {

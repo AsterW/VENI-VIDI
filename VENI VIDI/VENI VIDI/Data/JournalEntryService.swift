@@ -27,7 +27,7 @@ final class JournalEntryService {
 extension JournalEntryService {
     func fetchAllTags() -> [Tag] {
         do {
-            let fetchRequest = Tag.fetchRequest() as NSFetchRequest<Tag>
+            let fetchRequest = NSFetchRequest<Tag>(entityName: "Tag")
             let tags = try managedObjectContext.fetch(fetchRequest)
             return tags
         } catch {
@@ -53,7 +53,8 @@ extension JournalEntryService {
     }
     
     func createNewTag(_ tagText: String) -> Tag {
-        let newTag = Tag(context: self.managedObjectContext)
+        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: self.managedObjectContext) as! Tag
+//        let newTag = Tag(context: self.managedObjectContext)
         newTag.name = tagText
         self.coreDataStack.saveContext()
         return newTag
@@ -65,7 +66,7 @@ extension JournalEntryService {
 extension JournalEntryService {
     func fetchJournalEntries() -> [JournalEntry]? {
         do {
-            let fetchRequest = JournalEntry.fetchRequest() as NSFetchRequest<JournalEntry>
+            let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
             let entries = try managedObjectContext.fetch(fetchRequest)
             return entries
         } catch {
@@ -84,7 +85,8 @@ extension JournalEntryService {
                             withTags tags: [Tag]? = [],
                             isFavorite favorite: Bool? = false) -> JournalEntry
     {
-        let newJournalEntry = JournalEntry(context: self.managedObjectContext)
+        let newJournalEntry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: self.managedObjectContext) as! JournalEntry
+//        let newJournalEntry = JournalEntry(context: self.managedObjectContext)
         
         self.coreDataStack.saveContext()
         self.updateJournalEntry(newJournalEntry,

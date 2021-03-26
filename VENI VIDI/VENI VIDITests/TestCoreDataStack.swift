@@ -35,6 +35,7 @@ class TestCoreDataStack: CoreDataStack {
             }
         }
 
-        storeContainer = container
+        self.storeContainer = container
+        self.mainContext = storeContainer.viewContext
     }
 }
