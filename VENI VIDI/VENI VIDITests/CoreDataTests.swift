@@ -15,30 +15,29 @@
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
 
-import XCTest
 @testable import VENI_VIDI
+import XCTest
 
 class CoreDataTests: XCTestCase {
-
     // MARK: - Properties and Set Up
+
     var coreDataStack: CoreDataStack!
     var journalEntryService: JournalEntryService!
 
     override func setUp() {
-      super.setUp()
-      coreDataStack = TestCoreDataStack()
-      journalEntryService = JournalEntryService(coreDataStack: coreDataStack)
+        super.setUp()
+        coreDataStack = TestCoreDataStack()
+        journalEntryService = JournalEntryService(coreDataStack: coreDataStack)
     }
 
     override func tearDown() {
-      super.tearDown()
-      coreDataStack = nil
+        super.tearDown()
+        coreDataStack = nil
     }
     
     // MARK: - Journal Entry Test Cases
     
     func testCreateJournalEntry() {
-        
         let entry0 = journalEntryService.createJournalEntry()
         XCTAssertNotNil(entry0, "Entry0 should not be nil")
         XCTAssertNotNil(entry0.startDate)
@@ -72,12 +71,11 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.entryContent == "Very very cool")
         XCTAssertTrue(entry1.longitude == 1.11)
         XCTAssertTrue(entry1.latitude == -2.22)
-        XCTAssertTrue(entry1.tags == [tag1, tag2])
+        XCTAssertTrue(entry1.tags == NSSet(array: [tag1, tag2]))
         XCTAssertTrue(entry1.favorite == true)
     }
     
     func testUpdateJournalEntry() {
-        
         let entry0 = journalEntryService.createJournalEntry()
         XCTAssertNotNil(entry0, "Entry0 should not be nil")
         
@@ -102,11 +100,9 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.entryContent == "I don't know what to say")
         XCTAssertTrue(entry0.longitude == 3.14)
         XCTAssertTrue(entry0.latitude == -6.28)
-        XCTAssertTrue(entry0.tags == [tag1, tag2])
+        XCTAssertTrue(entry0.tags == NSSet(array: [tag1, tag2]))
         XCTAssertTrue(entry0.favorite == true)
         
-        let date3 = Date(timeIntervalSince1970: 20060)
-        let tag3 = journalEntryService.createNewTag("NVM")
         let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
                                                             withStartDate: date1,
                                                             withFinishDate: date2,
@@ -118,6 +114,8 @@ class CoreDataTests: XCTestCase {
                                                             isFavorite: true)
         XCTAssertNotNil(entry1, "Entry1 should not be nil")
         
+        let date3 = Date(timeIntervalSince1970: 20060)
+        let tag3 = journalEntryService.createNewTag("NVM")
         journalEntryService.updateJournalEntry(entry1,
                                                aboutWork: "Hitman",
                                                withStartDate: date1,
@@ -135,12 +133,11 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.entryContent == "Just okay")
         XCTAssertTrue(entry1.longitude == -6.7)
         XCTAssertTrue(entry1.latitude == 239432)
-        XCTAssertTrue(entry1.tags == [tag1, tag3])
+        XCTAssertTrue(entry1.tags == NSSet(array: [tag1, tag3]))
         XCTAssertTrue(entry1.favorite == false)
     }
 
     func testDeleteJournalEntry() {
-        
         let entry0 = journalEntryService.createJournalEntry()
         XCTAssertNotNil(entry0, "Entry0 should not be nil before deletion")
         
@@ -150,8 +147,8 @@ class CoreDataTests: XCTestCase {
         
         let date1 = Date(timeIntervalSince1970: 10080)
         let date2 = Date(timeIntervalSince1970: 10080)
-        let tag1 = journalEntryService.createNewTag("Badass")
-        let tag2 = journalEntryService.createNewTag("Superhero")
+        let tag1 = journalEntryService.createNewTag("good")
+        let tag2 = journalEntryService.createNewTag("good2")
         let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
                                                             withStartDate: date1,
                                                             withFinishDate: date2,
@@ -166,9 +163,7 @@ class CoreDataTests: XCTestCase {
         journalEntryService.deleteJournalEntry(entry1)
         let result1 = journalEntryService.fetchJournalEntries()
         XCTAssertTrue(result1?.count == 0, "There should be no entry after entry1 is deleted")
-        
     }
     
     // MARK: - TODO: Tag Test Cases
-    
 }
