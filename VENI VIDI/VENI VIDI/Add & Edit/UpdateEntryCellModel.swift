@@ -15,6 +15,11 @@ class UpdateEntryCellModel:DCCellModel{
     var rating:Double?
     var posterImage: UIImage?
     var date: Date?
+    var nav:UINavigationController?
+    var service:JournalEntryService={
+        let service=JournalEntryService(coreDataStack: CoreDataStack())
+        return service
+    }()
     
     required init() {
         super.init()

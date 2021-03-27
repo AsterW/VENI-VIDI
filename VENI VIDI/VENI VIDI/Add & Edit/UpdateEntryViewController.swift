@@ -16,7 +16,7 @@ class UpdateEnrtyViewController: DCViewController{
         print("Update Entry")
         
         let newEntryCM = UpdateEntryContainerModel()
-
+        newEntryCM.nav=navigationController
         loadCM(newEntryCM)
 
     }

@@ -15,7 +15,7 @@ class TimelineViewController: DCViewController{
         super.viewDidLoad()
         
         //Try to add some data
-        _ = journalEntryService.createJournalEntry(aboutWork: "Avengers", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Avengers", isFavorite: true)
+//        _ = journalEntryService.createJournalEntry(aboutWork: "Avengers", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Avengers", isFavorite: true)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd))
         navigationController?.navigationBar.barTintColor = UIColor.systemBackground
@@ -30,6 +30,7 @@ class TimelineViewController: DCViewController{
             vc.entryData.comment = data.comment
             vc.entryData.rate = data.rate
             vc.entryData.url = data.url
+            vc.entryData.date=data.date
             self.navigationController?.pushViewController(vc, animated: true)
         }
         
@@ -37,9 +38,9 @@ class TimelineViewController: DCViewController{
         loadCM(simpleListCM)
         
         //get the entries from Core Data
-        if let entries=journalEntryService.fetchJournalEntries(){
-            let entryOne=entries[0]
-        }
+//        if let entries=journalEntryService.fetchJournalEntries(){
+//            let entryOne=entries[0]
+//        }
 
     }
     

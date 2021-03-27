@@ -32,6 +32,7 @@ class TimelineCell: DCCell<TimelineCellModel>{
         pictureView.contentMode = .scaleAspectFill
         pictureView.backgroundColor=UIColor.systemGray6
         pictureView.contentMode = .scaleAspectFit
+        pictureView.accessibilityLabel=""
         return pictureView
     }()
     
@@ -63,12 +64,7 @@ class TimelineCell: DCCell<TimelineCellModel>{
         super.layoutSubviews()
         let bounds = contentView.bounds
         let left: CGFloat = 15
-        //let height: CGFloat = 1
-        //let height: CGFloat = 1.0 / UIScreen.main.scale
-        
-        //pictureView.frame=bounds
-        
-        //label.frame = bounds.inset(by: UIEdgeInsets(top: 8, left: left, bottom: 8, right: 15))
+
         label.frame = CGRect(x: left+95, y: bounds.height - 95, width: bounds.width-125, height: 25)
         pictureView.frame = CGRect(x: left, y: bounds.height - 95, width: 90, height: 90)
         //separateLine.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
@@ -81,6 +77,7 @@ class TimelineCell: DCCell<TimelineCellModel>{
         label.text = cellModel.title
         print(cellModel.title)
         pictureView.image=cellModel.picture
+        pictureView.accessibilityLabel=cellModel.title
         starsCosmosView.rating = cellModel.rating
         print("RATING \(cellModel.rating)")
         comment=cellModel.comment

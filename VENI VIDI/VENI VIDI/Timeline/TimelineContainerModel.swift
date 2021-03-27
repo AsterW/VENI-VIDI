@@ -9,55 +9,93 @@ import Foundation
 import UIKit
 import DCFrame
 
-class SimpleListContainerModel: DCContainerModel {
+class SimpleListContainerModel: VVContainerModel {
     var timeLineData:TimelineData?
-    var entryService:JournalEntryService?
+    var entries:[JournalEntry]?
+//    var entryService:JournalEntryService?
+    
+    func getEntryData(){
+        if let entries=journalEntryService.fetchJournalEntries(){
+            print(entries.count)
+            self.entries=entries
+            let entryOne=entries[0]
+            print(entryOne.entryTitle ?? "No Title")
+        }
+    }
     
     override func cmDidLoad() {
         super.cmDidLoad()
+        let date1=Date()
+        let date2=Date().addingTimeInterval(86400)
+        print(date2.description)
         
-        if let handler = entryService{
-            if let entries = handler.fetchJournalEntries(){
-                for item in entries{
-                    print(item.entryTitle ?? "No Title")
-                }
-            }
-
-        }
+        
+        
+        _ = journalEntryService.createJournalEntry(aboutWork: "Avengers", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Avengers", isFavorite: true)
+        _ = journalEntryService.createJournalEntry(aboutWork: "Stars", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Stars", isFavorite: true)
+        
+        _ = journalEntryService.createJournalEntry(aboutWork: "Coco", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Coco", isFavorite: true)
+        _ = journalEntryService.createJournalEntry(aboutWork: "Harry Potter", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Harry Potter", isFavorite: true)
+        _ = journalEntryService.createJournalEntry(aboutWork: "Spiderman", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Spiderman", isFavorite: true)
+        _ = journalEntryService.createJournalEntry(aboutWork: "Aha", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Aha", isFavorite: false)
+        
+        getEntryData()
+        
+//        if let handler = entryService{
+//            if let entries = handler.fetchJournalEntries(){
+//                for item in entries{
+//                    print(item.entryTitle ?? "No Title")
+//                }
+//            }
+//        }
         
         timeLineData=TimelineData()
         timeLineData!.getEntryData()
         
         timeLineData!.sortByMonth()
         
-        let filteredOne = timeLineData?.filterDataByMonth(targetMonth: 2)
-        let filteredTwo = timeLineData?.filterDataByMonth(targetMonth: 1)
+        //let filteredOne = timeLineData?.filterDataByMonth(targetMonth: 2)
+        //let filteredTwo = timeLineData?.filterDataByMonth(targetMonth: 1)
         
         
         let timeModel=TimeLabelCellModel()
-        timeModel.timeLabel="February"
+        timeModel.timeLabel="March"
         addSubmodel(timeModel)
         
-        for num in 0...filteredOne!.count-1{
-            let model = TimelineCellModel()
-            model.title = filteredOne![num].title
-            model.picture = UIImage(named: filteredOne![num].url)
-            model.rating = filteredOne![num].rate!
-            addSubmodel(model)
+        if let e=entries{
+            for item in e {
+                let model = TimelineCellModel()
+                model.title = item.entryTitle ?? "No Title"
+                model.picture = UIImage(systemName: "star.fill")
+                model.rating=Double.random(in: 0 ..< 5.0)
+                addSubmodel(model)
+            }
         }
         
+        
+        
+        
+//        for num in 1...filteredOne!.count-1{
+//            let model = TimelineCellModel()
+//            model.title = filteredOne![num].title
+//            model.picture = UIImage(named: filteredOne![num].url)
+//            model.rating = filteredOne![num].rate!
+//            addSubmodel(model)
+//        }
+//
         let timeModel2=TimeLabelCellModel()
-        timeModel2.timeLabel="January"
+        timeModel2.timeLabel="February"
         addSubmodel(timeModel2)
         
-        for num in 0...filteredTwo!.count-1{
-            
-            let model = TimelineCellModel()
-            model.title = filteredTwo![num].title
-            model.picture = UIImage(named: filteredTwo![num].url)
-            model.rating = filteredTwo![num].rate!
-            addSubmodel(model)
-        }
+//
+//        for num in 0...filteredTwo!.count-1{
+//
+//            let model = TimelineCellModel()
+//            model.title = filteredTwo![num].title
+//            model.picture = UIImage(named: filteredTwo![num].url)
+//            model.rating = filteredTwo![num].rate!
+//            addSubmodel(model)
+//        }
     }
     
 }

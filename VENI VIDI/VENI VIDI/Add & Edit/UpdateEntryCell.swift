@@ -9,12 +9,18 @@ import Foundation
 import DCFrame
 import Cosmos
 
-class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate{
+class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     //poster is the larger image for the entry
+    var navigationController:UINavigationController={
+        let navigationController=UINavigationController()
+        return navigationController
+    }()
+    
     let poster:UIImageView={
         let poster=UIImageView()
         poster.contentMode = .scaleAspectFit
         poster.backgroundColor=UIColor.systemYellow
+        poster.layer.cornerRadius=6
         return poster
     }()
     
@@ -24,7 +30,8 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate{
         titleLabel.backgroundColor=UIColor.systemGray6
         titleLabel.font = UIFont.systemFont(ofSize: 30)
         titleLabel.text="Placeholder for Title"
-        
+        titleLabel.accessibilityLabel="Entry Title"
+        titleLabel.layer.cornerRadius=6
         return titleLabel
     }()
     
@@ -39,10 +46,28 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate{
        let comment=UITextView()
         comment.backgroundColor=UIColor.systemGray6
         comment.text="Placeholder for Notes"
+        comment.accessibilityLabel="Entry Note"
+        comment.layer.cornerRadius=6
         return comment
     }()
     
+    let button:UIButton={
+        let button=UIButton()
+        button.setTitle("Click to Upload Image", for: .normal)
+        button.setTitleColor(UIColor.systemGray2, for: .normal)
+        return button
+    }()
     
+    let submitButton:UIButton={
+        let submitButton=UIButton()
+        submitButton.backgroundColor=UIColor.systemGray6
+        submitButton.setTitle("Add Movie", for: .normal)
+        submitButton.setTitleColor(UIColor.systemGray, for: .normal)
+        submitButton.tintColor=UIColor.systemGray
+        submitButton.layer.cornerRadius=6
+        return submitButton
+    }()
+        
     override func setupUI() {
         super.setupUI()
         
@@ -53,9 +78,14 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate{
         comment.textColor = UIColor.systemGray2
         
         contentView.addSubview(poster)
+        contentView.addSubview(button)
+        button.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
+        submitButton.addTarget(self, action: #selector(uploadData), for: .touchUpInside)
         contentView.addSubview(titleLabel)
         contentView.addSubview(stars)
         contentView.addSubview(comment)
+        contentView.addSubview(submitButton)
+        
     }
     
     override func layoutSubviews() {
@@ -66,13 +96,30 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate{
 
 
         titleLabel.frame = CGRect(x: left, y: 30, width: bounds.width-30, height: 50)
-        poster.frame = CGRect(x: left, y: 100, width: bounds.width-30, height: 150)
-        //separateLine.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
+        poster.frame = CGRect(x: left, y: 100, width: bounds.width-30, height: 200)
+        button.frame = poster.frame
         stars.frame = CGRect(x: left, y: 350, width: bounds.width-145, height: 30)
-        comment.frame=CGRect(x: left, y: 395, width: bounds.width-30, height: 300)
+        comment.frame=CGRect(x: left, y: 395, width: bounds.width-30, height: 200)
+        submitButton.frame=CGRect(x: left, y: 645, width: bounds.width-30, height: 50)
 
     }
     
+    override func cellModelDidUpdate() {
+        super.cellModelDidUpdate()
+        if let nav=cellModel.nav{
+            self.navigationController=nav
+            print(nav.description)
+        }
+    }
+    
+    @objc func pickImage(){
+        print("Clicked")
+        let picker = UIImagePickerController()
+        picker.allowsEditing = true
+        picker.delegate = self
+        navigationController.present(picker, animated: true, completion: nil)
+    }
+
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         if textView.textColor == UIColor.systemGray2 {
@@ -88,6 +135,30 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate{
         }
         
         return true
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let photo = info[.editedImage] as? UIImage else { return }
+        
+        poster.image=photo
+        
+        navigationController.dismiss(animated: true)
+        
+        button.setTitle("", for: .normal)
+
+        //poster.becomeFirstResponder()
+        
+    }
+    
+    @objc func uploadData(){
+        print("Upload Data")
+        _ = cellModel.service.createJournalEntry(aboutWork: "Some work", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Some work", isFavorite: false)
+        
+//        if let entries=cellModel.service.fetchJournalEntries(){
+//            print(entries.count)
+//            let entryOne=entries[0]
+//            print(entryOne.entryTitle ?? "No Title")
+//        }
     }
     
     

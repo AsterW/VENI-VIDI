@@ -11,7 +11,7 @@ import UIKit
 struct  EntryData:Decodable{
     var title:String = ""
     var url:String = ""
-    var date:Int?
+    var date:Date?
     var rate:Double?
     var comment:String=""
 }
