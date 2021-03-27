@@ -7,6 +7,7 @@
 
 import CoreData
 import Foundation
+import UIKit
 
 final class JournalEntryService {
     // MARK: - Properties
@@ -77,6 +78,7 @@ extension JournalEntryService {
     }
     
     func createJournalEntry(aboutWork work: String = "",
+                            withCoverImage coverImage: UIImage? = nil,
                             withStartDate startDate: Date = Date(),
                             withFinishDate finishDate: Date = Date(),
                             withEntryTitle entryTitle: String = "",
@@ -93,6 +95,7 @@ extension JournalEntryService {
         self.coreDataStack.saveContext()
         self.updateJournalEntry(newJournalEntry,
                                 aboutWork: work,
+                                withCoverImage: coverImage,
                                 withStartDate: startDate,
                                 withFinishDate: finishDate,
                                 withEntryTitle: entryTitle,
@@ -106,6 +109,7 @@ extension JournalEntryService {
     
     func updateJournalEntry(_ entry: JournalEntry,
                             aboutWork work: String? = nil,
+                            withCoverImage coverImage: UIImage? = nil,
                             withStartDate startDate: Date? = nil,
                             withFinishDate finishDate: Date? = nil,
                             withEntryTitle entryTitle: String? = nil,
@@ -133,16 +137,18 @@ extension JournalEntryService {
         }
         
         if let newTags = tags {
-//            for tag in entry.tags ?? [] {
-//                if let tagToCheck = (tag as? Tag) {
-//                    if !newTags.contains(tagToCheck) {
-//                        entry.removeFromTags(tagToCheck)
-//                    }
-//                }
-//            }
             let oldTags = entry.tags
             entry.removeFromTags(oldTags ?? NSSet())
             entry.addToTags(NSSet(array: newTags))
+        }
+        
+        if let newImage = coverImage {
+            // https://stackoverflow.com/questions/16685812/how-to-store-an-image-in-core-data#16687218
+            if let imageData = newImage.pngData() {
+                entry.image = imageData
+            } else {
+                print("Failed to store image in CoreData")
+            }
         }
         
         self.coreDataStack.saveContext()

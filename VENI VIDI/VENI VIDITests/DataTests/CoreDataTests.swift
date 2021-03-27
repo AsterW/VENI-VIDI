@@ -16,6 +16,7 @@
 /// furnished to do so, subject to the following conditions:
 
 @testable import VENI_VIDI
+import UIKit
 import XCTest
 
 class CoreDataTests: XCTestCase {
@@ -54,7 +55,9 @@ class CoreDataTests: XCTestCase {
         let date2 = Date(timeIntervalSince1970: 10080)
         let tag1 = journalEntryService.createNewTag("Badass")
         let tag2 = journalEntryService.createNewTag("Superhero")
+        let image1 = UIImage(named: "TestImage1")
         let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
+                                                            withCoverImage: image1,
                                                             withStartDate: date1,
                                                             withFinishDate: date2,
                                                             withEntryTitle: "Okay that's cool",
@@ -65,6 +68,7 @@ class CoreDataTests: XCTestCase {
                                                             isFavorite: true)
         XCTAssertNotNil(entry1, "Entry1 should not be nil")
         XCTAssertTrue(entry1.worksTitle == "Batman")
+        XCTAssertNotNil(entry1.image)
         XCTAssertTrue(entry1.startDate == date1)
         XCTAssertTrue(entry1.finishDate == date2)
         XCTAssertTrue(entry1.entryTitle == "Okay that's cool")
@@ -78,13 +82,17 @@ class CoreDataTests: XCTestCase {
     func testUpdateJournalEntry() {
         let entry0 = journalEntryService.createJournalEntry()
         XCTAssertNotNil(entry0, "Entry0 should not be nil")
+        XCTAssertNil(entry0.image)
         
         let date1 = Date(timeIntervalSince1970: 10080)
         let date2 = Date(timeIntervalSince1970: 10020)
         let tag1 = journalEntryService.createNewTag("Sci-Fi")
         let tag2 = journalEntryService.createNewTag("Starts")
+        let image1 = UIImage(named: "TestImage1")
+        let image2 = UIImage(named: "TestImage2")
         journalEntryService.updateJournalEntry(entry0,
                                                aboutWork: "Interstellar",
+                                               withCoverImage: image1,
                                                withStartDate: date1,
                                                withFinishDate: date2,
                                                withEntryTitle: "Impressive",
@@ -94,6 +102,7 @@ class CoreDataTests: XCTestCase {
                                                withTags: [tag1, tag2],
                                                isFavorite: true)
         XCTAssertTrue(entry0.worksTitle == "Interstellar")
+        XCTAssertNotNil(entry0.image)
         XCTAssertTrue(entry0.startDate == date1)
         XCTAssertTrue(entry0.finishDate == date2)
         XCTAssertTrue(entry0.entryTitle == "Impressive")
@@ -104,6 +113,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.favorite == true)
         
         let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
+                                                            withCoverImage: image1,
                                                             withStartDate: date1,
                                                             withFinishDate: date2,
                                                             withEntryTitle: "Okay that's cool",
@@ -118,6 +128,7 @@ class CoreDataTests: XCTestCase {
         let tag3 = journalEntryService.createNewTag("NVM")
         journalEntryService.updateJournalEntry(entry1,
                                                aboutWork: "Hitman",
+                                               withCoverImage: image2,
                                                withStartDate: date1,
                                                withFinishDate: date3,
                                                withEntryTitle: "Not bad",
@@ -127,6 +138,7 @@ class CoreDataTests: XCTestCase {
                                                withTags: [tag1, tag3],
                                                isFavorite: false)
         XCTAssertTrue(entry1.worksTitle == "Hitman")
+        XCTAssertTrue(entry1.image == image2?.pngData())
         XCTAssertTrue(entry1.startDate == date1)
         XCTAssertTrue(entry1.finishDate == date3)
         XCTAssertTrue(entry1.entryTitle == "Not bad")
