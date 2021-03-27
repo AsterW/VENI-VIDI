@@ -17,7 +17,7 @@ class SimpleListContainerModel: DCContainerModel {
         super.cmDidLoad()
         
         if let handler = entryService{
-            if let entries = handler.fetchJournalEntries(){
+            if let entries = handler.fetchAllJournalEntries(){
                 for item in entries{
                     print(item.entryTitle ?? "No Title")
                 }
