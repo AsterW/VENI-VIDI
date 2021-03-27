@@ -77,6 +77,18 @@ extension JournalEntryService {
         }
     }
     
+    func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? {
+        do {
+            let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+            let entry = try managedObjectContext.fetch(fetchRequest)[0]
+            return entry
+        } catch {
+            print("Unexpected error at fetchJournalEntries(): \(error)")
+            return nil
+        }
+    }
+    
     func createJournalEntry(aboutWork work: String = "",
                             withCoverImage coverImage: UIImage? = nil,
                             withStartDate startDate: Date = Date(),
@@ -92,7 +104,9 @@ extension JournalEntryService {
         // Solution by https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
 //        let newJournalEntry = JournalEntry(context: self.managedObjectContext)
         
+        newJournalEntry.id = UUID()
         self.coreDataStack.saveContext()
+        
         self.updateJournalEntry(newJournalEntry,
                                 aboutWork: work,
                                 withCoverImage: coverImage,
