@@ -14,33 +14,13 @@
 		9247AEF025FDA133004016C3 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */; };
 		9247AF1325FDA517004016C3 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1225FDA517004016C3 /* CoreDataTests.swift */; };
 		9247AF1B25FDA860004016C3 /* JournalEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1A25FDA860004016C3 /* JournalEntryService.swift */; };
+		927F7657260E957200CE83B9 /* VENI_VIDI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 927F7655260E957200CE83B9 /* VENI_VIDI.xcdatamodeld */; };
 		92B4D0E525EC407F0028B7BB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B4D0E425EC407F0028B7BB /* CloudKit.framework */; };
-		92C2868E25FEBC12004E8902 /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770297CE25EB929500A72E5E /* DCViewController.swift */; };
-		92C2869225FEBC13004E8902 /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770297CE25EB929500A72E5E /* DCViewController.swift */; };
-		92E088B825FF9C15007EAED1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AECE25FD962C004016C3 /* CoreDataStack.swift */; };
-		92E088BC25FF9C16007EAED1 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AECE25FD962C004016C3 /* CoreDataStack.swift */; };
-		92E088BD25FF9C19007EAED1 /* JournalEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1A25FDA860004016C3 /* JournalEntryService.swift */; };
-		92E088C125FF9C1A007EAED1 /* JournalEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1A25FDA860004016C3 /* JournalEntryService.swift */; };
-		92E088C525FF9C39007EAED1 /* VENI_VIDI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */; };
-		92E088C925FF9C3A007EAED1 /* VENI_VIDI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */; };
-		92E088D025FF9C57007EAED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7625D782350039DF3C /* AppDelegate.swift */; };
-		92E088D425FF9C57007EAED1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7625D782350039DF3C /* AppDelegate.swift */; };
-		92E088D825FF9C72007EAED1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7A25D782350039DF3C /* ViewController.swift */; };
-		92E088DC25FF9C73007EAED1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7A25D782350039DF3C /* ViewController.swift */; };
-		92E088E025FF9C89007EAED1 /* UpdateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */; };
-		92E088E425FF9C89007EAED1 /* UpdateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */; };
-		92E088E825FF9C8E007EAED1 /* UpdateEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */; };
-		92E088E925FF9C8E007EAED1 /* UpdateEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F025F689B3009E1AF2 /* UpdateEntryCellModel.swift */; };
-		92E088EA25FF9C8E007EAED1 /* UpdateEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F525F689DD009E1AF2 /* UpdateEntryCell.swift */; };
-		92E088EE25FF9C8F007EAED1 /* UpdateEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */; };
-		92E088EF25FF9C8F007EAED1 /* UpdateEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F025F689B3009E1AF2 /* UpdateEntryCellModel.swift */; };
-		92E088F025FF9C8F007EAED1 /* UpdateEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F525F689DD009E1AF2 /* UpdateEntryCell.swift */; };
-		92E088F425FF9C9C007EAED1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E4625E8D734002451BC /* TimelineViewController.swift */; };
-		92E088F825FF9C9D007EAED1 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E4625E8D734002451BC /* TimelineViewController.swift */; };
+		92E088C525FF9C39007EAED1 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		92E088C925FF9C3A007EAED1 /* (null) in Sources */ = {isa = PBXBuildFile; };
 		92F7EA7725D782350039DF3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7625D782350039DF3C /* AppDelegate.swift */; };
 		92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7A25D782350039DF3C /* ViewController.swift */; };
 		92F7EA7E25D782350039DF3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA7C25D782350039DF3C /* Main.storyboard */; };
-		92F7EA8125D782350039DF3C /* VENI_VIDI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */; };
 		92F7EA8325D782380039DF3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA8225D782380039DF3C /* Assets.xcassets */; };
 		92F7EA8625D782380039DF3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */; };
 		92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */; };
@@ -56,38 +36,16 @@
 		E0ABE9F625F689DD009E1AF2 /* UpdateEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F525F689DD009E1AF2 /* UpdateEntryCell.swift */; };
 		E0DA6E4725E8D734002451BC /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E4625E8D734002451BC /* TimelineViewController.swift */; };
 		E0DA6E6425E8D832002451BC /* TimelineCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E6325E8D832002451BC /* TimelineCellModel.swift */; };
-		E0DA6E6525E8D832002451BC /* TimelineCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E6325E8D832002451BC /* TimelineCellModel.swift */; };
-		E0DA6E6625E8D832002451BC /* TimelineCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E6325E8D832002451BC /* TimelineCellModel.swift */; };
 		E0DA6E6B25E8D87A002451BC /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E6A25E8D87A002451BC /* TimelineCell.swift */; };
-		E0DA6E6C25E8D87A002451BC /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E6A25E8D87A002451BC /* TimelineCell.swift */; };
-		E0DA6E6D25E8D87A002451BC /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E6A25E8D87A002451BC /* TimelineCell.swift */; };
 		E0DA6E7725E8D8AC002451BC /* TimelineContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E7625E8D8AC002451BC /* TimelineContainerModel.swift */; };
-		E0DA6E7825E8D8AC002451BC /* TimelineContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E7625E8D8AC002451BC /* TimelineContainerModel.swift */; };
-		E0DA6E7925E8D8AC002451BC /* TimelineContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E7625E8D8AC002451BC /* TimelineContainerModel.swift */; };
 		E0DA6E8125E8D90F002451BC /* TimeLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8025E8D90F002451BC /* TimeLabelCell.swift */; };
-		E0DA6E8225E8D90F002451BC /* TimeLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8025E8D90F002451BC /* TimeLabelCell.swift */; };
-		E0DA6E8325E8D90F002451BC /* TimeLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8025E8D90F002451BC /* TimeLabelCell.swift */; };
 		E0DA6E8825E8D93A002451BC /* TimeLabelCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8725E8D93A002451BC /* TimeLabelCellModel.swift */; };
-		E0DA6E8925E8D93A002451BC /* TimeLabelCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8725E8D93A002451BC /* TimeLabelCellModel.swift */; };
-		E0DA6E8A25E8D93A002451BC /* TimeLabelCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8725E8D93A002451BC /* TimeLabelCellModel.swift */; };
 		E0DA6E8F25E8D94C002451BC /* EntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8E25E8D94C002451BC /* EntryData.swift */; };
-		E0DA6E9025E8D94C002451BC /* EntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8E25E8D94C002451BC /* EntryData.swift */; };
-		E0DA6E9125E8D94C002451BC /* EntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8E25E8D94C002451BC /* EntryData.swift */; };
 		E0DA6E9625E8D97B002451BC /* TimelineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E9525E8D97B002451BC /* TimelineData.swift */; };
-		E0DA6E9725E8D97B002451BC /* TimelineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E9525E8D97B002451BC /* TimelineData.swift */; };
-		E0DA6E9825E8D97B002451BC /* TimelineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E9525E8D97B002451BC /* TimelineData.swift */; };
 		E0DA6E9E25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E9D25E8DA9E002451BC /* DetailedEntryViewController.swift */; };
-		E0DA6E9F25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E9D25E8DA9E002451BC /* DetailedEntryViewController.swift */; };
-		E0DA6EA025E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E9D25E8DA9E002451BC /* DetailedEntryViewController.swift */; };
 		E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */; };
-		E0DA6EA925E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */; };
-		E0DA6EAA25E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */; };
 		E0DA6EAF25E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */; };
-		E0DA6EB025E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */; };
-		E0DA6EB125E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */; };
 		E0DA6EB625E8DF26002451BC /* DetailedEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EB525E8DF26002451BC /* DetailedEntryCell.swift */; };
-		E0DA6EB725E8DF26002451BC /* DetailedEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EB525E8DF26002451BC /* DetailedEntryCell.swift */; };
-		E0DA6EB825E8DF26002451BC /* DetailedEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EB525E8DF26002451BC /* DetailedEntryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,13 +78,13 @@
 		9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		9247AF1225FDA517004016C3 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
 		9247AF1A25FDA860004016C3 /* JournalEntryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryService.swift; sourceTree = "<group>"; };
+		927F7656260E957200CE83B9 /* VENI_VIDI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VENI_VIDI.xcdatamodel; sourceTree = "<group>"; };
 		92B4D0E325EC407D0028B7BB /* VENI VIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VENI VIDI.entitlements"; sourceTree = "<group>"; };
 		92B4D0E425EC407F0028B7BB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		92F7EA7325D782350039DF3C /* VENI VIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VENI VIDI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F7EA7625D782350039DF3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92F7EA7A25D782350039DF3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		92F7EA7D25D782350039DF3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		92F7EA8025D782350039DF3C /* VENI_VIDI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VENI_VIDI.xcdatamodel; sourceTree = "<group>"; };
 		92F7EA8225D782380039DF3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92F7EA8525D782380039DF3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92F7EA8725D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -214,7 +172,7 @@
 		92C248C125F3343D0043C2AE /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */,
+				927F7655260E957200CE83B9 /* VENI_VIDI.xcdatamodeld */,
 				9247AECE25FD962C004016C3 /* CoreDataStack.swift */,
 				9247AF1A25FDA860004016C3 /* JournalEntryService.swift */,
 			);
@@ -593,7 +551,7 @@
 				E0ABE9EC25F67F91009E1AF2 /* UpdateEntryContainerModel.swift in Sources */,
 				E0DA6E9625E8D97B002451BC /* TimelineData.swift in Sources */,
 				92F7EA7725D782350039DF3C /* AppDelegate.swift in Sources */,
-				92F7EA8125D782350039DF3C /* VENI_VIDI.xcdatamodeld in Sources */,
+				927F7657260E957200CE83B9 /* VENI_VIDI.xcdatamodeld in Sources */,
 				E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
 				E0DA6E9E25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */,
 				E05A00282608F37F00533A4C /* Date.swift in Sources */,
@@ -609,31 +567,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9247AEF025FDA133004016C3 /* TestCoreDataStack.swift in Sources */,
-				92E088E825FF9C8E007EAED1 /* UpdateEntryContainerModel.swift in Sources */,
-				E0DA6EB725E8DF26002451BC /* DetailedEntryCell.swift in Sources */,
-				92E088E025FF9C89007EAED1 /* UpdateEntryViewController.swift in Sources */,
-				92E088D025FF9C57007EAED1 /* AppDelegate.swift in Sources */,
 				9247AF1325FDA517004016C3 /* CoreDataTests.swift in Sources */,
-				E0DA6E6C25E8D87A002451BC /* TimelineCell.swift in Sources */,
-				E0057F9B25FFCD9700CE6716 /* VENI_VIDIContainerModel.swift in Sources */,
-				E0DA6E7825E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,
-				E0DA6E9F25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */,
-				92E088F425FF9C9C007EAED1 /* TimelineViewController.swift in Sources */,
-				E0DA6E6525E8D832002451BC /* TimelineCellModel.swift in Sources */,
-				92E088C525FF9C39007EAED1 /* VENI_VIDI.xcdatamodeld in Sources */,
-				92E088B825FF9C15007EAED1 /* CoreDataStack.swift in Sources */,
-				92E088D825FF9C72007EAED1 /* ViewController.swift in Sources */,
-				92E088EA25FF9C8E007EAED1 /* UpdateEntryCell.swift in Sources */,
-				E0DA6E8925E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
+				92E088C525FF9C39007EAED1 /* (null) in Sources */,
 				92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */,
-				92E088E925FF9C8E007EAED1 /* UpdateEntryCellModel.swift in Sources */,
-				E0DA6E9025E8D94C002451BC /* EntryData.swift in Sources */,
-				E0DA6E9725E8D97B002451BC /* TimelineData.swift in Sources */,
-				E0DA6EB025E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */,
-				E0DA6EA925E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
-				E0DA6E8225E8D90F002451BC /* TimeLabelCell.swift in Sources */,
-				92C2868E25FEBC12004E8902 /* DCViewController.swift in Sources */,
-				92E088BD25FF9C19007EAED1 /* JournalEntryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,30 +577,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E0DA6EB825E8DF26002451BC /* DetailedEntryCell.swift in Sources */,
-				E0DA6E6D25E8D87A002451BC /* TimelineCell.swift in Sources */,
-				E0DA6E7925E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,
-				92E088EF25FF9C8F007EAED1 /* UpdateEntryCellModel.swift in Sources */,
-				92E088EE25FF9C8F007EAED1 /* UpdateEntryContainerModel.swift in Sources */,
-				92E088F025FF9C8F007EAED1 /* UpdateEntryCell.swift in Sources */,
-				92C2869225FEBC13004E8902 /* DCViewController.swift in Sources */,
-				E0DA6EA025E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */,
-				E0DA6E6625E8D832002451BC /* TimelineCellModel.swift in Sources */,
-				E0057F9C25FFCD9700CE6716 /* VENI_VIDIContainerModel.swift in Sources */,
-				E0DA6E8A25E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
-				92E088F825FF9C9D007EAED1 /* TimelineViewController.swift in Sources */,
-				92E088BC25FF9C16007EAED1 /* CoreDataStack.swift in Sources */,
 				92F7EA9C25D782380039DF3C /* VENI_VIDIUITests.swift in Sources */,
-				E0DA6E9125E8D94C002451BC /* EntryData.swift in Sources */,
-				E0DA6E9825E8D97B002451BC /* TimelineData.swift in Sources */,
-				92E088C925FF9C3A007EAED1 /* VENI_VIDI.xcdatamodeld in Sources */,
-				92E088DC25FF9C73007EAED1 /* ViewController.swift in Sources */,
-				92E088C125FF9C1A007EAED1 /* JournalEntryService.swift in Sources */,
-				E0DA6EB125E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */,
-				E0DA6EAA25E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
-				92E088E425FF9C89007EAED1 /* UpdateEntryViewController.swift in Sources */,
-				92E088D425FF9C57007EAED1 /* AppDelegate.swift in Sources */,
-				E0DA6E8325E8D90F002451BC /* TimeLabelCell.swift in Sources */,
+				92E088C925FF9C3A007EAED1 /* (null) in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1007,12 +921,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		92F7EA7F25D782350039DF3C /* VENI_VIDI.xcdatamodeld */ = {
+		927F7655260E957200CE83B9 /* VENI_VIDI.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				92F7EA8025D782350039DF3C /* VENI_VIDI.xcdatamodel */,
+				927F7656260E957200CE83B9 /* VENI_VIDI.xcdatamodel */,
 			);
-			currentVersion = 92F7EA8025D782350039DF3C /* VENI_VIDI.xcdatamodel */;
+			currentVersion = 927F7656260E957200CE83B9 /* VENI_VIDI.xcdatamodel */;
 			path = VENI_VIDI.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
