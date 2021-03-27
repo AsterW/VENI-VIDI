@@ -24,11 +24,13 @@ class CoreDataTests: XCTestCase {
 
     var coreDataStack: CoreDataStack!
     var journalEntryService: JournalEntryService!
+    var secondJournalEntryService: JournalEntryService!
 
     override func setUp() {
         super.setUp()
         coreDataStack = TestCoreDataStack()
         journalEntryService = JournalEntryService(coreDataStack: coreDataStack)
+        secondJournalEntryService = JournalEntryService(coreDataStack: coreDataStack)
     }
 
     override func tearDown() {
@@ -50,6 +52,18 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.latitude == 0)
         XCTAssertTrue(entry0.tags?.count == 0)
         XCTAssertTrue(entry0.favorite == false)
+        let fetchedEntry0 = journalEntryService.fetchJournalEntries()?[0]
+        XCTAssertNotNil(fetchedEntry0, "Entry0 should not be nil")
+        XCTAssertNotNil(fetchedEntry0?.startDate)
+        XCTAssertNotNil(fetchedEntry0?.finishDate)
+        XCTAssertTrue(fetchedEntry0?.worksTitle == "")
+        XCTAssertTrue(fetchedEntry0?.entryTitle == "")
+        XCTAssertTrue(fetchedEntry0?.entryContent == "")
+        XCTAssertTrue(fetchedEntry0?.longitude == 0)
+        XCTAssertTrue(fetchedEntry0?.latitude == 0)
+        XCTAssertTrue(fetchedEntry0?.tags?.count == 0)
+        XCTAssertTrue(fetchedEntry0?.favorite == false)
+        
         
         let date1 = Date(timeIntervalSince1970: 10080)
         let date2 = Date(timeIntervalSince1970: 10080)
@@ -175,6 +189,31 @@ class CoreDataTests: XCTestCase {
         journalEntryService.deleteJournalEntry(entry1)
         let result1 = journalEntryService.fetchJournalEntries()
         XCTAssertTrue(result1?.count == 0, "There should be no entry after entry1 is deleted")
+    }
+    
+    func testCrossJournalEntryServiceAccess() {
+        
+        XCTAssertFalse(journalEntryService === secondJournalEntryService)
+        
+        let entry0 = journalEntryService.createJournalEntry()
+        XCTAssertNotNil(entry0)
+        XCTAssertTrue(secondJournalEntryService.fetchJournalEntries()?.count == 1)
+        
+        let date1 = Date(timeIntervalSince1970: 10080)
+        let date2 = Date(timeIntervalSince1970: 10080)
+        let tag1 = journalEntryService.createNewTag("good")
+        let tag2 = secondJournalEntryService.createNewTag("good2")
+        let entry1 = secondJournalEntryService.createJournalEntry(aboutWork: "Batman",
+                                                                  withStartDate: date1,
+                                                                  withFinishDate: date2,
+                                                                  withEntryTitle: "Okay that's cool",
+                                                                  withEntryContent: "Very very cool",
+                                                                  atLongitude: 1.11,
+                                                                  atLatitude: -2.22,
+                                                                  withTags: [tag1, tag2],
+                                                                  isFavorite: true)
+        XCTAssertNotNil(entry1)
+        XCTAssertTrue(journalEntryService.fetchJournalEntries()?.count == 2)
     }
     
     // MARK: - TODO: Tag Test Cases
