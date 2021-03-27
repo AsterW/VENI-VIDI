@@ -169,6 +169,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		922A3A08260EAB3D0094544E /* DataTests */ = {
+			isa = PBXGroup;
+			children = (
+				9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */,
+				9247AF1225FDA517004016C3 /* CoreDataTests.swift */,
+			);
+			path = DataTests;
+			sourceTree = "<group>";
+		};
 		92C248C125F3343D0043C2AE /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,9 +234,8 @@
 		92F7EA8F25D782380039DF3C /* VENI VIDITests */ = {
 			isa = PBXGroup;
 			children = (
-				9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */,
+				922A3A08260EAB3D0094544E /* DataTests */,
 				92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */,
-				9247AF1225FDA517004016C3 /* CoreDataTests.swift */,
 				92F7EA9225D782380039DF3C /* Info.plist */,
 			);
 			path = "VENI VIDITests";

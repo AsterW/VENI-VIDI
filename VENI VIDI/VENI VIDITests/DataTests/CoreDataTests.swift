@@ -15,6 +15,7 @@
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
 
+import UIKit
 @testable import VENI_VIDI
 import XCTest
 
@@ -23,11 +24,13 @@ class CoreDataTests: XCTestCase {
 
     var coreDataStack: CoreDataStack!
     var journalEntryService: JournalEntryService!
+    var secondJournalEntryService: JournalEntryService!
 
     override func setUp() {
         super.setUp()
         coreDataStack = TestCoreDataStack()
         journalEntryService = JournalEntryService(coreDataStack: coreDataStack)
+        secondJournalEntryService = JournalEntryService(coreDataStack: coreDataStack)
     }
 
     override func tearDown() {
@@ -40,6 +43,7 @@ class CoreDataTests: XCTestCase {
     func testCreateJournalEntry() {
         let entry0 = journalEntryService.createJournalEntry()
         XCTAssertNotNil(entry0, "Entry0 should not be nil")
+        XCTAssertNotNil(entry0.id)
         XCTAssertNotNil(entry0.startDate)
         XCTAssertNotNil(entry0.finishDate)
         XCTAssertTrue(entry0.worksTitle == "")
@@ -49,12 +53,26 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.latitude == 0)
         XCTAssertTrue(entry0.tags?.count == 0)
         XCTAssertTrue(entry0.favorite == false)
+        let fetchedEntry0 = journalEntryService.fetchJournalEntries()?[0]
+        XCTAssertNotNil(fetchedEntry0, "Entry0 should not be nil")
+        XCTAssertTrue(entry0.id == fetchedEntry0?.id)
+        XCTAssertNotNil(fetchedEntry0?.startDate)
+        XCTAssertNotNil(fetchedEntry0?.finishDate)
+        XCTAssertTrue(fetchedEntry0?.worksTitle == "")
+        XCTAssertTrue(fetchedEntry0?.entryTitle == "")
+        XCTAssertTrue(fetchedEntry0?.entryContent == "")
+        XCTAssertTrue(fetchedEntry0?.longitude == 0)
+        XCTAssertTrue(fetchedEntry0?.latitude == 0)
+        XCTAssertTrue(fetchedEntry0?.tags?.count == 0)
+        XCTAssertTrue(fetchedEntry0?.favorite == false)
         
         let date1 = Date(timeIntervalSince1970: 10080)
         let date2 = Date(timeIntervalSince1970: 10080)
         let tag1 = journalEntryService.createNewTag("Badass")
         let tag2 = journalEntryService.createNewTag("Superhero")
+        let image1 = UIImage(named: "TestImage1")
         let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
+                                                            withCoverImage: image1,
                                                             withStartDate: date1,
                                                             withFinishDate: date2,
                                                             withEntryTitle: "Okay that's cool",
@@ -65,6 +83,7 @@ class CoreDataTests: XCTestCase {
                                                             isFavorite: true)
         XCTAssertNotNil(entry1, "Entry1 should not be nil")
         XCTAssertTrue(entry1.worksTitle == "Batman")
+        XCTAssertNotNil(entry1.image)
         XCTAssertTrue(entry1.startDate == date1)
         XCTAssertTrue(entry1.finishDate == date2)
         XCTAssertTrue(entry1.entryTitle == "Okay that's cool")
@@ -78,13 +97,17 @@ class CoreDataTests: XCTestCase {
     func testUpdateJournalEntry() {
         let entry0 = journalEntryService.createJournalEntry()
         XCTAssertNotNil(entry0, "Entry0 should not be nil")
+        XCTAssertNil(entry0.image)
         
         let date1 = Date(timeIntervalSince1970: 10080)
         let date2 = Date(timeIntervalSince1970: 10020)
         let tag1 = journalEntryService.createNewTag("Sci-Fi")
         let tag2 = journalEntryService.createNewTag("Starts")
+        let image1 = UIImage(named: "TestImage1")
+        let image2 = UIImage(named: "TestImage2")
         journalEntryService.updateJournalEntry(entry0,
                                                aboutWork: "Interstellar",
+                                               withCoverImage: image1,
                                                withStartDate: date1,
                                                withFinishDate: date2,
                                                withEntryTitle: "Impressive",
@@ -94,6 +117,7 @@ class CoreDataTests: XCTestCase {
                                                withTags: [tag1, tag2],
                                                isFavorite: true)
         XCTAssertTrue(entry0.worksTitle == "Interstellar")
+        XCTAssertNotNil(entry0.image)
         XCTAssertTrue(entry0.startDate == date1)
         XCTAssertTrue(entry0.finishDate == date2)
         XCTAssertTrue(entry0.entryTitle == "Impressive")
@@ -104,6 +128,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.favorite == true)
         
         let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
+                                                            withCoverImage: image1,
                                                             withStartDate: date1,
                                                             withFinishDate: date2,
                                                             withEntryTitle: "Okay that's cool",
@@ -118,6 +143,7 @@ class CoreDataTests: XCTestCase {
         let tag3 = journalEntryService.createNewTag("NVM")
         journalEntryService.updateJournalEntry(entry1,
                                                aboutWork: "Hitman",
+                                               withCoverImage: image2,
                                                withStartDate: date1,
                                                withFinishDate: date3,
                                                withEntryTitle: "Not bad",
@@ -127,6 +153,7 @@ class CoreDataTests: XCTestCase {
                                                withTags: [tag1, tag3],
                                                isFavorite: false)
         XCTAssertTrue(entry1.worksTitle == "Hitman")
+        XCTAssertTrue(entry1.image == image2?.pngData())
         XCTAssertTrue(entry1.startDate == date1)
         XCTAssertTrue(entry1.finishDate == date3)
         XCTAssertTrue(entry1.entryTitle == "Not bad")
@@ -163,6 +190,68 @@ class CoreDataTests: XCTestCase {
         journalEntryService.deleteJournalEntry(entry1)
         let result1 = journalEntryService.fetchJournalEntries()
         XCTAssertTrue(result1?.count == 0, "There should be no entry after entry1 is deleted")
+    }
+    
+    func testFetchJournalEntryWithUUID() {
+        let entry0 = journalEntryService.createJournalEntry()
+        let fetchedEntry0 = journalEntryService.fetchJournalEntryWithUUID(entry0.id!)
+        XCTAssertTrue(entry0 == fetchedEntry0)
+
+        let date1 = Date(timeIntervalSince1970: 10080)
+        let date2 = Date(timeIntervalSince1970: 10080)
+        let tag1 = journalEntryService.createNewTag("Badass")
+        let tag2 = journalEntryService.createNewTag("Superhero")
+        let image1 = UIImage(named: "TestImage1")
+        let image2 = UIImage(named: "TestImage2")
+        let entry1 = journalEntryService.createJournalEntry(aboutWork: "Batman",
+                                                            withCoverImage: image1,
+                                                            withStartDate: date1,
+                                                            withFinishDate: date2,
+                                                            withEntryTitle: "Okay that's cool",
+                                                            withEntryContent: "Very very cool",
+                                                            atLongitude: 1.11,
+                                                            atLatitude: -2.22,
+                                                            withTags: [tag1, tag2],
+                                                            isFavorite: true)
+        let date3 = Date(timeIntervalSince1970: 20060)
+        let tag3 = journalEntryService.createNewTag("NVM")
+        journalEntryService.updateJournalEntry(entry1,
+                                               aboutWork: "Hitman",
+                                               withCoverImage: image2,
+                                               withStartDate: date1,
+                                               withFinishDate: date3,
+                                               withEntryTitle: "Not bad",
+                                               withEntryContent: "Just okay",
+                                               atLongitude: -6.7,
+                                               atLatitude: 239432,
+                                               withTags: [tag1, tag3],
+                                               isFavorite: false)
+        let fetchedEntry1 = journalEntryService.fetchJournalEntryWithUUID(entry1.id!)
+        XCTAssertTrue(entry1 == fetchedEntry1)
+    }
+    
+    func testCrossJournalEntryServiceAccess() {
+        XCTAssertFalse(journalEntryService === secondJournalEntryService)
+        
+        let entry0 = journalEntryService.createJournalEntry()
+        XCTAssertNotNil(entry0)
+        XCTAssertTrue(secondJournalEntryService.fetchJournalEntries()?.count == 1)
+        
+        let date1 = Date(timeIntervalSince1970: 10080)
+        let date2 = Date(timeIntervalSince1970: 10080)
+        let tag1 = journalEntryService.createNewTag("good")
+        let tag2 = secondJournalEntryService.createNewTag("good2")
+        let entry1 = secondJournalEntryService.createJournalEntry(aboutWork: "Batman",
+                                                                  withStartDate: date1,
+                                                                  withFinishDate: date2,
+                                                                  withEntryTitle: "Okay that's cool",
+                                                                  withEntryContent: "Very very cool",
+                                                                  atLongitude: 1.11,
+                                                                  atLatitude: -2.22,
+                                                                  withTags: [tag1, tag2],
+                                                                  isFavorite: true)
+        XCTAssertNotNil(entry1)
+        XCTAssertTrue(journalEntryService.fetchJournalEntries()?.count == 2)
     }
     
     // MARK: - TODO: Tag Test Cases
