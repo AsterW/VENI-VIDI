@@ -61,15 +61,15 @@ class CoreDataTests: XCTestCase {
         let image1 = UIImage(named: "TestImage1")
         XCTAssertNotNil(image1)
         let entry1 = dataService.createJournalEntry(aboutWork: "Batman",
-                                                            withCoverImage: image1,
-                                                            withStartDate: date1,
-                                                            withFinishDate: date2,
-                                                            withEntryTitle: "Okay that's cool",
-                                                            withEntryContent: "Very very cool",
-                                                            atLongitude: 1.11,
-                                                            atLatitude: -2.22,
-                                                            withTags: [tag1, tag2],
-                                                            isFavorite: true)
+                                                    withCoverImage: image1,
+                                                    withStartDate: date1,
+                                                    withFinishDate: date2,
+                                                    withEntryTitle: "Okay that's cool",
+                                                    withEntryContent: "Very very cool",
+                                                    atLongitude: 1.11,
+                                                    atLatitude: -2.22,
+                                                    withTags: [tag1, tag2],
+                                                    isFavorite: true)
         XCTAssertNotNil(entry1, "entry1 should not be nil")
         XCTAssertNotNil(entry1.id, "entry1.id should not be nil")
         XCTAssertTrue(entry1.worksTitle == "Batman")
@@ -99,16 +99,16 @@ class CoreDataTests: XCTestCase {
         XCTAssertNotNil(image1)
         XCTAssertNotNil(image2)
         XCTAssertTrue(dataService.updateJournalEntry(withUUID: entry0.id ?? UUID(),
-                                                             aboutWork: "Interstellar",
-                                                             withCoverImage: image1,
-                                                             withStartDate: date1,
-                                                             withFinishDate: date2,
-                                                             withEntryTitle: "Impressive",
-                                                             withEntryContent: "I don't know what to say",
-                                                             atLongitude: 3.14,
-                                                             atLatitude: -6.28,
-                                                             withTags: [tag1, tag2],
-                                                             isFavorite: true))
+                                                     aboutWork: "Interstellar",
+                                                     withCoverImage: image1,
+                                                     withStartDate: date1,
+                                                     withFinishDate: date2,
+                                                     withEntryTitle: "Impressive",
+                                                     withEntryContent: "I don't know what to say",
+                                                     atLongitude: 3.14,
+                                                     atLatitude: -6.28,
+                                                     withTags: [tag1, tag2],
+                                                     isFavorite: true))
         XCTAssertTrue(entry0.worksTitle == "Interstellar")
         XCTAssertNotNil(entry0.image)
         XCTAssertTrue(entry0.startDate == date1)
@@ -119,45 +119,45 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.latitude == -6.28)
         XCTAssertTrue(entry0.tags == NSSet(array: [tag1, tag2]))
         XCTAssertTrue(entry0.favorite == true)
-        let fetchedentry0 = dataService.fetchJournalEntryWithUUID(entry0.id!)
-        XCTAssertNotNil(fetchedentry0)
-        XCTAssertTrue(fetchedentry0?.worksTitle == "Interstellar")
-        XCTAssertNotNil(fetchedentry0?.image)
-        XCTAssertTrue(fetchedentry0?.startDate == date1)
-        XCTAssertTrue(fetchedentry0?.finishDate == date2)
-        XCTAssertTrue(fetchedentry0?.entryTitle == "Impressive")
-        XCTAssertTrue(fetchedentry0?.entryContent == "I don't know what to say")
-        XCTAssertTrue(fetchedentry0?.longitude == 3.14)
-        XCTAssertTrue(fetchedentry0?.latitude == -6.28)
-        XCTAssertTrue(fetchedentry0?.tags == NSSet(array: [tag1, tag2]))
-        XCTAssertTrue(fetchedentry0?.favorite == true)
+        let fetchedEntry0 = dataService.fetchJournalEntryWithUUID(entry0.id!)
+        XCTAssertNotNil(fetchedEntry0)
+        XCTAssertTrue(fetchedEntry0?.worksTitle == "Interstellar")
+        XCTAssertNotNil(fetchedEntry0?.image)
+        XCTAssertTrue(fetchedEntry0?.startDate == date1)
+        XCTAssertTrue(fetchedEntry0?.finishDate == date2)
+        XCTAssertTrue(fetchedEntry0?.entryTitle == "Impressive")
+        XCTAssertTrue(fetchedEntry0?.entryContent == "I don't know what to say")
+        XCTAssertTrue(fetchedEntry0?.longitude == 3.14)
+        XCTAssertTrue(fetchedEntry0?.latitude == -6.28)
+        XCTAssertTrue(fetchedEntry0?.tags == NSSet(array: [tag1, tag2]))
+        XCTAssertTrue(fetchedEntry0?.favorite == true)
         
         let entry1 = dataService.createJournalEntry(aboutWork: "Batman",
-                                                            withCoverImage: image1,
-                                                            withStartDate: date1,
-                                                            withFinishDate: date2,
-                                                            withEntryTitle: "Okay that's cool",
-                                                            withEntryContent: "Very very cool",
-                                                            atLongitude: 1.11,
-                                                            atLatitude: -2.22,
-                                                            withTags: [tag1, tag2],
-                                                            isFavorite: true)
+                                                    withCoverImage: image1,
+                                                    withStartDate: date1,
+                                                    withFinishDate: date2,
+                                                    withEntryTitle: "Okay that's cool",
+                                                    withEntryContent: "Very very cool",
+                                                    atLongitude: 1.11,
+                                                    atLatitude: -2.22,
+                                                    withTags: [tag1, tag2],
+                                                    isFavorite: true)
         XCTAssertNotNil(entry1, "entry1 should not be nil")
         XCTAssertNotNil(entry1.id, "entry1.id should not be nil")
         
         let date3 = Date(timeIntervalSince1970: 20060)
         let tag3 = dataService.createNewTag("NVM")
-        dataService.updateJournalEntry(withUUID: entry1.id ?? UUID(),
-                                               aboutWork: "Hitman",
-                                               withCoverImage: image2,
-                                               withStartDate: date1,
-                                               withFinishDate: date3,
-                                               withEntryTitle: "Not bad",
-                                               withEntryContent: "Just okay",
-                                               atLongitude: -6.7,
-                                               atLatitude: 239432,
-                                               withTags: [tag1, tag3],
-                                               isFavorite: false)
+        XCTAssertTrue(dataService.updateJournalEntry(withUUID: entry1.id ?? UUID(),
+                                                     aboutWork: "Hitman",
+                                                     withCoverImage: image2,
+                                                     withStartDate: date1,
+                                                     withFinishDate: date3,
+                                                     withEntryTitle: "Not bad",
+                                                     withEntryContent: "Just okay",
+                                                     atLongitude: -6.7,
+                                                     atLatitude: 239432,
+                                                     withTags: [tag1, tag3],
+                                                     isFavorite: false))
         XCTAssertTrue(entry1.worksTitle == "Hitman")
         XCTAssertTrue(entry1.image == image2?.pngData())
         XCTAssertTrue(entry1.startDate == date1)
@@ -184,14 +184,14 @@ class CoreDataTests: XCTestCase {
         let tag1 = dataService.createNewTag("good")
         let tag2 = dataService.createNewTag("good2")
         let entry1 = dataService.createJournalEntry(aboutWork: "Batman",
-                                                            withStartDate: date1,
-                                                            withFinishDate: date2,
-                                                            withEntryTitle: "Okay that's cool",
-                                                            withEntryContent: "Very very cool",
-                                                            atLongitude: 1.11,
-                                                            atLatitude: -2.22,
-                                                            withTags: [tag1, tag2],
-                                                            isFavorite: true)
+                                                    withStartDate: date1,
+                                                    withFinishDate: date2,
+                                                    withEntryTitle: "Okay that's cool",
+                                                    withEntryContent: "Very very cool",
+                                                    atLongitude: 1.11,
+                                                    atLatitude: -2.22,
+                                                    withTags: [tag1, tag2],
+                                                    isFavorite: true)
         XCTAssertNotNil(entry1, "entry1 should not be nil before deletion")
         XCTAssertNotNil(entry1.id, "entry1.id should not be nil before deletion")
         
@@ -202,8 +202,8 @@ class CoreDataTests: XCTestCase {
     
     func testFetchJournalEntryWithUUID() {
         let entry0 = dataService.createJournalEntry()
-        let fetchedentry0 = dataService.fetchJournalEntryWithUUID(entry0.id!)
-        XCTAssertTrue(entry0 == fetchedentry0)
+        let fetchedEntry0 = dataService.fetchJournalEntryWithUUID(entry0.id!)
+        XCTAssertTrue(entry0 == fetchedEntry0)
 
         let date1 = Date(timeIntervalSince1970: 10080)
         let date2 = Date(timeIntervalSince1970: 10080)
@@ -214,32 +214,32 @@ class CoreDataTests: XCTestCase {
         XCTAssertNotNil(image1)
         XCTAssertNotNil(image2)
         let entry1 = dataService.createJournalEntry(aboutWork: "Batman",
-                                                            withCoverImage: image1,
-                                                            withStartDate: date1,
-                                                            withFinishDate: date2,
-                                                            withEntryTitle: "Okay that's cool",
-                                                            withEntryContent: "Very very cool",
-                                                            atLongitude: 1.11,
-                                                            atLatitude: -2.22,
-                                                            withTags: [tag1, tag2],
-                                                            isFavorite: true)
+                                                    withCoverImage: image1,
+                                                    withStartDate: date1,
+                                                    withFinishDate: date2,
+                                                    withEntryTitle: "Okay that's cool",
+                                                    withEntryContent: "Very very cool",
+                                                    atLongitude: 1.11,
+                                                    atLatitude: -2.22,
+                                                    withTags: [tag1, tag2],
+                                                    isFavorite: true)
         XCTAssertNotNil(entry1, "entry1 should not be nil")
         XCTAssertNotNil(entry1.id, "entry1.id should not be nil")
         let date3 = Date(timeIntervalSince1970: 20060)
         let tag3 = dataService.createNewTag("NVM")
-        dataService.updateJournalEntry(withUUID: entry1.id ?? UUID(),
-                                               aboutWork: "Hitman",
-                                               withCoverImage: image2,
-                                               withStartDate: date1,
-                                               withFinishDate: date3,
-                                               withEntryTitle: "Not bad",
-                                               withEntryContent: "Just okay",
-                                               atLongitude: -6.7,
-                                               atLatitude: 239432,
-                                               withTags: [tag1, tag3],
-                                               isFavorite: false)
-        let fetchedentry1 = dataService.fetchJournalEntryWithUUID(entry1.id!)
-        XCTAssertTrue(entry1 == fetchedentry1)
+        XCTAssertTrue(dataService.updateJournalEntry(withUUID: entry1.id ?? UUID(),
+                                                     aboutWork: "Hitman",
+                                                     withCoverImage: image2,
+                                                     withStartDate: date1,
+                                                     withFinishDate: date3,
+                                                     withEntryTitle: "Not bad",
+                                                     withEntryContent: "Just okay",
+                                                     atLongitude: -6.7,
+                                                     atLatitude: 239432,
+                                                     withTags: [tag1, tag3],
+                                                     isFavorite: false))
+        let fetchedEntry1 = dataService.fetchJournalEntryWithUUID(entry1.id!)
+        XCTAssertTrue(entry1 == fetchedEntry1)
     }
     
     func testCrossDataServiceAccess() {
@@ -254,14 +254,14 @@ class CoreDataTests: XCTestCase {
         let tag1 = dataService.createNewTag("good")
         let tag2 = secondDataService.createNewTag("good2")
         let entry1 = secondDataService.createJournalEntry(aboutWork: "Batman",
-                                                                  withStartDate: date1,
-                                                                  withFinishDate: date2,
-                                                                  withEntryTitle: "Okay that's cool",
-                                                                  withEntryContent: "Very very cool",
-                                                                  atLongitude: 1.11,
-                                                                  atLatitude: -2.22,
-                                                                  withTags: [tag1, tag2],
-                                                                  isFavorite: true)
+                                                          withStartDate: date1,
+                                                          withFinishDate: date2,
+                                                          withEntryTitle: "Okay that's cool",
+                                                          withEntryContent: "Very very cool",
+                                                          atLongitude: 1.11,
+                                                          atLatitude: -2.22,
+                                                          withTags: [tag1, tag2],
+                                                          isFavorite: true)
         XCTAssertNotNil(entry1)
         XCTAssertTrue(dataService.fetchAllJournalEntries()?.count == 2)
     }
