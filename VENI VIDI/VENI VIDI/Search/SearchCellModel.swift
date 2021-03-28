@@ -10,38 +10,34 @@ import DCFrame
 import SnapKit
 import UIKit
 
-class SearchCellModel: DCCellModel{
-    var title: String = "some title"
-    var picture: UIImage?
-    var rating: Double = 0
-    var comment: String=""
+class SearchCell: DCBaseCell {
+    static let textChanged = DCEventID()
     
-    required init() {
-        super.init()
-        
-        cellHeight = 100
-        cellClass = SearchCell.self
-    }
+    private lazy var searchBar: UISearchBar = {
+        let view = UISearchBar()
+        self.contentView.addSubview(view)
+        view.delegate = self
+        return view
+    }()
 
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        searchBar.frame = contentView.bounds
+    }
+    
+    private func textChanged(_ text: String) {
+        setCellData(text)
+        sendEvent(Self.textChanged, data: text)
+    }
+    
+    override func cellModelDidUpdate() {
+        super.cellModelDidUpdate()
+        searchBar.text = getCellData(default: "")
+    }
 }
 
-class SearchCell: DCCell<SearchCellModel>, UISearchBarDelegate {
-    let searchBar = UISearchBar()
-    
-    override func setupUI() {
-        super.setupUI()
-        
-        self.backgroundColor = .clear
-        contentView.addSubview(searchBar)
-        
-        searchBar.backgroundColor = .clear
-        searchBar.snp.makeConstraints { (make) in
-            make.top.centerX.equalToSuperview()
-            make.width.equalToSuperview().inset(20)
-        }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        
+extension SearchCell: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        textChanged(searchText)
     }
 }

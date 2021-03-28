@@ -7,18 +7,17 @@
 
 import Foundation
 import DCFrame
+import SnapKit
 import UIKit
 
 class SearchViewController: DCViewController{
-    let searchCM = DCContainerModel()
+    let searchCM = SearchCM()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dcTableView.backgroundColor = .clear
         view.backgroundColor = .clear
         navigationItem.title = "Search"
-        
-        searchCM.addSubmodel(SearchCellModel())
         loadCM(searchCM)
     }
     
