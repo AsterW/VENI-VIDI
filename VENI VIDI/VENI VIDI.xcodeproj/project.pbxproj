@@ -13,7 +13,7 @@
 		9247AECF25FD962C004016C3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AECE25FD962C004016C3 /* CoreDataStack.swift */; };
 		9247AEF025FDA133004016C3 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */; };
 		9247AF1325FDA517004016C3 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1225FDA517004016C3 /* CoreDataTests.swift */; };
-		9247AF1B25FDA860004016C3 /* JournalEntryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1A25FDA860004016C3 /* JournalEntryService.swift */; };
+		9247AF1B25FDA860004016C3 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1A25FDA860004016C3 /* DataService.swift */; };
 		927F7657260E957200CE83B9 /* VENI_VIDI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 927F7655260E957200CE83B9 /* VENI_VIDI.xcdatamodeld */; };
 		92B4D0E525EC407F0028B7BB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B4D0E425EC407F0028B7BB /* CloudKit.framework */; };
 		92E088C525FF9C39007EAED1 /* (null) in Sources */ = {isa = PBXBuildFile; };
@@ -73,7 +73,7 @@
 		9247AECE25FD962C004016C3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		9247AF1225FDA517004016C3 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
-		9247AF1A25FDA860004016C3 /* JournalEntryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryService.swift; sourceTree = "<group>"; };
+		9247AF1A25FDA860004016C3 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		927F7656260E957200CE83B9 /* VENI_VIDI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VENI_VIDI.xcdatamodel; sourceTree = "<group>"; };
 		92B4D0E325EC407D0028B7BB /* VENI VIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VENI VIDI.entitlements"; sourceTree = "<group>"; };
 		92B4D0E425EC407F0028B7BB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -177,7 +177,7 @@
 			children = (
 				927F7655260E957200CE83B9 /* VENI_VIDI.xcdatamodeld */,
 				9247AECE25FD962C004016C3 /* CoreDataStack.swift */,
-				9247AF1A25FDA860004016C3 /* JournalEntryService.swift */,
+				9247AF1A25FDA860004016C3 /* DataService.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -535,7 +535,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9247AF1B25FDA860004016C3 /* JournalEntryService.swift in Sources */,
+				9247AF1B25FDA860004016C3 /* DataService.swift in Sources */,
 				E0DA6EB625E8DF26002451BC /* DetailedEntryCell.swift in Sources */,
 				92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */,
 				E0DA6E8F25E8D94C002451BC /* EntryData.swift in Sources */,

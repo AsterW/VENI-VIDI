@@ -11,7 +11,7 @@ import DCFrame
 
 class SimpleListContainerModel: DCContainerModel {
     var timeLineData:TimelineData?
-    var entryService:JournalEntryService?
+    var entryService:DataService?
     
     override func cmDidLoad() {
         super.cmDidLoad()

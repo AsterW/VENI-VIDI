@@ -9,7 +9,7 @@ import CoreData
 import Foundation
 import UIKit
 
-final class JournalEntryService {
+final class DataService {
     // MARK: - Properties
 
     let managedObjectContext: NSManagedObjectContext
@@ -25,7 +25,7 @@ final class JournalEntryService {
 
 // MARK: - Tag Handling
 
-extension JournalEntryService {
+extension DataService {
     func fetchAllTags() -> [Tag] {
         do {
             let fetchRequest = NSFetchRequest<Tag>(entityName: "Tag")
@@ -65,7 +65,7 @@ extension JournalEntryService {
 
 // MARK: - Journal Entry Handling
 
-extension JournalEntryService {
+extension DataService {
     func fetchAllJournalEntries() -> [JournalEntry]? {
         do {
             let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
@@ -97,8 +97,8 @@ extension JournalEntryService {
                             withEntryContent entryContent: String = "",
                             atLongitude longitude: Double = 0,
                             atLatitude latitude: Double = 0,
-                            withTags tags: [Tag]? = [],
-                            isFavorite favorite: Bool? = false) -> JournalEntry?
+                            withTags tags: [Tag] = [],
+                            isFavorite favorite: Bool? = false) -> JournalEntry
     {
         let newJournalEntry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: self.managedObjectContext) as! JournalEntry
         // Solution by https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
@@ -106,23 +106,24 @@ extension JournalEntryService {
         
         newJournalEntry.id = UUID()
         self.coreDataStack.saveContext()
-        if let entryID = newJournalEntry.id {
-            self.updateJournalEntry(withUUID: entryID,
-                                    aboutWork: work,
-                                    withCoverImage: coverImage,
-                                    withStartDate: startDate,
-                                    withFinishDate: finishDate,
-                                    withEntryTitle: entryTitle,
-                                    withEntryContent: entryContent,
-                                    atLongitude: longitude,
-                                    atLatitude: latitude,
-                                    withTags: tags,
-                                    isFavorite: favorite)
-            return newJournalEntry
+            
+        if self.updateJournalEntry(withUUID: newJournalEntry.id ?? UUID(),
+                                   aboutWork: work,
+                                   withCoverImage: coverImage,
+                                   withStartDate: startDate,
+                                   withFinishDate: finishDate,
+                                   withEntryTitle: entryTitle,
+                                   withEntryContent: entryContent,
+                                   atLongitude: longitude,
+                                   atLatitude: latitude,
+                                   withTags: tags,
+                                   isFavorite: favorite)
+        {
         } else {
-            print("Unable to create JournalEntry: UUID remains nil after assignment")
-            return nil
+            print("JournalEntry Created might not be valid: failed to save designated entry contents")
         }
+        
+        return newJournalEntry
     }
     
     func updateJournalEntry(withUUID id: UUID,
@@ -135,7 +136,7 @@ extension JournalEntryService {
                             atLongitude longitude: Double? = nil,
                             atLatitude latitude: Double? = nil,
                             withTags tags: [Tag]? = nil,
-                            isFavorite favorite: Bool? = nil)
+                            isFavorite favorite: Bool? = nil) -> Bool
     {
         if let entry = self.fetchJournalEntryWithUUID(id) {
             entry.lastEditDate = Date()
@@ -169,19 +170,24 @@ extension JournalEntryService {
                     print("Failed to store image in CoreData")
                 }
             }
+            
+            self.coreDataStack.saveContext()
+            return true
+            
         } else {
             print("Received invalid UUID for updateJournalEntry()")
+            return false
         }
-        
-        self.coreDataStack.saveContext()
     }
     
-    func deleteJournalEntry(withUUID id: UUID) {
+    func deleteJournalEntry(withUUID id: UUID) -> Bool {
         if let entry = self.fetchJournalEntryWithUUID(id) {
             self.managedObjectContext.delete(entry)
             self.coreDataStack.saveContext()
+            return true
         } else {
             print("Received invalid UUID for deleteJournalEntry()")
+            return false
         }
     }
 }

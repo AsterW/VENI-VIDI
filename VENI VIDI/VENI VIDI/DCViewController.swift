@@ -16,7 +16,7 @@ class DCViewController: UIViewController {
         return EDC
     }()
     
-    public var journalEntryService = JournalEntryService(coreDataStack: CoreDataStack())
+    public var journalEntryService = DataService(coreDataStack: CoreDataStack())
     
     public let dcTableView = DCContainerTableView()
 
