@@ -22,10 +22,10 @@ class UpdateEntryContainerModel: VVContainerModel{
         
         let newEntryModel=UpdateEntryCellModel()
         newEntryModel.nav=self.nav
-        newEntryModel.service=journalEntryService
-        _ = journalEntryService.createJournalEntry(aboutWork: "Star", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Star", isFavorite: false)
+        newEntryModel.service=dataService
+        _ = dataService.createJournalEntry(aboutWork: "Star", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Star", isFavorite: false)
         
-        if let entries=journalEntryService.fetchJournalEntries(){
+        if let entries=dataService.fetchAllJournalEntries(){
             print(entries.count)
             let entryOne=entries[0]
             print(entryOne.entryTitle ?? "No Title")

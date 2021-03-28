@@ -154,11 +154,11 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
         print("Upload Data")
         _ = cellModel.service.createJournalEntry(aboutWork: "Some work", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Some work", isFavorite: false)
         
-//        if let entries=cellModel.service.fetchJournalEntries(){
-//            print(entries.count)
+        if let entries=cellModel.service.fetchAllJournalEntries(){
+            print(entries.count)
 //            let entryOne=entries[0]
 //            print(entryOne.entryTitle ?? "No Title")
-//        }
+        }
     }
     
     

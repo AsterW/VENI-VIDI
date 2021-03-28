@@ -16,8 +16,8 @@ class UpdateEntryCellModel:DCCellModel{
     var posterImage: UIImage?
     var date: Date?
     var nav:UINavigationController?
-    var service:JournalEntryService={
-        let service=JournalEntryService(coreDataStack: CoreDataStack())
+    var service:DataService={
+        let service=DataService(coreDataStack: CoreDataStack())
         return service
     }()
     

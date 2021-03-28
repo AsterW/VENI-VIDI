@@ -15,7 +15,7 @@ class SimpleListContainerModel: VVContainerModel {
 //    var entryService:JournalEntryService?
     
     func getEntryData(){
-        if let entries=journalEntryService.fetchJournalEntries(){
+        if let entries=dataService.fetchAllJournalEntries(){
             print(entries.count)
             self.entries=entries
             let entryOne=entries[0]
@@ -31,13 +31,13 @@ class SimpleListContainerModel: VVContainerModel {
         
         
         
-        _ = journalEntryService.createJournalEntry(aboutWork: "Avengers", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Avengers", isFavorite: true)
-        _ = journalEntryService.createJournalEntry(aboutWork: "Stars", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Stars", isFavorite: true)
+        _ = dataService.createJournalEntry(aboutWork: "Avengers", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Avengers", isFavorite: true)
+        _ = dataService.createJournalEntry(aboutWork: "Stars", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Stars", isFavorite: true)
         
-        _ = journalEntryService.createJournalEntry(aboutWork: "Coco", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Coco", isFavorite: true)
-        _ = journalEntryService.createJournalEntry(aboutWork: "Harry Potter", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Harry Potter", isFavorite: true)
-        _ = journalEntryService.createJournalEntry(aboutWork: "Spiderman", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Spiderman", isFavorite: true)
-        _ = journalEntryService.createJournalEntry(aboutWork: "Aha", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Aha", isFavorite: false)
+        _ = dataService.createJournalEntry(aboutWork: "Coco", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Coco", isFavorite: true)
+        _ = dataService.createJournalEntry(aboutWork: "Harry Potter", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Harry Potter", isFavorite: true)
+        _ = dataService.createJournalEntry(aboutWork: "Spiderman", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Spiderman", isFavorite: true)
+        _ = dataService.createJournalEntry(aboutWork: "Aha", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Aha", isFavorite: false)
         
         getEntryData()
         

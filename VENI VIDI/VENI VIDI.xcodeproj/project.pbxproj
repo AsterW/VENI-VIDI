@@ -26,9 +26,6 @@
 		92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */; };
 		92F7EA9C25D782380039DF3C /* VENI_VIDIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */; };
 		CE24E1100E82A4BB5BC3655B /* Pods_VENI_VIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D53A0B0676FAC0E66A02502 /* Pods_VENI_VIDI.framework */; };
-		E0057F9A25FFCD9700CE6716 /* VENI_VIDIContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0057F9925FFCD9700CE6716 /* VENI_VIDIContainerModel.swift */; };
-		E0057F9B25FFCD9700CE6716 /* VENI_VIDIContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0057F9925FFCD9700CE6716 /* VENI_VIDIContainerModel.swift */; };
-		E0057F9C25FFCD9700CE6716 /* VENI_VIDIContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0057F9925FFCD9700CE6716 /* VENI_VIDIContainerModel.swift */; };
 		E05A00282608F37F00533A4C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A00272608F37F00533A4C /* Date.swift */; };
 		E0ABE9E425F67F6F009E1AF2 /* UpdateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */; };
 		E0ABE9EC25F67F91009E1AF2 /* UpdateEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */; };
@@ -46,6 +43,7 @@
 		E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */; };
 		E0DA6EAF25E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */; };
 		E0DA6EB625E8DF26002451BC /* DetailedEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EB525E8DF26002451BC /* DetailedEntryCell.swift */; };
+		E0ECC2C326100F6600BDF4B0 /* VENI_VIDIContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECC2C226100F6600BDF4B0 /* VENI_VIDIContainerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,7 +94,6 @@
 		92F7EA9D25D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7FA7002CFA9184FC68BCF3A /* Pods-VENI VIDI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI.debug.xcconfig"; path = "Target Support Files/Pods-VENI VIDI/Pods-VENI VIDI.debug.xcconfig"; sourceTree = "<group>"; };
 		D46347D2CD7BE8FDA895FE79 /* Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig"; path = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig"; sourceTree = "<group>"; };
-		E0057F9925FFCD9700CE6716 /* VENI_VIDIContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENI_VIDIContainerModel.swift; sourceTree = "<group>"; };
 		E05A00272608F37F00533A4C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryViewController.swift; sourceTree = "<group>"; };
 		E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryContainerModel.swift; sourceTree = "<group>"; };
@@ -114,6 +111,7 @@
 		E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEntryContainerModel.swift; sourceTree = "<group>"; };
 		E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEntryCellModel.swift; sourceTree = "<group>"; };
 		E0DA6EB525E8DF26002451BC /* DetailedEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEntryCell.swift; sourceTree = "<group>"; };
+		E0ECC2C226100F6600BDF4B0 /* VENI_VIDIContainerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VENI_VIDIContainerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,8 +213,8 @@
 			children = (
 				E0ABE9E225F67F13009E1AF2 /* Add & Edit */,
 				92B4D0E325EC407D0028B7BB /* VENI VIDI.entitlements */,
-				E0057F9925FFCD9700CE6716 /* VENI_VIDIContainerModel.swift */,
 				770297CE25EB929500A72E5E /* DCViewController.swift */,
+				E0ECC2C226100F6600BDF4B0 /* VENI_VIDIContainerModel.swift */,
 				92F7EA7625D782350039DF3C /* AppDelegate.swift */,
 				92F7EA7A25D782350039DF3C /* ViewController.swift */,
 				92F7EA7C25D782350039DF3C /* Main.storyboard */,
@@ -552,6 +550,7 @@
 				E0ABE9F125F689B3009E1AF2 /* UpdateEntryCellModel.swift in Sources */,
 				E0DA6E8825E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
 				E0DA6E7725E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,
+				E0ECC2C326100F6600BDF4B0 /* VENI_VIDIContainerModel.swift in Sources */,
 				E0DA6E8125E8D90F002451BC /* TimeLabelCell.swift in Sources */,
 				E0DA6E6B25E8D87A002451BC /* TimelineCell.swift in Sources */,
 				770297CF25EB929500A72E5E /* DCViewController.swift in Sources */,

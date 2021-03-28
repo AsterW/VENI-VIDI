@@ -10,7 +10,7 @@ import DCFrame
 import UIKit
 
 class VVContainerModel: DCContainerModel {
-    public let journalEntryService = JournalEntryService(coreDataStack: CoreDataStack())
+    public let dataService = DataService(coreDataStack: CoreDataStack())
     
     override func cmDidLoad() {
         super.cmDidLoad()
