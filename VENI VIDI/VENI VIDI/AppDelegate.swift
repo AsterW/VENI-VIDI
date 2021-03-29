@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = mainNavigationController
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
+        
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+        
         return true
     }
 

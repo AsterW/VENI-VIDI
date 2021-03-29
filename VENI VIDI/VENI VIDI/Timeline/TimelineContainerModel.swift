@@ -41,8 +41,8 @@ class SimpleListContainerModel: VVContainerModel {
         if let e=entries{
             for item in e {
                 let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: item.finishDate!)
-                //need to fix force unwrapping
-                if (calanderDate.year != currentTimeLabel!.year || calanderDate.month != currentTimeLabel!.month){
+                guard let timeLabel = currentTimeLabel else { return }
+                if (calanderDate.year != timeLabel.year || calanderDate.month != timeLabel.month){
                     currentTimeLabel=calanderDate
                     print("Calendar Date is \(calanderDate)")
                     createTimeLabel(date: calanderDate)
@@ -63,15 +63,9 @@ class SimpleListContainerModel: VVContainerModel {
                     model.picture = UIImage(systemName: "star.fill")
                 }
                 model.rating=Double.random(in: 0 ..< 5.0)
-                addSubmodel(model)
+                addSubmodel(model, separator: .bottom, height: 2)
             }
         }
-        
-
-//        let timeModel2=TimeLabelCellModel()
-//        timeModel2.timeLabel="February"
-//        addSubmodel(timeModel2)
-
     }
     
     func createTimeLabel(date:DateComponents){
@@ -113,7 +107,7 @@ class SimpleListContainerModel: VVContainerModel {
         super.cmDidLoad()
         
         print("load Timeline")
-                
+        containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
         getEntryData()
 //create an entry in Feb
 //        var date=DateComponents()
@@ -148,12 +142,6 @@ class SimpleListContainerModel: VVContainerModel {
                 addSubmodel(model)
             }
         }
-        
-//        let timeModel2=TimeLabelCellModel()
-//        timeModel2.timeLabel="February"
-//        addSubmodel(timeModel2)
-        
-
     }
     
 }

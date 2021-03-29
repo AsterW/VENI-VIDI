@@ -19,10 +19,15 @@ class UpdateEntryContainerModel: VVContainerModel{
     
     var entryId:UUID?
     
+    let searchCM = SearchCM()
+    let newEntryModel=UpdateEntryCellModel()
+    
+    
     override func cmDidLoad() {
         super.cmDidLoad()
         
-        let newEntryModel=UpdateEntryCellModel()
+        containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
+
         newEntryModel.nav=self.nav
         newEntryModel.service=dataService
         
@@ -49,8 +54,9 @@ class UpdateEntryContainerModel: VVContainerModel{
             newEntryModel.entryId=id
         }
         
-
+        
+        addSubmodel(searchCM)
         addSubmodel(newEntryModel)
-
+        
     }
 }

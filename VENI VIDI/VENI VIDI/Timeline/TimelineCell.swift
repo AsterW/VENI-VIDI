@@ -8,6 +8,7 @@
 import Foundation
 import DCFrame
 import UIKit
+import SnapKit
 import Cosmos
 
 class TimelineCell: DCCell<TimelineCellModel>{
@@ -20,7 +21,7 @@ class TimelineCell: DCCell<TimelineCellModel>{
     
     let label: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont.systemFont(ofSize: 25)
         label.backgroundColor=UIColor.systemGray6
         label.layer.masksToBounds=true
         label.layer.cornerRadius=4
@@ -62,8 +63,17 @@ class TimelineCell: DCCell<TimelineCellModel>{
         super.layoutSubviews()
         let bounds = contentView.bounds
         let left: CGFloat = 15
+        
+        label.snp.makeConstraints { (make) in
+            make.left.equalTo(pictureView.snp.right).offset(10)
+            make.height.equalTo(25)
+            make.top.equalToSuperview().inset(10)
+//            make.top.equalTo(95)
+        }
+        
+        
 
-        label.frame = CGRect(x: left+95, y: bounds.height - 95, width: bounds.width-125, height: 25)
+//        label.frame = CGRect(x: left+95, y: bounds.height - 95, width: bounds.width-125, height: 25)
         pictureView.frame = CGRect(x: left, y: bounds.height - 95, width: 90, height: 90)
         //separateLine.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
         starsCosmosView.frame = CGRect(x: left+95, y: bounds.height - 30, width: bounds.width-125, height: 25)

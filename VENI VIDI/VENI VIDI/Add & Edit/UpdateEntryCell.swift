@@ -7,10 +7,14 @@
 
 import Foundation
 import DCFrame
+import SnapKit
 import Cosmos
 
 class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate{
     //poster is the larger image for the entry
+    
+    static let titleText = DCSharedDataID()
+    
     var navigationController:UINavigationController={
         let navigationController=UINavigationController()
         return navigationController
@@ -18,21 +22,11 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
     
     let poster:UIImageView={
         let poster=UIImageView()
-        poster.contentMode = .scaleAspectFit
-        poster.backgroundColor=UIColor.systemYellow
+        poster.contentMode = .scaleToFill
+        poster.backgroundColor = UIColor.systemYellow
+        poster.clipsToBounds = true
         poster.layer.cornerRadius=6
         return poster
-    }()
-    
-    //user-defined title for this entry
-    var titleLabel:UITextView={
-        let titleLabel=UITextView()
-        titleLabel.backgroundColor=UIColor.systemGray6
-        titleLabel.font = UIFont.systemFont(ofSize: 30)
-        titleLabel.text="Placeholder for Title"
-        titleLabel.accessibilityLabel="Entry Title"
-        titleLabel.layer.cornerRadius=6
-        return titleLabel
     }()
     
     //user's rating for this movie/book
@@ -44,10 +38,11 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
     //user's comment for this movie/book
     var comment:UITextView={
        let comment=UITextView()
-        comment.backgroundColor=UIColor.systemGray6
+        comment.backgroundColor = UIColor.systemGray6
         comment.text="Placeholder for Notes"
         comment.accessibilityLabel="Entry Note"
         comment.layer.cornerRadius=6
+        comment.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         return comment
     }()
     
@@ -60,29 +55,33 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
     
     let submitButton:UIButton={
         let submitButton=UIButton()
-        submitButton.backgroundColor=UIColor.systemGray6
-        submitButton.setTitle("Add Movie", for: .normal)
+        submitButton.backgroundColor=UIColor.systemYellow
+        submitButton.setTitle("Finish", for: .normal)
         submitButton.setTitleColor(UIColor.systemGray, for: .normal)
         submitButton.tintColor=UIColor.systemGray
         submitButton.layer.cornerRadius=6
         return submitButton
     }()
+    
+    let commentLabel: UILabel = {
+        let commentLabel = UILabel()
+        commentLabel.text = "Memories: "
+        commentLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        return commentLabel
+    }()
         
     override func setupUI() {
         super.setupUI()
         
-        titleLabel.delegate=self
         comment.delegate=self
-        
-        titleLabel.textColor = UIColor.systemGray2
         comment.textColor = UIColor.systemGray2
         
         contentView.addSubview(poster)
         contentView.addSubview(button)
         button.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
         submitButton.addTarget(self, action: #selector(uploadData), for: .touchUpInside)
-        contentView.addSubview(titleLabel)
         contentView.addSubview(stars)
+        contentView.addSubview(commentLabel)
         contentView.addSubview(comment)
         contentView.addSubview(submitButton)
         
@@ -90,18 +89,57 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        let bounds = contentView.bounds
-        print(bounds)
-        let left: CGFloat = 15
 
+        poster.snp.makeConstraints { (make) in
+//            make.left.equalTo(15)
+            make.top.equalTo(20)
+            make.height.equalTo(240)
+            make.width.equalTo(135)
+            make.centerX.equalToSuperview()
+        }
+        
+        button.snp.makeConstraints { (make) in
+            make.edges.equalTo(poster.snp.edges)
+        }
+        
+        stars.snp.makeConstraints { (make) in
+            make.height.equalTo(30)
+            make.top.equalTo(poster.snp.bottom).offset(20)
+            make.centerX.equalToSuperview()
+        }
+        
+        commentLabel.snp.makeConstraints { (make) in
+            make.top.equalTo(stars.snp.bottom).offset(20)
+            make.height.equalTo(24)
+            make.left.equalTo(15)
+        }
+        
+        comment.snp.makeConstraints { (make) in
+            make.top.equalTo(commentLabel.snp.bottom).offset(20)
+            make.height.equalTo(200)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().inset(20)
+        }
+        
+        submitButton.snp.makeConstraints { (make) in
+            make.top.equalTo(comment.snp.bottom).offset(20)
+            make.left.equalTo(comment.snp.left)
+            make.height.equalTo(50)
+            make.width.equalTo(comment.snp.width)
+            make.centerX.equalToSuperview()
+        }
 
-        titleLabel.frame = CGRect(x: left, y: 30, width: bounds.width-30, height: 50)
-        poster.frame = CGRect(x: left, y: 100, width: bounds.width-30, height: 200)
-        button.frame = poster.frame
-        stars.frame = CGRect(x: left, y: 350, width: bounds.width-145, height: 30)
-        comment.frame=CGRect(x: left, y: 395, width: bounds.width-30, height: 200)
-        submitButton.frame=CGRect(x: left, y: 645, width: bounds.width-30, height: 50)
-
+    }
+    
+    override func cellModelDidLoad() {
+        super.cellModelDidLoad()
+        subscribeEvent(SearchCell.cancelSearch) { [weak self] (text: String) in
+            self?.cellModel.entryTitle = text
+        }.and(SearchCM.searchNotEmpty) { [weak self] in
+            self?.submitButton.setTitleColor(.black, for: .normal)
+        }.and(SearchCM.searchEmpty) { [weak self] in
+            self?.submitButton.setTitleColor(.systemGray, for: .normal)
+        }
     }
     
     override func cellModelDidUpdate() {
@@ -111,11 +149,9 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
             print(nav.description)
         }
         
-        titleLabel.text=cellModel.entryTitle
         poster.image=cellModel.posterImage
-        //smallPoster.image=cellModel.posterImage
         comment.text=cellModel.comment
-        button.setTitle("Click to Upload New Image", for: .normal)
+        button.setTitle("Choose Cover", for: .normal)
     }
     
     @objc func pickImage(){
@@ -124,23 +160,6 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
         picker.allowsEditing = true
         picker.delegate = self
         navigationController.present(picker, animated: true, completion: nil)
-    }
-
-    
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.systemGray2 {
-            textView.text = nil
-            textView.textColor = UIColor.black
-        }
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if(text == "\n"){
-            textView.resignFirstResponder()
-            return false
-        }
-        
-        return true
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -151,8 +170,6 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
         navigationController.dismiss(animated: true)
         
         button.setTitle("", for: .normal)
-
-        //poster.becomeFirstResponder()
         
     }
     
@@ -162,12 +179,7 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
         var newRate:Double?
         var newContent:String
         
-        if let title=titleLabel.text{
-            newTitle=title
-        }
-        else{
-            newTitle=""
-        }
+        newTitle = cellModel.entryTitle
         
         if let image=poster.image{
             newImage=image
@@ -182,16 +194,17 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
         
         newRate = stars.rating
         
-        
-        print("Upload Data")
+        guard newTitle != "" else { return }
         
         if let id=cellModel.entryId{
             _=cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
+        } else {
+            _=cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
         }
-//        _=cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
+
         
         if let entries=cellModel.service.fetchAllJournalEntries(){
-            print(entries.count)
+//            print(entries.count)
 //            let entryOne=entries[0]
 //            print(entryOne.entryTitle ?? "No Title")
         }

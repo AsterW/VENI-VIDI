@@ -8,14 +8,16 @@
 import Foundation
 import DCFrame
 import UIKit
+import SnapKit
 
 class TimeLabelCell:DCCell<TimeLabelCellModel>{
     let label: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 17)
-        label.backgroundColor=UIColor.systemGray3
+        label.backgroundColor=UIColor.systemYellow
         label.layer.masksToBounds=true
         label.layer.cornerRadius=6
+        label.textColor = .systemGray
         return label
     }()
     
@@ -37,6 +39,6 @@ class TimeLabelCell:DCCell<TimeLabelCellModel>{
     
     override func cellModelDidUpdate() {
         super.cellModelDidUpdate()
-        label.text = cellModel.timeLabel
+        label.text = " " + cellModel.timeLabel
     }
 }
