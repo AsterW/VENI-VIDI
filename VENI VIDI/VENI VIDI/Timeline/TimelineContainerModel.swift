@@ -10,92 +10,150 @@ import UIKit
 import DCFrame
 
 class SimpleListContainerModel: VVContainerModel {
-    var timeLineData:TimelineData?
+//    var timeLineData:TimelineData?
     var entries:[JournalEntry]?
 //    var entryService:JournalEntryService?
+    var currentTimeLabel:DateComponents?
     
     func getEntryData(){
         if let entries=dataService.fetchAllJournalEntries(){
             print(entries.count)
             self.entries=entries
-            let entryOne=entries[0]
-            print(entryOne.entryTitle ?? "No Title")
+
         }
     }
     
-    override func cmDidLoad() {
-        super.cmDidLoad()
-        let date1=Date()
-        let date2=Date().addingTimeInterval(86400)
-        print(date2.description)
+    override func tableViewDataWillReload() {
+        print("CM Reloading")
+        currentTimeLabel=Calendar.current.dateComponents([.day, .year, .month], from: Date())
         
-        
-        
-        _ = dataService.createJournalEntry(aboutWork: "Avengers", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Avengers", isFavorite: true)
-        _ = dataService.createJournalEntry(aboutWork: "Stars", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Stars", isFavorite: true)
-        
-        _ = dataService.createJournalEntry(aboutWork: "Coco", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Coco", isFavorite: true)
-        _ = dataService.createJournalEntry(aboutWork: "Harry Potter", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Harry Potter", isFavorite: true)
-        _ = dataService.createJournalEntry(aboutWork: "Spiderman", withStartDate: date1, withFinishDate: date1, withEntryTitle: "Spiderman", isFavorite: true)
-        _ = dataService.createJournalEntry(aboutWork: "Aha", withStartDate: date2, withFinishDate: date2, withEntryTitle: "Aha", isFavorite: false)
+        removeAllSubmodels()
         
         getEntryData()
-        
-//        if let handler = entryService{
-//            if let entries = handler.fetchJournalEntries(){
-//                for item in entries{
-//                    print(item.entryTitle ?? "No Title")
-//                }
-//            }
-//        }
-        
-        timeLineData=TimelineData()
-        timeLineData!.getEntryData()
-        
-        timeLineData!.sortByMonth()
-        
-        //let filteredOne = timeLineData?.filterDataByMonth(targetMonth: 2)
-        //let filteredTwo = timeLineData?.filterDataByMonth(targetMonth: 1)
-        
-        
-        let timeModel=TimeLabelCellModel()
-        timeModel.timeLabel="March"
-        addSubmodel(timeModel)
+
+//        let timeModel=TimeLabelCellModel()
+//        timeModel.timeLabel="March"
+//        addSubmodel(timeModel)
+        if let dateComponents=currentTimeLabel{
+            createTimeLabel(date: dateComponents)
+        }
         
         if let e=entries{
             for item in e {
+                let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: item.finishDate!)
+                //need to fix force unwrapping
+                if (calanderDate.year != currentTimeLabel!.year || calanderDate.month != currentTimeLabel!.month){
+                    currentTimeLabel=calanderDate
+                    print("Calendar Date is \(calanderDate)")
+                    createTimeLabel(date: calanderDate)
+                }
+//                print("Calendar Date is \(calanderDate)")
+//                createTimeLabel(date: calanderDate)
+
                 let model = TimelineCellModel()
+                if let id=item.id{
+                    model.entryId=id
+                }
                 model.title = item.entryTitle ?? "No Title"
-                model.picture = UIImage(systemName: "star.fill")
+                if let imageData=item.image{
+                    print(imageData)
+                    model.picture=UIImage(data: imageData)
+                }
+                else{
+                    model.picture = UIImage(systemName: "star.fill")
+                }
                 model.rating=Double.random(in: 0 ..< 5.0)
                 addSubmodel(model)
             }
         }
         
+
+//        let timeModel2=TimeLabelCellModel()
+//        timeModel2.timeLabel="February"
+//        addSubmodel(timeModel2)
+
+    }
+    
+    func createTimeLabel(date:DateComponents){
+        let timeModel=TimeLabelCellModel()
+        switch date.month{
+            case 1:
+                timeModel.timeLabel="\(date.year ?? 1970)  January"
+            case 2:
+                timeModel.timeLabel="\(date.year ?? 1970)  February"
+            case 3:
+                timeModel.timeLabel="\(date.year ?? 1970)  March"
+            case 4:
+                timeModel.timeLabel="\(date.year ?? 1970)  April"
+            case 5:
+                timeModel.timeLabel="\(date.year ?? 1970)  May"
+            case 6:
+                timeModel.timeLabel="\(date.year ?? 1970)  June"
+            case 7:
+                timeModel.timeLabel="\(date.year ?? 1970)  July"
+            case 8:
+                timeModel.timeLabel="\(date.year ?? 1970)  August"
+            case 9:
+                timeModel.timeLabel="\(date.year ?? 1970)  September"
+            case 10:
+                timeModel.timeLabel="\(date.year ?? 1970)  Octuber"
+            case 11:
+                timeModel.timeLabel="\(date.year ?? 1970)  November"
+            case 12:
+                timeModel.timeLabel="\(date.year ?? 1970)  December"
+            case .none:
+                timeModel.timeLabel=""
+            case .some(_):
+                timeModel.timeLabel=""
+        }
+        addSubmodel(timeModel)
+    }
+    
+    override func cmDidLoad() {
+        super.cmDidLoad()
+        
+        print("load Timeline")
+                
+        getEntryData()
+//create an entry in Feb
+//        var date=DateComponents()
+//        date.day=20
+//        date.month=2
+//        date.year=2021
+//        let userCalendar = Calendar(identifier: .gregorian) // since the components above (like year 1980) are for Gregorian
+//        let someDateTime = userCalendar.date(from: date)
+//        dataService.createJournalEntry(aboutWork: "February Movie", withStartDate: someDateTime!, withFinishDate: someDateTime!, withEntryTitle: "February Movie", withEntryContent: "Some comment", isFavorite: false)
         
         
+//        let timeModel=TimeLabelCellModel()
+//        timeModel.timeLabel="March"
+//        addSubmodel(timeModel)
         
-//        for num in 1...filteredOne!.count-1{
-//            let model = TimelineCellModel()
-//            model.title = filteredOne![num].title
-//            model.picture = UIImage(named: filteredOne![num].url)
-//            model.rating = filteredOne![num].rate!
-//            addSubmodel(model)
-//        }
-//
-        let timeModel2=TimeLabelCellModel()
-        timeModel2.timeLabel="February"
-        addSubmodel(timeModel2)
+        if let e=entries{
+            for item in e {
+
+                let model = TimelineCellModel()
+                if let id=item.id{
+                    model.entryId=id
+                }
+                model.title = item.entryTitle ?? "No Title"
+                if let imageData=item.image{
+                    print(imageData)
+                    model.picture=UIImage(data: imageData)
+                }
+                else{
+                    model.picture = UIImage(systemName: "star.fill")
+                }
+                model.rating=Double.random(in: 0 ..< 5.0)
+                addSubmodel(model)
+            }
+        }
         
-//
-//        for num in 0...filteredTwo!.count-1{
-//
-//            let model = TimelineCellModel()
-//            model.title = filteredTwo![num].title
-//            model.picture = UIImage(named: filteredTwo![num].url)
-//            model.rating = filteredTwo![num].rate!
-//            addSubmodel(model)
-//        }
+//        let timeModel2=TimeLabelCellModel()
+//        timeModel2.timeLabel="February"
+//        addSubmodel(timeModel2)
+        
+
     }
     
 }

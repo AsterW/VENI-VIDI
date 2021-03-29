@@ -10,7 +10,8 @@ import DCFrame
 import UIKit
 
 class TimelineCellModel:DCCellModel{
-    var title: String = "some title"
+    var entryId:UUID?
+    var title: String = ""
     var picture: UIImage?
     var rating: Double = 0
     var comment: String=""

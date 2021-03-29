@@ -56,10 +56,6 @@ class DetailedEntryCell:DCCell<DetailedEntryCellModel>{
     
     let dateLabel:UILabel={
         let dateLabel=UILabel()
-        let today = Date()
-        let formatter1 = DateFormatter()
-        formatter1.dateStyle = .short
-        dateLabel.text=formatter1.string(from: today)
         return dateLabel
     }()
     
@@ -82,10 +78,7 @@ class DetailedEntryCell:DCCell<DetailedEntryCellModel>{
         print(bounds)
         let left: CGFloat = 15
 
-
-        //titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width-30, height: 50)
         poster.frame = CGRect(x: left, y: 15, width: bounds.width-30, height: 180)
-        //separateLine.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
         smallPoster.frame = CGRect(x: left, y: 210, width: 100, height: 150)
         stars.frame = CGRect(x: left+115, y: 330, width: (bounds.width-145)/2, height: 30)
         
@@ -101,6 +94,13 @@ class DetailedEntryCell:DCCell<DetailedEntryCellModel>{
         poster.image=cellModel.posterImage
         smallPoster.image=cellModel.posterImage
         comment.text=cellModel.comment
+        
+        if let date = cellModel.date{
+            let formatter1 = DateFormatter()
+            formatter1.dateStyle = .short
+            dateLabel.text=formatter1.string(from: date)
+        }
+        
         if let rating=cellModel.rating{
             stars.rating = rating
         }

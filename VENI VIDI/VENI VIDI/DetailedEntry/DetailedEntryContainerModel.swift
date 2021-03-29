@@ -14,6 +14,37 @@ class DetailedEntryContainerModel: DCContainerModel{
     var poster:UIImage?
     var comment:String?
     var stars:Double?
+    var date:Date?
+    
+    override func tableViewDataWillReload() {
+        removeAllSubmodels()
+        
+        let detailModel=DetailedEntryCellModel()
+        if let title=entryTitle{
+            detailModel.entryTitle=title
+        }
+        else{
+            //throw error
+        }
+        
+        if let image=poster{
+            detailModel.posterImage=image
+        }
+        
+        if let rating=stars{
+            detailModel.rating=rating
+        }
+        
+        if let commentContent=comment{
+            detailModel.comment=commentContent
+        }
+        
+        if let date=date{
+            detailModel.date=date
+        }
+        
+        addSubmodel(detailModel)
+    }
     
     override func cmDidLoad() {
         super.cmDidLoad()

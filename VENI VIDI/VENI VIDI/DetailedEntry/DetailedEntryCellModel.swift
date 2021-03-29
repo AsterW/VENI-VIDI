@@ -14,6 +14,7 @@ class DetailedEntryCellModel:DCCellModel{
     var comment:String = ""
     var rating:Double?
     var posterImage: UIImage?
+    var date:Date?
     
     required init() {
         super.init()

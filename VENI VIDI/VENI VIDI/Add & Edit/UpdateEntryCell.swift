@@ -110,6 +110,12 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
             self.navigationController=nav
             print(nav.description)
         }
+        
+        titleLabel.text=cellModel.entryTitle
+        poster.image=cellModel.posterImage
+        //smallPoster.image=cellModel.posterImage
+        comment.text=cellModel.comment
+        button.setTitle("Click to Upload New Image", for: .normal)
     }
     
     @objc func pickImage(){
@@ -151,14 +157,50 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
     }
     
     @objc func uploadData(){
+        var newTitle:String
+        var newImage:UIImage?
+        var newRate:Double?
+        var newContent:String
+        
+        if let title=titleLabel.text{
+            newTitle=title
+        }
+        else{
+            newTitle=""
+        }
+        
+        if let image=poster.image{
+            newImage=image
+        }
+        
+        if let content=comment.text{
+            newContent=content
+        }
+        else{
+            newContent=""
+        }
+        
+        newRate = stars.rating
+        
+        
         print("Upload Data")
-        _ = cellModel.service.createJournalEntry(aboutWork: "Some work", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Some work", isFavorite: false)
+        
+        if let id=cellModel.entryId{
+            _=cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
+        }
+//        _=cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
         
         if let entries=cellModel.service.fetchAllJournalEntries(){
             print(entries.count)
 //            let entryOne=entries[0]
 //            print(entryOne.entryTitle ?? "No Title")
         }
+        
+        
+        _ = navigationController.popViewController(animated: true)
+
+
+
     }
     
     

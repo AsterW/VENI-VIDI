@@ -21,6 +21,8 @@ class UpdateEntryCellModel:DCCellModel{
         return service
     }()
     
+    var entryId:UUID?
+    
     required init() {
         super.init()
         cellHeight = 800

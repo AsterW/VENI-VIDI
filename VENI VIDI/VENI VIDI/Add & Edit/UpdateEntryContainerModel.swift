@@ -9,7 +9,7 @@ import Foundation
 import DCFrame
 import UIKit
 
-class UpdateEntryContainerModel: VVContainerModel{
+class UpdateEntryContainerModel: VVContainerModel{   
     var entryTitle:String?//should be passed by last TimelineViewController
     var poster:UIImage?
     var comment:String?
@@ -17,19 +17,39 @@ class UpdateEntryContainerModel: VVContainerModel{
     var date: Date?
     var nav:UINavigationController?
     
+    var entryId:UUID?
+    
     override func cmDidLoad() {
         super.cmDidLoad()
         
         let newEntryModel=UpdateEntryCellModel()
         newEntryModel.nav=self.nav
         newEntryModel.service=dataService
-        _ = dataService.createJournalEntry(aboutWork: "Star", withStartDate: Date(), withFinishDate: Date(), withEntryTitle: "Star", isFavorite: false)
         
-        if let entries=dataService.fetchAllJournalEntries(){
-            print(entries.count)
-            let entryOne=entries[0]
-            print(entryOne.entryTitle ?? "No Title")
+        if let title=entryTitle{
+            newEntryModel.entryTitle=title
         }
+        else{
+            //throw error
+        }
+        
+        if let image=poster{
+            newEntryModel.posterImage=image
+        }
+        
+        if let rating=stars{
+            newEntryModel.rating=rating
+        }
+        
+        if let commentContent=comment{
+            newEntryModel.comment=commentContent
+        }
+        
+        if let id=entryId{
+            newEntryModel.entryId=id
+        }
+        
+
         addSubmodel(newEntryModel)
 
     }

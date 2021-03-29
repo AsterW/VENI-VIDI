@@ -43,12 +43,10 @@ class TimelineCell: DCCell<TimelineCellModel>{
     
     override func didSelect() {
         super.didSelect()
-        var data=EntryData()
-        data.title=label.text ?? "no title"
-        data.rate=starsCosmosView.rating
-        data.comment=comment
-        data.url=pictureView.image?.description ?? "no picture"
-        sendEvent(Self.touch,data: data)
+        if let data=cellModel.entryId{
+            sendEvent(Self.touch,data: data)
+        }
+        
     }
     
 
