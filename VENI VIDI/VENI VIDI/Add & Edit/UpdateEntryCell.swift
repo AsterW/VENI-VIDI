@@ -140,14 +140,18 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
         }.and(SearchCM.searchEmpty) { [weak self] in
             self?.submitButton.setTitleColor(.systemGray, for: .normal)
         }.and(SearchResultCell.selectedVolume) { [weak self] (volume: EntryData) in
-            let url = URL(string: volume.url)!
+            let str = volume.url.replacingOccurrences(of: "http:", with: "https:")
+            guard let url = URL(string: str) else { return }
 
             let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
                 guard let data = data else { return }
-                self?.poster.image = UIImage(data: data)
+                DispatchQueue.main.async {
+                    self?.poster.image = UIImage(data: data)
+                }
             }
 
             task.resume()
+            
         }
     }
     

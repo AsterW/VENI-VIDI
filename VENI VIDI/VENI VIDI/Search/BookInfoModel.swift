@@ -16,11 +16,7 @@ struct BookRequest {
     
     init(with word: String) {
         let urlString = NSURLComponents(string: "https://www.googleapis.com/books/v1/volumes")
-//        guard let url = urlString else { return }
         urlString?.queryItems = [URLQueryItem(name: "q", value: word)]
-//        guard let requestURL = URL(string: urlString) else {
-//            fatalError()
-//        }
         guard let requestURL = urlString?.url?.absoluteURL else {
             fatalError()
         }
