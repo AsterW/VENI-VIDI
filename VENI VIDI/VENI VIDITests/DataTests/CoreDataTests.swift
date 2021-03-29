@@ -200,6 +200,10 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(result1?.count == 0, "There should be no entry after entry1 is deleted")
     }
     
+    func testFetchAllJournalEntries() {
+        // TODO
+    }
+    
     func testFetchJournalEntryWithUUID() {
         let entry0 = dataService.createJournalEntry()
         let fetchedEntry0 = dataService.fetchJournalEntryWithUUID(entry0.id!)
