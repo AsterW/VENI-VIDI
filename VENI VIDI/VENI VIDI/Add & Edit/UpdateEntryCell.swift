@@ -210,7 +210,7 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
         guard newTitle != "" else { return }
         
         if let id=cellModel.entryId{
-            _=cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
+            _=cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
         } else {
             _=cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
         }
