@@ -9,20 +9,15 @@ target 'VENI VIDI' do
 pod 'DCFrame'
 pod 'Cosmos'
 pod 'SnapKit'
+pod 'SwiftFormat/CLI'
 
   target 'VENI VIDITests' do
     inherit! :search_paths
     # Pods for testing
-    pod 'DCFrame'
-    pod 'Cosmos'
-    pod 'SnapKit'
   end
 
   target 'VENI VIDIUITests' do
     # Pods for testing
-    pod 'DCFrame'
-    pod 'Cosmos'
-    pod 'SnapKit'
   end
 
 end
