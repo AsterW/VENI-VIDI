@@ -316,6 +316,7 @@
 			buildConfigurationList = 92F7EAA025D782380039DF3C /* Build configuration list for PBXNativeTarget "VENI VIDI" */;
 			buildPhases = (
 				D4676D1F0F4F2C3B0838392B /* [CP] Check Pods Manifest.lock */,
+				92FD9CEA26124DCF005D6C2A /* ShellScript */,
 				92F7EA6F25D782350039DF3C /* Sources */,
 				92F7EA7025D782350039DF3C /* Frameworks */,
 				92F7EA7125D782350039DF3C /* Resources */,
@@ -338,7 +339,6 @@
 				92F7EA8825D782380039DF3C /* Sources */,
 				92F7EA8925D782380039DF3C /* Frameworks */,
 				92F7EA8A25D782380039DF3C /* Resources */,
-				CF70B27A5990D3B47447552A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -462,22 +462,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CF70B27A5990D3B47447552A /* [CP] Embed Pods Frameworks */ = {
+		92FD9CEA26124DCF005D6C2A /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VENI VIDITests/Pods-VENI VIDITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+			);
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VENI VIDITests/Pods-VENI VIDITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VENI VIDITests/Pods-VENI VIDITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
 		};
 		D4676D1F0F4F2C3B0838392B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
