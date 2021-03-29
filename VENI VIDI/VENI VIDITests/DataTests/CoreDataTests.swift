@@ -52,6 +52,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.longitude == 0)
         XCTAssertTrue(entry0.latitude == 0)
         XCTAssertTrue(entry0.tags?.count == 0)
+        XCTAssertTrue(entry0.rating == 0)
         XCTAssertTrue(entry0.favorite == false)
         
         let date1 = Date(timeIntervalSince1970: 10080)
@@ -69,6 +70,7 @@ class CoreDataTests: XCTestCase {
                                                     atLongitude: 1.11,
                                                     atLatitude: -2.22,
                                                     withTags: [tag1, tag2],
+                                                    withRating: 3,
                                                     isFavorite: true)
         XCTAssertNotNil(entry1, "entry1 should not be nil")
         XCTAssertNotNil(entry1.id, "entry1.id should not be nil")
@@ -81,6 +83,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.longitude == 1.11)
         XCTAssertTrue(entry1.latitude == -2.22)
         XCTAssertTrue(entry1.tags == NSSet(array: [tag1, tag2]))
+        XCTAssertTrue(entry1.rating == 3)
         XCTAssertTrue(entry1.favorite == true)
     }
     
@@ -108,6 +111,7 @@ class CoreDataTests: XCTestCase {
                                                      atLongitude: 3.14,
                                                      atLatitude: -6.28,
                                                      withTags: [tag1, tag2],
+                                                     withRating: 7,
                                                      isFavorite: true))
         XCTAssertTrue(entry0.worksTitle == "Interstellar")
         XCTAssertNotNil(entry0.image)
@@ -118,6 +122,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.longitude == 3.14)
         XCTAssertTrue(entry0.latitude == -6.28)
         XCTAssertTrue(entry0.tags == NSSet(array: [tag1, tag2]))
+        XCTAssertTrue(entry0.rating == 0)
         XCTAssertTrue(entry0.favorite == true)
         let fetchedEntry0 = dataService.fetchJournalEntryWithUUID(entry0.id!)
         XCTAssertNotNil(fetchedEntry0)
@@ -130,6 +135,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(fetchedEntry0?.longitude == 3.14)
         XCTAssertTrue(fetchedEntry0?.latitude == -6.28)
         XCTAssertTrue(fetchedEntry0?.tags == NSSet(array: [tag1, tag2]))
+        XCTAssertTrue(fetchedEntry0?.rating == 0)
         XCTAssertTrue(fetchedEntry0?.favorite == true)
         
         let entry1 = dataService.createJournalEntry(aboutWork: "Batman",
@@ -141,6 +147,7 @@ class CoreDataTests: XCTestCase {
                                                     atLongitude: 1.11,
                                                     atLatitude: -2.22,
                                                     withTags: [tag1, tag2],
+                                                    withRating: 8,
                                                     isFavorite: true)
         XCTAssertNotNil(entry1, "entry1 should not be nil")
         XCTAssertNotNil(entry1.id, "entry1.id should not be nil")
@@ -157,6 +164,7 @@ class CoreDataTests: XCTestCase {
                                                      atLongitude: -6.7,
                                                      atLatitude: 239432,
                                                      withTags: [tag1, tag3],
+                                                     withRating: 4,
                                                      isFavorite: false))
         XCTAssertTrue(entry1.worksTitle == "Hitman")
         XCTAssertTrue(entry1.image == image2?.pngData())
@@ -167,6 +175,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.longitude == -6.7)
         XCTAssertTrue(entry1.latitude == 239432)
         XCTAssertTrue(entry1.tags == NSSet(array: [tag1, tag3]))
+        XCTAssertTrue(entry1.rating == 4)
         XCTAssertTrue(entry1.favorite == false)
     }
 
@@ -198,6 +207,26 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(dataService.deleteJournalEntry(withUUID: entry1.id ?? UUID()))
         let result1 = dataService.fetchAllJournalEntries()
         XCTAssertTrue(result1?.count == 0, "There should be no entry after entry1 is deleted")
+    }
+    
+    func testFetchAllJournalEntriesWithDefaultSort() {
+        let date0 = Date(timeIntervalSince1970: 10080)
+        _ = dataService.createJournalEntry(withFinishDate: date0)
+        
+        let date1 = Date(timeIntervalSince1970: 10060)
+        _ = dataService.createJournalEntry(withFinishDate: date1)
+        
+        let date2 = Date(timeIntervalSince1970: 10090)
+        _ = dataService.createJournalEntry(withFinishDate: date2)
+
+        let entries = dataService.fetchAllJournalEntries()
+        var carryDate = Date(timeIntervalSince1970: 20000)
+        for entry in entries ?? [] {
+            let entryDate = entry.finishDate
+            XCTAssertNotNil(entryDate)
+            XCTAssertGreaterThanOrEqual(carryDate, entryDate!)
+            carryDate = entryDate!
+        }
     }
     
     func testFetchJournalEntryWithUUID() {

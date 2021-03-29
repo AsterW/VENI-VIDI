@@ -23,7 +23,7 @@ final class DataService {
     }
 }
 
-// MARK: - Tag Handling
+// MARK: - Tag Related Services
 
 extension DataService {
     func fetchAllTags() -> [Tag] {
@@ -63,12 +63,13 @@ extension DataService {
     }
 }
 
-// MARK: - Journal Entry Handling
+// MARK: - Journal Entry Services
 
 extension DataService {
     func fetchAllJournalEntries() -> [JournalEntry]? {
         do {
             let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "finishDate", ascending: false)]
             let entries = try managedObjectContext.fetch(fetchRequest)
             return entries
         } catch {
@@ -98,6 +99,7 @@ extension DataService {
                             atLongitude longitude: Double = 0,
                             atLatitude latitude: Double = 0,
                             withTags tags: [Tag] = [],
+                            withRating rating: Int = 0,
                             isFavorite favorite: Bool? = false) -> JournalEntry
     {
         let newJournalEntry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: self.managedObjectContext) as! JournalEntry
@@ -117,6 +119,7 @@ extension DataService {
                                    atLongitude: longitude,
                                    atLatitude: latitude,
                                    withTags: tags,
+                                   withRating: rating,
                                    isFavorite: favorite)
         {
         } else {
@@ -136,6 +139,7 @@ extension DataService {
                             atLongitude longitude: Double? = nil,
                             atLatitude latitude: Double? = nil,
                             withTags tags: [Tag]? = nil,
+                            withRating rating: Int? = nil,
                             isFavorite favorite: Bool? = nil) -> Bool
     {
         if let entry = self.fetchJournalEntryWithUUID(id) {
@@ -168,6 +172,14 @@ extension DataService {
                     entry.image = imageData
                 } else {
                     print("Failed to store image in CoreData")
+                }
+            }
+            
+            if let newRating = rating {
+                if newRating >= 0, newRating <= 5 {
+                    entry.rating = Int16(newRating)
+                } else {
+                    print("Received invalid rating value \(newRating)")
                 }
             }
             
