@@ -74,9 +74,9 @@ class TimelineCell: DCCell<TimelineCellModel>{
         
 
 //        label.frame = CGRect(x: left+95, y: bounds.height - 95, width: bounds.width-125, height: 25)
-        pictureView.frame = CGRect(x: left, y: bounds.height - 95, width: 90, height: 90)
+        pictureView.frame = CGRect(x: left, y: bounds.height - 95, width: 90 * 9 / 16, height: 90)
         //separateLine.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
-        starsCosmosView.frame = CGRect(x: left+95, y: bounds.height - 30, width: bounds.width-125, height: 25)
+        starsCosmosView.frame = CGRect(x: left+65, y: bounds.height - 30, width: bounds.width-125, height: 25)
     }
     
     override func cellModelDidUpdate() {
