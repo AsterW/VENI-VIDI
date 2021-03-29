@@ -14,4 +14,13 @@ struct  EntryData:Decodable{
     var date:Date?
     var rate:Double?
     var comment:String=""
+    
+    init() {
+        
+    }
+    
+    init(withTitle title: String, image cover: String) {
+        self.title = title
+        self.url = cover
+    }
 }

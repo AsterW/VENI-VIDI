@@ -139,6 +139,15 @@ class UpdateEntryCell:DCCell<UpdateEntryCellModel>, UITextViewDelegate,UINavigat
             self?.submitButton.setTitleColor(.black, for: .normal)
         }.and(SearchCM.searchEmpty) { [weak self] in
             self?.submitButton.setTitleColor(.systemGray, for: .normal)
+        }.and(SearchResultCell.selectedVolume) { [weak self] (volume: EntryData) in
+            let url = URL(string: volume.url)!
+
+            let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
+                guard let data = data else { return }
+                self?.poster.image = UIImage(data: data)
+            }
+
+            task.resume()
         }
     }
     

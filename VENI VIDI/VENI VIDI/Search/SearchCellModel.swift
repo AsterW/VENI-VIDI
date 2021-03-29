@@ -54,6 +54,12 @@ class SearchCell: DCBaseCell {
         subscribeData(UpdateEntryCell.titleText) { [weak self] (text: String) in
             self?.setCellData(text)
         }
+        
+        subscribeEvent(SearchResultCell.selectedVolume) { [weak self] (volume: EntryData) in
+            self?.setCellData(volume.title)
+            self?.searchBar.text = volume.title
+            self?.sendEvent(Self.cancelSearch, data: volume.title)
+        }
     }
 }
 
