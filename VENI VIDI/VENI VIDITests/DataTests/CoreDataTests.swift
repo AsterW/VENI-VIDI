@@ -200,8 +200,25 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(result1?.count == 0, "There should be no entry after entry1 is deleted")
     }
     
-    func testFetchAllJournalEntries() {
-        // TODO
+    func testFetchAllJournalEntriesWithDefaultSort() {
+        
+        let date0 = Date(timeIntervalSince1970: 10080)
+        _ = dataService.createJournalEntry(withFinishDate: date0)
+        
+        let date1 = Date(timeIntervalSince1970: 10060)
+        _ = dataService.createJournalEntry(withFinishDate: date1)
+        
+        let date2 = Date(timeIntervalSince1970: 10090)
+        _ = dataService.createJournalEntry(withFinishDate: date2)
+
+        let entries = dataService.fetchAllJournalEntries()
+        var carryDate = Date(timeIntervalSince1970: 20000)
+        for entry in entries ?? [] {
+            let entryDate = entry.finishDate
+            XCTAssertNotNil(entryDate)
+            XCTAssertGreaterThanOrEqual(carryDate, entryDate!)
+            carryDate = entryDate!
+        }
     }
     
     func testFetchJournalEntryWithUUID() {

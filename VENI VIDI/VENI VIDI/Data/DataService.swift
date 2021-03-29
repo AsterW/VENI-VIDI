@@ -69,6 +69,7 @@ extension DataService {
     func fetchAllJournalEntries() -> [JournalEntry]? {
         do {
             let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
+            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "finishDate", ascending: false)]
             let entries = try managedObjectContext.fetch(fetchRequest)
             return entries
         } catch {
