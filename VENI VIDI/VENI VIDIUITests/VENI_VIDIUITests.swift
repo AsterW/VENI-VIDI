@@ -5,11 +5,10 @@
 //  Created by 雲無心 on 2/12/21.
 //
 
-import XCTest
 @testable import VENI_VIDI
+import XCTest
 
 class VENI_VIDIUITests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
 
@@ -27,18 +26,18 @@ class VENI_VIDIUITests: XCTestCase {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
-        
-        //timeline label exist
+
+        // timeline label exist
         XCTAssert(app.staticTexts["February"].exists)
 
-        //Test if there is image for the Avengers entry
-        let imageView=app.images
+        // Test if there is image for the Avengers entry
+        let imageView = app.images
         XCTAssertGreaterThan(imageView.count, 0)
         XCTAssert(imageView["Avengers"].exists)
 
-        //Tab on a certain entry, try to edit/re-rate a movie
+        // Tab on a certain entry, try to edit/re-rate a movie
         let tablesQuery = app.tables
-        tablesQuery/*@START_MENU_TOKEN@*/.cells.staticTexts["Avengers"]/*[[".cells.staticTexts[\"Avengers\"]",".staticTexts[\"Avengers\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/ .cells.staticTexts["Avengers"]/*[[".cells.staticTexts[\"Avengers\"]",".staticTexts[\"Avengers\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/ .tap()
 
         XCTAssert(app.staticTexts["3/18/21"].exists)
         XCTAssert(app.staticTexts["Avengers"].exists)
@@ -48,11 +47,11 @@ class VENI_VIDIUITests: XCTestCase {
         let editButton = app.navigationBars["VENI_VIDI.DetailedEntryView"].buttons["Edit"]
         editButton.tap()
         app.navigationBars["VENI_VIDI.UpdateEnrtyView"].buttons["Back"].tap()
-        tablesQuery/*@START_MENU_TOKEN@*/.otherElements["Rating"]/*[[".cells.otherElements[\"Rating\"]",".otherElements[\"Rating\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/ .otherElements["Rating"]/*[[".cells.otherElements[\"Rating\"]",".otherElements[\"Rating\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ .tap()
 
         backButton.tap()
 
-        //Test adding new Entry page
+        // Test adding new Entry page
         app.navigationBars["VENI_VIDI.TimelineView"].buttons["Add"].tap()
         XCTAssert(app.textViews["Entry Title"].exists)
         XCTAssert(app.textViews["Entry Note"].exists)
@@ -60,7 +59,6 @@ class VENI_VIDIUITests: XCTestCase {
 
         tablesQuery.cells.staticTexts["Journal 0"].tap()
         backButton.tap()
-        
 
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.

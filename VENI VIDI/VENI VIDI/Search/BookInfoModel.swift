@@ -13,25 +13,24 @@ enum BookError: Error {
 
 struct BookRequest {
     let resourceURL: URL
-    
+
     init(with word: String) {
         let urlString = NSURLComponents(string: "https://www.googleapis.com/books/v1/volumes")
         urlString?.queryItems = [URLQueryItem(name: "q", value: word)]
         guard let requestURL = urlString?.url?.absoluteURL else {
             fatalError()
         }
-        
-        self.resourceURL = requestURL
-        
+
+        resourceURL = requestURL
     }
-    
-    func getBooks(completion: @escaping(Result<[Volume], BookError>) -> Void) {
-        let dataTask = URLSession.shared.dataTask(with: self.resourceURL) { data, _, _ in
+
+    func getBooks(completion: @escaping (Result<[Volume], BookError>) -> Void) {
+        let dataTask = URLSession.shared.dataTask(with: resourceURL) { data, _, _ in
             guard let jsonData = data else {
                 completion(.failure(.noDataAvailable))
                 return
             }
-            
+
             do {
                 let decoder = JSONDecoder()
                 let response = try decoder.decode(VolumeResponse.self, from: jsonData)
@@ -53,7 +52,6 @@ struct ImageInfo: Decodable {
 struct VolumeInfo: Decodable {
     let title: String
     let imageLinks: ImageInfo
-    
 }
 
 struct Volume: Decodable {

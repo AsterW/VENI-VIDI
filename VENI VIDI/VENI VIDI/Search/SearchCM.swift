@@ -4,8 +4,8 @@
 //
 //  Created by MonAster on 2021/3/22.
 //
-import Foundation
 import DCFrame
+import Foundation
 import SnapKit
 
 class SearchCM: DCContainerModel {
@@ -13,16 +13,16 @@ class SearchCM: DCContainerModel {
     var currentTimeTag: TimeInterval = 0
     static let searchNotEmpty = DCEventID()
     static let searchEmpty = DCEventID()
-    
+
     override func cmDidLoad() {
         super.cmDidLoad()
-        addSubCell(SearchCell.self) { (model) in
+        addSubCell(SearchCell.self) { model in
             model.cellHeight = 56
         }
         addSubmodel(searchResultCM)
         handleEvents()
     }
-    
+
     private func handleEvents() {
         subscribeEvent(SearchCell.textChanged) { [weak self] (text: String) in
             guard let `self` = self else {
@@ -41,16 +41,16 @@ class SearchCM: DCContainerModel {
             self?.needAnimateUpdate()
         }
     }
-    
+
     private func getBooks(with text: String) {
         let request = BookRequest(with: text)
         let timeStamp = NSDate().timeIntervalSince1970
         request.getBooks { [weak self] result in
             switch result {
-            case .failure(let error):
+            case let .failure(error):
                 print(error)
                 self?.searchResultCM.removeAllSubmodels()
-            case .success(let volumes):
+            case let .success(volumes):
                 var i = 0
                 guard let tag = self?.currentTimeTag, timeStamp >= tag else {
                     return
@@ -70,7 +70,7 @@ class SearchCM: DCContainerModel {
                     }
                     resultModel.coverURL = image
                     resultModel.volume = EntryData(withTitle: info.title, image: image)
-                    
+
 //                    let imageURL = URL(string: image)
 //                    guard let url = imageURL else {
 //                        return
@@ -85,7 +85,7 @@ class SearchCM: DCContainerModel {
 //                            break
 //                        }
 //                    }
-                    
+
 //                    let imageData = try? Data(contentsOf: imageURL!)
 //                    resultModel.cover = UIImage(data: imageData!)
                     self?.searchResultCM.addSubmodel(resultModel)
@@ -93,24 +93,22 @@ class SearchCM: DCContainerModel {
             }
             self?.needAnimateUpdate()
         }
-        
     }
-    
-    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
-            URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
     }
-        
-    func downloadImage(from url: URL, completion: @escaping(Result<UIImage, Error>) -> Void) {
-            print("Download Started")
-            getData(from: url) { data, response, error in
-                guard let data = data, error == nil else { return }
-                print(response?.suggestedFilename ?? url.lastPathComponent)
-                print("Download Finished")
-                DispatchQueue.main.async() { [weak self] in
-                    guard let image = UIImage(data: data) else { return }
-                    completion(.success(image))
-                }
+
+    func downloadImage(from url: URL, completion: @escaping (Result<UIImage, Error>) -> Void) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async { [weak self] in
+                guard let image = UIImage(data: data) else { return }
+                completion(.success(image))
             }
+        }
     }
-    
 }

@@ -8,19 +8,17 @@
 import Foundation
 import UIKit
 
-struct  EntryData:Decodable{
-    var title:String = ""
-    var url:String = ""
-    var date:Date?
-    var rate:Double?
-    var comment:String=""
-    
-    init() {
-        
-    }
-    
+struct EntryData: Decodable {
+    var title: String = ""
+    var url: String = ""
+    var date: Date?
+    var rate: Double?
+    var comment: String = ""
+
+    init() {}
+
     init(withTitle title: String, image cover: String) {
         self.title = title
-        self.url = cover
+        url = cover
     }
 }
