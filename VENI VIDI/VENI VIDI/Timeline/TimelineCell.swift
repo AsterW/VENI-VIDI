@@ -65,7 +65,7 @@ class TimelineCell: DCCell<TimelineCellModel>{
         let left: CGFloat = 15
         
         label.snp.makeConstraints { (make) in
-            make.left.equalTo(pictureView.snp.right).offset(10)
+            make.left.equalTo(15)
             make.height.equalTo(25)
             make.top.equalToSuperview().inset(10)
 //            make.top.equalTo(95)
@@ -74,9 +74,9 @@ class TimelineCell: DCCell<TimelineCellModel>{
         
 
 //        label.frame = CGRect(x: left+95, y: bounds.height - 95, width: bounds.width-125, height: 25)
-        pictureView.frame = CGRect(x: left, y: bounds.height - 95, width: 90, height: 90)
+        pictureView.frame = CGRect(x: left, y: bounds.height - 95, width: 90 * 9 / 16, height: 90)
         //separateLine.frame = CGRect(x: left, y: bounds.height - height, width: bounds.width - left, height: height)
-        starsCosmosView.frame = CGRect(x: left+95, y: bounds.height - 30, width: bounds.width-125, height: 25)
+        starsCosmosView.frame = CGRect(x: left+65, y: bounds.height - 30, width: bounds.width-125, height: 25)
     }
     
     override func cellModelDidUpdate() {
