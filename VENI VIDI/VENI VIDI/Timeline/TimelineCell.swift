@@ -22,7 +22,7 @@ class TimelineCell: DCCell<TimelineCellModel>{
     let label: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 25)
-        label.backgroundColor=UIColor.systemGray6
+        label.backgroundColor=UIColor.clear
         label.layer.masksToBounds=true
         label.layer.cornerRadius=4
         return label
@@ -31,7 +31,7 @@ class TimelineCell: DCCell<TimelineCellModel>{
     let pictureView: UIImageView = {
         let pictureView = UIImageView()
         pictureView.contentMode = .scaleAspectFill
-        pictureView.backgroundColor=UIColor.systemGray6
+        pictureView.backgroundColor=UIColor.clear
         pictureView.contentMode = .scaleAspectFit
         pictureView.accessibilityLabel=""
         return pictureView
@@ -65,7 +65,7 @@ class TimelineCell: DCCell<TimelineCellModel>{
         let left: CGFloat = 15
         
         label.snp.makeConstraints { (make) in
-            make.left.equalTo(15)
+            make.left.equalTo(pictureView.snp.right).offset(10)
             make.height.equalTo(25)
             make.top.equalToSuperview().inset(10)
         }
