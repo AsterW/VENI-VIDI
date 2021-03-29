@@ -14,7 +14,7 @@ class TimeLabelCellModel:DCCellModel{
     
     required init() {
         super.init()
-        cellHeight = 30
+        cellHeight = 60
         cellClass = TimeLabelCell.self
     }
 

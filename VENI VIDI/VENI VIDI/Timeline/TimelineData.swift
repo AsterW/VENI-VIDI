@@ -20,21 +20,22 @@ class TimelineData{
         //test with core data 2021-03-08
         
         
-        //fetch user entry data from CloudKit / Firebase
+        //fetch user entry data from Core Data
+        
         //for now, fake some data
         for num in 0...9{
             var entry=EntryData()
-            //print(num)
-            entry.title = " \(num) "
+            //entry.title = " My First Journal "
+            entry.title = "Journal \(num)"
             print(entry.title)
             entry.url="star"
             if(num%2==0){
-                entry.date=1
+                entry.date=Date()
                 entry.rate=Double.random(in: 0 ..< 5.0)
                 entry.comment="Some Comment"
             }
             else{
-                entry.date=2
+                entry.date=Date().addingTimeInterval(-10000000)
                 entry.rate=Double.random(in: 0 ..< 5.0)
                 entry.comment="Some Comment"
             }
@@ -56,9 +57,18 @@ class TimelineData{
     func filterDataByMonth(targetMonth: Int)->[EntryData]{
         var filteredEntries:[EntryData]=[]
         for num in 0...count!-1{
-            if(entries[num].date==targetMonth){
-                filteredEntries.append(entries[num])
+            if let date=entries[num].date{
+                let components = date.get(.day, .month, .year)
+                if let month = components.month {
+                    if(month==targetMonth){
+                        filteredEntries.append(entries[num])
+                    }
+                }
             }
+
+//            if(entries[num].date==targetMonth){
+//                filteredEntries.append(entries[num])
+//            }
         }
         return filteredEntries
     }

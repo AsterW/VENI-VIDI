@@ -14,6 +14,8 @@ class ViewController: UIViewController {
         
         let vc = TimelineViewController.init()
         self.navigationController?.setViewControllers([vc], animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .systemYellow
     }
 
 
