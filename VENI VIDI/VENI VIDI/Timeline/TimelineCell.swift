@@ -68,7 +68,6 @@ class TimelineCell: DCCell<TimelineCellModel>{
             make.left.equalTo(15)
             make.height.equalTo(25)
             make.top.equalToSuperview().inset(10)
-//            make.top.equalTo(95)
         }
         
         
