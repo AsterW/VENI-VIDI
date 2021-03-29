@@ -68,21 +68,23 @@ class SearchCM: DCContainerModel {
                     guard let image = info.imageLinks.thumbnail else {
                         continue
                     }
+                    resultModel.coverURL = image
+                    resultModel.volume = EntryData(withTitle: info.title, image: image)
                     
-                    let imageURL = URL(string: image)
-                    guard let url = imageURL else {
-                        return
-                    }
-                    
-                    self?.downloadImage(from: url) { [weak self] result in
-                        switch result {
-                        case .success(let image):
-                            resultModel.cover = image
-                            break
-                        case .failure(let error):
-                            break
-                        }
-                    }
+//                    let imageURL = URL(string: image)
+//                    guard let url = imageURL else {
+//                        return
+//                    }
+//
+//                    self?.downloadImage(from: url) { [weak self] result in
+//                        switch result {
+//                        case .success(let image):
+//                            resultModel.cover = image
+//                            break
+//                        case .failure(let error):
+//                            break
+//                        }
+//                    }
                     
 //                    let imageData = try? Data(contentsOf: imageURL!)
 //                    resultModel.cover = UIImage(data: imageData!)

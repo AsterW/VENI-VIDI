@@ -11,6 +11,8 @@ import SnapKit
 class SearchResultCellModel: DCCellModel {
     var cover: UIImage?
     var title: String = ""
+    var coverURL: String = ""
+    var volume: EntryData?
     
     required init() {
         super.init()
@@ -20,6 +22,8 @@ class SearchResultCellModel: DCCellModel {
 }
 
 class SearchResultCell: DCCell<SearchResultCellModel> {
+    static let selectedVolume = DCEventID()
+    
     var coverView = UIImageView()
     var titleView = UILabel()
     
@@ -47,5 +51,10 @@ class SearchResultCell: DCCell<SearchResultCellModel> {
         super.cellModelDidLoad()
         self.titleView.text = cellModel.title
         self.coverView.image = cellModel.cover
+    }
+    
+    override func didSelect() {
+        super.didSelect()
+        sendEvent(Self.selectedVolume, data: self.cellModel.volume)
     }
 }
