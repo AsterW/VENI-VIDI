@@ -161,6 +161,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
 
         poster.image = cellModel.posterImage
         comment.text = cellModel.comment
+        stars.rating = cellModel.rating ?? 0
         button.setTitle("Choose Cover", for: .normal)
     }
 
@@ -205,16 +206,24 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         guard newTitle != "" else { return }
 
         if let id = cellModel.entryId {
-            _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
+            if let rating = newRate {
+                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withRating: Int(rating), isFavorite: false)
+            } else {
+                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withRating: 0, isFavorite: false)
+            }
         } else {
-            _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, isFavorite: false)
+            if let rating = newRate {
+                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withRating: Int(rating), isFavorite: false)
+            } else {
+                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withRating: 0, isFavorite: false)
+            }
         }
 
-        if let entries = cellModel.service.fetchAllJournalEntries() {
+//        if let entries = cellModel.service.fetchAllJournalEntries() {
 //            print(entries.count)
 //            let entryOne=entries[0]
 //            print(entryOne.entryTitle ?? "No Title")
-        }
+//        }
 
         _ = navigationController.popViewController(animated: true)
     }

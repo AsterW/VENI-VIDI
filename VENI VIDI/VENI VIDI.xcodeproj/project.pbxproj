@@ -31,6 +31,8 @@
 		92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */; };
 		92F7EA9C25D782380039DF3C /* VENI_VIDIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */; };
 		CE24E1100E82A4BB5BC3655B /* Pods_VENI_VIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D53A0B0676FAC0E66A02502 /* Pods_VENI_VIDI.framework */; };
+		E0358079261B4A96006534A1 /* ExtensionDCContainerTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */; };
+		E0358081261B5FBF006534A1 /* Extension3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0358080261B5FBF006534A1 /* Extension3.swift */; };
 		E05A00282608F37F00533A4C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A00272608F37F00533A4C /* Date.swift */; };
 		E0ABE9E425F67F6F009E1AF2 /* UpdateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */; };
 		E0ABE9EC25F67F91009E1AF2 /* UpdateEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */; };
@@ -43,7 +45,6 @@
 		E0DA6E8125E8D90F002451BC /* TimeLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8025E8D90F002451BC /* TimeLabelCell.swift */; };
 		E0DA6E8825E8D93A002451BC /* TimeLabelCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8725E8D93A002451BC /* TimeLabelCellModel.swift */; };
 		E0DA6E8F25E8D94C002451BC /* EntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E8E25E8D94C002451BC /* EntryData.swift */; };
-		E0DA6E9625E8D97B002451BC /* TimelineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E9525E8D97B002451BC /* TimelineData.swift */; };
 		E0DA6E9E25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E9D25E8DA9E002451BC /* DetailedEntryViewController.swift */; };
 		E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */; };
 		E0DA6EAF25E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */; };
@@ -104,6 +105,8 @@
 		92F7EA9D25D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7FA7002CFA9184FC68BCF3A /* Pods-VENI VIDI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI.debug.xcconfig"; path = "Target Support Files/Pods-VENI VIDI/Pods-VENI VIDI.debug.xcconfig"; sourceTree = "<group>"; };
 		D46347D2CD7BE8FDA895FE79 /* Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig"; path = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDCContainerTableview.swift; sourceTree = "<group>"; };
+		E0358080261B5FBF006534A1 /* Extension3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension3.swift; sourceTree = "<group>"; };
 		E05A00272608F37F00533A4C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryViewController.swift; sourceTree = "<group>"; };
 		E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryContainerModel.swift; sourceTree = "<group>"; };
@@ -116,7 +119,6 @@
 		E0DA6E8025E8D90F002451BC /* TimeLabelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLabelCell.swift; sourceTree = "<group>"; };
 		E0DA6E8725E8D93A002451BC /* TimeLabelCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeLabelCellModel.swift; sourceTree = "<group>"; };
 		E0DA6E8E25E8D94C002451BC /* EntryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryData.swift; sourceTree = "<group>"; };
-		E0DA6E9525E8D97B002451BC /* TimelineData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineData.swift; sourceTree = "<group>"; };
 		E0DA6E9D25E8DA9E002451BC /* DetailedEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEntryViewController.swift; sourceTree = "<group>"; };
 		E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEntryContainerModel.swift; sourceTree = "<group>"; };
 		E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEntryCellModel.swift; sourceTree = "<group>"; };
@@ -248,6 +250,8 @@
 				E0DA6E2F25E8D64B002451BC /* Timeline */,
 				77ABC8C32611AC6900F32F19 /* Search */,
 				7741FD7226122C5300695C7C /* Extensions.swift */,
+				E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */,
+				E0358080261B5FBF006534A1 /* Extension3.swift */,
 			);
 			path = "VENI VIDI";
 			sourceTree = "<group>";
@@ -292,7 +296,6 @@
 				E0DA6E8025E8D90F002451BC /* TimeLabelCell.swift */,
 				E0DA6E8725E8D93A002451BC /* TimeLabelCellModel.swift */,
 				E0DA6E8E25E8D94C002451BC /* EntryData.swift */,
-				E0DA6E9525E8D97B002451BC /* TimelineData.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -570,10 +573,12 @@
 				92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */,
 				E0DA6E8F25E8D94C002451BC /* EntryData.swift in Sources */,
 				9247AECF25FD962C004016C3 /* CoreDataStack.swift in Sources */,
+				E0358079261B4A96006534A1 /* ExtensionDCContainerTableview.swift in Sources */,
 				E0ABE9F625F689DD009E1AF2 /* UpdateEntryCell.swift in Sources */,
 				7741FD7326122C5300695C7C /* Extensions.swift in Sources */,
 				E0ABE9F125F689B3009E1AF2 /* UpdateEntryCellModel.swift in Sources */,
 				E0DA6E8825E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
+				E0358081261B5FBF006534A1 /* Extension3.swift in Sources */,
 				E0DA6E7725E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,
 				E0ECC2C326100F6600BDF4B0 /* VENI_VIDIContainerModel.swift in Sources */,
 				E0DA6E8125E8D90F002451BC /* TimeLabelCell.swift in Sources */,
@@ -581,7 +586,6 @@
 				770297CF25EB929500A72E5E /* DCViewController.swift in Sources */,
 				77ABC8D42611BCA200F32F19 /* SearchResultCell.swift in Sources */,
 				E0ABE9EC25F67F91009E1AF2 /* UpdateEntryContainerModel.swift in Sources */,
-				E0DA6E9625E8D97B002451BC /* TimelineData.swift in Sources */,
 				92F7EA7725D782350039DF3C /* AppDelegate.swift in Sources */,
 				927F7657260E957200CE83B9 /* VENI_VIDI.xcdatamodeld in Sources */,
 				77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */,

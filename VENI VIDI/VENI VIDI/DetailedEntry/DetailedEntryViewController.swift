@@ -24,6 +24,7 @@ class DetailedEntryViewController: DCViewController {
                 if let imageData = entry.image {
                     detailCM.poster = UIImage(data: imageData)
                 }
+                detailCM.stars = Double(entry.rating)
             }
         }
 
@@ -45,6 +46,7 @@ class DetailedEntryViewController: DCViewController {
                 if let imageData = entry.image {
                     detailCM.poster = UIImage(data: imageData)
                 }
+                detailCM.stars = Double(entry.rating)
             }
         }
 
