@@ -11,7 +11,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let vc = TimelineViewController()
+        // let vc = TimelineViewController()
+        let vc = LaungchController()
         navigationController?.setViewControllers([vc], animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemYellow
