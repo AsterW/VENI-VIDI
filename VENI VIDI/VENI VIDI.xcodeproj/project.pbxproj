@@ -33,7 +33,6 @@
 		CE24E1100E82A4BB5BC3655B /* Pods_VENI_VIDI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D53A0B0676FAC0E66A02502 /* Pods_VENI_VIDI.framework */; };
 		E029AB18261FF4B50016463C /* Launching Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029AB17261FF4B50016463C /* Launching Page.swift */; };
 		E029AB2A261FF9E40016463C /* EntryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029AB29261FF9E40016463C /* EntryData.swift */; };
-		E029AB2F261FFB840016463C /* FloatLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029AB2E261FFB840016463C /* FloatLabel.swift */; };
 		E029AB4126207DA40016463C /* FloatingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029AB4026207DA40016463C /* FloatingLabel.swift */; };
 		E029AB49262193F10016463C /* ExtensionNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029AB48262193F10016463C /* ExtensionNav.swift */; };
 		E0358079261B4A96006534A1 /* ExtensionDCContainerTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */; };
@@ -111,7 +110,6 @@
 		D46347D2CD7BE8FDA895FE79 /* Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig"; path = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E029AB17261FF4B50016463C /* Launching Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Launching Page.swift"; sourceTree = "<group>"; };
 		E029AB29261FF9E40016463C /* EntryData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryData.swift; sourceTree = "<group>"; };
-		E029AB2E261FFB840016463C /* FloatLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatLabel.swift; sourceTree = "<group>"; };
 		E029AB4026207DA40016463C /* FloatingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabel.swift; sourceTree = "<group>"; };
 		E029AB48262193F10016463C /* ExtensionNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNav.swift; sourceTree = "<group>"; };
 		E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDCContainerTableview.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 				E029AB17261FF4B50016463C /* Launching Page.swift */,
 				92F7EA7625D782350039DF3C /* AppDelegate.swift */,
 				92F7EA7A25D782350039DF3C /* ViewController.swift */,
-				E029AB2E261FFB840016463C /* FloatLabel.swift */,
 				E029AB4026207DA40016463C /* FloatingLabel.swift */,
 				92F7EA7C25D782350039DF3C /* Main.storyboard */,
 				92F7EA8225D782380039DF3C /* Assets.xcassets */,
@@ -580,7 +577,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9247AF1B25FDA860004016C3 /* DataService.swift in Sources */,
-				E029AB2F261FFB840016463C /* FloatLabel.swift in Sources */,
 				77ABC8C52611AC8A00F32F19 /* BookInfoModel.swift in Sources */,
 				E0DA6EB625E8DF26002451BC /* DetailedEntryCell.swift in Sources */,
 				92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */,
