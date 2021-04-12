@@ -36,7 +36,7 @@ class SearchResultCell: DCCell<SearchResultCellModel> {
         coverView.snp.makeConstraints { make in
             make.left.equalTo(10)
             make.top.bottom.equalTo(10)
-            make.width.equalTo(100 * 9 / 16)
+            make.width.equalTo(120 * 9 / 16)
         }
 
         titleView.snp.makeConstraints { make in
@@ -49,7 +49,18 @@ class SearchResultCell: DCCell<SearchResultCellModel> {
     override func cellModelDidLoad() {
         super.cellModelDidLoad()
         titleView.text = cellModel.title
-        coverView.image = cellModel.cover
+        let str = cellModel.coverURL.replacingOccurrences(of: "http:", with: "https:")
+        guard let url = URL(string: str) else { return }
+
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                guard let image = UIImage(data: data) else { return }
+                self.coverView.image = image
+            }
+        }
+
+        task.resume()
     }
 
     override func didSelect() {
