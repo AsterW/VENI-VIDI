@@ -31,27 +31,21 @@ class DetailedEntryViewController: DCViewController {
         detailCM.needReloadData()
     }
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.systemBackground
         // check the previous controller
         if let count = navigationController?.viewControllers.count {
             if count >= 2 {
-                if (navigationController?.viewControllers[count - 2] as? LaungchController) != nil{
+                if (navigationController?.viewControllers[count - 2] as? LaungchController) != nil {
                     navigationItem.hidesBackButton = true
-                    
+
                     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Timeline", style: .plain, target: self, action: #selector(backToTimeline))
-                }
-                else{
-                    
-                }
+                } else {}
             }
         }
 
-
         print("Entry Id is \(String(describing: entryId))")
-
 
         let dataService = DataService(coreDataStack: CoreDataStack())
         if let id = entryId {

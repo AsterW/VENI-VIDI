@@ -43,7 +43,7 @@ class LaungchController: UIViewController {
     func gotoTimeline() {
         print("Timeline")
         let vc = TimelineViewController()
-        navigationController?.pushViewController(vc, animated: false)
+        navigationController?.pushViewController(vc, animated: true)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with _: UIEvent?) {
@@ -97,16 +97,19 @@ class LaungchController: UIViewController {
 
             self.view.addSubview(label)
             let Y = Int.random(in: 50 ..< Int(self.view.bounds.height - 50))
-            let labelFrame = CGRect(x: Int(self.view.bounds.maxX), y: Y, width: 200, height: 20)
+            let labelFrame = CGRect(x: Int(self.view.bounds.maxX), y: Y, width: 300, height: 20)
             label.frame = labelFrame
 //            label.isUserInteractionEnabled = true
 //            let guestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.clickEntry(_:)))
 //            label.addGestureRecognizer(guestureRecognizer)
 
-            UIView.animate(withDuration: 10, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: { label.frame = CGRect(x: -200, y: Y, width: 200, height: 20) }, completion: nil)
+            UIView.animate(withDuration: 10, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: { label.frame = CGRect(x: -300, y: Y, width: 300, height: 20) }, completion: { _ in label.removeFromSuperview()
+                print(self.view.subviews.count)
+            })
 
             index += 1
             if index > self.entries.count - 1 {
+                index = 0
                 t.invalidate()
             }
         }
