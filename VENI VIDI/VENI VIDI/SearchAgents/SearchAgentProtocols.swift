@@ -17,9 +17,3 @@ protocol DatabaseSpecificSearchAgent {
 
     func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }
-
-enum QueryAgentError: Error {
-    case urlError
-    case noData
-    case cannotDecodeData
-}
