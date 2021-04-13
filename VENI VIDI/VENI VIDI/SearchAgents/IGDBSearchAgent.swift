@@ -11,7 +11,6 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
     var apiKey: String = ""
     var apiUrl: String = ""
     var agentType: QueryContentType = .game
-    var delegate: DatabaseSpecificSearchAgentDelegate?
 
-    func query(withKeyword _: String, withTimeStamp _: Date) {}
+    func query(withKeyword _: String, withTimeStamp _: TimeInterval, withCompletionHandler _: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {}
 }

@@ -13,14 +13,13 @@ protocol GeneralSearchAgentDeletage {
 }
 
 protocol DatabaseSpecificSearchAgent {
-    var apiKey: String { get }
-    var apiUrl: String { get }
     var agentType: QueryContentType { get }
-    var delegate: DatabaseSpecificSearchAgentDelegate? { get }
 
-    func query(withKeyword keyword: String, withTimeStamp timeStamp: Date)
+    func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }
 
-protocol DatabaseSpecificSearchAgentDelegate {
-    func receivedQueryResult(_ result: [QueryResult], for queryContentType: QueryContentType, withTimeStamp timeStamp: Date)
+enum QueryAgentError: Error {
+    case urlError
+    case noData
+    case cannotDecodeData
 }

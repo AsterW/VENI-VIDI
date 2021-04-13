@@ -10,5 +10,5 @@ import Foundation
 class GeneralSearchAgent {
     let deletage: GeneralSearchAgentDeletage? = nil
 
-    let searchAgents: [DatabaseSpecificSearchAgent] = [GoogleBooksSearchAgent(), TMDBSearchAgent(), IGDBSearchAgent()]
+    let searchAgents: [DatabaseSpecificSearchAgent] = [GoogleBooksSearchAgent(), TMDBMovieSearchAgent(), IGDBSearchAgent()]
 }

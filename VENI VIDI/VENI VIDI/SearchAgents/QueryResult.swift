@@ -9,12 +9,14 @@ import Foundation
 import UIKit
 
 struct QueryResult {
-    init(withMovieStruct movie: Movie) {
+    init(withMovieStruct movie: Movie, withTimeStamp timeStamp: TimeInterval) {
         type = .movie
         title = movie.title
+        self.timeStamp = timeStamp
     }
 
     let type: QueryContentType
+    let timeStamp: TimeInterval
     var title: String
     var cover: UIImage?
 }
