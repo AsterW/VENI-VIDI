@@ -1,16 +1,16 @@
 //
-//  TMDBSearchAgent.swift
+//  TMDBTVSearchAgent.swift
 //  VENI VIDI
 //
-//  Created by 雲無心 on 3/29/21.
+//  Created by 雲無心 on 4/13/21.
 //
 
 import Foundation
 import UIKit
 
-class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
-    internal let agentType: QueryContentType = .movie
-    private let apiUrl: String = "https://api.themoviedb.org/3/search/movie"
+class TMDBTVSearchAgent: DatabaseSpecificSearchAgent {
+    internal let agentType: QueryContentType = .tvShow
+    private let apiUrl: String = "https://api.themoviedb.org/3/search/tv"
     private let apiKey: String = "29748b6586282540605ffb47f2378ad4"
 
     private let imageUrl500 = "https://image.tmdb.org/t/p/w500"
@@ -32,16 +32,16 @@ class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
                 completionHandler(.failure(.noData))
                 return
             }
-            guard let parsedData = try? JSONDecoder().decode(TMDBMovieQueryResults.self, from: acquiredData) else {
+            guard let parsedData = try? JSONDecoder().decode(TMDBTVQueryResults.self, from: acquiredData) else {
                 completionHandler(.failure(.cannotDecodeData))
                 return
             }
-            let queriedMovies = parsedData.results
+            let queriedTVShows = parsedData.results
 
             var queryResults: [QueryResult] = []
-            for movie in queriedMovies {
-                var result = QueryResult(withMovieStruct: movie, withTimeStamp: timeStamp)
-                result.cover = self.cacheImage(withPosterPath: movie.poster_path)
+            for tvShow in queriedTVShows {
+                var result = QueryResult(withTVStruct: tvShow, withTimeStamp: timeStamp)
+                result.cover = self.cacheImage(withPosterPath: tvShow.poster_path)
                 queryResults.append(result)
             }
 

@@ -1,34 +1,34 @@
 //
-//  TMDBTests.swift
+//  TMDBTVTests.swift
 //  VENI VIDITests
 //
-//  Created by 雲無心 on 4/12/21.
+//  Created by 雲無心 on 4/13/21.
 //
 
 import UIKit
 @testable import VENI_VIDI
 import XCTest
 
-class TMDBMovieTests: XCTestCase {
+class TMDBTVTests: XCTestCase {
     // MARK: - Properties and Set Up
 
-    var tmdbMovieAgent: TMDBMovieSearchAgent!
+    var tmdbTVAgent: TMDBTVSearchAgent!
 
     override func setUpWithError() throws {
         super.setUp()
-        tmdbMovieAgent = TMDBMovieSearchAgent()
+        tmdbTVAgent = TMDBTVSearchAgent()
     }
 
     override func tearDownWithError() throws {
-        tmdbMovieAgent = nil
+        tmdbTVAgent = nil
         super.tearDown()
     }
 
     // MARK: - Behavior Tests
 
     func testValidQuery() throws {
-        let testExpectation = expectation(description: "TMDB Movie Interstellar test")
-        tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: Date().timeIntervalSince1970) {
+        let testExpectation = expectation(description: "TMDB TV Show Sense8 test")
+        tmdbTVAgent.query(withKeyword: "Sense8", withTimeStamp: Date().timeIntervalSince1970) {
             result in
             switch result {
             case let .success(queryResult):
@@ -43,8 +43,9 @@ class TMDBMovieTests: XCTestCase {
     }
 
     func testInvalidQuery() throws {
-        let testExpectation = expectation(description: "TMDB Movie no result test")
-        tmdbMovieAgent.query(withKeyword: "qwerzxcvasdfjlk;", withTimeStamp: Date().timeIntervalSince1970) {
+        let testExpectation = expectation(description: "TMDB TV Show no result test")
+
+        tmdbTVAgent.query(withKeyword: "qwerzxcvasdfjlk;", withTimeStamp: Date().timeIntervalSince1970) {
             result in
             switch result {
             case let .success(queryResult):
@@ -62,9 +63,9 @@ class TMDBMovieTests: XCTestCase {
 
     func testPerformanceValidQuery() throws {
         measure {
-            let testExpectation = expectation(description: "TMDB Movie Interstellar test")
+            let testExpectation = expectation(description: "TMDB TV Show Sense8 test")
 
-            tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: Date().timeIntervalSince1970) {
+            tmdbTVAgent.query(withKeyword: "Sense8", withTimeStamp: Date().timeIntervalSince1970) {
                 result in
                 switch result {
                 case let .success(queryResult):
@@ -82,9 +83,9 @@ class TMDBMovieTests: XCTestCase {
 
     func testPerformanceInvalidQuery() throws {
         measure {
-            let testExpectation = expectation(description: "TMDB Movie no result test")
+            let testExpectation = expectation(description: "TMDB TV Show no result test")
 
-            tmdbMovieAgent.query(withKeyword: "qwerzxcvasdfjlk;", withTimeStamp: Date().timeIntervalSince1970) {
+            tmdbTVAgent.query(withKeyword: "qwerzxcvasdfjlk;", withTimeStamp: Date().timeIntervalSince1970) {
                 result in
                 switch result {
                 case let .success(queryResult):
