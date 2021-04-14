@@ -15,6 +15,7 @@ class DetailedEntryContainerModel: DCContainerModel {
     var comment: String?
     var stars: Double?
     var date: Date?
+    var quote: String?
 
     override func tableViewDataWillReload() {
         removeAllSubmodels()
@@ -42,6 +43,10 @@ class DetailedEntryContainerModel: DCContainerModel {
             detailModel.date = date
         }
 
+        if let quote = quote {
+            detailModel.quote = quote
+        }
+
         addSubmodel(detailModel)
     }
 
@@ -65,6 +70,10 @@ class DetailedEntryContainerModel: DCContainerModel {
 
         if let commentContent = comment {
             detailModel.comment = commentContent
+        }
+
+        if let quote = quote {
+            detailModel.quote = quote
         }
 
         addSubmodel(detailModel)

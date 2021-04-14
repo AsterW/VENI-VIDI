@@ -30,6 +30,7 @@ class UpdateEnrtyViewController: DCViewController {
                 print("yes")
                 newEntryCM.entryTitle = entry.worksTitle
                 newEntryCM.comment = entry.entryContent
+                newEntryCM.quote = entry.quote
                 if let imageData = entry.image {
                     newEntryCM.poster = UIImage(data: imageData)
                 }

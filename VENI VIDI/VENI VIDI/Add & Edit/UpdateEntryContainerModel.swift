@@ -16,6 +16,7 @@ class UpdateEntryContainerModel: VVContainerModel {
     var stars: Double?
     var date: Date?
     var nav: UINavigationController?
+    var quote: String?
 
     var entryId: UUID?
 
@@ -50,6 +51,10 @@ class UpdateEntryContainerModel: VVContainerModel {
 
         if let id = entryId {
             newEntryModel.entryId = id
+        }
+
+        if let quote = quote {
+            newEntryModel.quote = quote
         }
 
         addSubmodel(searchCM)

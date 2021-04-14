@@ -71,6 +71,22 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         return commentLabel
     }()
 
+    let quoteLabel: UILabel = {
+        let quoteLabel = UILabel()
+        quoteLabel.text = "The Quote: "
+        quoteLabel.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        return quoteLabel
+    }()
+
+    let quote: NewTextView = {
+        let quote = NewTextView()
+        quote.text = "This is a quotation:)"
+        quote.textAlignment = .center
+        quote.font = UIFont.italicSystemFont(ofSize: 18)
+        quote.textColor = .systemYellow
+        return quote
+    }()
+
     override func setupUI() {
         super.setupUI()
 
@@ -84,6 +100,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         contentView.addSubview(stars)
         contentView.addSubview(commentLabel)
         contentView.addSubview(comment)
+        contentView.addSubview(quoteLabel)
+        contentView.addSubview(quote)
         contentView.addSubview(submitButton)
     }
 
@@ -113,8 +131,21 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             make.centerX.equalToSuperview()
         }
 
-        commentLabel.snp.makeConstraints { make in
+        quoteLabel.snp.makeConstraints { make in
             make.top.equalTo(stars.snp.bottom).offset(20)
+            make.height.equalTo(24)
+            make.left.equalTo(15)
+        }
+
+        quote.snp.makeConstraints { make in
+            make.top.equalTo(quoteLabel.snp.bottom).offset(20)
+            make.height.equalTo(80)
+            make.centerX.equalToSuperview()
+            make.width.equalToSuperview().inset(20)
+        }
+
+        commentLabel.snp.makeConstraints { make in
+            make.top.equalTo(quote.snp.bottom).offset(20)
             make.height.equalTo(24)
             make.left.equalTo(15)
         }
@@ -167,6 +198,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
 
         poster.image = cellModel.posterImage
         comment.text = cellModel.comment
+        quote.text = cellModel.quote
         stars.rating = cellModel.rating ?? 0
     }
 
@@ -193,6 +225,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         var newImage: UIImage?
         var newRate: Double?
         var newContent: String
+        var newQuote: String
 
         newTitle = cellModel.entryTitle
 
@@ -206,21 +239,27 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             newContent = ""
         }
 
+        if let quote = quote.text {
+            newQuote = quote
+        } else {
+            newQuote = ""
+        }
+
         newRate = stars.rating
 
         guard newTitle != "" else { return }
 
         if let id = cellModel.entryId {
             if let rating = newRate {
-                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withRating: Int(rating), isFavorite: false)
+                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: false)
             } else {
-                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withRating: 0, isFavorite: false)
+                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: false)
             }
         } else {
             if let rating = newRate {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withRating: Int(rating), isFavorite: false)
+                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: false)
             } else {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withRating: 0, isFavorite: false)
+                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: false)
             }
         }
 

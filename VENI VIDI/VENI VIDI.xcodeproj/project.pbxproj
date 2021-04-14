@@ -58,6 +58,7 @@
 		E0ABE9EC25F67F91009E1AF2 /* UpdateEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */; };
 		E0ABE9F125F689B3009E1AF2 /* UpdateEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F025F689B3009E1AF2 /* UpdateEntryCellModel.swift */; };
 		E0ABE9F625F689DD009E1AF2 /* UpdateEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F525F689DD009E1AF2 /* UpdateEntryCell.swift */; };
+		E0D8B79B26274B4D0084CFE0 /* ExtensionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0D8B79A26274B4D0084CFE0 /* ExtensionTextView.swift */; };
 		E0DA6E4725E8D734002451BC /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E4625E8D734002451BC /* TimelineViewController.swift */; };
 		E0DA6E6425E8D832002451BC /* TimelineCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E6325E8D832002451BC /* TimelineCellModel.swift */; };
 		E0DA6E6B25E8D87A002451BC /* TimelineCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6E6A25E8D87A002451BC /* TimelineCell.swift */; };
@@ -151,6 +152,7 @@
 		E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryContainerModel.swift; sourceTree = "<group>"; };
 		E0ABE9F025F689B3009E1AF2 /* UpdateEntryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryCellModel.swift; sourceTree = "<group>"; };
 		E0ABE9F525F689DD009E1AF2 /* UpdateEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryCell.swift; sourceTree = "<group>"; };
+		E0D8B79A26274B4D0084CFE0 /* ExtensionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionTextView.swift; sourceTree = "<group>"; };
 		E0DA6E4625E8D734002451BC /* TimelineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
 		E0DA6E6325E8D832002451BC /* TimelineCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCellModel.swift; sourceTree = "<group>"; };
 		E0DA6E6A25E8D87A002451BC /* TimelineCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineCell.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */,
 				E0358080261B5FBF006534A1 /* Extension3.swift */,
 				E029AB48262193F10016463C /* ExtensionNav.swift */,
+				E0D8B79A26274B4D0084CFE0 /* ExtensionTextView.swift */,
 			);
 			path = "VENI VIDI";
 			sourceTree = "<group>";
@@ -683,6 +686,7 @@
 				E0ABE9E425F67F6F009E1AF2 /* UpdateEntryViewController.swift in Sources */,
 				92FD9C712612335D005D6C2A /* GeneralSearchAgent.swift in Sources */,
 				E0DA6E4725E8D734002451BC /* TimelineViewController.swift in Sources */,
+				E0D8B79B26274B4D0084CFE0 /* ExtensionTextView.swift in Sources */,
 				E0DA6EAF25E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */,
 				E029AB4126207DA40016463C /* FloatingLabel.swift in Sources */,
 			);

@@ -21,6 +21,7 @@ class DetailedEntryViewController: DCViewController {
                 detailCM.entryTitle = entry.worksTitle
                 detailCM.comment = entry.entryContent
                 detailCM.date = entry.finishDate
+                detailCM.quote = entry.quote
                 if let imageData = entry.image {
                     detailCM.poster = UIImage(data: imageData)
                 }
@@ -34,6 +35,7 @@ class DetailedEntryViewController: DCViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor.systemBackground
+
         // check the previous controller
         if let count = navigationController?.viewControllers.count {
             if count >= 2 {
@@ -50,8 +52,10 @@ class DetailedEntryViewController: DCViewController {
         let dataService = DataService(coreDataStack: CoreDataStack())
         if let id = entryId {
             if let entry = dataService.fetchJournalEntryWithUUID(id) {
+//                title = entry.worksTitle
                 detailCM.entryTitle = entry.worksTitle
                 detailCM.comment = entry.entryContent
+                detailCM.quote = entry.quote
                 if let imageData = entry.image {
                     detailCM.poster = UIImage(data: imageData)
                 }
