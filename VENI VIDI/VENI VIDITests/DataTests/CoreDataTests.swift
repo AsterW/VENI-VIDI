@@ -49,6 +49,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.worksTitle == "")
         XCTAssertTrue(entry0.entryTitle == "")
         XCTAssertTrue(entry0.entryContent == "")
+        XCTAssertTrue(entry0.quote == "")
         XCTAssertTrue(entry0.longitude == 0)
         XCTAssertTrue(entry0.latitude == 0)
         XCTAssertTrue(entry0.tags?.count == 0)
@@ -67,6 +68,7 @@ class CoreDataTests: XCTestCase {
                                                     withFinishDate: date2,
                                                     withEntryTitle: "Okay that's cool",
                                                     withEntryContent: "Very very cool",
+                                                    withQuote: "This is a quote from the movie",
                                                     atLongitude: 1.11,
                                                     atLatitude: -2.22,
                                                     withTags: [tag1, tag2],
@@ -80,6 +82,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.finishDate == date2)
         XCTAssertTrue(entry1.entryTitle == "Okay that's cool")
         XCTAssertTrue(entry1.entryContent == "Very very cool")
+        XCTAssertTrue(entry1.quote == "This is a quote from the movie")
         XCTAssertTrue(entry1.longitude == 1.11)
         XCTAssertTrue(entry1.latitude == -2.22)
         XCTAssertTrue(entry1.tags == NSSet(array: [tag1, tag2]))
@@ -108,6 +111,7 @@ class CoreDataTests: XCTestCase {
                                                      withFinishDate: date2,
                                                      withEntryTitle: "Impressive",
                                                      withEntryContent: "I don't know what to say",
+                                                     withQuote: "This is another quote from the movie",
                                                      atLongitude: 3.14,
                                                      atLatitude: -6.28,
                                                      withTags: [tag1, tag2],
@@ -119,6 +123,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.finishDate == date2)
         XCTAssertTrue(entry0.entryTitle == "Impressive")
         XCTAssertTrue(entry0.entryContent == "I don't know what to say")
+        XCTAssertTrue(entry0.quote == "This is another quote from the movie")
         XCTAssertTrue(entry0.longitude == 3.14)
         XCTAssertTrue(entry0.latitude == -6.28)
         XCTAssertTrue(entry0.tags == NSSet(array: [tag1, tag2]))
@@ -132,6 +137,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(fetchedEntry0?.finishDate == date2)
         XCTAssertTrue(fetchedEntry0?.entryTitle == "Impressive")
         XCTAssertTrue(fetchedEntry0?.entryContent == "I don't know what to say")
+        XCTAssertTrue(fetchedEntry0?.quote == "This is another quote from the movie")
         XCTAssertTrue(fetchedEntry0?.longitude == 3.14)
         XCTAssertTrue(fetchedEntry0?.latitude == -6.28)
         XCTAssertTrue(fetchedEntry0?.tags == NSSet(array: [tag1, tag2]))
@@ -144,6 +150,7 @@ class CoreDataTests: XCTestCase {
                                                     withFinishDate: date2,
                                                     withEntryTitle: "Okay that's cool",
                                                     withEntryContent: "Very very cool",
+                                                    withQuote: "aaaaa",
                                                     atLongitude: 1.11,
                                                     atLatitude: -2.22,
                                                     withTags: [tag1, tag2],
@@ -161,6 +168,7 @@ class CoreDataTests: XCTestCase {
                                                      withFinishDate: date3,
                                                      withEntryTitle: "Not bad",
                                                      withEntryContent: "Just okay",
+                                                     withQuote: "bbbbb",
                                                      atLongitude: -6.7,
                                                      atLatitude: 239_432,
                                                      withTags: [tag1, tag3],
@@ -172,6 +180,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.finishDate == date3)
         XCTAssertTrue(entry1.entryTitle == "Not bad")
         XCTAssertTrue(entry1.entryContent == "Just okay")
+        XCTAssertTrue(entry1.quote == "bbbbb")
         XCTAssertTrue(entry1.longitude == -6.7)
         XCTAssertTrue(entry1.latitude == 239_432)
         XCTAssertTrue(entry1.tags == NSSet(array: [tag1, tag3]))
@@ -197,6 +206,7 @@ class CoreDataTests: XCTestCase {
                                                     withFinishDate: date2,
                                                     withEntryTitle: "Okay that's cool",
                                                     withEntryContent: "Very very cool",
+                                                    withQuote: "ccccc",
                                                     atLongitude: 1.11,
                                                     atLatitude: -2.22,
                                                     withTags: [tag1, tag2],

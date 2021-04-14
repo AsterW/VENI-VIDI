@@ -106,6 +106,7 @@ extension DataService {
                             withFinishDate finishDate: Date = Date(),
                             withEntryTitle entryTitle: String = "",
                             withEntryContent entryContent: String = "",
+                            withQuote quote: String = "",
                             atLongitude longitude: Double = 0,
                             atLatitude latitude: Double = 0,
                             withTags tags: [Tag] = [],
@@ -126,6 +127,7 @@ extension DataService {
                               withFinishDate: finishDate,
                               withEntryTitle: entryTitle,
                               withEntryContent: entryContent,
+                              withQuote: quote,
                               atLongitude: longitude,
                               atLatitude: latitude,
                               withTags: tags,
@@ -146,6 +148,7 @@ extension DataService {
                             withFinishDate finishDate: Date? = nil,
                             withEntryTitle entryTitle: String? = nil,
                             withEntryContent entryContent: String? = nil,
+                            withQuote quote: String? = nil,
                             atLongitude longitude: Double? = nil,
                             atLatitude latitude: Double? = nil,
                             withTags tags: [Tag]? = nil,
@@ -159,6 +162,7 @@ extension DataService {
             entry.finishDate = finishDate ?? entry.finishDate
             entry.entryTitle = entryTitle ?? entry.entryTitle
             entry.entryContent = entryContent ?? entry.entryContent
+            entry.quote = quote ?? entry.quote
             entry.favorite = favorite ?? entry.favorite
 
             if let newLongitude = longitude {
