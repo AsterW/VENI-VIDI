@@ -17,6 +17,7 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
     private let requestBaseUrl: String = "https://api.igdb.com/v4/games"
 
     private var accessToken: String = ""
+    private var accessTokenForRequest: String { return "Bearer \(accessToken)" }
     private var accessTokenExpirationDate = Date()
     private let accessTokenRequestUrl: String = "https://id.twitch.tv/oauth2/token"
     private let accessTokenRevokeUrl: String = "https://id.twitch.tv/oauth2/revoke"
@@ -38,6 +39,7 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
             return accessToken
         }
 
+        revokeAccessToken()
         let accessTokenIssueRequest = IGDBAccessTokenIssueRequest(withClientID: clientID, withClientSecret: clientSecret)
         guard let targetUrl = URL(string: accessTokenRequestUrl) else { fatalError() }
         var urlRequest = URLRequest(url: targetUrl)
