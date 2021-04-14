@@ -49,7 +49,7 @@ class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
                 if downloadCoverImage {
                     result.cover = self.cacheImage(withPosterPath: movie.poster_path)
                 } else {
-                    result.coverUrl = self.retriveImageUrl(withPosterPath: movie.poster_path)
+                    result.coverUrl = movie.poster_path != nil ? self.imageUrl500 + movie.poster_path! : ""
                 }
                 queryResults.append(result)
             }

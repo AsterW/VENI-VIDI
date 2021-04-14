@@ -28,6 +28,6 @@ struct QueryResult {
     let type: QueryContentType
     let timeStamp: TimeInterval
     var title: String
-    var coverUrl: URL?
+    var coverUrl: String?
     var cover: UIImage?
 }

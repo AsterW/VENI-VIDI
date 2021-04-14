@@ -10,9 +10,19 @@ import SnapKit
 import UIKit
 
 class SearchCell: DCBaseCell {
-    static let textChanged = DCEventID()
+    static let searchChanged = DCEventID()
     static let searchText = DCSharedDataID()
+    static let searchType = DCSharedDataID()
     static let cancelSearch = DCEventID()
+    private var searchType = "book"
+    private var searchText = ""
+
+    private let segments: [(String, String)] = [
+        ("Books", "book"),
+        ("Movies", "movie"),
+        ("TV Shows", "show"),
+        ("Games", "game"),
+    ]
 
     private lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
@@ -24,14 +34,37 @@ class SearchCell: DCBaseCell {
         return view
     }()
 
+    private lazy var searchPicker: UISegmentedControl = {
+        let searchPicker = UISegmentedControl(items: segments.map { $0.0 })
+        searchPicker.selectedSegmentIndex = 0
+        searchPicker.addTarget(self, action: #selector(SearchCell.changeSearchType(_:)), for: .valueChanged)
+        contentView.addSubview(searchPicker)
+        return searchPicker
+    }()
+
     override func layoutSubviews() {
         super.layoutSubviews()
-        searchBar.frame = contentView.bounds
+
+        searchPicker.snp.makeConstraints { make in
+            make.left.equalTo(10)
+            make.right.equalTo(-10)
+            make.height.equalTo(30)
+        }
+        searchBar.snp.makeConstraints { make in
+            make.top.equalTo(searchPicker.snp.bottom).offset(10)
+            make.width.equalToSuperview()
+            make.height.equalTo(56)
+        }
+    }
+
+    @objc func changeSearchType(_ control: UISegmentedControl) {
+        shareData(segments[control.selectedSegmentIndex].1, to: Self.searchType)
+        textChanged(searchText)
     }
 
     private func textChanged(_ text: String) {
         setCellData(text)
-        sendEvent(Self.textChanged, data: text)
+        sendEvent(Self.searchChanged, data: text)
     }
 
 //    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
@@ -65,6 +98,7 @@ class SearchCell: DCBaseCell {
 
 extension SearchCell: UISearchBarDelegate {
     func searchBar(_: UISearchBar, textDidChange searchText: String) {
+        self.searchText = searchText
         textChanged(searchText)
     }
 }
