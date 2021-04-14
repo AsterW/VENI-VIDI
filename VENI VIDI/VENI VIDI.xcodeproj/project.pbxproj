@@ -32,6 +32,8 @@
 		92EE2D34262601B700AB89FD /* TMDBTVSearchAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE2D33262601B700AB89FD /* TMDBTVSearchAgent.swift */; };
 		92EE2D3926260A5800AB89FD /* TMDBTVTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE2D3826260A5800AB89FD /* TMDBTVTests.swift */; };
 		92EE2D3E26264EA800AB89FD /* GeneralSearchAgentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE2D3D26264EA800AB89FD /* GeneralSearchAgentTests.swift */; };
+		92EE2D4D2626636F00AB89FD /* IGDBDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE2D4C2626636F00AB89FD /* IGDBDataStructs.swift */; };
+		92EE2D522626685100AB89FD /* IGDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92EE2D512626685100AB89FD /* IGDBTests.swift */; };
 		92F7EA7725D782350039DF3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7625D782350039DF3C /* AppDelegate.swift */; };
 		92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA7A25D782350039DF3C /* ViewController.swift */; };
 		92F7EA7E25D782350039DF3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA7C25D782350039DF3C /* Main.storyboard */; };
@@ -116,6 +118,8 @@
 		92EE2D33262601B700AB89FD /* TMDBTVSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTVSearchAgent.swift; sourceTree = "<group>"; };
 		92EE2D3826260A5800AB89FD /* TMDBTVTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBTVTests.swift; sourceTree = "<group>"; };
 		92EE2D3D26264EA800AB89FD /* GeneralSearchAgentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSearchAgentTests.swift; sourceTree = "<group>"; };
+		92EE2D4C2626636F00AB89FD /* IGDBDataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBDataStructs.swift; sourceTree = "<group>"; };
+		92EE2D512626685100AB89FD /* IGDBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBTests.swift; sourceTree = "<group>"; };
 		92F7EA7325D782350039DF3C /* VENI VIDI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VENI VIDI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F7EA7625D782350039DF3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		92F7EA7A25D782350039DF3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 				92D1AB9A2624F73B0015E35E /* TMDBMovieTests.swift */,
 				92EE2D3826260A5800AB89FD /* TMDBTVTests.swift */,
 				92EE2D3D26264EA800AB89FD /* GeneralSearchAgentTests.swift */,
+				92EE2D512626685100AB89FD /* IGDBTests.swift */,
 			);
 			path = APITests;
 			sourceTree = "<group>";
@@ -335,6 +340,7 @@
 				92FD9C7A26123457005D6C2A /* TMDBMovieSearchAgent.swift */,
 				92EE2D33262601B700AB89FD /* TMDBTVSearchAgent.swift */,
 				92FD9C8D26123706005D6C2A /* TMDBDataStructs.swift */,
+				92EE2D4C2626636F00AB89FD /* IGDBDataStructs.swift */,
 				92FD9C7F26123466005D6C2A /* IGDBSearchAgent.swift */,
 				925FB5CC2624B4C600F0176D /* QueryContentType.swift */,
 				92EE2D2E2626017500AB89FD /* QueryAgentError.swift */,
@@ -668,6 +674,7 @@
 				925FB5C12624A41E00F0176D /* SearchAgentProtocols.swift in Sources */,
 				925FB5D22624B69900F0176D /* QueryResult.swift in Sources */,
 				77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */,
+				92EE2D4D2626636F00AB89FD /* IGDBDataStructs.swift in Sources */,
 				E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
 				E0DA6E9E25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */,
 				E05A00282608F37F00533A4C /* Date.swift in Sources */,
@@ -688,6 +695,7 @@
 				92EE2D3926260A5800AB89FD /* TMDBTVTests.swift in Sources */,
 				92D1AB9B2624F73B0015E35E /* TMDBMovieTests.swift in Sources */,
 				9247AEF025FDA133004016C3 /* TestCoreDataStack.swift in Sources */,
+				92EE2D522626685100AB89FD /* IGDBTests.swift in Sources */,
 				9247AF1325FDA517004016C3 /* CoreDataTests.swift in Sources */,
 				92EE2D3E26264EA800AB89FD /* GeneralSearchAgentTests.swift in Sources */,
 				92E088C525FF9C39007EAED1 /* (null) in Sources */,
