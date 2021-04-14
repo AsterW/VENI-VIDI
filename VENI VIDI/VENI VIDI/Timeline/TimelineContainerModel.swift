@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 
 class SimpleListContainerModel: VVContainerModel {
-//    var timeLineData:TimelineData?
     var entries: [JournalEntry]?
-//    var entryService:JournalEntryService?
     var currentTimeLabel: DateComponents?
 
     func getEntryData() {
@@ -30,9 +28,6 @@ class SimpleListContainerModel: VVContainerModel {
 
         getEntryData()
 
-//        let timeModel=TimeLabelCellModel()
-//        timeModel.timeLabel="March"
-//        addSubmodel(timeModel)
         if let dateComponents = currentTimeLabel {
             createTimeLabel(date: dateComponents)
         }
@@ -46,8 +41,6 @@ class SimpleListContainerModel: VVContainerModel {
                     print("Calendar Date is \(calanderDate)")
                     createTimeLabel(date: calanderDate)
                 }
-//                print("Calendar Date is \(calanderDate)")
-//                createTimeLabel(date: calanderDate)
 
                 let model = TimelineCellModel()
                 if let id = item.id {
@@ -107,18 +100,6 @@ class SimpleListContainerModel: VVContainerModel {
         print("load Timeline")
         containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
         getEntryData()
-        // create an entry in Feb
-//        var date=DateComponents()
-//        date.day=20
-//        date.month=2
-//        date.year=2021
-//        let userCalendar = Calendar(identifier: .gregorian) // since the components above (like year 1980) are for Gregorian
-//        let someDateTime = userCalendar.date(from: date)
-//        dataService.createJournalEntry(aboutWork: "February Movie", withStartDate: someDateTime!, withFinishDate: someDateTime!, withEntryTitle: "February Movie", withEntryContent: "Some comment", isFavorite: false)
-
-//        let timeModel=TimeLabelCellModel()
-//        timeModel.timeLabel="March"
-//        addSubmodel(timeModel)
 
         if let e = entries {
             for item in e {
@@ -137,5 +118,36 @@ class SimpleListContainerModel: VVContainerModel {
                 addSubmodel(model)
             }
         }
+
+        handleEvents()
+    }
+
+    func handleEvents() {
+//        subscribeEvent(DCContainerTableView.delete) { [weak self] (model: TimelineCellModel) in
+//            guard let id = model.entryId else { return }
+//            self?.dataService.deleteJournalEntry(withUUID: id)
+//        }
     }
 }
+
+// extension DCContainerTableView: UITableViewDelegate {
+//    internal static let delete = DCEventID()
+//
+//    func tableView(_: UITableView, editingStyleForRowAt _: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .delete
+//    }
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            tableView.beginUpdates()
+//
+//            if let baseCellModel = getCellModel(indexPath), let timelineCell = baseCellModel as? TimelineCellModel {
+//                sendEvent(Self.delete, data: timelineCell)
+//            }
+//
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//
+//            tableView.endUpdates()
+//        }
+//    }
+// }

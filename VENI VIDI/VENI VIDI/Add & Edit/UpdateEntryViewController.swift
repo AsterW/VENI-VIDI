@@ -35,20 +35,6 @@ class UpdateEnrtyViewController: DCViewController {
                 }
             }
         }
-//        else{//Create a new entry, load that empty entry and perform update
-//            print("Creating new entry")
-//            let newEntry = dataService.createJournalEntry()
-//            if let id=newEntry.id{
-//                newEntryCM.entryId=id
-//                if let entry=dataService.fetchJournalEntryWithUUID(id){
-//                    newEntryCM.entryTitle=entry.worksTitle
-//                    newEntryCM.comment=entry.entryContent
-//                    if let imageData=entry.image{
-//                        newEntryCM.poster=UIImage(data: imageData)
-//                    }
-//                }
-//            }
-//        }
 
         loadCM(newEntryCM)
     }
