@@ -44,7 +44,9 @@ class SearchCM: DCContainerModel {
                 case "book":
                     self.getBooks(with: text)
                 case "movie":
-                    self.getMovies(with: text)
+                    self.getMovies(with: text, type: .movie)
+                case "show":
+                    self.getMovies(with: text, type: .tvShow)
                 default:
                     self.getBooks(with: text)
                 }
@@ -99,10 +101,10 @@ class SearchCM: DCContainerModel {
         }
     }
 
-    private func getMovies(with text: String) {
+    private func getMovies(with text: String, type: QueryContentType) {
         let generalSearchAgent = GeneralSearchAgent()
         let timeStamp = NSDate().timeIntervalSince1970
-        generalSearchAgent.query(withKeyword: text, forContentType: .movie) { [weak self] result in
+        generalSearchAgent.query(withKeyword: text, forContentType: type) { [weak self] result in
             switch result {
             case let .failure(error):
                 print(error)

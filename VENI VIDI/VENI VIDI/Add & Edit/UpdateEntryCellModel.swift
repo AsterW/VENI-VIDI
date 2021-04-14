@@ -13,7 +13,7 @@ class UpdateEntryCellModel: DCCellModel {
     var entryTitle: String = ""
     var comment: String = ""
     var rating: Double?
-    var posterImage: UIImage?
+    var posterImage = UIImage(named: "logo_background")!
     var date: Date?
     var nav: UINavigationController?
     var service: DataService = {

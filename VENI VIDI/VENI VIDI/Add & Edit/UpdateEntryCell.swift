@@ -11,8 +11,6 @@ import Foundation
 import SnapKit
 
 class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    // poster is the larger image for the entry
-
     static let titleText = DCSharedDataID()
 
     var navigationController: UINavigationController = {
@@ -22,8 +20,9 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
 
     let poster: UIImageView = {
         let poster = UIImageView()
+        poster.alpha = 0.75
         poster.contentMode = .scaleToFill
-        poster.backgroundColor = UIColor.systemYellow
+        poster.backgroundColor = .systemYellow
         poster.clipsToBounds = true
         poster.layer.cornerRadius = 6
         return poster
@@ -48,8 +47,10 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
 
     let button: UIButton = {
         let button = UIButton()
-        button.setTitle("Click to Upload Image", for: .normal)
+        button.setTitle("", for: .normal)
         button.setTitleColor(UIColor.systemGray2, for: .normal)
+        button.setImage(UIImage(named: "image_icon"), for: .normal)
+        button.imageView?.alpha = 0.75
         return button
     }()
 
@@ -90,8 +91,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         super.layoutSubviews()
 
         poster.snp.makeConstraints { make in
-//            make.left.equalTo(15)
-            make.top.equalTo(20)
+            make.top.equalTo(10)
             make.height.equalTo(240)
             make.width.equalTo(135)
             make.centerX.equalToSuperview()
@@ -99,6 +99,12 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
 
         button.snp.makeConstraints { make in
             make.edges.equalTo(poster.snp.edges)
+        }
+
+        button.imageView?.snp.makeConstraints { make in
+            make.center.equalToSuperview()
+            make.width.equalTo(50)
+            make.height.equalTo(50 * 806 / 980)
         }
 
         stars.snp.makeConstraints { make in
@@ -162,7 +168,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         poster.image = cellModel.posterImage
         comment.text = cellModel.comment
         stars.rating = cellModel.rating ?? 0
-        button.setTitle("Choose Cover", for: .normal)
     }
 
     @objc func pickImage() {
