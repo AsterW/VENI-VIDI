@@ -9,11 +9,13 @@ import CoreData
 import Foundation
 import UIKit
 
-final class DataService {
+final class DataService: NSObject, NSFetchedResultsControllerDelegate {
     // MARK: - Properties
 
     let managedObjectContext: NSManagedObjectContext
     let coreDataStack: CoreDataStack
+    var fetchedResultsController: NSFetchedResultsController<JournalEntry>?
+    let delegate: DataServiceDelegate? = nil
 
     // MARK: - Initializers
 
@@ -67,15 +69,23 @@ extension DataService {
 
 extension DataService {
     func fetchAllJournalEntries() -> [JournalEntry]? {
+        let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "finishDate", ascending: false)]
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController?.delegate = self
         do {
-            let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
-            fetchRequest.sortDescriptors = [NSSortDescriptor(key: "finishDate", ascending: false)]
-            let entries = try managedObjectContext.fetch(fetchRequest)
-            return entries
+            try fetchedResultsController?.performFetch()
         } catch {
-            print("Unexpected error at fetchJournalEntries(): \(error)")
-            return nil
+            fatalError("Failed to fetch entities: \(error)")
         }
+        return fetchedResultsController?.fetchedObjects
+//        do {
+//            let entries = try managedObjectContext.fetch(fetchRequest)
+//            return entries
+//        } catch {
+//            print("Unexpected error at fetchJournalEntries(): \(error)")
+//            return nil
+//        }
     }
 
     func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? {
@@ -204,6 +214,19 @@ extension DataService {
         } else {
             print("Received invalid UUID for deleteJournalEntry()")
             return false
+        }
+    }
+}
+
+// MARK: - NSFetchedResultsControllerDelegate
+
+extension DataService {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        if let updatedJournalEntries = controller.fetchedObjects as? [JournalEntry] {
+            print("DataService delegate call with argument \(updatedJournalEntries)")
+            delegate?.fetchAllJournalEntriesResultDidChange(updatedJournalEntries)
+        } else {
+            print("Error: NSFetchedResultsController has a NSFetchRequestResult type different from JournalEntry.") // DEBUG
         }
     }
 }

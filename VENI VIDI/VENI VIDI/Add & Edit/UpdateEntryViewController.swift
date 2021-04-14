@@ -33,6 +33,7 @@ class UpdateEnrtyViewController: DCViewController {
                 if let imageData = entry.image {
                     newEntryCM.poster = UIImage(data: imageData)
                 }
+                newEntryCM.stars = Double(entry.rating)
             }
         }
 //        else{//Create a new entry, load that empty entry and perform update

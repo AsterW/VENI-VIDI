@@ -34,15 +34,19 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
     let stars: CosmosView = {
         let stars = CosmosView()
         // stars.backgroundColor=UIColor.systemGray
+        stars.isUserInteractionEnabled = false
         stars.layer.cornerRadius = 4
         return stars
     }()
 
     // user's comment for this movie/book
-    let comment: UITextField = {
-        let comment = UITextField()
+    let comment: UITextView = {
+        let comment = UITextView()
         comment.backgroundColor = UIColor.systemGray6
         comment.layer.cornerRadius = 10
+        comment.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        comment.textColor = UIColor.systemGray
+        comment.isEditable = false
         return comment
     }()
 
@@ -93,6 +97,10 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         poster.image = cellModel.posterImage
         smallPoster.image = cellModel.posterImage
         comment.text = cellModel.comment
+//        let style = NSMutableParagraphStyle()
+//        style.lineSpacing = 40
+//        let attributes = [NSAttributedString.Key.paragraphStyle : style]
+//        comment.attributedText = NSAttributedString(string: cellModel.comment, attributes:attributes)
 
         if let date = cellModel.date {
             let formatter1 = DateFormatter()

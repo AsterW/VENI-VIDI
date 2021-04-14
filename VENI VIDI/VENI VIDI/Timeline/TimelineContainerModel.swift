@@ -60,7 +60,7 @@ class SimpleListContainerModel: VVContainerModel {
                 } else {
                     model.picture = UIImage(systemName: "star.fill")
                 }
-                model.rating = Double.random(in: 0 ..< 5.0)
+                model.rating = Double(item.rating)
                 addSubmodel(model, separator: .bottom, height: 2)
             }
         }
@@ -133,7 +133,7 @@ class SimpleListContainerModel: VVContainerModel {
                 } else {
                     model.picture = UIImage(systemName: "star.fill")
                 }
-                model.rating = Double.random(in: 0 ..< 5.0)
+                model.rating = Double(item.rating)
                 addSubmodel(model)
             }
         }

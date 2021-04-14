@@ -16,6 +16,7 @@ class TimelineCell: DCCell<TimelineCellModel> {
     // Outlets
     let starsCosmosView: CosmosView = {
         let starsCosmosView = CosmosView()
+        starsCosmosView.isUserInteractionEnabled = false
         return starsCosmosView
     }()
 

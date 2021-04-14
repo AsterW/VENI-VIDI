@@ -24,6 +24,7 @@ class DetailedEntryViewController: DCViewController {
                 if let imageData = entry.image {
                     detailCM.poster = UIImage(data: imageData)
                 }
+                detailCM.stars = Double(entry.rating)
             }
         }
 
@@ -32,10 +33,19 @@ class DetailedEntryViewController: DCViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor.systemBackground
+        // check the previous controller
+        if let count = navigationController?.viewControllers.count {
+            if count >= 2 {
+                if (navigationController?.viewControllers[count - 2] as? LaungchController) != nil {
+                    navigationItem.hidesBackButton = true
+
+                    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Timeline", style: .plain, target: self, action: #selector(backToTimeline))
+                } else {}
+            }
+        }
+
         print("Entry Id is \(String(describing: entryId))")
-//        print(entryData.title)
-//        print(entryData.rate ?? "no rating")
-//        print(entryData.url)
 
         let dataService = DataService(coreDataStack: CoreDataStack())
         if let id = entryId {
@@ -45,6 +55,7 @@ class DetailedEntryViewController: DCViewController {
                 if let imageData = entry.image {
                     detailCM.poster = UIImage(data: imageData)
                 }
+                detailCM.stars = Double(entry.rating)
             }
         }
 
@@ -60,6 +71,11 @@ class DetailedEntryViewController: DCViewController {
             vc.entryId = id
         }
         navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc func backToTimeline() {
+        let vc = TimelineViewController()
+        navigationController?.pushViewController(vc, animated: false)
     }
 
     override func viewDidLayoutSubviews() {

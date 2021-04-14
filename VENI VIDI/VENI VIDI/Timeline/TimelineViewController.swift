@@ -15,19 +15,21 @@ class TimelineViewController: DCViewController {
 
     override func viewWillAppear(_: Bool) {
         print("Reloading")
+        navigationItem.backBarButtonItem = nil
 
         simpleListCM.needReloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd))
         navigationController?.navigationBar.barTintColor = UIColor.systemBackground
 
-        navigationItem.backBarButtonItem = UIBarButtonItem(
-            title: "", style: .plain, target: nil, action: nil
-        )
+//        navigationItem.backBarButtonItem = UIBarButtonItem(
+//            title: "", style: .plain, target: nil, action: nil
+//        )
         title = "Timeline"
 
         EDC.subscribeEvent(TimelineCell.touch, target: self) { [weak self] (data: UUID) in
