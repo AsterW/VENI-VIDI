@@ -9,12 +9,17 @@ import Foundation
 import UIKit
 
 class TMDBTVSearchAgent: DatabaseSpecificSearchAgent {
+    // MARK: - Properties
+
     internal let agentType: QueryContentType = .tvShow
+
     private let apiUrl: String = "https://api.themoviedb.org/3/search/tv"
     private let apiKey: String = "29748b6586282540605ffb47f2378ad4"
 
     private let imageUrl500 = "https://image.tmdb.org/t/p/w500"
     private let imageUrlOriginal = "https://image.tmdb.org/t/p/original"
+
+    // MARK: - DatabaseSpecificSearchAgent Query Function
 
     func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
         var urlComponents = URLComponents(string: apiUrl)
@@ -50,6 +55,8 @@ class TMDBTVSearchAgent: DatabaseSpecificSearchAgent {
 
         dataTask.resume()
     }
+
+    // MARK: - Helper Function
 
     func cacheImage(withPosterPath posterPath: String?) -> UIImage? {
         if let path = posterPath {
