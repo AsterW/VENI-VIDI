@@ -13,23 +13,42 @@ class SearchCM: DCContainerModel {
     var currentTimeTag: TimeInterval = 0
     static let searchNotEmpty = DCEventID()
     static let searchEmpty = DCEventID()
+    private var searchType = "book"
+    private let segments: [(String, String)] = [
+        ("Books", "book"),
+        ("Movies", "movie"),
+        ("TV Shows", "show"),
+        ("Games", "game"),
+    ]
 
     override func cmDidLoad() {
         super.cmDidLoad()
         addSubCell(SearchCell.self) { model in
-            model.cellHeight = 56
+            model.cellHeight = 101
         }
         addSubmodel(searchResultCM)
         handleEvents()
     }
 
+    @objc func changeSearchType(_ control: UISegmentedControl) {
+        searchType = segments[control.selectedSegmentIndex].1
+    }
+
     private func handleEvents() {
-        subscribeEvent(SearchCell.textChanged) { [weak self] (text: String) in
+        subscribeEvent(SearchCell.searchChanged) { [weak self] (text: String) in
             guard let `self` = self else {
                 return
             }
             if text != "" {
-                self.getBooks(with: text)
+                switch self.searchType {
+                case "book":
+                    self.getBooks(with: text)
+                case "movie":
+                    self.getMovies(with: text)
+                default:
+                    self.getBooks(with: text)
+                }
+
                 self.sendEvent(Self.searchNotEmpty)
             } else {
                 self.searchResultCM.removeAllSubmodels()
@@ -39,6 +58,9 @@ class SearchCM: DCContainerModel {
         }.and(SearchCell.cancelSearch) { [weak self] in
             self?.searchResultCM.removeAllSubmodels()
             self?.needAnimateUpdate()
+        }
+        subscribeData(SearchCell.searchType) { [weak self] (type: String) in
+            self?.searchType = type
         }
     }
 
@@ -70,24 +92,40 @@ class SearchCM: DCContainerModel {
                     }
                     resultModel.coverURL = image
                     resultModel.volume = EntryData(withTitle: info.title, image: image)
+                    self?.searchResultCM.addSubmodel(resultModel)
+                }
+            }
+            self?.needAnimateUpdate()
+        }
+    }
 
-//                    let imageURL = URL(string: image)
-//                    guard let url = imageURL else {
-//                        return
-//                    }
-//
-//                    self?.downloadImage(from: url) { [weak self] result in
-//                        switch result {
-//                        case .success(let image):
-//                            resultModel.cover = image
-//                            break
-//                        case .failure(let error):
-//                            break
-//                        }
-//                    }
-
-//                    let imageData = try? Data(contentsOf: imageURL!)
-//                    resultModel.cover = UIImage(data: imageData!)
+    private func getMovies(with text: String) {
+        let generalSearchAgent = GeneralSearchAgent()
+        let timeStamp = NSDate().timeIntervalSince1970
+        generalSearchAgent.query(withKeyword: text, forContentType: .movie) { [weak self] result in
+            switch result {
+            case let .failure(error):
+                print(error)
+                self?.searchResultCM.removeAllSubmodels()
+            case let .success(volumes):
+                var i = 0
+                guard let tag = self?.currentTimeTag, timeStamp >= tag else {
+                    return
+                }
+                self?.currentTimeTag = timeStamp
+                self?.searchResultCM.removeAllSubmodels()
+                for volume in volumes {
+                    if i == 5 {
+                        break
+                    }
+                    let resultModel = SearchResultCellModel()
+                    resultModel.title = volume.title
+                    i += 1
+                    guard let image = volume.coverUrl else {
+                        continue
+                    }
+                    resultModel.coverURL = image
+                    resultModel.volume = EntryData(withTitle: volume.title, image: image)
                     self?.searchResultCM.addSubmodel(resultModel)
                 }
             }

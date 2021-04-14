@@ -12,5 +12,5 @@ class GoogleBooksSearchAgent: DatabaseSpecificSearchAgent {
     var apiUrl: String = ""
     var agentType: QueryContentType = .book
 
-    func query(withKeyword _: String, withTimeStamp _: TimeInterval, withCompletionHandler _: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {}
+    func query(withKeyword _: String, withTimeStamp _: TimeInterval, downloadCoverImage _: Bool, withCompletionHandler _: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {}
 }

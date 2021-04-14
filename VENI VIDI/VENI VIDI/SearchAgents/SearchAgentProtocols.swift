@@ -8,12 +8,8 @@
 import Foundation
 import UIKit
 
-protocol GeneralSearchAgentDeletage {
-    func receivedQueryResult(_ result: [QueryResult], for queryContentType: QueryContentType)
-}
-
 protocol DatabaseSpecificSearchAgent {
     var agentType: QueryContentType { get }
 
-    func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
+    func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, downloadCoverImage: Bool, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }
