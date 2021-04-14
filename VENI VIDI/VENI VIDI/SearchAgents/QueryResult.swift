@@ -9,11 +9,15 @@ import Foundation
 import UIKit
 
 struct QueryResult {
+    // MARK: - init from TMDB Movie Data Struct
+
     init(withMovieStruct movie: TMDBMovieDataStruct, withTimeStamp timeStamp: TimeInterval) {
         type = .movie
         title = movie.title
         self.timeStamp = timeStamp
     }
+
+    // MARK: - init from TMDB TV Show Data Struct
 
     init(withTVStruct tvShow: TMDBTVDataStruct, withTimeStamp timeStamp: TimeInterval) {
         type = .tvShow
@@ -24,5 +28,6 @@ struct QueryResult {
     let type: QueryContentType
     let timeStamp: TimeInterval
     var title: String
+    var coverUrl: URL?
     var cover: UIImage?
 }

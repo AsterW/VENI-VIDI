@@ -30,7 +30,7 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
 
     // MARK: - DatabaseSpecificSearchAgent Query Function
 
-    func query(withKeyword _: String, withTimeStamp _: TimeInterval, withCompletionHandler _: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {}
+    func query(withKeyword _: String, withTimeStamp _: TimeInterval, downloadCoverImage _: Bool, withCompletionHandler _: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {}
 
     // MARK: - Helper Functions for access token
 

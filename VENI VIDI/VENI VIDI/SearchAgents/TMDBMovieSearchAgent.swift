@@ -21,7 +21,7 @@ class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
 
     // MARK: - DatabaseSpecificSearchAgent Query Function
 
-    func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+    func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, downloadCoverImage: Bool, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
         var urlComponents = URLComponents(string: apiUrl)
         urlComponents?.queryItems = [
             URLQueryItem(name: "api_key", value: apiKey),
@@ -46,7 +46,11 @@ class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
             var queryResults: [QueryResult] = []
             for movie in queriedMovies {
                 var result = QueryResult(withMovieStruct: movie, withTimeStamp: timeStamp)
-                result.cover = self.cacheImage(withPosterPath: movie.poster_path)
+                if downloadCoverImage {
+                    result.cover = self.cacheImage(withPosterPath: movie.poster_path)
+                } else {
+                    result.coverUrl = self.retriveImageUrl(withPosterPath: movie.poster_path)
+                }
                 queryResults.append(result)
             }
 
@@ -63,6 +67,14 @@ class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
             let imageUrl = URL(string: imageUrl500 + path)
             let data = try? Data(contentsOf: imageUrl!)
             return UIImage(data: data!)
+        } else {
+            return nil
+        }
+    }
+
+    func retriveImageUrl(withPosterPath posterPath: String?) -> URL? {
+        if let path = posterPath {
+            return URL(string: imageUrl500 + path)
         } else {
             return nil
         }

@@ -18,16 +18,24 @@ class GeneralSearchAgent {
 
     // MARK: - Search Function
 
-    func query(withKeyword keyword: String, forContentType contentType: QueryContentType, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
-        query(withKeyword: keyword, forContentTypes: Set([contentType]), withCompletionHandler: completionHandler)
+    func query(withKeyword keyword: String,
+               forContentType contentType: QueryContentType,
+               downloadCoverImage: Bool = false,
+               withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
+    {
+        query(withKeyword: keyword, forContentTypes: Set([contentType]), downloadCoverImage: downloadCoverImage, withCompletionHandler: completionHandler)
     }
 
-    func query(withKeyword keyword: String, forContentTypes contentTypes: Set<QueryContentType> = Set([.book, .game, .movie, .tvShow]), withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+    func query(withKeyword keyword: String,
+               forContentTypes contentTypes: Set<QueryContentType> = Set([.book, .game, .movie, .tvShow]),
+               downloadCoverImage: Bool = false,
+               withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
+    {
         for searchAgent in searchAgents {
             let agentType = searchAgent.agentType
             guard contentTypes.contains(agentType) else { continue }
 
-            searchAgent.query(withKeyword: keyword, withTimeStamp: Date().timeIntervalSince1970) {
+            searchAgent.query(withKeyword: keyword, withTimeStamp: Date().timeIntervalSince1970, downloadCoverImage: downloadCoverImage) {
                 [self] result in
 
                 switch result {

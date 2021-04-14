@@ -11,5 +11,5 @@ import UIKit
 protocol DatabaseSpecificSearchAgent {
     var agentType: QueryContentType { get }
 
-    func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
+    func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, downloadCoverImage: Bool, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }
