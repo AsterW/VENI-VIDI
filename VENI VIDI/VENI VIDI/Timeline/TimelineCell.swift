@@ -22,7 +22,7 @@ class TimelineCell: DCCell<TimelineCellModel> {
 
     let label: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.systemFont(ofSize: 16)
         label.backgroundColor = UIColor.clear
         label.layer.masksToBounds = true
         label.layer.cornerRadius = 4
