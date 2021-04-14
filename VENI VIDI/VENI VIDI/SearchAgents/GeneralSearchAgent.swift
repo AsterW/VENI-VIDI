@@ -1,0 +1,56 @@
+//
+//  GeneralSearchAgent.swift
+//  VENI VIDI
+//
+//  Created by 雲無心 on 3/29/21.
+//
+
+import Foundation
+
+class GeneralSearchAgent {
+    // MARK: - Properties
+
+    private let searchAgents: [DatabaseSpecificSearchAgent] = [GoogleBooksSearchAgent(),
+                                                               TMDBMovieSearchAgent(),
+                                                               TMDBTVSearchAgent(),
+                                                               IGDBSearchAgent()]
+    private var results: [QueryContentType: [QueryResult]] = [:]
+    public var deletage: GeneralSearchAgentDeletage?
+
+    // MARK: - Search Function
+
+    func query(withKeyword keyword: String, forContentType contentType: QueryContentType) {
+        query(withKeyword: keyword, forContentTypes: Set([contentType]))
+    }
+
+    func query(withKeyword keyword: String, forContentTypes contentTypes: Set<QueryContentType> = Set([.book, .game, .movie, .tvShow])) {
+        for searchAgent in searchAgents {
+            let agentType = searchAgent.agentType
+            guard contentTypes.contains(agentType) else { continue }
+
+            searchAgent.query(withKeyword: keyword, withTimeStamp: Date().timeIntervalSince1970) {
+                [self] result in
+
+                switch result {
+                case let .success(queryResult):
+                    let prevTimeStamp = results[agentType]?.first?.timeStamp ?? TimeInterval.zero
+                    if let newTimeStamp = queryResult.first?.timeStamp {
+                        if prevTimeStamp < newTimeStamp {
+                            results[agentType] = queryResult
+                            self.deletage?.receivedQueryResult(queryResult, for: agentType)
+                        }
+                    }
+                case let .failure(error):
+                    print(error)
+                }
+            }
+        }
+    }
+
+    func getCurrentResults(forContentTypes contentTypes: Set<QueryContentType>?) -> [QueryContentType: [QueryResult]] {
+        if let types = contentTypes {
+            return results.filter { key, _ in types.contains(key) }
+        }
+        return results
+    }
+}

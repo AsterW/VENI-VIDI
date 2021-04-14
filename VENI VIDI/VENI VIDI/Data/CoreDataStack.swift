@@ -19,15 +19,16 @@ import CoreData
 import Foundation
 import UIKit
 
-class CoreDataStack {
-    public init() {}
+class CoreDataStack: NSObject {
+    override public init() {}
 
     public lazy var storeContainer: NSPersistentContainer = {
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer
     }()
 
     public lazy var mainContext: NSManagedObjectContext = {
-        storeContainer.viewContext
+        storeContainer.viewContext.automaticallyMergesChangesFromParent = true
+        return storeContainer.viewContext
     }()
 
     public func saveContext() {
