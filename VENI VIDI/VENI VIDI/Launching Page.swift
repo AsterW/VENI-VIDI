@@ -7,6 +7,7 @@
 
 import DCFrame
 import Foundation
+import SnapKit
 import UIKit
 
 class LaungchController: UIViewController {
@@ -80,8 +81,30 @@ class LaungchController: UIViewController {
 
         print("Launching Page")
 
+        guard entries.count != 0 else {
+            let logoLabel: UILabel = {
+                let logoLabel = UILabel()
+                logoLabel.text = "VENI VIDI."
+                logoLabel.font = UIFont.systemFont(ofSize: 15)
+                return logoLabel
+            }()
+            view.addSubview(logoLabel)
+            logoLabel.snp.makeConstraints { make in
+                make.center.equalToSuperview()
+                make.height.equalTo(15)
+            }
+            UIView.animate(withDuration: 1.5, animations: { logoLabel.transform = CGAffineTransform(scaleX: 3, y: 3) }) { _ in
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.gotoTimeline()
+                }
+            }
+            return
+        }
+
         var index = 0
-        _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { t in
+        var logoStarted = false
+        view.backgroundColor = .black
+        _ = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { t in
             let label = FloatLabel()
             label.text = self.entries[index].entryTitle
             if let entryId = self.entries[index].id {
@@ -89,22 +112,38 @@ class LaungchController: UIViewController {
             }
             self.entryLabels.append(label)
 
-//            let testL = FloatLabel()
-//            testL.frame = CGRect(x: 190, y: 300, width: 100, height: 30)
-//            self.view.addSubview(testL)
-//            testL.text = "Test Click"
-//            testL.isUserInteractionEnabled = true
-
             self.view.addSubview(label)
             let Y = Int.random(in: 50 ..< Int(self.view.bounds.height - 50))
-            let labelFrame = CGRect(x: Int(self.view.bounds.maxX), y: Y, width: 300, height: 20)
+            let labelSize = Int.random(in: 15 ..< 50)
+            let labelFrame = CGRect(x: Int(self.view.bounds.maxX), y: Y, width: 500, height: labelSize)
             label.frame = labelFrame
-//            label.isUserInteractionEnabled = true
-//            let guestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.clickEntry(_:)))
-//            label.addGestureRecognizer(guestureRecognizer)
+            label.textColor = .white
+            label.font = UIFont.systemFont(ofSize: CGFloat(labelSize))
 
-            UIView.animate(withDuration: 10, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: { label.frame = CGRect(x: -300, y: Y, width: 300, height: 20) }, completion: { _ in label.removeFromSuperview()
+            UIView.animate(withDuration: 3, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: { label.frame = CGRect(x: -500, y: Y, width: 500, height: labelSize) }, completion: { _ in label.removeFromSuperview()
                 print(self.view.subviews.count)
+                if self.view.subviews.count < 3, !logoStarted {
+                    logoStarted = true
+                    let logoLabel: UILabel = {
+                        let logoLabel = UILabel()
+                        logoLabel.text = "VENI VIDI."
+                        logoLabel.font = UIFont.systemFont(ofSize: 15)
+                        return logoLabel
+                    }()
+                    self.view.addSubview(logoLabel)
+                    logoLabel.snp.makeConstraints { make in
+                        make.center.equalToSuperview()
+                        make.height.equalTo(15)
+                    }
+                    UIView.animate(withDuration: 1.5, animations: {
+                        self.view.backgroundColor = .clear
+                        logoLabel.transform = CGAffineTransform(scaleX: 3, y: 3)
+                    }) { _ in
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                            self.gotoTimeline()
+                        }
+                    }
+                }
             })
 
             index += 1
