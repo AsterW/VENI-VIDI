@@ -14,7 +14,7 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
 
     private let clientID: String = "lvnmbqvnaakfxrprfxxt2pe6uosu0k"
     private let clientSecret: String = "gsxjvu9cpbr17jdy8b7weu9q8aae1v"
-    private let requestBaseUrl: String = "https://api.igdb.com/v4/games"
+    private let requestBaseUrl: String = "https://api.twitch.tv/kraken/search/games"
 
     private var accessToken: String = ""
     private var accessTokenForRequest: String { return "Bearer \(accessToken)" }
