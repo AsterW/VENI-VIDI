@@ -58,6 +58,15 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         return smallPoster
     }()
 
+    let quote: UITextView = {
+        let quote = UITextView()
+        // quote.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        quote.font = UIFont.italicSystemFont(ofSize: 18)
+        quote.textColor = UIColor.systemYellow
+        quote.isEditable = false
+        return quote
+    }()
+
     let dateLabel: UILabel = {
         let dateLabel = UILabel()
         return dateLabel
@@ -72,6 +81,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         contentView.addSubview(comment)
 
         contentView.addSubview(smallPoster)
+        contentView.addSubview(quote)
 
         contentView.addSubview(dateLabel)
     }
@@ -82,12 +92,13 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         print(bounds)
         let left: CGFloat = 15
 
-        poster.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 180)
-        smallPoster.frame = CGRect(x: left, y: 210, width: 100, height: 150)
-        stars.frame = CGRect(x: left + 115, y: 330, width: (bounds.width - 145) / 2, height: 30)
+        // poster.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 180)
+        smallPoster.frame = CGRect(x: left, y: 80, width: 120, height: 180)
+        quote.frame = CGRect(x: left + 135, y: 80, width: bounds.width - 135, height: 180)
+        stars.frame = CGRect(x: left + 135, y: 330, width: (bounds.width - 145) / 2, height: 30)
 
         dateLabel.frame = CGRect(x: left + 180 + (bounds.width - 145) / 2, y: 330, width: (bounds.width - 145) / 2, height: 30)
-        titleLabel.frame = CGRect(x: left + 115, y: 210, width: bounds.width - 145, height: 50)
+        titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 50)
         comment.frame = CGRect(x: left, y: 375, width: bounds.width - 30, height: 350)
     }
 
@@ -97,6 +108,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         poster.image = cellModel.posterImage
         smallPoster.image = cellModel.posterImage
         comment.text = cellModel.comment
+        quote.text = "The Quote from Book"
 //        let style = NSMutableParagraphStyle()
 //        style.lineSpacing = 40
 //        let attributes = [NSAttributedString.Key.paragraphStyle : style]

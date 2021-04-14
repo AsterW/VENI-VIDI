@@ -80,6 +80,7 @@ class LaungchController: UIViewController {
 
         print("Launching Page")
 
+        var totalCount = 0
         var index = 0
         _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { t in
             let label = FloatLabel()
@@ -108,8 +109,12 @@ class LaungchController: UIViewController {
             })
 
             index += 1
+            totalCount += 1
             if index > self.entries.count - 1 {
                 index = 0
+                // t.invalidate()
+            }
+            if totalCount > (self.entries.count * 3) {
                 t.invalidate()
             }
         }
