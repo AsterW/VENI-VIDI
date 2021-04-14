@@ -118,14 +118,14 @@ class LaungchController: UIViewController {
             self.entryLabels.append(label)
 
             self.view.addSubview(label)
-            let Y = Int.random(in: 50 ..< Int(self.view.bounds.height - 50))
+            let Y = Int.random(in: 50 ..< Int(self.view.bounds.height - 100))
             let labelSize = Int.random(in: 15 ..< 50)
             let labelFrame = CGRect(x: Int(self.view.bounds.maxX), y: Y, width: 500, height: labelSize)
             label.frame = labelFrame
             label.textColor = .white
             label.font = UIFont.systemFont(ofSize: CGFloat(labelSize))
 
-            UIView.animate(withDuration: 8, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: { label.frame = CGRect(x: -600, y: Y, width: 600, height: labelSize) }, completion: { _ in label.removeFromSuperview()
+            UIView.animate(withDuration: 5, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: { label.frame = CGRect(x: -600, y: Y, width: 600, height: labelSize) }, completion: { _ in label.removeFromSuperview()
                 print(self.view.subviews.count)
                 if self.view.subviews.count < 3, !logoStarted,!self.clicked {
                     logoStarted = true

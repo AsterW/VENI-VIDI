@@ -22,7 +22,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         let poster = UIImageView()
         poster.alpha = 0.75
         poster.contentMode = .scaleToFill
-        poster.backgroundColor = .systemYellow
         poster.clipsToBounds = true
         poster.layer.cornerRadius = 6
         return poster
@@ -49,8 +48,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         let button = UIButton()
         button.setTitle("", for: .normal)
         button.setTitleColor(UIColor.systemGray2, for: .normal)
-        button.setImage(UIImage(named: "image_icon"), for: .normal)
-        button.imageView?.alpha = 0.75
         return button
     }()
 
@@ -82,6 +79,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         let quote = NewTextView()
         quote.text = "This is a quotation:)"
         quote.textAlignment = .center
+        quote.backgroundColor = .systemGray6
         quote.font = UIFont.italicSystemFont(ofSize: 18)
         quote.textColor = .systemYellow
         return quote

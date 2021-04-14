@@ -16,6 +16,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         poster.contentMode = .scaleAspectFit
         poster.backgroundColor = UIColor.systemYellow
         poster.layer.cornerRadius = 10
+        poster.clipsToBounds = true
         return poster
     }()
 
@@ -56,6 +57,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         smallPoster.contentMode = .scaleAspectFit
         smallPoster.backgroundColor = UIColor.systemGray6
         smallPoster.layer.cornerRadius = 6
+        smallPoster.clipsToBounds = true
         return smallPoster
     }()
 
@@ -100,11 +102,11 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         // poster.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 180)
         smallPoster.frame = CGRect(x: left, y: 80, width: 120, height: 180)
         quote.frame = CGRect(x: left + 135, y: 80, width: bounds.width - 135, height: 180)
-        stars.frame = CGRect(x: left, y: 330, width: (bounds.width - 145) / 2, height: 30)
+        stars.frame = CGRect(x: left, y: 285, width: (bounds.width - 145) / 2, height: 30)
 
-        dateLabel.frame = CGRect(x: left + (bounds.width - 30) / 2, y: 330, width: (bounds.width - 30) / 2, height: 30)
+        dateLabel.frame = CGRect(x: left + (bounds.width - 30) / 2, y: 285, width: (bounds.width - 30) / 2, height: 30)
         titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 50)
-        comment.frame = CGRect(x: left, y: 375, width: bounds.width - 30, height: 335)
+        comment.frame = CGRect(x: left, y: 330, width: bounds.width - 30, height: 335)
     }
 
     override func cellModelDidUpdate() {
