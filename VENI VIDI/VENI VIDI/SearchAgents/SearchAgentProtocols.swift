@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-protocol GeneralSearchAgentDeletage {
-    func receivedQueryResult(_ result: [QueryResult], for queryContentType: QueryContentType)
-}
-
 protocol DatabaseSpecificSearchAgent {
     var agentType: QueryContentType { get }
 

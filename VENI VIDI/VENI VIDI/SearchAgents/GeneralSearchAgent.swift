@@ -15,15 +15,14 @@ class GeneralSearchAgent {
                                                                TMDBTVSearchAgent(),
                                                                IGDBSearchAgent()]
     private var results: [QueryContentType: [QueryResult]] = [:]
-    public var deletage: GeneralSearchAgentDeletage?
 
     // MARK: - Search Function
 
-    func query(withKeyword keyword: String, forContentType contentType: QueryContentType) {
-        query(withKeyword: keyword, forContentTypes: Set([contentType]))
+    func query(withKeyword keyword: String, forContentType contentType: QueryContentType, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+        query(withKeyword: keyword, forContentTypes: Set([contentType]), withCompletionHandler: completionHandler)
     }
 
-    func query(withKeyword keyword: String, forContentTypes contentTypes: Set<QueryContentType> = Set([.book, .game, .movie, .tvShow])) {
+    func query(withKeyword keyword: String, forContentTypes contentTypes: Set<QueryContentType> = Set([.book, .game, .movie, .tvShow]), withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
         for searchAgent in searchAgents {
             let agentType = searchAgent.agentType
             guard contentTypes.contains(agentType) else { continue }
@@ -37,11 +36,11 @@ class GeneralSearchAgent {
                     if let newTimeStamp = queryResult.first?.timeStamp {
                         if prevTimeStamp < newTimeStamp {
                             results[agentType] = queryResult
-                            self.deletage?.receivedQueryResult(queryResult, for: agentType)
+                            completionHandler(.success(queryResult))
                         }
                     }
                 case let .failure(error):
-                    print(error)
+                    completionHandler(.failure(error))
                 }
             }
         }
