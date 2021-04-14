@@ -13,6 +13,7 @@ import UIKit
 class LaungchController: UIViewController {
     var entries: [JournalEntry] = []
     var entryLabels: [FloatLabel] = []
+    var clicked: Bool = false
 
     private let dataService = DataService(coreDataStack: CoreDataStack())
 
@@ -39,15 +40,18 @@ class LaungchController: UIViewController {
         vc.entryId = id
 
         navigationController?.pushViewController(vc, animated: true)
+        return
     }
 
     func gotoTimeline() {
         print("Timeline")
         let vc = TimelineViewController()
         navigationController?.pushViewController(vc, animated: true)
+        return
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with _: UIEvent?) {
+        clicked = true
         let touch = touches.first!
         let touchLocation = touch.location(in: view)
 
@@ -59,6 +63,7 @@ class LaungchController: UIViewController {
             }
         }
         gotoTimeline()
+        return
     }
 
     override func viewWillAppear(_: Bool) {
@@ -120,9 +125,9 @@ class LaungchController: UIViewController {
             label.textColor = .white
             label.font = UIFont.systemFont(ofSize: CGFloat(labelSize))
 
-            UIView.animate(withDuration: 3, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: { label.frame = CGRect(x: -500, y: Y, width: 500, height: labelSize) }, completion: { _ in label.removeFromSuperview()
+            UIView.animate(withDuration: 8, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: { label.frame = CGRect(x: -600, y: Y, width: 600, height: labelSize) }, completion: { _ in label.removeFromSuperview()
                 print(self.view.subviews.count)
-                if self.view.subviews.count < 3, !logoStarted {
+                if self.view.subviews.count < 3, !logoStarted,!self.clicked {
                     logoStarted = true
                     let logoLabel: UILabel = {
                         let logoLabel = UILabel()
@@ -135,6 +140,7 @@ class LaungchController: UIViewController {
                         make.center.equalToSuperview()
                         make.height.equalTo(15)
                     }
+
                     UIView.animate(withDuration: 1.5, animations: {
                         self.view.backgroundColor = .clear
                         logoLabel.transform = CGAffineTransform(scaleX: 3, y: 3)
@@ -147,12 +153,8 @@ class LaungchController: UIViewController {
             })
 
             index += 1
-            totalCount += 1
             if index > self.entries.count - 1 {
                 index = 0
-                // t.invalidate()
-            }
-            if totalCount > (self.entries.count * 3) {
                 t.invalidate()
             }
         }

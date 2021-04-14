@@ -22,8 +22,9 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
     // user-defined title for this entry
     let titleLabel: UILabel = {
         let titleLabel = UILabel()
-        titleLabel.backgroundColor = UIColor.systemGray6
-        titleLabel.font = UIFont.systemFont(ofSize: 20)
+//        titleLabel.backgroundColor = UIColor.systemGray6
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
+//        titleLabel.textColor = .systemYellow
         titleLabel.textAlignment = NSTextAlignment.center
         titleLabel.layer.masksToBounds = true
         titleLabel.layer.cornerRadius = 6
@@ -53,22 +54,26 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
     let smallPoster: UIImageView = {
         let smallPoster = UIImageView()
         smallPoster.contentMode = .scaleAspectFit
-        smallPoster.backgroundColor = UIColor.systemYellow
+        smallPoster.backgroundColor = UIColor.systemGray6
         smallPoster.layer.cornerRadius = 6
         return smallPoster
     }()
 
-    let quote: UITextView = {
-        let quote = UITextView()
+    let quote: NewTextView = {
+        let quote = NewTextView()
+
+        quote.textAlignment = .center
         // quote.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         quote.font = UIFont.italicSystemFont(ofSize: 18)
         quote.textColor = UIColor.systemYellow
         quote.isEditable = false
+
         return quote
     }()
 
     let dateLabel: UILabel = {
         let dateLabel = UILabel()
+        dateLabel.textAlignment = .center
         return dateLabel
     }()
 
@@ -95,11 +100,11 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         // poster.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 180)
         smallPoster.frame = CGRect(x: left, y: 80, width: 120, height: 180)
         quote.frame = CGRect(x: left + 135, y: 80, width: bounds.width - 135, height: 180)
-        stars.frame = CGRect(x: left + 135, y: 330, width: (bounds.width - 145) / 2, height: 30)
+        stars.frame = CGRect(x: left, y: 330, width: (bounds.width - 145) / 2, height: 30)
 
-        dateLabel.frame = CGRect(x: left + 180 + (bounds.width - 145) / 2, y: 330, width: (bounds.width - 145) / 2, height: 30)
+        dateLabel.frame = CGRect(x: left + (bounds.width - 30) / 2, y: 330, width: (bounds.width - 30) / 2, height: 30)
         titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 50)
-        comment.frame = CGRect(x: left, y: 375, width: bounds.width - 30, height: 350)
+        comment.frame = CGRect(x: left, y: 375, width: bounds.width - 30, height: 335)
     }
 
     override func cellModelDidUpdate() {
@@ -108,16 +113,14 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         poster.image = cellModel.posterImage
         smallPoster.image = cellModel.posterImage
         comment.text = cellModel.comment
-        quote.text = "The Quote from Book"
-//        let style = NSMutableParagraphStyle()
-//        style.lineSpacing = 40
-//        let attributes = [NSAttributedString.Key.paragraphStyle : style]
-//        comment.attributedText = NSAttributedString(string: cellModel.comment, attributes:attributes)
+        quote.text = cellModel.quote
+
+//        quote.text = "The Quote from Book. \n Querer es poder."
 
         if let date = cellModel.date {
             let formatter1 = DateFormatter()
             formatter1.dateStyle = .short
-            dateLabel.text = formatter1.string(from: date)
+            dateLabel.text = "Finished By " + formatter1.string(from: date)
         }
 
         if let rating = cellModel.rating {

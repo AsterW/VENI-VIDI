@@ -15,6 +15,7 @@ class UpdateEntryCellModel: DCCellModel {
     var rating: Double?
     var posterImage: UIImage?
     var date: Date?
+    var quote: String = ""
     var nav: UINavigationController?
     var service: DataService = {
         let service = DataService(coreDataStack: CoreDataStack())
