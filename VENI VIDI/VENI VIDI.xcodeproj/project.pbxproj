@@ -54,6 +54,9 @@
 		E0358079261B4A96006534A1 /* ExtensionDCContainerTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */; };
 		E0358081261B5FBF006534A1 /* Extension3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0358080261B5FBF006534A1 /* Extension3.swift */; };
 		E05A00282608F37F00533A4C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A00272608F37F00533A4C /* Date.swift */; };
+		E08E2007262B9B3E0092BD31 /* TagContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E2006262B9B3E0092BD31 /* TagContainerModel.swift */; };
+		E08E200C262B9BBF0092BD31 /* TagCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E200B262B9BBF0092BD31 /* TagCellModel.swift */; };
+		E08E2011262B9BF30092BD31 /* TagCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E2010262B9BF30092BD31 /* TagCell.swift */; };
 		E0ABE9E425F67F6F009E1AF2 /* UpdateEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */; };
 		E0ABE9EC25F67F91009E1AF2 /* UpdateEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */; };
 		E0ABE9F125F689B3009E1AF2 /* UpdateEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ABE9F025F689B3009E1AF2 /* UpdateEntryCellModel.swift */; };
@@ -148,6 +151,9 @@
 		E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDCContainerTableview.swift; sourceTree = "<group>"; };
 		E0358080261B5FBF006534A1 /* Extension3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension3.swift; sourceTree = "<group>"; };
 		E05A00272608F37F00533A4C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		E08E2006262B9B3E0092BD31 /* TagContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagContainerModel.swift; sourceTree = "<group>"; };
+		E08E200B262B9BBF0092BD31 /* TagCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellModel.swift; sourceTree = "<group>"; };
+		E08E2010262B9BF30092BD31 /* TagCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCell.swift; sourceTree = "<group>"; };
 		E0ABE9E325F67F6F009E1AF2 /* UpdateEntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryViewController.swift; sourceTree = "<group>"; };
 		E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryContainerModel.swift; sourceTree = "<group>"; };
 		E0ABE9F025F689B3009E1AF2 /* UpdateEntryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateEntryCellModel.swift; sourceTree = "<group>"; };
@@ -383,6 +389,9 @@
 				E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */,
 				E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */,
 				E0DA6EB525E8DF26002451BC /* DetailedEntryCell.swift */,
+				E08E2006262B9B3E0092BD31 /* TagContainerModel.swift */,
+				E08E200B262B9BBF0092BD31 /* TagCellModel.swift */,
+				E08E2010262B9BF30092BD31 /* TagCell.swift */,
 			);
 			path = DetailedEntry;
 			sourceTree = "<group>";
@@ -650,13 +659,16 @@
 				92EE2D2F2626017500AB89FD /* QueryAgentError.swift in Sources */,
 				E0DA6EB625E8DF26002451BC /* DetailedEntryCell.swift in Sources */,
 				92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */,
+				E08E2011262B9BF30092BD31 /* TagCell.swift in Sources */,
 				92FD9C8026123466005D6C2A /* IGDBSearchAgent.swift in Sources */,
 				9247AECF25FD962C004016C3 /* CoreDataStack.swift in Sources */,
 				E0358079261B4A96006534A1 /* ExtensionDCContainerTableview.swift in Sources */,
+				E08E200C262B9BBF0092BD31 /* TagCellModel.swift in Sources */,
 				E0ABE9F625F689DD009E1AF2 /* UpdateEntryCell.swift in Sources */,
 				7741FD7326122C5300695C7C /* Extensions.swift in Sources */,
 				E029AB2A261FF9E40016463C /* EntryData.swift in Sources */,
 				E0ABE9F125F689B3009E1AF2 /* UpdateEntryCellModel.swift in Sources */,
+				E08E2007262B9B3E0092BD31 /* TagContainerModel.swift in Sources */,
 				E0DA6E8825E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
 				E0358081261B5FBF006534A1 /* Extension3.swift in Sources */,
 				E0DA6E7725E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,

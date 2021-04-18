@@ -17,6 +17,7 @@ class UpdateEntryContainerModel: VVContainerModel {
     var date: Date?
     var nav: UINavigationController?
     var quote: String?
+    var favorite: Bool?
 
     var entryId: UUID?
 
@@ -55,6 +56,10 @@ class UpdateEntryContainerModel: VVContainerModel {
 
         if let quote = quote {
             newEntryModel.quote = quote
+        }
+
+        if let favorite = favorite {
+            newEntryModel.favorite = favorite
         }
 
         addSubmodel(searchCM)

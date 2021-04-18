@@ -18,6 +18,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         return navigationController
     }()
 
+    var favorite: Bool = false
+
     let poster: UIImageView = {
         let poster = UIImageView()
         poster.alpha = 0.75
@@ -25,6 +27,11 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         poster.clipsToBounds = true
         poster.layer.cornerRadius = 6
         return poster
+    }()
+
+    let favoriteButton: UIButton = {
+        let favoriteButton = UIButton()
+        return favoriteButton
     }()
 
     // user's rating for this movie/book
@@ -92,9 +99,13 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         comment.textColor = UIColor.systemGray2
 
         contentView.addSubview(poster)
+        contentView.addSubview(favoriteButton)
+
         contentView.addSubview(button)
         button.addTarget(self, action: #selector(pickImage), for: .touchUpInside)
         submitButton.addTarget(self, action: #selector(uploadData), for: .touchUpInside)
+        favoriteButton.addTarget(self, action: #selector(favoriteEntry), for: .touchUpInside)
+        setFavoriteImage()
         contentView.addSubview(stars)
         contentView.addSubview(commentLabel)
         contentView.addSubview(comment)
@@ -110,7 +121,15 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             make.top.equalTo(10)
             make.height.equalTo(240)
             make.width.equalTo(135)
-            make.centerX.equalToSuperview()
+//            make.centerX.equalToSuperview()
+            make.left.equalTo(15)
+        }
+
+        favoriteButton.snp.makeConstraints { make in
+            make.top.equalTo(poster.snp.bottom).offset(20)
+            make.height.equalTo(30)
+            make.width.equalTo(30)
+            make.right.equalTo(-15)
         }
 
         button.snp.makeConstraints { make in
@@ -126,7 +145,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         stars.snp.makeConstraints { make in
             make.height.equalTo(30)
             make.top.equalTo(poster.snp.bottom).offset(20)
-            make.centerX.equalToSuperview()
+            make.left.equalTo(15)
+//            make.centerX.equalToSuperview()
         }
 
         quoteLabel.snp.makeConstraints { make in
@@ -188,6 +208,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
     }
 
     override func cellModelDidUpdate() {
+        print("Updating cell model")
         super.cellModelDidUpdate()
         if let nav = cellModel.nav {
             navigationController = nav
@@ -198,6 +219,27 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         comment.text = cellModel.comment
         quote.text = cellModel.quote
         stars.rating = cellModel.rating ?? 0
+        favorite = cellModel.favorite
+        setFavoriteImage()
+    }
+
+    func setFavoriteImage() {
+        if favorite {
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
+
+    @objc func favoriteEntry() {
+        print("Click heart")
+        if favorite {
+            favorite = false
+            setFavoriteImage()
+        } else {
+            favorite = true
+            setFavoriteImage()
+        }
     }
 
     @objc func pickImage() {
@@ -249,15 +291,15 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
 
         if let id = cellModel.entryId {
             if let rating = newRate {
-                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: false)
+                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: favorite)
             } else {
-                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: false)
+                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: favorite)
             }
         } else {
             if let rating = newRate {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: false)
+                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: favorite)
             } else {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: false)
+                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: favorite)
             }
         }
 

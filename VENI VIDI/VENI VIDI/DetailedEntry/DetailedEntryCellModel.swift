@@ -16,6 +16,7 @@ class DetailedEntryCellModel: DCCellModel {
     var posterImage: UIImage?
     var date: Date?
     var quote: String = ""
+    var favorite: Bool = false
 
     required init() {
         super.init()

@@ -26,6 +26,7 @@ class DetailedEntryViewController: DCViewController {
                     detailCM.poster = UIImage(data: imageData)
                 }
                 detailCM.stars = Double(entry.rating)
+                detailCM.favorite = entry.favorite
             }
         }
 
@@ -60,6 +61,7 @@ class DetailedEntryViewController: DCViewController {
                     detailCM.poster = UIImage(data: imageData)
                 }
                 detailCM.stars = Double(entry.rating)
+                detailCM.favorite = entry.favorite
             }
         }
 

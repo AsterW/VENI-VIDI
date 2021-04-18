@@ -35,6 +35,7 @@ class UpdateEnrtyViewController: DCViewController {
                     newEntryCM.poster = UIImage(data: imageData)
                 }
                 newEntryCM.stars = Double(entry.rating)
+                newEntryCM.favorite = entry.favorite
             }
         }
 //        else{//Create a new entry, load that empty entry and perform update

@@ -16,6 +16,7 @@ class UpdateEntryCellModel: DCCellModel {
     var posterImage = UIImage(named: "logo_background")!
     var date: Date?
     var quote: String = ""
+    var favorite: Bool = false
     var nav: UINavigationController?
     var service: DataService = {
         let service = DataService(coreDataStack: CoreDataStack())

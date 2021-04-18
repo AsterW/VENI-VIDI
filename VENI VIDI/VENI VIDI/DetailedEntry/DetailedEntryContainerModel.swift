@@ -16,6 +16,7 @@ class DetailedEntryContainerModel: DCContainerModel {
     var stars: Double?
     var date: Date?
     var quote: String?
+    var favorite: Bool?
 
     override func tableViewDataWillReload() {
         removeAllSubmodels()
@@ -47,6 +48,10 @@ class DetailedEntryContainerModel: DCContainerModel {
             detailModel.quote = quote
         }
 
+        if let fav = favorite {
+            detailModel.favorite = fav
+        }
+
         addSubmodel(detailModel)
     }
 
@@ -74,6 +79,10 @@ class DetailedEntryContainerModel: DCContainerModel {
 
         if let quote = quote {
             detailModel.quote = quote
+        }
+
+        if let fav = favorite {
+            detailModel.favorite = fav
         }
 
         addSubmodel(detailModel)

@@ -10,6 +10,7 @@ import DCFrame
 import Foundation
 
 class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
+    var favorite: Bool = false
     // poster is the larger image for the entry
     let poster: UIImageView = {
         let poster = UIImageView()
@@ -39,6 +40,11 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         stars.isUserInteractionEnabled = false
         stars.layer.cornerRadius = 4
         return stars
+    }()
+
+    let favoriteButton: UIButton = {
+        let favoriteButton = UIButton()
+        return favoriteButton
     }()
 
     // user's comment for this movie/book
@@ -79,12 +85,22 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         return dateLabel
     }()
 
+    func setFavoriteImage() {
+        if favorite {
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+        } else {
+            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
+
     override func setupUI() {
         super.setupUI()
 
         contentView.addSubview(poster)
         contentView.addSubview(titleLabel)
         contentView.addSubview(stars)
+        contentView.addSubview(favoriteButton)
+        setFavoriteImage()
         contentView.addSubview(comment)
 
         contentView.addSubview(smallPoster)
@@ -102,9 +118,9 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         // poster.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 180)
         smallPoster.frame = CGRect(x: left, y: 80, width: 120, height: 180)
         quote.frame = CGRect(x: left + 135, y: 80, width: bounds.width - 135, height: 180)
-        stars.frame = CGRect(x: left, y: 285, width: (bounds.width - 145) / 2, height: 30)
-
-        dateLabel.frame = CGRect(x: left + (bounds.width - 30) / 2, y: 285, width: (bounds.width - 30) / 2, height: 30)
+        stars.frame = CGRect(x: left, y: 285, width: (bounds.width - 145) / 3, height: 30)
+        favoriteButton.frame = CGRect(x: left + (bounds.width - 30) / 3, y: 285, width: (bounds.width - 30) / 3, height: 30)
+        dateLabel.frame = CGRect(x: left + 2 * (bounds.width - 30) / 3, y: 285, width: (bounds.width - 30) / 3, height: 30)
         titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 50)
         comment.frame = CGRect(x: left, y: 330, width: bounds.width - 30, height: 335)
     }
@@ -116,13 +132,15 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         smallPoster.image = cellModel.posterImage
         comment.text = cellModel.comment
         quote.text = cellModel.quote
+        favorite = cellModel.favorite
+        setFavoriteImage()
 
 //        quote.text = "The Quote from Book. \n Querer es poder."
 
         if let date = cellModel.date {
             let formatter1 = DateFormatter()
             formatter1.dateStyle = .short
-            dateLabel.text = "Finished By " + formatter1.string(from: date)
+            dateLabel.text = formatter1.string(from: date)
         }
 
         if let rating = cellModel.rating {
