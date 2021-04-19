@@ -23,17 +23,6 @@ class LaungchController: UIViewController {
         }
     }
 
-//    func createLabelViews(entry: JournalEntry) {
-//        let Y = Int.random(in: 0 ..< Int(view.bounds.height - 20))
-//        print(Y)
-//        let labelFrame = CGRect(x: Int(view.bounds.maxX), y: Y, width: 200, height: 20)
-//        let labelView = FloatLabelView(frame: labelFrame)
-//        print(view.frame)
-//        labelView.label.text = entry.entryTitle
-//        labelView.entryID = entry.id
-//        entryLabels.append(labelView)
-//    }
-
     func goToDetailedPage(id: UUID) {
         print(id)
         let vc = DetailedEntryViewController()
