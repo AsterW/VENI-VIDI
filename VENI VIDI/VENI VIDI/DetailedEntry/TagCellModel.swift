@@ -5,10 +5,10 @@
 //  Created by 马晓雯 on 4/18/21.
 //
 
+import DCFrame
 import Foundation
 import UIKit
-import DCFrame
-class TagCellModel:DCCellModel{
+class TagCellModel: DCCellModel {
     required init() {
         super.init()
         cellHeight = 830

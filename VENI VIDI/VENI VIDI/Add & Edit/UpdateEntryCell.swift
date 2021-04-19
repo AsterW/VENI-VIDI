@@ -121,7 +121,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             make.top.equalTo(10)
             make.height.equalTo(240)
             make.width.equalTo(135)
-//            make.centerX.equalToSuperview()
             make.left.equalTo(15)
         }
 
@@ -146,7 +145,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             make.height.equalTo(30)
             make.top.equalTo(poster.snp.bottom).offset(20)
             make.left.equalTo(15)
-//            make.centerX.equalToSuperview()
         }
 
         quoteLabel.snp.makeConstraints { make in
@@ -302,12 +300,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
                 _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: favorite)
             }
         }
-
-//        if let entries = cellModel.service.fetchAllJournalEntries() {
-//            print(entries.count)
-//            let entryOne=entries[0]
-//            print(entryOne.entryTitle ?? "No Title")
-//        }
 
         _ = navigationController.popViewController(animated: true)
     }

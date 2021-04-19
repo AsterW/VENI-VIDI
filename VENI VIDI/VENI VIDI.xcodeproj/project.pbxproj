@@ -10,6 +10,7 @@
 		0A24DE7A99ADA67CD0283793 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B03D9EE258869A92AF5AB57 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework */; };
 		38B0ECFA1744743E4F644DB4 /* Pods_VENI_VIDITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E554AB3C26B5B70137DF6B3 /* Pods_VENI_VIDITests.framework */; };
 		770297CF25EB929500A72E5E /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770297CE25EB929500A72E5E /* DCViewController.swift */; };
+		7738A4C5262DF32200EA4372 /* TimelinePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7738A4C4262DF32200EA4372 /* TimelinePickerCell.swift */; };
 		7741FD7326122C5300695C7C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741FD7226122C5300695C7C /* Extensions.swift */; };
 		77ABC8C52611AC8A00F32F19 /* BookInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8C42611AC8A00F32F19 /* BookInfoModel.swift */; };
 		77ABC8CA2611BC4800F32F19 /* SearchCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8C92611BC4800F32F19 /* SearchCM.swift */; };
@@ -103,6 +104,7 @@
 		53C8036B581A87A9DCD3BB93 /* Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig"; path = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6336FF3F1B0275E343A9D30B /* Pods-VENI VIDI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI.release.xcconfig"; path = "Target Support Files/Pods-VENI VIDI/Pods-VENI VIDI.release.xcconfig"; sourceTree = "<group>"; };
 		770297CE25EB929500A72E5E /* DCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCViewController.swift; sourceTree = "<group>"; };
+		7738A4C4262DF32200EA4372 /* TimelinePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinePickerCell.swift; sourceTree = "<group>"; };
 		7741FD7226122C5300695C7C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		77ABC8C42611AC8A00F32F19 /* BookInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoModel.swift; sourceTree = "<group>"; };
 		77ABC8C92611BC4800F32F19 /* SearchCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCM.swift; sourceTree = "<group>"; };
@@ -302,10 +304,8 @@
 				92B4D0E325EC407D0028B7BB /* VENI VIDI.entitlements */,
 				770297CE25EB929500A72E5E /* DCViewController.swift */,
 				E0ECC2C226100F6600BDF4B0 /* VENI_VIDIContainerModel.swift */,
-				E029AB17261FF4B50016463C /* Launching Page.swift */,
 				92F7EA7625D782350039DF3C /* AppDelegate.swift */,
 				92F7EA7A25D782350039DF3C /* ViewController.swift */,
-				E029AB4026207DA40016463C /* FloatingLabel.swift */,
 				92F7EA7C25D782350039DF3C /* Main.storyboard */,
 				92F7EA8225D782380039DF3C /* Assets.xcassets */,
 				92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */,
@@ -377,6 +377,8 @@
 		E0DA6E2F25E8D64B002451BC /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				E029AB4026207DA40016463C /* FloatingLabel.swift */,
+				E029AB17261FF4B50016463C /* Launching Page.swift */,
 				E029AB29261FF9E40016463C /* EntryData.swift */,
 				E0DA6E4625E8D734002451BC /* TimelineViewController.swift */,
 				E0DA6E6325E8D832002451BC /* TimelineCellModel.swift */,
@@ -384,6 +386,7 @@
 				E0DA6E7625E8D8AC002451BC /* TimelineContainerModel.swift */,
 				E0DA6E8025E8D90F002451BC /* TimeLabelCell.swift */,
 				E0DA6E8725E8D93A002451BC /* TimeLabelCellModel.swift */,
+				7738A4C4262DF32200EA4372 /* TimelinePickerCell.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				925FB5D22624B69900F0176D /* QueryResult.swift in Sources */,
 				77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */,
 				92EE2D4D2626636F00AB89FD /* IGDBDataStructs.swift in Sources */,
+				7738A4C5262DF32200EA4372 /* TimelinePickerCell.swift in Sources */,
 				E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
 				E0DA6E9E25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */,
 				E05A00282608F37F00533A4C /* Date.swift in Sources */,
