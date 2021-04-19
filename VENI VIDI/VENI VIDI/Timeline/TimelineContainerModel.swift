@@ -12,6 +12,7 @@ import UIKit
 class SimpleListContainerModel: VVContainerModel {
     var entries: [JournalEntry]?
     var currentTimeLabel: DateComponents?
+    var type: String = "all"
 
     func getEntryData() {
         if let entries = dataService.fetchAllJournalEntries() {
@@ -26,6 +27,10 @@ class SimpleListContainerModel: VVContainerModel {
 
         removeAllSubmodels()
 
+        addSubCell(TimelinePickerCell.self) { model in
+            model.cellHeight = 50
+        }
+
         getEntryData()
 
         if let dateComponents = currentTimeLabel {
@@ -34,6 +39,14 @@ class SimpleListContainerModel: VVContainerModel {
 
         if let e = entries {
             for item in e {
+                print(type)
+                print(item.type)
+                if type != "all" {
+                    if item.type.rawValue != type {
+                        continue
+                    }
+                }
+
                 let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: item.finishDate!)
                 guard let timeLabel = currentTimeLabel else { return }
                 if calanderDate.year != timeLabel.year || calanderDate.month != timeLabel.month {
@@ -97,15 +110,24 @@ class SimpleListContainerModel: VVContainerModel {
     override func cmDidLoad() {
         super.cmDidLoad()
 
+        subscribeEvent(TimelinePickerCell.timelineTypeChanged) { [weak self] (type: String) in
+            self?.type = type
+            self?.needReloadData()
+        }
+
         print("load Timeline")
         containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
-        addSubCell(TimelinePickerCell.self) { model in
-            model.cellHeight = 50
-        }
+
         getEntryData()
 
         if let e = entries {
             for item in e {
+                if type != "all" {
+                    if item.type.rawValue != type {
+                        continue
+                    }
+                }
+
                 let model = TimelineCellModel()
                 if let id = item.id {
                     model.entryId = id

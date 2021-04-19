@@ -93,7 +93,7 @@ class SearchCM: DCContainerModel {
                         continue
                     }
                     resultModel.coverURL = image
-                    resultModel.volume = EntryData(withTitle: info.title, image: image)
+                    resultModel.volume = EntryData(withTitle: info.title, image: image, asType: .book)
                     self?.searchResultCM.addSubmodel(resultModel)
                 }
             }
@@ -127,7 +127,15 @@ class SearchCM: DCContainerModel {
                         continue
                     }
                     resultModel.coverURL = image
-                    resultModel.volume = EntryData(withTitle: volume.title, image: image)
+
+                    switch type {
+                    case .movie:
+                        resultModel.volume = EntryData(withTitle: volume.title, image: image, asType: .movie)
+                    case .tvShow:
+                        resultModel.volume = EntryData(withTitle: volume.title, image: image, asType: .tvShow)
+                    default:
+                        resultModel.volume = EntryData(withTitle: volume.title, image: image, asType: .movie)
+                    }
                     self?.searchResultCM.addSubmodel(resultModel)
                 }
             }

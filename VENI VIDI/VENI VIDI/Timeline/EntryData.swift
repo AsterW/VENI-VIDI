@@ -14,11 +14,13 @@ struct EntryData: Decodable {
     var date: Date?
     var rate: Double?
     var comment: String = ""
+    var type: String?
 
     init() {}
 
-    init(withTitle title: String, image cover: String) {
+    init(withTitle title: String, image cover: String, asType type: JournalEntryType) {
         self.title = title
         url = cover
+        self.type = type.rawValue
     }
 }

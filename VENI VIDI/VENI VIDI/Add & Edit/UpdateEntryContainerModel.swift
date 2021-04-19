@@ -18,6 +18,7 @@ class UpdateEntryContainerModel: VVContainerModel {
     var nav: UINavigationController?
     var quote: String?
     var favorite: Bool?
+    var type: JournalEntryType?
 
     var entryId: UUID?
 
