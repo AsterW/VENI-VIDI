@@ -7,9 +7,4 @@
 
 import Foundation
 
-enum QueryContentType {
-    case movie
-    case tvShow
-    case game
-    case book
-}
+typealias QueryContentType = JournalEntryType

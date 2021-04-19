@@ -41,6 +41,8 @@
 		92F7EA8625D782380039DF3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */; };
 		92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */; };
 		92F7EA9C25D782380039DF3C /* VENI_VIDIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */; };
+		92F8A85B262DD7C4003068AC /* JournalEntryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F8A85A262DD7C4003068AC /* JournalEntryType.swift */; };
+		92F8A868262DDCE6003068AC /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F8A867262DDCE6003068AC /* JournalEntry+CoreDataClass.swift */; };
 		92FD9C712612335D005D6C2A /* GeneralSearchAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD9C702612335D005D6C2A /* GeneralSearchAgent.swift */; };
 		92FD9C762612342B005D6C2A /* GoogleBooksSearchAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD9C752612342B005D6C2A /* GoogleBooksSearchAgent.swift */; };
 		92FD9C7B26123457005D6C2A /* TMDBMovieSearchAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD9C7A26123457005D6C2A /* TMDBMovieSearchAgent.swift */; };
@@ -133,6 +135,8 @@
 		92F7EA9725D782380039DF3C /* VENI VIDIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VENI VIDIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENI_VIDIUITests.swift; sourceTree = "<group>"; };
 		92F7EA9D25D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92F8A85A262DD7C4003068AC /* JournalEntryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryType.swift; sourceTree = "<group>"; };
+		92F8A867262DDCE6003068AC /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JournalEntry+CoreDataClass.swift"; path = "/Users/superconductor/Documents/WU Courses/E81 439S/Repo/final-project-group-6/VENI VIDI/VENI VIDI/Data/JournalEntry+CoreDataClass.swift"; sourceTree = "<absolute>"; };
 		92FD9C702612335D005D6C2A /* GeneralSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSearchAgent.swift; sourceTree = "<group>"; };
 		92FD9C752612342B005D6C2A /* GoogleBooksSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooksSearchAgent.swift; sourceTree = "<group>"; };
 		92FD9C7A26123457005D6C2A /* TMDBMovieSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieSearchAgent.swift; sourceTree = "<group>"; };
@@ -242,9 +246,11 @@
 			children = (
 				927F7655260E957200CE83B9 /* VENI_VIDI.xcdatamodeld */,
 				9247AECE25FD962C004016C3 /* CoreDataStack.swift */,
+				92F8A867262DDCE6003068AC /* JournalEntry+CoreDataClass.swift */,
 				9247AF1A25FDA860004016C3 /* DataService.swift */,
 				92E4EB1E261384CE00B6EA70 /* DataServiceDelegate.swift */,
 				E05A00272608F37F00533A4C /* Date.swift */,
+				92F8A85A262DD7C4003068AC /* JournalEntryType.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -644,6 +650,7 @@
 				77ABC8C52611AC8A00F32F19 /* BookInfoModel.swift in Sources */,
 				925FB5CD2624B4C600F0176D /* QueryContentType.swift in Sources */,
 				92FD9C7B26123457005D6C2A /* TMDBMovieSearchAgent.swift in Sources */,
+				92F8A85B262DD7C4003068AC /* JournalEntryType.swift in Sources */,
 				92EE2D2F2626017500AB89FD /* QueryAgentError.swift in Sources */,
 				E0DA6EB625E8DF26002451BC /* DetailedEntryCell.swift in Sources */,
 				92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */,
@@ -656,6 +663,7 @@
 				E0ABE9F125F689B3009E1AF2 /* UpdateEntryCellModel.swift in Sources */,
 				E0DA6E8825E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
 				E0358081261B5FBF006534A1 /* Extension3.swift in Sources */,
+				92F8A868262DDCE6003068AC /* JournalEntry+CoreDataClass.swift in Sources */,
 				E0DA6E7725E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,
 				92FD9C8E26123706005D6C2A /* TMDBDataStructs.swift in Sources */,
 				E0ECC2C326100F6600BDF4B0 /* VENI_VIDIContainerModel.swift in Sources */,

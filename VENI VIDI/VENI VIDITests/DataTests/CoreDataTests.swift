@@ -46,6 +46,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertNotNil(entry0.id, "entry0.id should not be nil")
         XCTAssertNotNil(entry0.startDate)
         XCTAssertNotNil(entry0.finishDate)
+        XCTAssertEqual(entry0.type, .none)
         XCTAssertTrue(entry0.worksTitle == "")
         XCTAssertTrue(entry0.entryTitle == "")
         XCTAssertTrue(entry0.entryContent == "")
@@ -63,6 +64,7 @@ class CoreDataTests: XCTestCase {
         let image1 = UIImage(named: "TestImage1")
         XCTAssertNotNil(image1)
         let entry1 = dataService.createJournalEntry(aboutWork: "Batman",
+                                                    withType: .movie,
                                                     withCoverImage: image1,
                                                     withStartDate: date1,
                                                     withFinishDate: date2,
@@ -77,6 +79,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertNotNil(entry1, "entry1 should not be nil")
         XCTAssertNotNil(entry1.id, "entry1.id should not be nil")
         XCTAssertTrue(entry1.worksTitle == "Batman")
+        XCTAssertEqual(entry1.type, .movie)
         XCTAssertNotNil(entry1.image)
         XCTAssertTrue(entry1.startDate == date1)
         XCTAssertTrue(entry1.finishDate == date2)
@@ -106,6 +109,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertNotNil(image2)
         XCTAssertTrue(dataService.updateJournalEntry(withUUID: entry0.id ?? UUID(),
                                                      aboutWork: "Interstellar",
+                                                     withType: .movie,
                                                      withCoverImage: image1,
                                                      withStartDate: date1,
                                                      withFinishDate: date2,
@@ -118,6 +122,7 @@ class CoreDataTests: XCTestCase {
                                                      withRating: 7,
                                                      isFavorite: true))
         XCTAssertTrue(entry0.worksTitle == "Interstellar")
+        XCTAssertEqual(entry0.type, .movie)
         XCTAssertNotNil(entry0.image)
         XCTAssertTrue(entry0.startDate == date1)
         XCTAssertTrue(entry0.finishDate == date2)
@@ -132,6 +137,7 @@ class CoreDataTests: XCTestCase {
         let fetchedEntry0 = dataService.fetchJournalEntryWithUUID(entry0.id!)
         XCTAssertNotNil(fetchedEntry0)
         XCTAssertTrue(fetchedEntry0?.worksTitle == "Interstellar")
+        XCTAssertEqual(fetchedEntry0?.type, .movie)
         XCTAssertNotNil(fetchedEntry0?.image)
         XCTAssertTrue(fetchedEntry0?.startDate == date1)
         XCTAssertTrue(fetchedEntry0?.finishDate == date2)
@@ -145,6 +151,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(fetchedEntry0?.favorite == true)
 
         let entry1 = dataService.createJournalEntry(aboutWork: "Batman",
+                                                    withType: .movie,
                                                     withCoverImage: image1,
                                                     withStartDate: date1,
                                                     withFinishDate: date2,
@@ -163,6 +170,7 @@ class CoreDataTests: XCTestCase {
         let tag3 = dataService.createNewTag("NVM")
         XCTAssertTrue(dataService.updateJournalEntry(withUUID: entry1.id ?? UUID(),
                                                      aboutWork: "Hitman",
+                                                     withType: .game,
                                                      withCoverImage: image2,
                                                      withStartDate: date1,
                                                      withFinishDate: date3,
@@ -175,6 +183,7 @@ class CoreDataTests: XCTestCase {
                                                      withRating: 4,
                                                      isFavorite: false))
         XCTAssertTrue(entry1.worksTitle == "Hitman")
+        XCTAssertEqual(entry1.type, .game)
         XCTAssertTrue(entry1.image == image2?.pngData())
         XCTAssertTrue(entry1.startDate == date1)
         XCTAssertTrue(entry1.finishDate == date3)
