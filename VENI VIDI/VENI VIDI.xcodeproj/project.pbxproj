@@ -142,7 +142,7 @@
 		92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENI_VIDIUITests.swift; sourceTree = "<group>"; };
 		92F7EA9D25D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92F8A85A262DD7C4003068AC /* JournalEntryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryType.swift; sourceTree = "<group>"; };
-		92F8A867262DDCE6003068AC /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "JournalEntry+CoreDataClass.swift"; path = "/Users/superconductor/Documents/WU Courses/E81 439S/Repo/final-project-group-6/VENI VIDI/VENI VIDI/Data/JournalEntry+CoreDataClass.swift"; sourceTree = "<absolute>"; };
+		92F8A867262DDCE6003068AC /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92FD9C702612335D005D6C2A /* GeneralSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSearchAgent.swift; sourceTree = "<group>"; };
 		92FD9C752612342B005D6C2A /* GoogleBooksSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooksSearchAgent.swift; sourceTree = "<group>"; };
 		92FD9C7A26123457005D6C2A /* TMDBMovieSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieSearchAgent.swift; sourceTree = "<group>"; };
