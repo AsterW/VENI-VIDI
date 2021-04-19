@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/superconductor/Documents/WU Courses/E81 439S/Repo/final-project-group-6/VENI VIDI/VENI VIDI/Data/JournalEntry+CoreDataClass.swift">
-   </FileRef>
-   <FileRef
       location = "group:VENI VIDI.xcodeproj">
    </FileRef>
    <FileRef
