@@ -158,7 +158,7 @@ extension DataService {
 
         entry.lastEditDate = Date()
         entry.worksTitle = work ?? entry.worksTitle
-        entry.type = type ?? entry.type
+        entry.journalType = type ?? entry.journalType
         entry.startDate = startDate ?? entry.startDate
         entry.finishDate = finishDate ?? entry.finishDate
         entry.entryTitle = entryTitle ?? entry.entryTitle

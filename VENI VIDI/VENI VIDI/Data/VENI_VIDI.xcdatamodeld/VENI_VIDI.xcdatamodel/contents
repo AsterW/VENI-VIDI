@@ -7,6 +7,7 @@
         <attribute name="finishDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="journalTypeText" attributeType="String" defaultValueString="none"/>
         <attribute name="lastEditDate" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
@@ -21,7 +22,7 @@
         <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntry" inverseName="tags" inverseEntity="JournalEntry"/>
     </entity>
     <elements>
-        <element name="JournalEntry" positionX="115.0895080566406" positionY="-222.790283203125" width="128" height="239"/>
+        <element name="JournalEntry" positionX="115.0895080566406" positionY="-222.790283203125" width="128" height="254"/>
         <element name="Tag" positionX="-63" positionY="63" width="128" height="14"/>
     </elements>
 </model>

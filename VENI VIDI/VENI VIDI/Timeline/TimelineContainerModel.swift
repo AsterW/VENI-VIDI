@@ -40,9 +40,9 @@ class SimpleListContainerModel: VVContainerModel {
         if let e = entries {
             for item in e {
                 print(type)
-                print(item.type)
+                print(item.journalType)
                 if type != "all" {
-                    if item.type.rawValue != type {
+                    if item.journalType.rawValue != type {
                         continue
                     }
                 }
@@ -123,7 +123,7 @@ class SimpleListContainerModel: VVContainerModel {
         if let e = entries {
             for item in e {
                 if type != "all" {
-                    if item.type.rawValue != type {
+                    if item.journalType.rawValue != type {
                         continue
                     }
                 }

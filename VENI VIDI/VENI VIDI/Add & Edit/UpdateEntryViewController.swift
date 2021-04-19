@@ -36,7 +36,7 @@ class UpdateEnrtyViewController: DCViewController {
                 }
                 newEntryCM.stars = Double(entry.rating)
                 newEntryCM.favorite = entry.favorite
-                newEntryCM.type = entry.type
+                newEntryCM.type = entry.journalType
             }
         }
 //        else{//Create a new entry, load that empty entry and perform update
