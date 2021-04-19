@@ -12,9 +12,9 @@ import UIKit
 final class DataService: NSObject, NSFetchedResultsControllerDelegate {
     // MARK: - Properties
 
-    let managedObjectContext: NSManagedObjectContext
-    let coreDataStack: CoreDataStack
-    var fetchedResultsController: NSFetchedResultsController<JournalEntry>?
+    private let managedObjectContext: NSManagedObjectContext
+    private let coreDataStack: CoreDataStack
+    private var fetchedResultsController: NSFetchedResultsController<JournalEntry>?
     let delegate: DataServiceDelegate? = nil
 
     // MARK: - Initializers
@@ -79,13 +79,6 @@ extension DataService {
             fatalError("Failed to fetch entities: \(error)")
         }
         return fetchedResultsController?.fetchedObjects
-//        do {
-//            let entries = try managedObjectContext.fetch(fetchRequest)
-//            return entries
-//        } catch {
-//            print("Unexpected error at fetchJournalEntries(): \(error)")
-//            return nil
-//        }
     }
 
     func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? {
@@ -101,6 +94,7 @@ extension DataService {
     }
 
     func createJournalEntry(aboutWork work: String = "",
+                            withType type: JournalEntryType = .none,
                             withCoverImage coverImage: UIImage? = nil,
                             withStartDate startDate: Date = Date(),
                             withFinishDate finishDate: Date = Date(),
@@ -113,15 +107,16 @@ extension DataService {
                             withRating rating: Int = 0,
                             isFavorite favorite: Bool? = false) -> JournalEntry
     {
+        // let newJournalEntry = JournalEntry(context: self.managedObjectContext)
         let newJournalEntry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: managedObjectContext) as! JournalEntry
         // Solution by https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
-//        let newJournalEntry = JournalEntry(context: self.managedObjectContext)
 
         newJournalEntry.id = UUID()
         coreDataStack.saveContext()
 
         if updateJournalEntry(withUUID: newJournalEntry.id ?? UUID(),
                               aboutWork: work,
+                              withType: type,
                               withCoverImage: coverImage,
                               withStartDate: startDate,
                               withFinishDate: finishDate,
@@ -143,6 +138,7 @@ extension DataService {
 
     func updateJournalEntry(withUUID id: UUID,
                             aboutWork work: String? = nil,
+                            withType type: JournalEntryType? = nil,
                             withCoverImage coverImage: UIImage? = nil,
                             withStartDate startDate: Date? = nil,
                             withFinishDate finishDate: Date? = nil,
@@ -155,66 +151,66 @@ extension DataService {
                             withRating rating: Int? = nil,
                             isFavorite favorite: Bool? = nil) -> Bool
     {
-        if let entry = fetchJournalEntryWithUUID(id) {
-            entry.lastEditDate = Date()
-            entry.worksTitle = work ?? entry.worksTitle
-            entry.startDate = startDate ?? entry.startDate
-            entry.finishDate = finishDate ?? entry.finishDate
-            entry.entryTitle = entryTitle ?? entry.entryTitle
-            entry.entryContent = entryContent ?? entry.entryContent
-            entry.quote = quote ?? entry.quote
-            entry.favorite = favorite ?? entry.favorite
-
-            if let newLongitude = longitude {
-                if let newLatitude = latitude {
-                    entry.longitude = newLongitude
-                    entry.latitude = newLatitude
-                } else {
-                    print("Entry location not updated. Both longitude and latitude needed for update.")
-                }
-            }
-
-            if let newTags = tags {
-                let oldTags = entry.tags
-                entry.removeFromTags(oldTags ?? NSSet())
-                entry.addToTags(NSSet(array: newTags))
-            }
-
-            if let newImage = coverImage {
-                // https://stackoverflow.com/questions/16685812/how-to-store-an-image-in-core-data#16687218
-                if let imageData = newImage.pngData() {
-                    entry.image = imageData
-                } else {
-                    print("Failed to store image in CoreData")
-                }
-            }
-
-            if let newRating = rating {
-                if newRating >= 0, newRating <= 5 {
-                    entry.rating = Int16(newRating)
-                } else {
-                    print("Received invalid rating value \(newRating)")
-                }
-            }
-
-            coreDataStack.saveContext()
-            return true
-
-        } else {
+        guard let entry = fetchJournalEntryWithUUID(id) else {
             print("Received invalid UUID for updateJournalEntry()")
             return false
         }
+
+        entry.lastEditDate = Date()
+        entry.worksTitle = work ?? entry.worksTitle
+        entry.type = type ?? entry.type
+        entry.startDate = startDate ?? entry.startDate
+        entry.finishDate = finishDate ?? entry.finishDate
+        entry.entryTitle = entryTitle ?? entry.entryTitle
+        entry.entryContent = entryContent ?? entry.entryContent
+        entry.quote = quote ?? entry.quote
+        entry.favorite = favorite ?? entry.favorite
+
+        if let newLongitude = longitude {
+            if let newLatitude = latitude {
+                entry.longitude = newLongitude
+                entry.latitude = newLatitude
+            } else {
+                print("Entry location not updated. Both longitude and latitude needed for update.")
+            }
+        }
+
+        if let newTags = tags {
+            let oldTags = entry.tags
+            entry.removeFromTags(oldTags ?? NSSet())
+            entry.addToTags(NSSet(array: newTags))
+        }
+
+        if let newImage = coverImage {
+            // https://stackoverflow.com/questions/16685812/how-to-store-an-image-in-core-data#16687218
+            if let imageData = newImage.pngData() {
+                entry.image = imageData
+            } else {
+                print("Failed to store image in CoreData")
+            }
+        }
+
+        if let newRating = rating {
+            if newRating >= 0, newRating <= 5 {
+                entry.rating = Int16(newRating)
+            } else {
+                print("Received invalid rating value \(newRating)")
+            }
+        }
+
+        coreDataStack.saveContext()
+        return true
     }
 
     func deleteJournalEntry(withUUID id: UUID) -> Bool {
-        if let entry = fetchJournalEntryWithUUID(id) {
-            managedObjectContext.delete(entry)
-            coreDataStack.saveContext()
-            return true
-        } else {
+        guard let entry = fetchJournalEntryWithUUID(id) else {
             print("Received invalid UUID for deleteJournalEntry()")
             return false
         }
+
+        managedObjectContext.delete(entry)
+        coreDataStack.saveContext()
+        return true
     }
 }
 
