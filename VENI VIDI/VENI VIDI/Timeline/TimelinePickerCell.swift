@@ -39,7 +39,8 @@ class TimelinePickerCell: DCBaseCell {
         }
     }
 
-    @objc func changeTimelineType(_ control: UISegmentedControl) {
+    @objc
+    func changeTimelineType(_ control: UISegmentedControl) {
         sendEvent(Self.timelineTypeChanged, data: segments[control.selectedSegmentIndex].1)
     }
 }

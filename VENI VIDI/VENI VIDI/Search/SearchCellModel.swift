@@ -57,7 +57,8 @@ class SearchCell: DCBaseCell {
         }
     }
 
-    @objc func changeSearchType(_ control: UISegmentedControl) {
+    @objc
+    func changeSearchType(_ control: UISegmentedControl) {
         shareData(segments[control.selectedSegmentIndex].1, to: Self.searchType)
         textChanged(searchText)
     }

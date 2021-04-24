@@ -56,7 +56,8 @@ class TimelineViewController: DCViewController {
 //        }
     }
 
-    @objc func onAdd() {
+    @objc
+    func onAdd() {
         let updateEntryVC = UpdateEnrtyViewController()
         navigationController?.pushViewController(updateEntryVC, animated: true)
     }

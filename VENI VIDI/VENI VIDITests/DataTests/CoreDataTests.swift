@@ -199,6 +199,20 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.favorite == false)
     }
 
+    func testUpdateJournalEntryWithoutUUID() {
+        XCTAssertTrue(dataService.updateJournalEntry(withUUID: nil,
+                                                     aboutWork: "Interstellar",
+                                                     withType: .movie,
+                                                     withEntryTitle: "Impressive",
+                                                     withEntryContent: "I don't know what to say",
+                                                     withQuote: "This is another quote from the movie",
+                                                     atLongitude: 3.14,
+                                                     atLatitude: -6.28,
+                                                     withTags: [],
+                                                     withRating: 7,
+                                                     isFavorite: true))
+    }
+
     func testDeleteJournalEntry() {
         let entry0 = dataService.createJournalEntry()
         XCTAssertNotNil(entry0, "entry0 should not be nil before deletion")

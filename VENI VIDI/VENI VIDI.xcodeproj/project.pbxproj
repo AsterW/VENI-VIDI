@@ -18,6 +18,7 @@
 		77ABC8D42611BCA200F32F19 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8D32611BCA200F32F19 /* SearchResultCell.swift */; };
 		9214F13A263476AA00FD7510 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9214F139263476AA00FD7510 /* .swiftlint.yml */; };
 		9214F17B26347B7A00FD7510 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 9214F17A26347B7A00FD7510 /* .swiftformat */; };
+		9214F1992634898C00FD7510 /* DataServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214F1982634898C00FD7510 /* DataServiceError.swift */; };
 		9247AECF25FD962C004016C3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AECE25FD962C004016C3 /* CoreDataStack.swift */; };
 		9247AEF025FDA133004016C3 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */; };
 		9247AF1325FDA517004016C3 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1225FDA517004016C3 /* CoreDataTests.swift */; };
@@ -114,6 +115,7 @@
 		77ABC8D32611BCA200F32F19 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		9214F139263476AA00FD7510 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9214F17A26347B7A00FD7510 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		9214F1982634898C00FD7510 /* DataServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceError.swift; sourceTree = "<group>"; };
 		9247AECE25FD962C004016C3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		9247AF1225FDA517004016C3 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				92E4EB1E261384CE00B6EA70 /* DataServiceDelegate.swift */,
 				E05A00272608F37F00533A4C /* Date.swift */,
 				92F8A85A262DD7C4003068AC /* JournalEntryType.swift */,
+				9214F1982634898C00FD7510 /* DataServiceError.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -716,6 +719,7 @@
 				E0DA6E8125E8D90F002451BC /* TimeLabelCell.swift in Sources */,
 				E0DA6E6B25E8D87A002451BC /* TimelineCell.swift in Sources */,
 				770297CF25EB929500A72E5E /* DCViewController.swift in Sources */,
+				9214F1992634898C00FD7510 /* DataServiceError.swift in Sources */,
 				77ABC8D42611BCA200F32F19 /* SearchResultCell.swift in Sources */,
 				E0ABE9EC25F67F91009E1AF2 /* UpdateEntryContainerModel.swift in Sources */,
 				92EE2D34262601B700AB89FD /* TMDBTVSearchAgent.swift in Sources */,

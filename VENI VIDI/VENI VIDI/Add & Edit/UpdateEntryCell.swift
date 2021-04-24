@@ -235,7 +235,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         }
     }
 
-    @objc func favoriteEntry() {
+    @objc
+    func favoriteEntry() {
         print("Click heart")
         if favorite {
             favorite = false
@@ -246,7 +247,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         }
     }
 
-    @objc func pickImage() {
+    @objc
+    func pickImage() {
         print("Clicked")
         let picker = UIImagePickerController()
         picker.allowsEditing = true
@@ -265,10 +267,11 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         button.setTitle("", for: .normal)
     }
 
-    @objc func uploadData() {
+    @objc
+    func uploadData() {
         var newTitle: String
         var newImage: UIImage?
-        var newRate: Double?
+        var newRating: Double?
         var newContent: String
         var newQuote: String
 
@@ -290,55 +293,17 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             newQuote = ""
         }
 
-        newRate = stars.rating
-
         guard newTitle != "" else { return }
 
-        if let id = cellModel.entryId { // swiftlint:disable:this identifier_name
-            if let rating = newRate {
-                _ = cellModel.service.updateJournalEntry(withUUID: id,
-                                                         aboutWork: newTitle,
-                                                         withType: cellModel.type,
-                                                         withCoverImage: newImage,
-                                                         withEntryTitle: newTitle,
-                                                         withEntryContent: newContent,
-                                                         withQuote: newQuote,
-                                                         withRating: Int(rating),
-                                                         isFavorite: favorite)
-            } else {
-                _ = cellModel.service.updateJournalEntry(withUUID: id,
-                                                         aboutWork: newTitle,
-                                                         withType: cellModel.type,
-                                                         withCoverImage: newImage,
-                                                         withEntryTitle: newTitle,
-                                                         withEntryContent: newContent,
-                                                         withQuote: newQuote,
-                                                         withRating: 0,
-                                                         isFavorite: favorite)
-            }
-        } else {
-            if let rating = newRate {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle,
-                                                         withType: cellModel.type,
-                                                         withCoverImage: newImage,
-                                                         withEntryTitle: newTitle,
-                                                         withEntryContent: newContent,
-                                                         withQuote: newQuote,
-                                                         withRating: Int(rating),
-                                                         isFavorite: favorite)
-            } else {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle,
-                                                         withType: cellModel.type,
-                                                         withCoverImage: newImage,
-                                                         withStartDate: Date(),
-                                                         withFinishDate: Date(),
-                                                         withEntryTitle: newTitle,
-                                                         withEntryContent: newContent,
-                                                         withQuote: newQuote,
-                                                         withRating: 0,
-                                                         isFavorite: favorite)
-            }
-        }
+        _ = cellModel.service.updateJournalEntry(withUUID: cellModel.entryId,
+                                                 aboutWork: newTitle,
+                                                 withType: cellModel.type,
+                                                 withCoverImage: newImage,
+                                                 withEntryTitle: newTitle,
+                                                 withEntryContent: newContent,
+                                                 withQuote: newQuote,
+                                                 withRating: stars.rating,
+                                                 isFavorite: favorite)
 
         _ = navigationController.popViewController(animated: true)
     }

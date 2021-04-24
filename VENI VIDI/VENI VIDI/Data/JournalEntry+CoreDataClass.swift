@@ -9,7 +9,8 @@
 import CoreData
 import Foundation
 
-@objc(JournalEntry) public class JournalEntry: NSManagedObject {
+@objc(JournalEntry)
+public class JournalEntry: NSManagedObject {
     var journalType: JournalEntryType {
         get { return JournalEntryType(rawValue: journalTypeText ?? "none") ?? .none }
         set { journalTypeText = newValue.rawValue }
