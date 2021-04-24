@@ -106,7 +106,6 @@ extension DataService {
         }
     }
 
-    // swiftlint:disable:next line_length
     /// Create a new JournalEntry with given values. Values not provided will default to nil, empty string, or 0.
     /// - Parameters:
     ///   - work: Name of the work to be recorded in this entry.
@@ -169,9 +168,11 @@ extension DataService {
         }
     }
 
-    /// Update the attributes of a JournalEntry, identified by its id (UUID). If no id is provided, a new JournalEntry is created to carry the values. If an attribute is not provided, it will not be updated.
+    /// Update the attributes of a JournalEntry, identified by its id (UUID).
+    /// If no id is provided, a new JournalEntry is created to carry the values. If an attribute is not provided, it will not be updated.
     /// - Parameters:
-    ///   - id: The UUID used for looking up the JournalEntry. A new entry will be created if this field is not provided.
+    ///   - id: The UUID used for looking up the JournalEntry.
+    ///         A new entry will be created if this field is not provided.
     ///   - work: New name of the work to be recorded in this entry.
     ///   - type: New type of the work.
     ///   - coverImage: New cover image to be used for this entry.
@@ -182,7 +183,8 @@ extension DataService {
     ///   - quote: New quote for this JournalEntry.
     ///   - longitude: New longitude value for entry location. Only used when both longitude and latitude are provided.
     ///   - latitude: New latitude value for entry location. Only used when both longitude and latitude are provided.
-    ///   - tags: New set of tagges that should be assgined to this JournalEntry. Tagges not in this set will be removed from this entry.
+    ///   - tags: New set of tagges that should be assgined to this JournalEntry.
+    ///           Tagges not in this set will be removed from this entry.
     ///   - rating: New user rating.
     ///   - favorite: User favorite or not.
     /// - Returns: A Result object that contains either the updated JournalEntry or an error value.
