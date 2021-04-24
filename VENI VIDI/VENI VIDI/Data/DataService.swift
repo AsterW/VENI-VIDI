@@ -30,6 +30,7 @@ final class DataService: NSObject, NSFetchedResultsControllerDelegate {
 // MARK: - Tag Related Services
 
 extension DataService {
+
     func fetchAllTags() -> [Tag] {
         do {
             let fetchRequest = NSFetchRequest<Tag>(entityName: "Tag")
@@ -58,9 +59,10 @@ extension DataService {
     }
 
     func createNewTag(_ tagText: String) -> Tag {
+        // swiftlint:disable:next line_length force_cast
+        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag
         // swiftlint:disable:next line_length
-        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag // swiftlint:disable:this force_cast
-        // Solution from https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit // swiftlint:disable:this line_length
+        // Solution from https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
         // let newTag = Tag(context: self.managedObjectContext)
         newTag.name = tagText
         coreDataStack.saveContext()
