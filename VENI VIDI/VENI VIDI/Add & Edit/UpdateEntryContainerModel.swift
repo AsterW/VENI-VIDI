@@ -18,6 +18,7 @@ class UpdateEntryContainerModel: VVContainerModel {
     var nav: UINavigationController?
     var quote: String?
     var favorite: Bool?
+    var type: JournalEntryType?
 
     var entryId: UUID?
 
@@ -50,6 +51,7 @@ class UpdateEntryContainerModel: VVContainerModel {
             newEntryModel.comment = commentContent
         }
 
+        // swiftlint:disable:next identifier_name
         if let id = entryId {
             newEntryModel.entryId = id
         }

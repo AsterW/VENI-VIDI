@@ -6,10 +6,14 @@
 //
 import Foundation
 
+// MARK: - BookError
+
 enum BookError: Error {
     case noDataAvailable
     case failProcessData
 }
+
+// MARK: - BookRequest
 
 struct BookRequest {
     let resourceURL: URL
@@ -44,20 +48,28 @@ struct BookRequest {
     }
 }
 
+// MARK: - ImageInfo
+
 struct ImageInfo: Decodable {
     let smallThumbnail: String?
     let thumbnail: String?
 }
+
+// MARK: - VolumeInfo
 
 struct VolumeInfo: Decodable {
     let title: String
     let imageLinks: ImageInfo
 }
 
+// MARK: - Volume
+
 struct Volume: Decodable {
-    let id: String
+    let id: String // swiftlint:disable:this identifier_name
     let volumeInfo: VolumeInfo
 }
+
+// MARK: - VolumeResponse
 
 struct VolumeResponse: Decodable {
     let kind: String

@@ -14,12 +14,10 @@ class SearchCM: DCContainerModel {
     static let searchNotEmpty = DCEventID()
     static let searchEmpty = DCEventID()
     private var searchType = "book"
-    private let segments: [(String, String)] = [
-        ("Books", "book"),
-        ("Movies", "movie"),
-        ("TV Shows", "show"),
-        ("Games", "game"),
-    ]
+    private let segments: [(String, String)] = [("Books", "book"),
+                                                ("Movies", "movie"),
+                                                ("TV Shows", "show"),
+                                                ("Games", "game")]
 
     override func cmDidLoad() {
         super.cmDidLoad()
@@ -30,7 +28,8 @@ class SearchCM: DCContainerModel {
         handleEvents()
     }
 
-    @objc func changeSearchType(_ control: UISegmentedControl) {
+    @objc
+    func changeSearchType(_ control: UISegmentedControl) {
         searchType = segments[control.selectedSegmentIndex].1
     }
 
@@ -75,7 +74,7 @@ class SearchCM: DCContainerModel {
                 print(error)
                 self?.searchResultCM.removeAllSubmodels()
             case let .success(volumes):
-                var i = 0
+                var i = 0 // swiftlint:disable:this identifier_name
                 guard let tag = self?.currentTimeTag, timeStamp >= tag else {
                     return
                 }
@@ -93,7 +92,7 @@ class SearchCM: DCContainerModel {
                         continue
                     }
                     resultModel.coverURL = image
-                    resultModel.volume = EntryData(withTitle: info.title, image: image)
+                    resultModel.volume = EntryData(withTitle: info.title, image: image, asType: .book)
                     self?.searchResultCM.addSubmodel(resultModel)
                 }
             }
@@ -110,7 +109,7 @@ class SearchCM: DCContainerModel {
                 print(error)
                 self?.searchResultCM.removeAllSubmodels()
             case let .success(volumes):
-                var i = 0
+                var i = 0 // swiftlint:disable:this identifier_name
                 guard let tag = self?.currentTimeTag, timeStamp >= tag else {
                     return
                 }
@@ -127,7 +126,15 @@ class SearchCM: DCContainerModel {
                         continue
                     }
                     resultModel.coverURL = image
-                    resultModel.volume = EntryData(withTitle: volume.title, image: image)
+
+                    switch type {
+                    case .movie:
+                        resultModel.volume = EntryData(withTitle: volume.title, image: image, asType: .movie)
+                    case .tvShow:
+                        resultModel.volume = EntryData(withTitle: volume.title, image: image, asType: .tvShow)
+                    default:
+                        resultModel.volume = EntryData(withTitle: volume.title, image: image, asType: .movie)
+                    }
                     self?.searchResultCM.addSubmodel(resultModel)
                 }
             }
@@ -145,7 +152,7 @@ class SearchCM: DCContainerModel {
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
                 guard let image = UIImage(data: data) else { return }
                 completion(.success(image))
             }

@@ -10,11 +10,15 @@
 		0A24DE7A99ADA67CD0283793 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B03D9EE258869A92AF5AB57 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework */; };
 		38B0ECFA1744743E4F644DB4 /* Pods_VENI_VIDITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E554AB3C26B5B70137DF6B3 /* Pods_VENI_VIDITests.framework */; };
 		770297CF25EB929500A72E5E /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770297CE25EB929500A72E5E /* DCViewController.swift */; };
+		7738A4C5262DF32200EA4372 /* TimelinePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7738A4C4262DF32200EA4372 /* TimelinePickerCell.swift */; };
 		7741FD7326122C5300695C7C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741FD7226122C5300695C7C /* Extensions.swift */; };
 		77ABC8C52611AC8A00F32F19 /* BookInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8C42611AC8A00F32F19 /* BookInfoModel.swift */; };
 		77ABC8CA2611BC4800F32F19 /* SearchCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8C92611BC4800F32F19 /* SearchCM.swift */; };
 		77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8CE2611BC7E00F32F19 /* SearchCellModel.swift */; };
 		77ABC8D42611BCA200F32F19 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8D32611BCA200F32F19 /* SearchResultCell.swift */; };
+		9214F13A263476AA00FD7510 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9214F139263476AA00FD7510 /* .swiftlint.yml */; };
+		9214F17B26347B7A00FD7510 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 9214F17A26347B7A00FD7510 /* .swiftformat */; };
+		9214F1992634898C00FD7510 /* DataServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214F1982634898C00FD7510 /* DataServiceError.swift */; };
 		9247AECF25FD962C004016C3 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AECE25FD962C004016C3 /* CoreDataStack.swift */; };
 		9247AEF025FDA133004016C3 /* TestCoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */; };
 		9247AF1325FDA517004016C3 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9247AF1225FDA517004016C3 /* CoreDataTests.swift */; };
@@ -103,11 +107,15 @@
 		53C8036B581A87A9DCD3BB93 /* Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig"; path = "Target Support Files/Pods-VENI VIDI-VENI VIDIUITests/Pods-VENI VIDI-VENI VIDIUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6336FF3F1B0275E343A9D30B /* Pods-VENI VIDI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDI.release.xcconfig"; path = "Target Support Files/Pods-VENI VIDI/Pods-VENI VIDI.release.xcconfig"; sourceTree = "<group>"; };
 		770297CE25EB929500A72E5E /* DCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCViewController.swift; sourceTree = "<group>"; };
+		7738A4C4262DF32200EA4372 /* TimelinePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinePickerCell.swift; sourceTree = "<group>"; };
 		7741FD7226122C5300695C7C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		77ABC8C42611AC8A00F32F19 /* BookInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoModel.swift; sourceTree = "<group>"; };
 		77ABC8C92611BC4800F32F19 /* SearchCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCM.swift; sourceTree = "<group>"; };
 		77ABC8CE2611BC7E00F32F19 /* SearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellModel.swift; sourceTree = "<group>"; };
 		77ABC8D32611BCA200F32F19 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		9214F139263476AA00FD7510 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		9214F17A26347B7A00FD7510 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
+		9214F1982634898C00FD7510 /* DataServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceError.swift; sourceTree = "<group>"; };
 		9247AECE25FD962C004016C3 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		9247AEEF25FDA133004016C3 /* TestCoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCoreDataStack.swift; sourceTree = "<group>"; };
 		9247AF1225FDA517004016C3 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
@@ -259,6 +267,7 @@
 				92E4EB1E261384CE00B6EA70 /* DataServiceDelegate.swift */,
 				E05A00272608F37F00533A4C /* Date.swift */,
 				92F8A85A262DD7C4003068AC /* JournalEntryType.swift */,
+				9214F1982634898C00FD7510 /* DataServiceError.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -277,6 +286,8 @@
 		92F7EA6A25D782350039DF3C = {
 			isa = PBXGroup;
 			children = (
+				9214F17A26347B7A00FD7510 /* .swiftformat */,
+				9214F139263476AA00FD7510 /* .swiftlint.yml */,
 				92F7EA7525D782350039DF3C /* VENI VIDI */,
 				92F7EA8F25D782380039DF3C /* VENI VIDITests */,
 				92F7EA9A25D782380039DF3C /* VENI VIDIUITests */,
@@ -302,10 +313,8 @@
 				92B4D0E325EC407D0028B7BB /* VENI VIDI.entitlements */,
 				770297CE25EB929500A72E5E /* DCViewController.swift */,
 				E0ECC2C226100F6600BDF4B0 /* VENI_VIDIContainerModel.swift */,
-				E029AB17261FF4B50016463C /* Launching Page.swift */,
 				92F7EA7625D782350039DF3C /* AppDelegate.swift */,
 				92F7EA7A25D782350039DF3C /* ViewController.swift */,
-				E029AB4026207DA40016463C /* FloatingLabel.swift */,
 				92F7EA7C25D782350039DF3C /* Main.storyboard */,
 				92F7EA8225D782380039DF3C /* Assets.xcassets */,
 				92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */,
@@ -377,6 +386,8 @@
 		E0DA6E2F25E8D64B002451BC /* Timeline */ = {
 			isa = PBXGroup;
 			children = (
+				E029AB4026207DA40016463C /* FloatingLabel.swift */,
+				E029AB17261FF4B50016463C /* Launching Page.swift */,
 				E029AB29261FF9E40016463C /* EntryData.swift */,
 				E0DA6E4625E8D734002451BC /* TimelineViewController.swift */,
 				E0DA6E6325E8D832002451BC /* TimelineCellModel.swift */,
@@ -384,6 +395,7 @@
 				E0DA6E7625E8D8AC002451BC /* TimelineContainerModel.swift */,
 				E0DA6E8025E8D90F002451BC /* TimeLabelCell.swift */,
 				E0DA6E8725E8D93A002451BC /* TimeLabelCellModel.swift */,
+				7738A4C4262DF32200EA4372 /* TimelinePickerCell.swift */,
 			);
 			path = Timeline;
 			sourceTree = "<group>";
@@ -410,7 +422,8 @@
 			buildConfigurationList = 92F7EAA025D782380039DF3C /* Build configuration list for PBXNativeTarget "VENI VIDI" */;
 			buildPhases = (
 				D4676D1F0F4F2C3B0838392B /* [CP] Check Pods Manifest.lock */,
-				92FD9CEA26124DCF005D6C2A /* ShellScript */,
+				92FD9CEA26124DCF005D6C2A /* SwiftFormat */,
+				9214F14C2634798500FD7510 /* SwiftLint */,
 				92F7EA6F25D782350039DF3C /* Sources */,
 				92F7EA7025D782350039DF3C /* Frameworks */,
 				92F7EA7125D782350039DF3C /* Resources */,
@@ -511,6 +524,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9214F17B26347B7A00FD7510 /* .swiftformat in Resources */,
+				9214F13A263476AA00FD7510 /* .swiftlint.yml in Resources */,
 				92F7EA8625D782380039DF3C /* LaunchScreen.storyboard in Resources */,
 				92F7EA8325D782380039DF3C /* Assets.xcassets in Resources */,
 				92F7EA7E25D782350039DF3C /* Main.storyboard in Resources */,
@@ -556,7 +571,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		92FD9CEA26124DCF005D6C2A /* ShellScript */ = {
+		9214F14C2634798500FD7510 /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -565,6 +580,25 @@
 			);
 			inputPaths = (
 			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\" \"$SRCROOT\"\n";
+		};
+		92FD9CEA26124DCF005D6C2A /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -685,6 +719,7 @@
 				E0DA6E8125E8D90F002451BC /* TimeLabelCell.swift in Sources */,
 				E0DA6E6B25E8D87A002451BC /* TimelineCell.swift in Sources */,
 				770297CF25EB929500A72E5E /* DCViewController.swift in Sources */,
+				9214F1992634898C00FD7510 /* DataServiceError.swift in Sources */,
 				77ABC8D42611BCA200F32F19 /* SearchResultCell.swift in Sources */,
 				E0ABE9EC25F67F91009E1AF2 /* UpdateEntryContainerModel.swift in Sources */,
 				92EE2D34262601B700AB89FD /* TMDBTVSearchAgent.swift in Sources */,
@@ -698,6 +733,7 @@
 				925FB5D22624B69900F0176D /* QueryResult.swift in Sources */,
 				77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */,
 				92EE2D4D2626636F00AB89FD /* IGDBDataStructs.swift in Sources */,
+				7738A4C5262DF32200EA4372 /* TimelinePickerCell.swift in Sources */,
 				E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
 				E0DA6E9E25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */,
 				E05A00282608F37F00533A4C /* Date.swift in Sources */,

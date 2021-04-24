@@ -12,7 +12,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // let vc = TimelineViewController()
-        let vc = LaungchController()
+        let vc = LaungchController() // swiftlint:disable:this identifier_name
         navigationController?.setViewControllers([vc], animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemYellow

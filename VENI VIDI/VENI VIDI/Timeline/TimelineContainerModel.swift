@@ -10,10 +10,9 @@ import Foundation
 import UIKit
 
 class SimpleListContainerModel: VVContainerModel {
-//    var timeLineData:TimelineData?
     var entries: [JournalEntry]?
-//    var entryService:JournalEntryService?
     var currentTimeLabel: DateComponents?
+    var type: String = "all"
 
     func getEntryData() {
         if let entries = dataService.fetchAllJournalEntries() {
@@ -28,17 +27,26 @@ class SimpleListContainerModel: VVContainerModel {
 
         removeAllSubmodels()
 
+        addSubCell(TimelinePickerCell.self) { model in
+            model.cellHeight = 50
+        }
+
         getEntryData()
 
-//        let timeModel=TimeLabelCellModel()
-//        timeModel.timeLabel="March"
-//        addSubmodel(timeModel)
         if let dateComponents = currentTimeLabel {
             createTimeLabel(date: dateComponents)
         }
 
-        if let e = entries {
-            for item in e {
+        if let entriesToDisplay = entries {
+            for item in entriesToDisplay {
+                print(type)
+                print(item.journalType)
+                if type != "all" {
+                    if item.journalType.rawValue != type {
+                        continue
+                    }
+                }
+
                 let calanderDate = Calendar.current.dateComponents([.day, .year, .month], from: item.finishDate!)
                 guard let timeLabel = currentTimeLabel else { return }
                 if calanderDate.year != timeLabel.year || calanderDate.month != timeLabel.month {
@@ -46,10 +54,9 @@ class SimpleListContainerModel: VVContainerModel {
                     print("Calendar Date is \(calanderDate)")
                     createTimeLabel(date: calanderDate)
                 }
-//                print("Calendar Date is \(calanderDate)")
-//                createTimeLabel(date: calanderDate)
 
                 let model = TimelineCellModel()
+                // swiftlint:disable:next identifier_name
                 if let id = item.id {
                     model.entryId = id
                 }
@@ -66,6 +73,7 @@ class SimpleListContainerModel: VVContainerModel {
         }
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     func createTimeLabel(date: DateComponents) {
         let timeModel = TimeLabelCellModel()
         switch date.month {
@@ -104,25 +112,26 @@ class SimpleListContainerModel: VVContainerModel {
     override func cmDidLoad() {
         super.cmDidLoad()
 
+        subscribeEvent(TimelinePickerCell.timelineTypeChanged) { [weak self] (type: String) in
+            self?.type = type
+            self?.needReloadData()
+        }
+
         print("load Timeline")
         containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
+
         getEntryData()
-        // create an entry in Feb
-//        var date=DateComponents()
-//        date.day=20
-//        date.month=2
-//        date.year=2021
-//        let userCalendar = Calendar(identifier: .gregorian) // since the components above (like year 1980) are for Gregorian
-//        let someDateTime = userCalendar.date(from: date)
-//        dataService.createJournalEntry(aboutWork: "February Movie", withStartDate: someDateTime!, withFinishDate: someDateTime!, withEntryTitle: "February Movie", withEntryContent: "Some comment", isFavorite: false)
 
-//        let timeModel=TimeLabelCellModel()
-//        timeModel.timeLabel="March"
-//        addSubmodel(timeModel)
+        if let entriesToDisplay = entries {
+            for item in entriesToDisplay {
+                if type != "all" {
+                    if item.journalType.rawValue != type {
+                        continue
+                    }
+                }
 
-        if let e = entries {
-            for item in e {
                 let model = TimelineCellModel()
+                // swiftlint:disable:next identifier_name
                 if let id = item.id {
                     model.entryId = id
                 }

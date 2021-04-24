@@ -10,6 +10,7 @@ import DCFrame
 import Foundation
 import SnapKit
 
+// swiftlint:disable:next line_length
 class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     static let titleText = DCSharedDataID()
 
@@ -114,6 +115,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         contentView.addSubview(submitButton)
     }
 
+    // swiftlint:disable:next function_body_length
     override func layoutSubviews() {
         super.layoutSubviews()
 
@@ -121,7 +123,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             make.top.equalTo(10)
             make.height.equalTo(240)
             make.width.equalTo(135)
-//            make.centerX.equalToSuperview()
             make.left.equalTo(15)
         }
 
@@ -146,7 +147,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             make.height.equalTo(30)
             make.top.equalTo(poster.snp.bottom).offset(20)
             make.left.equalTo(15)
-//            make.centerX.equalToSuperview()
         }
 
         quoteLabel.snp.makeConstraints { make in
@@ -203,6 +203,10 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
                 }
             }
 
+            guard let type = volume.type else { return }
+
+            self?.cellModel.type = JournalEntryType(rawValue: type)!
+
             task.resume()
         }
     }
@@ -231,7 +235,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         }
     }
 
-    @objc func favoriteEntry() {
+    @objc
+    func favoriteEntry() {
         print("Click heart")
         if favorite {
             favorite = false
@@ -242,7 +247,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         }
     }
 
-    @objc func pickImage() {
+    @objc
+    func pickImage() {
         print("Clicked")
         let picker = UIImagePickerController()
         picker.allowsEditing = true
@@ -250,7 +256,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         navigationController.present(picker, animated: true, completion: nil)
     }
 
-    func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePickerController(_: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let photo = info[.editedImage] as? UIImage else { return }
 
         poster.image = photo
@@ -260,10 +267,11 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         button.setTitle("", for: .normal)
     }
 
-    @objc func uploadData() {
+    @objc
+    func uploadData() {
         var newTitle: String
         var newImage: UIImage?
-        var newRate: Double?
+        var newRating: Double?
         var newContent: String
         var newQuote: String
 
@@ -285,29 +293,17 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             newQuote = ""
         }
 
-        newRate = stars.rating
-
         guard newTitle != "" else { return }
 
-        if let id = cellModel.entryId {
-            if let rating = newRate {
-                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: favorite)
-            } else {
-                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: favorite)
-            }
-        } else {
-            if let rating = newRate {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: favorite)
-            } else {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: favorite)
-            }
-        }
-
-//        if let entries = cellModel.service.fetchAllJournalEntries() {
-//            print(entries.count)
-//            let entryOne=entries[0]
-//            print(entryOne.entryTitle ?? "No Title")
-//        }
+        _ = cellModel.service.updateJournalEntry(withUUID: cellModel.entryId,
+                                                 aboutWork: newTitle,
+                                                 withType: cellModel.type,
+                                                 withCoverImage: newImage,
+                                                 withEntryTitle: newTitle,
+                                                 withEntryContent: newContent,
+                                                 withQuote: newQuote,
+                                                 withRating: stars.rating,
+                                                 isFavorite: favorite)
 
         _ = navigationController.popViewController(animated: true)
     }

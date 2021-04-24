@@ -22,6 +22,7 @@ class UpdateEnrtyViewController: DCViewController {
         newEntryCM.nav = navigationController
 
         let dataService = DataService(coreDataStack: CoreDataStack())
+        // swiftlint:disable:next identifier_name
         if let id = entryId {
             print("Updating Entry")
             print(id)
@@ -36,6 +37,7 @@ class UpdateEnrtyViewController: DCViewController {
                 }
                 newEntryCM.stars = Double(entry.rating)
                 newEntryCM.favorite = entry.favorite
+                newEntryCM.type = entry.journalType
             }
         }
 //        else{//Create a new entry, load that empty entry and perform update

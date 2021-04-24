@@ -18,6 +18,7 @@ class UpdateEntryCellModel: DCCellModel {
     var quote: String = ""
     var favorite: Bool = false
     var nav: UINavigationController?
+    var type: JournalEntryType = .book
     var service: DataService = {
         let service = DataService(coreDataStack: CoreDataStack())
         return service

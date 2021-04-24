@@ -24,7 +24,9 @@ class TimelineViewController: DCViewController {
         super.viewDidLoad()
         navigationItem.hidesBackButton = true
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(onAdd))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
+                                                            target: self,
+                                                            action: #selector(onAdd))
         navigationController?.navigationBar.barTintColor = UIColor.systemBackground
 
 //        navigationItem.backBarButtonItem = UIBarButtonItem(
@@ -37,14 +39,14 @@ class TimelineViewController: DCViewController {
             guard let `self` = self else {
                 return
             }
-            let vc = DetailedEntryViewController()
-            vc.entryId = data
+            let detailedVC = DetailedEntryViewController()
+            detailedVC.entryId = data
 //            vc.entryData.title = data.title
 //            vc.entryData.comment = data.comment
 //            vc.entryData.rate = data.rate
 //            vc.entryData.url = data.url
 //            vc.entryData.date=data.date
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(detailedVC, animated: true)
         }
         loadCM(simpleListCM)
 
@@ -54,9 +56,10 @@ class TimelineViewController: DCViewController {
 //        }
     }
 
-    @objc func onAdd() {
-        let vc = UpdateEnrtyViewController()
-        navigationController?.pushViewController(vc, animated: true)
+    @objc
+    func onAdd() {
+        let updateEntryVC = UpdateEnrtyViewController()
+        navigationController?.pushViewController(updateEntryVC, animated: true)
     }
 
     override func viewDidLayoutSubviews() {

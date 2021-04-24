@@ -11,9 +11,8 @@ import Foundation
 
 @objc(JournalEntry)
 public class JournalEntry: NSManagedObject {
-    private var journalType: String = "none"
-    var type: JournalEntryType {
-        set { journalType = newValue.rawValue }
-        get { return JournalEntryType(rawValue: journalType) ?? .none }
+    var journalType: JournalEntryType {
+        get { return JournalEntryType(rawValue: journalTypeText ?? "none") ?? .none }
+        set { journalTypeText = newValue.rawValue }
     }
 }

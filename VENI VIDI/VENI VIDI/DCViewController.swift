@@ -4,7 +4,8 @@
 //
 //  Created by 张政桢 on 2019/8/7.
 //  Copyright © 2019 Bytedance. All rights reserved.
-//
+
+// swiftlint:disable all
 
 import DCFrame
 import UIKit

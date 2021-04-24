@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-// MARK: - TMDB Movie related structs
+// MARK: - TMDBMovieQueryResults
+
+// swiftlint:disable identifier_name
 
 struct TMDBMovieQueryResults: Decodable {
     let page: Int
@@ -16,6 +18,8 @@ struct TMDBMovieQueryResults: Decodable {
     let total_pages: Int
     let results: [TMDBMovieDataStruct]
 }
+
+// MARK: - TMDBMovieDataStruct
 
 struct TMDBMovieDataStruct: Decodable {
     let title: String
@@ -27,7 +31,7 @@ struct TMDBMovieDataStruct: Decodable {
     let vote_count: Int!
 }
 
-// MARK: - TMDB TV Show related structs
+// MARK: - TMDBTVQueryResults
 
 struct TMDBTVQueryResults: Decodable {
     let page: Int
@@ -35,6 +39,8 @@ struct TMDBTVQueryResults: Decodable {
     let total_pages: Int
     let results: [TMDBTVDataStruct]
 }
+
+// MARK: - TMDBTVDataStruct
 
 struct TMDBTVDataStruct: Decodable {
     let name: String

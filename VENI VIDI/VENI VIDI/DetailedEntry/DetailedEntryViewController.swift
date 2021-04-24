@@ -16,6 +16,7 @@ class DetailedEntryViewController: DCViewController {
 
     override func viewWillAppear(_: Bool) {
         let dataService = DataService(coreDataStack: CoreDataStack())
+        // swiftlint:disable:next identifier_name
         if let id = entryId {
             if let entry = dataService.fetchJournalEntryWithUUID(id) {
                 detailCM.entryTitle = entry.worksTitle
@@ -51,6 +52,7 @@ class DetailedEntryViewController: DCViewController {
         print("Entry Id is \(String(describing: entryId))")
 
         let dataService = DataService(coreDataStack: CoreDataStack())
+        // swiftlint:disable:next identifier_name
         if let id = entryId {
             if let entry = dataService.fetchJournalEntryWithUUID(id) {
 //                title = entry.worksTitle
@@ -71,17 +73,20 @@ class DetailedEntryViewController: DCViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEdit))
     }
 
-    @objc func onEdit() {
-        let vc = UpdateEnrtyViewController()
+    @objc
+    func onEdit() {
+        let updateEntryVC = UpdateEnrtyViewController()
+        // swiftlint:disable:next identifier_name
         if let id = entryId {
-            vc.entryId = id
+            updateEntryVC.entryId = id
         }
-        navigationController?.pushViewController(vc, animated: true)
+        navigationController?.pushViewController(updateEntryVC, animated: true)
     }
 
-    @objc func backToTimeline() {
-        let vc = TimelineViewController()
-        navigationController?.pushViewController(vc, animated: false)
+    @objc
+    func backToTimeline() {
+        let timelineVC = TimelineViewController()
+        navigationController?.pushViewController(timelineVC, animated: false)
     }
 
     override func viewDidLayoutSubviews() {

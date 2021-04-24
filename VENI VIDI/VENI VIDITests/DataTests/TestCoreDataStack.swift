@@ -6,6 +6,7 @@
 //
 //  Tutorial copywrite info below
 //
+// swiftlint:disable orphaned_doc_comment
 /// Copyright (c) 2020 Razeware LLC
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -15,9 +16,9 @@
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
 
+@testable import VENI_VIDI
 import CoreData
 import Foundation
-@testable import VENI_VIDI
 
 class TestCoreDataStack: CoreDataStack {
     override init() {
