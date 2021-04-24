@@ -37,8 +37,8 @@ class SimpleListContainerModel: VVContainerModel {
             createTimeLabel(date: dateComponents)
         }
 
-        if let e = entries {
-            for item in e {
+        if let entriesToDisplay = entries {
+            for item in entriesToDisplay {
                 print(type)
                 print(item.journalType)
                 if type != "all" {
@@ -56,6 +56,7 @@ class SimpleListContainerModel: VVContainerModel {
                 }
 
                 let model = TimelineCellModel()
+                // swiftlint:disable:next identifier_name
                 if let id = item.id {
                     model.entryId = id
                 }
@@ -72,6 +73,7 @@ class SimpleListContainerModel: VVContainerModel {
         }
     }
 
+    // swiftlint:disable:next cyclomatic_complexity
     func createTimeLabel(date: DateComponents) {
         let timeModel = TimeLabelCellModel()
         switch date.month {
@@ -120,8 +122,8 @@ class SimpleListContainerModel: VVContainerModel {
 
         getEntryData()
 
-        if let e = entries {
-            for item in e {
+        if let entriesToDisplay = entries {
+            for item in entriesToDisplay {
                 if type != "all" {
                     if item.journalType.rawValue != type {
                         continue
@@ -129,6 +131,7 @@ class SimpleListContainerModel: VVContainerModel {
                 }
 
                 let model = TimelineCellModel()
+                // swiftlint:disable:next identifier_name
                 if let id = item.id {
                     model.entryId = id
                 }

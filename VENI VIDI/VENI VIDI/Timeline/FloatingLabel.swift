@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 class FloatLabel: UILabel {
-    var id: UUID?
+    var id: UUID? // swiftlint:disable:this identifier_name
     override init(frame theFrame: CGRect) {
         super.init(frame: theFrame)
     }

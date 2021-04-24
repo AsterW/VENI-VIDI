@@ -6,6 +6,7 @@
 //
 //  Tutorial copywrite info below
 //
+// swiftlint:disable orphaned_doc_comment
 /// Copyright (c) 2020 Razeware LLC
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,6 +25,7 @@ class CoreDataStack: NSObject {
 
     public lazy var storeContainer: NSPersistentContainer = {
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        // swiftlint:disable:previous force_cast
     }()
 
     public lazy var mainContext: NSManagedObjectContext = {

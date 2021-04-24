@@ -30,7 +30,10 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
 
     // MARK: - DatabaseSpecificSearchAgent Query Function
 
-    func query(withKeyword _: String, withTimeStamp _: TimeInterval, downloadCoverImage _: Bool, withCompletionHandler _: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {}
+    func query(withKeyword _: String,
+               withTimeStamp _: TimeInterval,
+               downloadCoverImage _: Bool,
+               withCompletionHandler _: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {}
 
     // MARK: - Helper Functions for access token
 
@@ -40,7 +43,8 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
         }
 
         revokeAccessToken()
-        let accessTokenIssueRequest = IGDBAccessTokenIssueRequest(withClientID: clientID, withClientSecret: clientSecret)
+        let accessTokenIssueRequest = IGDBAccessTokenIssueRequest(withClientID: clientID,
+                                                                  withClientSecret: clientSecret)
         guard let targetUrl = URL(string: accessTokenRequestUrl) else { fatalError() }
         var urlRequest = URLRequest(url: targetUrl)
 
@@ -53,7 +57,8 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
         group.enter()
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { [self] data, _, _ in
             guard let receivedData = data else { fatalError() }
-            guard let parsedData = try? JSONDecoder().decode(IGDBAccessTokenResult.self, from: receivedData) else { fatalError() }
+            guard let parsedData =
+                try? JSONDecoder().decode(IGDBAccessTokenResult.self, from: receivedData) else { fatalError() }
             accessToken = parsedData.access_token
             accessTokenExpirationDate = Date(timeIntervalSinceNow: parsedData.expires_in)
             group.leave()
@@ -67,10 +72,8 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
 
     func revokeAccessToken() {
         var urlComponents = URLComponents(string: accessTokenRevokeUrl)
-        urlComponents?.queryItems = [
-            URLQueryItem(name: "client_id", value: clientID),
-            URLQueryItem(name: "token", value: accessToken),
-        ]
+        urlComponents?.queryItems = [URLQueryItem(name: "client_id", value: clientID),
+                                     URLQueryItem(name: "token", value: accessToken)]
         guard let requestURL = urlComponents?.url?.absoluteURL else { fatalError() }
 
         var urlRequest = URLRequest(url: requestURL)

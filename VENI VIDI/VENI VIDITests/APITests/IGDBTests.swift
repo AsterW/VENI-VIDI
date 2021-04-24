@@ -5,8 +5,8 @@
 //  Created by 雲無心 on 4/13/21.
 //
 
-import UIKit
 @testable import VENI_VIDI
+import UIKit
 import XCTest
 
 class IGDBTests: XCTestCase {

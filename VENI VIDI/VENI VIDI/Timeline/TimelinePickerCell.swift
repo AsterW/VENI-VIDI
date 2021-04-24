@@ -14,13 +14,11 @@ class TimelinePickerCell: DCBaseCell {
     static let timelineTypeChanged = DCEventID()
     private var timelineType = "book"
 
-    private let segments: [(String, String)] = [
-        ("All", "all"),
-        ("Books", "book"),
-        ("Movies", "movie"),
-        ("TV Shows", "tvShow"),
-        ("Games", "game"),
-    ]
+    private let segments: [(String, String)] = [("All", "all"),
+                                                ("Books", "book"),
+                                                ("Movies", "movie"),
+                                                ("TV Shows", "tvShow"),
+                                                ("Games", "game")]
 
     private lazy var timelinePicker: UISegmentedControl = {
         let timelinePicker = UISegmentedControl(items: segments.map { $0.0 })

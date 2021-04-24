@@ -8,6 +8,8 @@ import DCFrame
 import Foundation
 import SnapKit
 
+// MARK: - SearchResultCellModel
+
 class SearchResultCellModel: DCCellModel {
     var cover: UIImage?
     var title: String = ""
@@ -20,6 +22,8 @@ class SearchResultCellModel: DCCellModel {
         cellClass = SearchResultCell.self
     }
 }
+
+// MARK: - SearchResultCell
 
 class SearchResultCell: DCCell<SearchResultCellModel> {
     static let selectedVolume = DCEventID()

@@ -9,6 +9,8 @@ import Foundation
 import SnapKit
 import UIKit
 
+// MARK: - SearchCell
+
 class SearchCell: DCBaseCell {
     static let searchChanged = DCEventID()
     static let searchText = DCSharedDataID()
@@ -17,12 +19,10 @@ class SearchCell: DCBaseCell {
     private var searchType = "book"
     private var searchText = ""
 
-    private let segments: [(String, String)] = [
-        ("Books", "book"),
-        ("Movies", "movie"),
-        ("TV Shows", "show"),
-        ("Games", "game"),
-    ]
+    private let segments: [(String, String)] = [("Books", "book"),
+                                                ("Movies", "movie"),
+                                                ("TV Shows", "show"),
+                                                ("Games", "game")]
 
     private lazy var searchBar: UISearchBar = {
         let view = UISearchBar()
@@ -95,6 +95,8 @@ class SearchCell: DCBaseCell {
         }
     }
 }
+
+// MARK: UISearchBarDelegate
 
 extension SearchCell: UISearchBarDelegate {
     func searchBar(_: UISearchBar, textDidChange searchText: String) {

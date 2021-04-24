@@ -51,6 +51,7 @@ class UpdateEntryContainerModel: VVContainerModel {
             newEntryModel.comment = commentContent
         }
 
+        // swiftlint:disable:next identifier_name
         if let id = entryId {
             newEntryModel.entryId = id
         }

@@ -10,6 +10,7 @@ pod 'DCFrame'
 pod 'Cosmos'
 pod 'SnapKit'
 pod 'SwiftFormat/CLI'
+pod 'SwiftLint'
 
   target 'VENI VIDITests' do
     inherit! :search_paths

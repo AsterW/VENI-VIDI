@@ -6,6 +6,7 @@
 //
 //  Tutorial copywrite info below
 //
+// swiftlint:disable orphaned_doc_comment type_body_length function_body_length
 /// Copyright (c) 2020 Razeware LLC
 ///
 /// Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -15,8 +16,8 @@
 /// copies of the Software, and to permit persons to whom the Software is
 /// furnished to do so, subject to the following conditions:
 
-import UIKit
 @testable import VENI_VIDI
+import UIKit
 import XCTest
 
 class CoreDataTests: XCTestCase {
@@ -53,6 +54,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry0.quote == "")
         XCTAssertTrue(entry0.longitude == 0)
         XCTAssertTrue(entry0.latitude == 0)
+        // swiftformat:disable:next isEmpty
         XCTAssertTrue(entry0.tags?.count == 0)
         XCTAssertTrue(entry0.rating == 0)
         XCTAssertTrue(entry0.favorite == false)
@@ -204,7 +206,7 @@ class CoreDataTests: XCTestCase {
 
         XCTAssertTrue(dataService.deleteJournalEntry(withUUID: entry0.id ?? UUID()))
         let result0 = dataService.fetchAllJournalEntries()
-        XCTAssertTrue(result0?.count == 0, "There should be no entry after entry0 is deleted")
+        XCTAssertTrue(result0?.isEmpty == true, "There should be no entry after entry0 is deleted")
 
         let date1 = Date(timeIntervalSince1970: 10080)
         let date2 = Date(timeIntervalSince1970: 10080)
@@ -225,7 +227,7 @@ class CoreDataTests: XCTestCase {
 
         XCTAssertTrue(dataService.deleteJournalEntry(withUUID: entry1.id ?? UUID()))
         let result1 = dataService.fetchAllJournalEntries()
-        XCTAssertTrue(result1?.count == 0, "There should be no entry after entry1 is deleted")
+        XCTAssertTrue(result1?.isEmpty == true, "There should be no entry after entry1 is deleted")
     }
 
     func testFetchAllJournalEntriesWithDefaultSort() {
