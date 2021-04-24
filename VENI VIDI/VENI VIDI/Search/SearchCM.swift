@@ -28,7 +28,8 @@ class SearchCM: DCContainerModel {
         handleEvents()
     }
 
-    @objc func changeSearchType(_ control: UISegmentedControl) {
+    @objc
+    func changeSearchType(_ control: UISegmentedControl) {
         searchType = segments[control.selectedSegmentIndex].1
     }
 

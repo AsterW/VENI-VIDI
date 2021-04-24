@@ -73,7 +73,8 @@ class DetailedEntryViewController: DCViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEdit))
     }
 
-    @objc func onEdit() {
+    @objc
+    func onEdit() {
         let updateEntryVC = UpdateEnrtyViewController()
         // swiftlint:disable:next identifier_name
         if let id = entryId {
@@ -82,7 +83,8 @@ class DetailedEntryViewController: DCViewController {
         navigationController?.pushViewController(updateEntryVC, animated: true)
     }
 
-    @objc func backToTimeline() {
+    @objc
+    func backToTimeline() {
         let timelineVC = TimelineViewController()
         navigationController?.pushViewController(timelineVC, animated: false)
     }

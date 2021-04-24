@@ -235,7 +235,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         }
     }
 
-    @objc func favoriteEntry() {
+    @objc
+    func favoriteEntry() {
         print("Click heart")
         if favorite {
             favorite = false
@@ -246,7 +247,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         }
     }
 
-    @objc func pickImage() {
+    @objc
+    func pickImage() {
         print("Clicked")
         let picker = UIImagePickerController()
         picker.allowsEditing = true
@@ -265,7 +267,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         button.setTitle("", for: .normal)
     }
 
-    @objc func uploadData() {
+    @objc
+    func uploadData() {
         var newTitle: String
         var newImage: UIImage?
         var newRate: Double?
