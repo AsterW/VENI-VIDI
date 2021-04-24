@@ -59,7 +59,7 @@ extension DataService {
     }
 
     func createNewTag(_ tagText: String) -> Tag {
-        // swiftlint:disable:next line_length force_cast
+        // swiftlint:disable:next force_cast
         let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag
         // swiftlint:disable:next line_length
         // Solution from https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
@@ -73,6 +73,8 @@ extension DataService {
 // MARK: - Journal Entry Services
 
 extension DataService {
+    /// This function fetches all journal entries that are in the CoreData data storage.
+    /// - Returns: All available journal entries.
     func fetchAllJournalEntries() -> [JournalEntry]? {
         let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "finishDate", ascending: false)]
@@ -89,8 +91,10 @@ extension DataService {
         return fetchedResultsController?.fetchedObjects
     }
 
-    // swiftlint:disable:next identifier_name
-    func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? {
+    /// Fetch for a specific JournalEntry given its id (UUID).
+    /// - Parameter id: The UUID that belongs to and identifies the target JournalEntry.
+    /// - Returns: The JournalEntry with the given id (UUID), nil if there's an error when fetching from CoreData data storage.
+    func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? { // swiftlint:disable:this identifier_name
         do {
             let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
             fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
@@ -102,6 +106,23 @@ extension DataService {
         }
     }
 
+    // swiftlint:disable:next line_length
+    /// Create a new JournalEntry with given values. Values not provided will default to nil, empty string, or 0.
+    /// - Parameters:
+    ///   - work: Name of the work to be recorded in this entry.
+    ///   - type: Type of the work. Default to .none.
+    ///   - coverImage: Cover image to be used for this entry.
+    ///   - startDate: Default to Date().
+    ///   - finishDate: Default to Date().
+    ///   - entryTitle: Title of this JournalEntry.
+    ///   - entryContent: Text content of this JournalEntry.
+    ///   - quote: A single line quote for this JournalEntry.
+    ///   - longitude: Longitude value for entry location. Only used when both longitude and latitude are provided.
+    ///   - latitude: Latitude value for entry location. Only used when both longitude and latitude are provided.
+    ///   - tags: Tagges that should be assgined to this JournalEntry.
+    ///   - rating: User rating.
+    ///   - favorite: User favorite or not.
+    /// - Returns: The created JournalEntry.
     @discardableResult
     func createJournalEntry(aboutWork work: String = "",
                             withType type: JournalEntryType = .none,
@@ -148,6 +169,23 @@ extension DataService {
         }
     }
 
+    /// Update the attributes of a JournalEntry, identified by its id (UUID). If no id is provided, a new JournalEntry is created to carry the values. If an attribute is not provided, it will not be updated.
+    /// - Parameters:
+    ///   - id: The UUID used for looking up the JournalEntry. A new entry will be created if this field is not provided.
+    ///   - work: New name of the work to be recorded in this entry.
+    ///   - type: New type of the work.
+    ///   - coverImage: New cover image to be used for this entry.
+    ///   - startDate: New start date to be used for this entry.
+    ///   - finishDate: New finish date to be used for this entry.
+    ///   - entryTitle: New title of this JournalEntry.
+    ///   - entryContent: New text content of this JournalEntry.
+    ///   - quote: New quote for this JournalEntry.
+    ///   - longitude: New longitude value for entry location. Only used when both longitude and latitude are provided.
+    ///   - latitude: New latitude value for entry location. Only used when both longitude and latitude are provided.
+    ///   - tags: New set of tagges that should be assgined to this JournalEntry. Tagges not in this set will be removed from this entry.
+    ///   - rating: New user rating.
+    ///   - favorite: User favorite or not.
+    /// - Returns: A Result object that contains either the updated JournalEntry or an error value.
     @discardableResult
     func updateJournalEntry(withUUID id: UUID? = nil, // swiftlint:disable:this identifier_name
                             aboutWork work: String? = nil,
@@ -221,8 +259,10 @@ extension DataService {
         return .success(entry)
     }
 
-    // swiftlint:disable:next identifier_name
-    func deleteJournalEntry(withUUID id: UUID) -> Bool {
+    /// Delete a JournalEntry given its id (UUID).
+    /// - Parameter id: UUID of the JournalEntry that should be deleted.
+    /// - Returns: True if the entry is deleted, false if the id (UUID) does not match any existing entry.
+    func deleteJournalEntry(withUUID id: UUID) -> Bool { // swiftlint:disable:this identifier_name
         guard let entry = fetchJournalEntryWithUUID(id) else {
             print("Received invalid UUID for deleteJournalEntry()")
             return false
