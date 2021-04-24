@@ -271,7 +271,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
     func uploadData() {
         var newTitle: String
         var newImage: UIImage?
-        var newRating: Double?
         var newContent: String
         var newQuote: String
 
