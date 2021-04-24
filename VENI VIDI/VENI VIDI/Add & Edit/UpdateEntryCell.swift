@@ -10,6 +10,7 @@ import DCFrame
 import Foundation
 import SnapKit
 
+// swiftlint:disable:next line_length
 class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     static let titleText = DCSharedDataID()
 
@@ -114,6 +115,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         contentView.addSubview(submitButton)
     }
 
+    // swiftlint:disable:next function_body_length
     override func layoutSubviews() {
         super.layoutSubviews()
 
@@ -252,7 +254,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         navigationController.present(picker, animated: true, completion: nil)
     }
 
-    func imagePickerController(_: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
+    func imagePickerController(_: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         guard let photo = info[.editedImage] as? UIImage else { return }
 
         poster.image = photo
@@ -291,17 +294,49 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
 
         guard newTitle != "" else { return }
 
-        if let id = cellModel.entryId {
+        if let id = cellModel.entryId { // swiftlint:disable:this identifier_name
             if let rating = newRate {
-                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withType: cellModel.type, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: favorite)
+                _ = cellModel.service.updateJournalEntry(withUUID: id,
+                                                         aboutWork: newTitle,
+                                                         withType: cellModel.type,
+                                                         withCoverImage: newImage,
+                                                         withEntryTitle: newTitle,
+                                                         withEntryContent: newContent,
+                                                         withQuote: newQuote,
+                                                         withRating: Int(rating),
+                                                         isFavorite: favorite)
             } else {
-                _ = cellModel.service.updateJournalEntry(withUUID: id, aboutWork: newTitle, withType: cellModel.type, withCoverImage: newImage, withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: favorite)
+                _ = cellModel.service.updateJournalEntry(withUUID: id,
+                                                         aboutWork: newTitle,
+                                                         withType: cellModel.type,
+                                                         withCoverImage: newImage,
+                                                         withEntryTitle: newTitle,
+                                                         withEntryContent: newContent,
+                                                         withQuote: newQuote,
+                                                         withRating: 0,
+                                                         isFavorite: favorite)
             }
         } else {
             if let rating = newRate {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withType: cellModel.type, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: Int(rating), isFavorite: favorite)
+                _ = cellModel.service.createJournalEntry(aboutWork: newTitle,
+                                                         withType: cellModel.type,
+                                                         withCoverImage: newImage,
+                                                         withEntryTitle: newTitle,
+                                                         withEntryContent: newContent,
+                                                         withQuote: newQuote,
+                                                         withRating: Int(rating),
+                                                         isFavorite: favorite)
             } else {
-                _ = cellModel.service.createJournalEntry(aboutWork: newTitle, withType: cellModel.type, withCoverImage: newImage, withStartDate: Date(), withFinishDate: Date(), withEntryTitle: newTitle, withEntryContent: newContent, withQuote: newQuote, withRating: 0, isFavorite: favorite)
+                _ = cellModel.service.createJournalEntry(aboutWork: newTitle,
+                                                         withType: cellModel.type,
+                                                         withCoverImage: newImage,
+                                                         withStartDate: Date(),
+                                                         withFinishDate: Date(),
+                                                         withEntryTitle: newTitle,
+                                                         withEntryContent: newContent,
+                                                         withQuote: newQuote,
+                                                         withRating: 0,
+                                                         isFavorite: favorite)
             }
         }
 

@@ -5,8 +5,8 @@
 //  Created by 雲無心 on 4/12/21.
 //
 
-import UIKit
 @testable import VENI_VIDI
+import UIKit
 import XCTest
 
 class TMDBMovieTests: XCTestCase {
@@ -28,8 +28,7 @@ class TMDBMovieTests: XCTestCase {
 
     func testValidQuery() throws {
         let testExpectation = expectation(description: "TMDB Movie Interstellar test")
-        tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: Date().timeIntervalSince1970) {
-            result in
+        tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: Date().timeIntervalSince1970) { result in
             switch result {
             case let .success(queryResult):
                 XCTAssertGreaterThan(queryResult.count, 0)
@@ -44,8 +43,7 @@ class TMDBMovieTests: XCTestCase {
 
     func testInvalidQuery() throws {
         let testExpectation = expectation(description: "TMDB Movie no result test")
-        tmdbMovieAgent.query(withKeyword: "qwerzxcvasdfjlk;", withTimeStamp: Date().timeIntervalSince1970) {
-            result in
+        tmdbMovieAgent.query(withKeyword: "qwerzxcvasdfjlk;", withTimeStamp: Date().timeIntervalSince1970) { result in
             switch result {
             case let .success(queryResult):
                 XCTAssertEqual(queryResult.count, 0)
@@ -64,15 +62,13 @@ class TMDBMovieTests: XCTestCase {
         measure {
             let testExpectation = expectation(description: "TMDB Movie Interstellar test")
 
-            tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: Date().timeIntervalSince1970) {
-                result in
+            tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: Date().timeIntervalSince1970) { result in
                 switch result {
                 case let .success(queryResult):
                     XCTAssertGreaterThan(queryResult.count, 0)
                     testExpectation.fulfill()
                 case let .failure(error):
-                    print(error.localizedDescription)
-                    XCTFail()
+                    XCTFail(error.localizedDescription)
                 }
             }
 
@@ -84,8 +80,8 @@ class TMDBMovieTests: XCTestCase {
         measure {
             let testExpectation = expectation(description: "TMDB Movie no result test")
 
-            tmdbMovieAgent.query(withKeyword: "qwerzxcvasdfjlk;", withTimeStamp: Date().timeIntervalSince1970) {
-                result in
+            tmdbMovieAgent.query(withKeyword: "qwerzxcvasdfjlk;",
+                                 withTimeStamp: Date().timeIntervalSince1970) { result in
                 switch result {
                 case let .success(queryResult):
                     XCTAssertEqual(queryResult.count, 0)

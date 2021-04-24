@@ -5,8 +5,8 @@
 //  Created by 雲無心 on 4/13/21.
 //
 
-import UIKit
 @testable import VENI_VIDI
+import UIKit
 import XCTest
 
 class GeneralSearchAgentTests: XCTestCase {
@@ -34,8 +34,7 @@ class GeneralSearchAgentTests: XCTestCase {
 
     func testSearchMovie() throws {
         expectations.append(expectation(description: "Single Movie Search - Interstellar"))
-        generalSearchAgent.query(withKeyword: "Interstellar", forContentType: .movie) { [self]
-            result in
+        generalSearchAgent.query(withKeyword: "Interstellar", forContentType: .movie) { [self] result in
             switch result {
             case let .success(results):
                 if let contentType = results.first?.type {
@@ -56,8 +55,7 @@ class GeneralSearchAgentTests: XCTestCase {
 
     func testSearchTVShows() throws {
         expectations.append(expectation(description: "Single TV Show Search - Sense8"))
-        generalSearchAgent.query(withKeyword: "Sense8", forContentType: .tvShow) { [self]
-            result in
+        generalSearchAgent.query(withKeyword: "Sense8", forContentType: .tvShow) { [self] result in
             switch result {
             case let .success(results):
                 if let contentType = results.first?.type {
@@ -78,8 +76,7 @@ class GeneralSearchAgentTests: XCTestCase {
 
     func testSearchBooks() throws {
         expectations.append(expectation(description: "Single Book Search - 2001"))
-        generalSearchAgent.query(withKeyword: "2001", forContentType: .tvShow) { [self]
-            result in
+        generalSearchAgent.query(withKeyword: "2001", forContentType: .tvShow) { [self] result in
             switch result {
             case let .success(results):
                 if let contentType = results.first?.type {
@@ -100,8 +97,7 @@ class GeneralSearchAgentTests: XCTestCase {
 
     func testSearchGames() throws {
         expectations.append(expectation(description: "Single Game Search - EVE Online"))
-        generalSearchAgent.query(withKeyword: "EVE Online", forContentType: .game) { [self]
-            result in
+        generalSearchAgent.query(withKeyword: "EVE Online", forContentType: .game) { [self] result in
             switch result {
             case let .success(results):
                 if let contentType = results.first?.type {
@@ -121,11 +117,10 @@ class GeneralSearchAgentTests: XCTestCase {
     }
 
     func testSearchAllCategories() throws {
-        for i in 1 ... 4 {
-            expectations.append(expectation(description: "Expectation #\(i)"))
+        for index in 1 ... 4 {
+            expectations.append(expectation(description: "Expectation #\(index)"))
         }
-        generalSearchAgent.query(withKeyword: "Night") { [self]
-            result in
+        generalSearchAgent.query(withKeyword: "Night") { [self] result in
             switch result {
             case let .success(results):
                 if let contentType = results.first?.type {
@@ -145,12 +140,11 @@ class GeneralSearchAgentTests: XCTestCase {
     }
 
     func testConsecutiveSearch() throws {
-        for i in 1 ... 2 {
-            expectations.append(expectation(description: "Expectation #\(i)"))
+        for index in 1 ... 2 {
+            expectations.append(expectation(description: "Expectation #\(index)"))
         }
 
-        generalSearchAgent.query(withKeyword: "Apple") { [self]
-            result in
+        generalSearchAgent.query(withKeyword: "Apple") { [self] result in
             switch result {
             case let .success(results):
                 if let contentType = results.first?.type {
@@ -164,8 +158,7 @@ class GeneralSearchAgentTests: XCTestCase {
             }
         }
         let timeStamp = Date().timeIntervalSince1970
-        generalSearchAgent.query(withKeyword: "Apple") { [self]
-            result in
+        generalSearchAgent.query(withKeyword: "Apple") { [self] result in
             switch result {
             case let .success(results):
                 if let contentType = results.first?.type {

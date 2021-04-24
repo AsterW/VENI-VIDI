@@ -22,6 +22,7 @@ class UpdateEnrtyViewController: DCViewController {
         newEntryCM.nav = navigationController
 
         let dataService = DataService(coreDataStack: CoreDataStack())
+        // swiftlint:disable:next identifier_name
         if let id = entryId {
             print("Updating Entry")
             print(id)

@@ -23,20 +23,18 @@ class LaungchController: UIViewController {
         }
     }
 
-    func goToDetailedPage(id: UUID) {
+    func goToDetailedPage(id: UUID) { // swiftlint:disable:this identifier_name
         print(id)
-        let vc = DetailedEntryViewController()
-        vc.entryId = id
+        let detailedViewController = DetailedEntryViewController()
+        detailedViewController.entryId = id
 
-        navigationController?.pushViewController(vc, animated: true)
-        return
+        navigationController?.pushViewController(detailedViewController, animated: true)
     }
 
     func gotoTimeline() {
         print("Timeline")
-        let vc = TimelineViewController()
-        navigationController?.pushViewController(vc, animated: true)
-        return
+        let timelineVC = TimelineViewController()
+        navigationController?.pushViewController(timelineVC, animated: true)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with _: UIEvent?) {
@@ -52,7 +50,6 @@ class LaungchController: UIViewController {
             }
         }
         gotoTimeline()
-        return
     }
 
     override func viewWillAppear(_: Bool) {
@@ -75,7 +72,7 @@ class LaungchController: UIViewController {
 
         print("Launching Page")
 
-        guard entries.count != 0 else {
+        guard !entries.isEmpty else {
             let logoLabel: UILabel = {
                 let logoLabel = UILabel()
                 logoLabel.text = "VENI VIDI."
@@ -87,7 +84,8 @@ class LaungchController: UIViewController {
                 make.center.equalToSuperview()
                 make.height.equalTo(15)
             }
-            UIView.animate(withDuration: 1.5, animations: { logoLabel.transform = CGAffineTransform(scaleX: 3, y: 3) }) { _ in
+            UIView.animate(withDuration: 1.5,
+                           animations: { logoLabel.transform = CGAffineTransform(scaleX: 3, y: 3) }) { _ in
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self.gotoTimeline()
                 }
@@ -98,7 +96,7 @@ class LaungchController: UIViewController {
         var index = 0
         var logoStarted = false
         view.backgroundColor = .black
-        _ = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { t in
+        _ = Timer.scheduledTimer(withTimeInterval: 0.3, repeats: true) { timer in
             let label = FloatLabel()
             label.text = self.entries[index].entryTitle
             if let entryId = self.entries[index].id {
@@ -107,44 +105,48 @@ class LaungchController: UIViewController {
             self.entryLabels.append(label)
 
             self.view.addSubview(label)
-            let Y = Int.random(in: 50 ..< Int(self.view.bounds.height - 100))
+            let yCoordinate = Int.random(in: 50 ..< Int(self.view.bounds.height - 100))
             let labelSize = Int.random(in: 15 ..< 50)
-            let labelFrame = CGRect(x: Int(self.view.bounds.maxX), y: Y, width: 500, height: labelSize)
+            let labelFrame = CGRect(x: Int(self.view.bounds.maxX), y: yCoordinate, width: 500, height: labelSize)
             label.frame = labelFrame
             label.textColor = .white
             label.font = UIFont.systemFont(ofSize: CGFloat(labelSize))
 
-            UIView.animate(withDuration: 5, delay: 0, options: UIView.AnimationOptions.allowUserInteraction, animations: { label.frame = CGRect(x: -600, y: Y, width: 600, height: labelSize) }, completion: { _ in label.removeFromSuperview()
-                print(self.view.subviews.count)
-                if self.view.subviews.count < 3, !logoStarted,!self.clicked {
-                    logoStarted = true
-                    let logoLabel: UILabel = {
-                        let logoLabel = UILabel()
-                        logoLabel.text = "VENI VIDI."
-                        logoLabel.font = UIFont.systemFont(ofSize: 15)
-                        return logoLabel
-                    }()
-                    self.view.addSubview(logoLabel)
-                    logoLabel.snp.makeConstraints { make in
-                        make.center.equalToSuperview()
-                        make.height.equalTo(15)
-                    }
+            UIView.animate(withDuration: 5,
+                           delay: 0,
+                           options: UIView.AnimationOptions.allowUserInteraction,
+                           animations: { label.frame = CGRect(x: -600, y: yCoordinate, width: 600, height: labelSize) },
+                           completion: { _ in label.removeFromSuperview()
+                               print(self.view.subviews.count)
+                               if self.view.subviews.count < 3, !logoStarted, !self.clicked {
+                                   logoStarted = true
+                                   let logoLabel: UILabel = {
+                                       let logoLabel = UILabel()
+                                       logoLabel.text = "VENI VIDI."
+                                       logoLabel.font = UIFont.systemFont(ofSize: 15)
+                                       return logoLabel
+                                   }()
+                                   self.view.addSubview(logoLabel)
+                                   logoLabel.snp.makeConstraints { make in
+                                       make.center.equalToSuperview()
+                                       make.height.equalTo(15)
+                                   }
 
-                    UIView.animate(withDuration: 1.5, animations: {
-                        self.view.backgroundColor = .clear
-                        logoLabel.transform = CGAffineTransform(scaleX: 3, y: 3)
-                    }) { _ in
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                            self.gotoTimeline()
-                        }
-                    }
-                }
-            })
+                                   UIView.animate(withDuration: 1.5, animations: {
+                                       self.view.backgroundColor = .clear
+                                       logoLabel.transform = CGAffineTransform(scaleX: 3, y: 3)
+                                   }) { _ in
+                                       DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                           self.gotoTimeline()
+                                       }
+                                   }
+                               }
+                           })
 
             index += 1
             if index > self.entries.count - 1 {
                 index = 0
-                t.invalidate()
+                timer.invalidate()
             }
         }
     }

@@ -9,13 +9,15 @@ import CoreData
 import Foundation
 import UIKit
 
+// MARK: - DataService
+
 final class DataService: NSObject, NSFetchedResultsControllerDelegate {
     // MARK: - Properties
 
     private let managedObjectContext: NSManagedObjectContext
     private let coreDataStack: CoreDataStack
     private var fetchedResultsController: NSFetchedResultsController<JournalEntry>?
-    let delegate: DataServiceDelegate? = nil
+    weak var delegate: DataServiceDelegate?
 
     // MARK: - Initializers
 
@@ -56,9 +58,10 @@ extension DataService {
     }
 
     func createNewTag(_ tagText: String) -> Tag {
-        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag
-        // Solution by https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
-//        let newTag = Tag(context: self.managedObjectContext)
+        // swiftlint:disable:next line_length
+        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag // swiftlint:disable:this force_cast
+        // Solution from https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit // swiftlint:disable:this line_length
+        // let newTag = Tag(context: self.managedObjectContext)
         newTag.name = tagText
         coreDataStack.saveContext()
         return newTag
@@ -71,7 +74,10 @@ extension DataService {
     func fetchAllJournalEntries() -> [JournalEntry]? {
         let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "finishDate", ascending: false)]
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                                              managedObjectContext: managedObjectContext,
+                                                              sectionNameKeyPath: nil,
+                                                              cacheName: nil)
         fetchedResultsController?.delegate = self
         do {
             try fetchedResultsController?.performFetch()
@@ -81,6 +87,7 @@ extension DataService {
         return fetchedResultsController?.fetchedObjects
     }
 
+    // swiftlint:disable:next identifier_name
     func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? {
         do {
             let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
@@ -105,37 +112,38 @@ extension DataService {
                             atLatitude latitude: Double = 0,
                             withTags tags: [Tag] = [],
                             withRating rating: Int = 0,
-                            isFavorite favorite: Bool? = false) -> JournalEntry
-    {
+                            isFavorite favorite: Bool? = false) -> JournalEntry {
         // let newJournalEntry = JournalEntry(context: self.managedObjectContext)
-        let newJournalEntry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: managedObjectContext) as! JournalEntry
-        // Solution by https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
+        // swiftlint:disable:next line_length
+        let newJournalEntry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: managedObjectContext) as! JournalEntry // swiftlint:disable:this force_cast
+        // Solution from https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit // swiftlint:disable:this line_length
 
         newJournalEntry.id = UUID()
         coreDataStack.saveContext()
 
-        if updateJournalEntry(withUUID: newJournalEntry.id ?? UUID(),
-                              aboutWork: work,
-                              withType: type,
-                              withCoverImage: coverImage,
-                              withStartDate: startDate,
-                              withFinishDate: finishDate,
-                              withEntryTitle: entryTitle,
-                              withEntryContent: entryContent,
-                              withQuote: quote,
-                              atLongitude: longitude,
-                              atLatitude: latitude,
-                              withTags: tags,
-                              withRating: rating,
-                              isFavorite: favorite)
-        {
-        } else {
+        guard updateJournalEntry(withUUID: newJournalEntry.id ?? UUID(),
+                                 aboutWork: work,
+                                 withType: type,
+                                 withCoverImage: coverImage,
+                                 withStartDate: startDate,
+                                 withFinishDate: finishDate,
+                                 withEntryTitle: entryTitle,
+                                 withEntryContent: entryContent,
+                                 withQuote: quote,
+                                 atLongitude: longitude,
+                                 atLatitude: latitude,
+                                 withTags: tags,
+                                 withRating: rating,
+                                 isFavorite: favorite)
+        else {
             print("JournalEntry Created might not be valid: failed to save designated entry contents")
+            return newJournalEntry
         }
 
         return newJournalEntry
     }
 
+    // swiftlint:disable:next identifier_name
     func updateJournalEntry(withUUID id: UUID,
                             aboutWork work: String? = nil,
                             withType type: JournalEntryType? = nil,
@@ -149,8 +157,7 @@ extension DataService {
                             atLatitude latitude: Double? = nil,
                             withTags tags: [Tag]? = nil,
                             withRating rating: Int? = nil,
-                            isFavorite favorite: Bool? = nil) -> Bool
-    {
+                            isFavorite favorite: Bool? = nil) -> Bool {
         guard let entry = fetchJournalEntryWithUUID(id) else {
             print("Received invalid UUID for updateJournalEntry()")
             return false
@@ -202,6 +209,7 @@ extension DataService {
         return true
     }
 
+    // swiftlint:disable:next identifier_name
     func deleteJournalEntry(withUUID id: UUID) -> Bool {
         guard let entry = fetchJournalEntryWithUUID(id) else {
             print("Received invalid UUID for deleteJournalEntry()")
@@ -223,6 +231,7 @@ extension DataService {
             delegate?.fetchAllJournalEntriesResultDidChange(updatedJournalEntries)
         } else {
             print("Error: NSFetchedResultsController has a NSFetchRequestResult type different from JournalEntry.") // DEBUG
+            // swiftlint:disable:previous line_length
         }
     }
 }

@@ -14,12 +14,10 @@ class SearchCM: DCContainerModel {
     static let searchNotEmpty = DCEventID()
     static let searchEmpty = DCEventID()
     private var searchType = "book"
-    private let segments: [(String, String)] = [
-        ("Books", "book"),
-        ("Movies", "movie"),
-        ("TV Shows", "show"),
-        ("Games", "game"),
-    ]
+    private let segments: [(String, String)] = [("Books", "book"),
+                                                ("Movies", "movie"),
+                                                ("TV Shows", "show"),
+                                                ("Games", "game")]
 
     override func cmDidLoad() {
         super.cmDidLoad()
@@ -75,7 +73,7 @@ class SearchCM: DCContainerModel {
                 print(error)
                 self?.searchResultCM.removeAllSubmodels()
             case let .success(volumes):
-                var i = 0
+                var i = 0 // swiftlint:disable:this identifier_name
                 guard let tag = self?.currentTimeTag, timeStamp >= tag else {
                     return
                 }
@@ -110,7 +108,7 @@ class SearchCM: DCContainerModel {
                 print(error)
                 self?.searchResultCM.removeAllSubmodels()
             case let .success(volumes):
-                var i = 0
+                var i = 0 // swiftlint:disable:this identifier_name
                 guard let tag = self?.currentTimeTag, timeStamp >= tag else {
                     return
                 }
@@ -153,7 +151,7 @@ class SearchCM: DCContainerModel {
             guard let data = data, error == nil else { return }
             print(response?.suggestedFilename ?? url.lastPathComponent)
             print("Download Finished")
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
                 guard let image = UIImage(data: data) else { return }
                 completion(.success(image))
             }
