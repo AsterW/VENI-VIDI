@@ -82,6 +82,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
     let dateLabel: UILabel = {
         let dateLabel = UILabel()
         dateLabel.textAlignment = .center
+        dateLabel.textColor = .systemYellow
         return dateLabel
     }()
 
