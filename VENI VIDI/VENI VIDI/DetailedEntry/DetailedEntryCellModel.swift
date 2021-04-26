@@ -17,6 +17,9 @@ class DetailedEntryCellModel: DCCellModel {
     var date: Date?
     var quote: String = ""
     var favorite: Bool = false
+    var nav: UINavigationController?
+    // swiftlint:disable:next identifier_name
+    var id: UUID?
 
     required init() {
         super.init()

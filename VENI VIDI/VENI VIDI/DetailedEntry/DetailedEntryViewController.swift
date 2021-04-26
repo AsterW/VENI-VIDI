@@ -29,6 +29,8 @@ class DetailedEntryViewController: DCViewController {
                 }
                 detailCM.stars = Double(entry.rating)
                 detailCM.favorite = entry.favorite
+                detailCM.entryId = id
+                detailCM.nav = navigationController
             }
         }
 
@@ -45,7 +47,9 @@ class DetailedEntryViewController: DCViewController {
                 if (navigationController?.viewControllers[count - 2] as? LaungchController) != nil {
                     navigationItem.hidesBackButton = true
 
-                    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Timeline", style: .plain, target: self, action: #selector(backToTimeline))
+                    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Timeline",
+                                                                       style: .plain, target: self,
+                                                                       action: #selector(backToTimeline))
                 } else {}
             }
         }
@@ -65,13 +69,17 @@ class DetailedEntryViewController: DCViewController {
                 }
                 detailCM.stars = Double(entry.rating)
                 detailCM.favorite = entry.favorite
+                detailCM.entryId = id
+                detailCM.nav = navigationController
             }
         }
 
         loadCM(detailCM)
 
         // nav bar item to edit
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEdit))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                            target: self,
+                                                            action: #selector(onEdit))
     }
 
     @objc

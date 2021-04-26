@@ -16,6 +16,8 @@ class TimelineCellModel: DCCellModel {
     var rating: Double = 0
     var comment: String = ""
 
+    var tags: [String] = []
+
     required init() {
         super.init()
         cellHeight = 100
