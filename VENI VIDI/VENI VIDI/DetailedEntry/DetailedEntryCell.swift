@@ -126,7 +126,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 //        var xOffset: CGFloat = tagView.bounds.minX + 5
 //        let yOffset: CGFloat = tagView.bounds.minY + 5
 //        let padding: CGFloat = 5
-//
+
 //        for string in fakeTag {
 //            let tagLabel = UILabel()
 //            tagLabel.backgroundColor = .white
@@ -138,12 +138,19 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 //            tagView.addSubview(tagLabel)
 //        }
 //
-//        tagView.contentSize = CGSize(width: xOffset - tagView.frame.minX+5, height: tagView.frame.height)
+//        let addButton = UIButton()
+//        tagView.addSubview(addButton)
+//        addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
+//        addButton.setImage(UIImage(systemName: "star"), for: .normal)
+//        xOffset += padding + addButton.frame.size.width
+//
+//        tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
+
+        var xOffset: CGFloat = tagView.bounds.minX + 5
+        let yOffset: CGFloat = tagView.bounds.minY + 5
+        let padding: CGFloat = 5
 
         if !cellModel.tags.isEmpty {
-            var xOffset: CGFloat = tagView.bounds.minX + 5
-            let yOffset: CGFloat = tagView.bounds.minY + 5
-            let padding: CGFloat = 5
 
             for string in cellModel.tags {
                 let tagLabel = UILabel()
@@ -155,8 +162,20 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
                 tagView.addSubview(tagLabel)
                 tagLabel.frame.size = tagLabel.intrinsicContentSize
             }
+            let addButton = UIButton()
+            tagView.addSubview(addButton)
+            addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
+            addButton.setImage(UIImage(systemName: "add"), for: .normal)
 
-            tagView.contentSize = CGSize(width: xOffset - tagView.frame.minX + 5, height: tagView.frame.height)
+            tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
+        } else {
+            print("x is \(xOffset)")
+            let addButton = UIButton()
+            tagView.addSubview(addButton)
+            addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
+            addButton.setImage(UIImage(systemName: "star"), for: .normal)
+
+            tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
         }
     }
 

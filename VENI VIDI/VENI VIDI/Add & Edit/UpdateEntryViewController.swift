@@ -38,6 +38,10 @@ class UpdateEnrtyViewController: DCViewController {
                 newEntryCM.stars = Double(entry.rating)
                 newEntryCM.favorite = entry.favorite
                 newEntryCM.type = entry.journalType
+
+                if let tags = entry.tags {
+                    newEntryCM.tags = tags.allObjects as? [String] ?? []
+                }
             }
         }
 //        else{//Create a new entry, load that empty entry and perform update

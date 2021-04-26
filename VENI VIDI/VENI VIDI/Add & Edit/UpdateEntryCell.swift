@@ -93,6 +93,13 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         return quote
     }()
 
+    let tagView: UIView = {
+        let tagView = UIScrollView()
+        tagView.backgroundColor = .systemGray6
+        tagView.layer.cornerRadius = 6
+        return tagView
+    }()
+
     override func setupUI() {
         super.setupUI()
 
@@ -113,6 +120,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         contentView.addSubview(quoteLabel)
         contentView.addSubview(quote)
         contentView.addSubview(submitButton)
+
+        contentView.addSubview(tagView)
     }
 
     // swiftlint:disable:next function_body_length
@@ -124,6 +133,13 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             make.height.equalTo(240)
             make.width.equalTo(135)
             make.left.equalTo(15)
+        }
+
+        tagView.snp.makeConstraints { make in
+            make.top.equalTo(poster.snp.bottom).offset(-100)
+            make.height.equalTo(100)
+            make.width.equalTo(contentView.frame.width - 180)
+            make.right.equalTo(-15)
         }
 
         favoriteButton.snp.makeConstraints { make in
@@ -225,6 +241,45 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         stars.rating = cellModel.rating ?? 0
         favorite = cellModel.favorite
         setFavoriteImage()
+        createTagView()
+    }
+
+    func clearTagView() {
+        if !tagView.subviews.isEmpty {
+            for subview in tagView.subviews {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+
+    func createTagView() {
+        print("!!!!!!!!!!!!!!!!!!!")
+        clearTagView()
+        var xOffset: CGFloat = tagView.bounds.minX + 5
+        var yOffset: CGFloat = tagView.bounds.minY + 5
+        let padding: CGFloat = 5
+        if !cellModel.tags.isEmpty {
+            for string in cellModel.tags {
+                let tagLabel = UILabel()
+                tagLabel.backgroundColor = .white
+                tagLabel.text = string
+
+                if xOffset + tagLabel.intrinsicContentSize.width >= tagView.frame.maxX {
+                    xOffset = tagView.bounds.minX + 5
+                    yOffset += 35
+                }
+                tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width, height: 30)
+                xOffset += padding + tagLabel.frame.size.width
+
+                tagView.addSubview(tagLabel)
+            }
+        } else {
+            let addButton = UIButton()
+            tagView.addSubview(addButton)
+            addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
+            addButton.setImage(UIImage(systemName: "star"), for: .normal)
+            print(tagView.subviews.count)
+        }
     }
 
     func setFavoriteImage() {
