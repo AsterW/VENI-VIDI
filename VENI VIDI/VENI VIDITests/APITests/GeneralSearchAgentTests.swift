@@ -140,9 +140,22 @@ class GeneralSearchAgentTests: XCTestCase {
     }
 
     func testConsecutiveSearch() throws {
-        for index in 1 ... 2 {
+        for index in 1 ... 4 {
             expectations.append(expectation(description: "Expectation #\(index)"))
         }
+
+        generalSearchAgent.query(withKeyword: "Apple") { [self] result in
+            switch result {
+            case .success:
+                expectations.first?.fulfill()
+                expectations.removeFirst()
+            case .failure: break
+                // TODO: Commented out since not all API agents are finished
+                // XCTFail(error.localizedDescription)
+            }
+        }
+
+        let timeStamp = Date().timeIntervalSince1970
 
         generalSearchAgent.query(withKeyword: "Apple") { [self] result in
             switch result {
@@ -153,23 +166,7 @@ class GeneralSearchAgentTests: XCTestCase {
                 expectations.first?.fulfill()
                 expectations.removeFirst()
             case .failure: break
-                // TODO:
-                // Commented out since not all API agents are finished
-                // XCTFail(error.localizedDescription)
-            }
-        }
-        let timeStamp = Date().timeIntervalSince1970
-        generalSearchAgent.query(withKeyword: "Apple") { [self] result in
-            switch result {
-            case let .success(results):
-                if let contentType = results.first?.type {
-                    searchResults[contentType] = results
-                }
-                expectations.first?.fulfill()
-                expectations.removeFirst()
-            case .failure: break
-                // TODO:
-                // Commented out since not all API agents are finished
+                // TODO: Commented out since not all API agents are finished
                 // XCTFail(error.localizedDescription)
             }
         }

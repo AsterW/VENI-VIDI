@@ -107,7 +107,7 @@ class IGDBSearchAgent: DatabaseSpecificSearchAgent {
     func revokeAccessToken() {
         var urlComponents = URLComponents(string: accessTokenRevokeUrl)
         urlComponents?.queryItems = [URLQueryItem(name: "client_id", value: clientID),
-                                     URLQueryItem(name: "token", value: accessToken)]
+                                     URLQueryItem(name: "token", value: "Bearer \(privateToken)")]
         guard let requestURL = urlComponents?.url?.absoluteURL else { fatalError() }
 
         var urlRequest = URLRequest(url: requestURL)
