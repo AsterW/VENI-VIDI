@@ -292,6 +292,11 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             newQuote = ""
         }
 
+        if let tag = comment.text {
+            let entryTag = Tag()
+            entryTag.name = tag
+        }
+
         guard newTitle != "" else { return }
 
         _ = cellModel.service.updateJournalEntry(withUUID: cellModel.entryId,

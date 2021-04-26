@@ -9,9 +9,13 @@ import DCFrame
 import Foundation
 import UIKit
 class TagCellModel: DCCellModel {
+    // swiftlint:disable:next identifier_name
+    var id: UUID?
+    var tags: [String] = []
+
     required init() {
         super.init()
-        cellHeight = 830
+        cellHeight = 75
         cellClass = TagCell.self
     }
 }

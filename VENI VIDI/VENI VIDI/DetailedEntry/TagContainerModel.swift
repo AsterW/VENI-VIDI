@@ -10,7 +10,16 @@ import Foundation
 import UIKit
 
 class TagContainerModel: DCContainerModel {
+
+    var entryId: UUID?
+    var tags: [String] = []
+
     override func cmDidLoad() {
         super.cmDidLoad()
+
+        let tagCellModel = TagCellModel()
+        tagCellModel.tags = tags
+
+        addSubmodel(tagCellModel)
     }
 }

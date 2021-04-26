@@ -68,6 +68,9 @@ class SimpleListContainerModel: VVContainerModel {
                     model.picture = UIImage(systemName: "star.fill")
                 }
                 model.rating = Double(item.rating)
+//                if let tags = item.tags {
+//                    model.tags = tags.allObjects as? [String] ?? []
+//                }
                 addSubmodel(model, separator: .bottom, height: 2)
             }
         }
@@ -143,6 +146,7 @@ class SimpleListContainerModel: VVContainerModel {
                     model.picture = UIImage(systemName: "star.fill")
                 }
                 model.rating = Double(item.rating)
+
                 addSubmodel(model)
             }
         }

@@ -20,6 +20,8 @@ class DetailedEntryContainerModel: DCContainerModel {
     var entryId: UUID?
     var nav: UINavigationController?
 
+    var tags: [String] = []
+
     override func tableViewDataWillReload() {
         removeAllSubmodels()
 
@@ -59,6 +61,8 @@ class DetailedEntryContainerModel: DCContainerModel {
             detailModel.id = entryId
         }
 
+        detailModel.tags = tags
+
         addSubmodel(detailModel)
     }
 
@@ -96,6 +100,8 @@ class DetailedEntryContainerModel: DCContainerModel {
         if let entryId = entryId {
             detailModel.id = entryId
         }
+
+        detailModel.tags = tags
 
         addSubmodel(detailModel)
     }

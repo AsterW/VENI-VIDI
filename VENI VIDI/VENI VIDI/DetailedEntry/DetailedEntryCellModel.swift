@@ -20,6 +20,7 @@ class DetailedEntryCellModel: DCCellModel {
     var nav: UINavigationController?
     // swiftlint:disable:next identifier_name
     var id: UUID?
+    var tags: [String] = []
 
     required init() {
         super.init()

@@ -12,7 +12,6 @@ import UIKit
 class DetailedEntryViewController: DCViewController {
     var entryData = EntryData()
     var entryId: UUID?
-    var timelineCM = TimelineCellModel()
     let detailCM = DetailedEntryContainerModel()
 
     override func viewWillAppear(_: Bool) {
@@ -31,6 +30,10 @@ class DetailedEntryViewController: DCViewController {
                 detailCM.favorite = entry.favorite
                 detailCM.entryId = id
                 detailCM.nav = navigationController
+
+                if let tags = entry.tags {
+                    detailCM.tags = tags.allObjects as? [String] ?? []
+                }
             }
         }
 
@@ -71,6 +74,10 @@ class DetailedEntryViewController: DCViewController {
                 detailCM.favorite = entry.favorite
                 detailCM.entryId = id
                 detailCM.nav = navigationController
+
+                if let tags = entry.tags {
+                    detailCM.tags = tags.allObjects as? [String] ?? []
+                }
             }
         }
 

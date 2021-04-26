@@ -10,7 +10,7 @@ import DCFrame
 import Foundation
 
 class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
-    UINavigationControllerDelegate {
+    UINavigationControllerDelegate, UIScrollViewDelegate {
     var navigationController: UINavigationController = {
         let navigationController = UINavigationController()
         return navigationController
@@ -111,8 +111,53 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
         }
     }
 
+    func clearTagView() {
+        if !tagView.subviews.isEmpty {
+            for subview in tagView.subviews {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+
     func createTags() {
-        let service = DataService(coreDataStack: CoreDataStack())
+        clearTagView()
+//        let fakeTag = ["aaaaaaaaaaa", "bbbbbbbbbbbb", "ccc", "dddd", "eeeee", "a", "bb", "ccc", "dddd", "eeeee", "ccc", "dddd", "eeeee", "a"]
+//
+//        var xOffset: CGFloat = tagView.bounds.minX + 5
+//        let yOffset: CGFloat = tagView.bounds.minY + 5
+//        let padding: CGFloat = 5
+//
+//        for string in fakeTag {
+//            let tagLabel = UILabel()
+//            tagLabel.backgroundColor = .white
+//            tagLabel.text = string
+//
+//            tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width, height: 30)
+//            xOffset += padding + tagLabel.frame.size.width
+//
+//            tagView.addSubview(tagLabel)
+//        }
+//
+//        tagView.contentSize = CGSize(width: xOffset - tagView.frame.minX+5, height: tagView.frame.height)
+
+        if !cellModel.tags.isEmpty {
+            var xOffset: CGFloat = tagView.bounds.minX + 5
+            let yOffset: CGFloat = tagView.bounds.minY + 5
+            let padding: CGFloat = 5
+
+            for string in cellModel.tags {
+                let tagLabel = UILabel()
+                tagLabel.backgroundColor = .white
+                tagLabel.text = string
+                tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width, height: 30)
+                xOffset += padding + tagLabel.frame.size.width
+
+                tagView.addSubview(tagLabel)
+                tagLabel.frame.size = tagLabel.intrinsicContentSize
+            }
+
+            tagView.contentSize = CGSize(width: xOffset - tagView.frame.minX + 5, height: tagView.frame.height)
+        }
     }
 
     @objc
@@ -152,8 +197,11 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
         // poster.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 180)
         smallPoster.frame = CGRect(x: left, y: 80, width: 120, height: 180)
-        quote.frame = CGRect(x: left + 135, y: 80, width: bounds.width - 165, height: 90)
-        tagView.frame = CGRect(x: left + 135, y: 185, width: bounds.width - 165, height: 75)
+        quote.frame = CGRect(x: left + 135, y: 80, width: bounds.width - 165, height: 125)
+        tagView.frame = CGRect(x: left + 135, y: 220, width: bounds.width - 165, height: 40)
+        tagView.isUserInteractionEnabled = true
+        tagView.delegate = self
+
         stars.frame = CGRect(x: left, y: 285, width: (bounds.width - 90) / 2, height: 30)
         dateLabel.frame = CGRect(x: left + (bounds.width - 90) / 2, y: 285, width: (bounds.width - 90) / 2, height: 30)
         favoriteButton.frame = CGRect(x: left + (bounds.width - 90), y: 285, width: 30, height: 30)
@@ -191,5 +239,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
         } else {
             // should throw error
         }
+
+        createTags()
     }
 }
