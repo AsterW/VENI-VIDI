@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum QueryAgentError: Error {
+enum QueryAgentError: String, Error {
     case urlError
     case noData
     case cannotDecodeData

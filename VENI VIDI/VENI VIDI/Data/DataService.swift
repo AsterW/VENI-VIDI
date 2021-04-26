@@ -93,7 +93,8 @@ extension DataService {
 
     /// Fetch for a specific JournalEntry given its id (UUID).
     /// - Parameter id: The UUID that belongs to and identifies the target JournalEntry.
-    /// - Returns: The JournalEntry with the given id (UUID), nil if there's an error when fetching from CoreData data storage.
+    /// - Returns: The JournalEntry with the given id (UUID),
+    ///            nil if there's an error when fetching from CoreData data storage.
     func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? { // swiftlint:disable:this identifier_name
         do {
             let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
@@ -169,7 +170,8 @@ extension DataService {
     }
 
     /// Update the attributes of a JournalEntry, identified by its id (UUID).
-    /// If no id is provided, a new JournalEntry is created to carry the values. If an attribute is not provided, it will not be updated.
+    /// If no id is provided, a new JournalEntry is created to carry the values.
+    /// If an attribute is not provided, it will not be updated.
     /// - Parameters:
     ///   - id: The UUID used for looking up the JournalEntry.
     ///         A new entry will be created if this field is not provided.

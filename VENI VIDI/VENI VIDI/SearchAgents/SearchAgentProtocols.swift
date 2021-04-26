@@ -13,6 +13,5 @@ protocol DatabaseSpecificSearchAgent {
 
     func query(withKeyword keyword: String,
                withTimeStamp timeStamp: TimeInterval,
-               downloadCoverImage: Bool,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }

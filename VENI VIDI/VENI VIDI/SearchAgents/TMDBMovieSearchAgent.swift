@@ -21,10 +21,7 @@ class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
 
     // MARK: - DatabaseSpecificSearchAgent Query Function
 
-    func query(withKeyword keyword: String,
-               withTimeStamp timeStamp: TimeInterval,
-               downloadCoverImage: Bool = false,
-               withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+    func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
         var urlComponents = URLComponents(string: apiUrl)
         urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: apiKey),
                                      URLQueryItem(name: "query", value: keyword)]
@@ -47,11 +44,7 @@ class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
             var queryResults: [QueryResult] = []
             for movie in queriedMovies {
                 var result = QueryResult(withMovieStruct: movie, withTimeStamp: timeStamp)
-                if downloadCoverImage {
-                    result.cover = self.cacheImage(withPosterPath: movie.poster_path)
-                } else {
-                    result.coverUrl = movie.poster_path != nil ? self.imageUrl500 + movie.poster_path! : ""
-                }
+                result.coverUrl = movie.poster_path != nil ? self.imageUrl500 + movie.poster_path! : ""
                 queryResults.append(result)
             }
 
@@ -62,16 +55,6 @@ class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
     }
 
     // MARK: - Helper Function
-
-    func cacheImage(withPosterPath posterPath: String?) -> UIImage? {
-        if let path = posterPath {
-            let imageUrl = URL(string: imageUrl500 + path)
-            let data = try? Data(contentsOf: imageUrl!)
-            return UIImage(data: data!)
-        } else {
-            return nil
-        }
-    }
 
     func retriveImageUrl(withPosterPath posterPath: String?) -> URL? {
         if let path = posterPath {

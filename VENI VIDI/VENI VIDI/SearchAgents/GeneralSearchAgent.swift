@@ -20,25 +20,20 @@ class GeneralSearchAgent {
 
     func query(withKeyword keyword: String,
                forContentType contentType: QueryContentType,
-               downloadCoverImage: Bool = false,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
         query(withKeyword: keyword,
               forContentTypes: Set([contentType]),
-              downloadCoverImage: downloadCoverImage,
               withCompletionHandler: completionHandler)
     }
 
     func query(withKeyword keyword: String,
                forContentTypes contentTypes: Set<QueryContentType> = Set([.book, .game, .movie, .tvShow]),
-               downloadCoverImage: Bool = false,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
         for searchAgent in searchAgents {
             let agentType = searchAgent.agentType
             guard contentTypes.contains(agentType) else { continue }
 
-            searchAgent.query(withKeyword: keyword,
-                              withTimeStamp: Date().timeIntervalSince1970,
-                              downloadCoverImage: downloadCoverImage) { [self] result in
+            searchAgent.query(withKeyword: keyword, withTimeStamp: Date().timeIntervalSince1970) { [self] result in
 
                 switch result {
                 case let .success(queryResult):

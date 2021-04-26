@@ -25,9 +25,16 @@ struct QueryResult {
         self.timeStamp = timeStamp
     }
 
+    // MARK: - init from IGBD Data Struct
+
+    init(withIGDBStruct game: IGDBDataStruct, withTimeStamp timeStamp: TimeInterval) {
+        type = .game
+        title = game.name
+        self.timeStamp = timeStamp
+    }
+
     let type: QueryContentType
     let timeStamp: TimeInterval
     var title: String
     var coverUrl: String?
-    var cover: UIImage?
 }
