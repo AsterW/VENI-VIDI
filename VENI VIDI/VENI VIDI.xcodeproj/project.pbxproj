@@ -16,6 +16,7 @@
 		77ABC8CA2611BC4800F32F19 /* SearchCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8C92611BC4800F32F19 /* SearchCM.swift */; };
 		77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8CE2611BC7E00F32F19 /* SearchCellModel.swift */; };
 		77ABC8D42611BCA200F32F19 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8D32611BCA200F32F19 /* SearchResultCell.swift */; };
+		77E8EB7426366E8600DBDA5E /* ShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8EB7326366E8600DBDA5E /* ShelfViewController.swift */; };
 		9214F13A263476AA00FD7510 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9214F139263476AA00FD7510 /* .swiftlint.yml */; };
 		9214F17B26347B7A00FD7510 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 9214F17A26347B7A00FD7510 /* .swiftformat */; };
 		9214F1992634898C00FD7510 /* DataServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214F1982634898C00FD7510 /* DataServiceError.swift */; };
@@ -113,6 +114,7 @@
 		77ABC8C92611BC4800F32F19 /* SearchCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCM.swift; sourceTree = "<group>"; };
 		77ABC8CE2611BC7E00F32F19 /* SearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellModel.swift; sourceTree = "<group>"; };
 		77ABC8D32611BCA200F32F19 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
+		77E8EB7326366E8600DBDA5E /* ShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfViewController.swift; sourceTree = "<group>"; };
 		9214F139263476AA00FD7510 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9214F17A26347B7A00FD7510 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		9214F1982634898C00FD7510 /* DataServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceError.swift; sourceTree = "<group>"; };
@@ -248,6 +250,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		77E8EB7226366E5F00DBDA5E /* Bookshelf */ = {
+			isa = PBXGroup;
+			children = (
+				77E8EB7326366E8600DBDA5E /* ShelfViewController.swift */,
+			);
+			path = Bookshelf;
+			sourceTree = "<group>";
+		};
 		922A3A08260EAB3D0094544E /* DataTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +329,7 @@
 				92F7EA8225D782380039DF3C /* Assets.xcassets */,
 				92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */,
 				92F7EA8725D782380039DF3C /* Info.plist */,
+				77E8EB7226366E5F00DBDA5E /* Bookshelf */,
 				92FD9C6F261232B4005D6C2A /* SearchAgents */,
 				E0ABE9E225F67F13009E1AF2 /* Add & Edit */,
 				92C248C125F3343D0043C2AE /* Data */,
@@ -733,6 +744,7 @@
 				925FB5D22624B69900F0176D /* QueryResult.swift in Sources */,
 				77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */,
 				92EE2D4D2626636F00AB89FD /* IGDBDataStructs.swift in Sources */,
+				77E8EB7426366E8600DBDA5E /* ShelfViewController.swift in Sources */,
 				7738A4C5262DF32200EA4372 /* TimelinePickerCell.swift in Sources */,
 				E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
 				E0DA6E9E25E8DA9E002451BC /* DetailedEntryViewController.swift in Sources */,

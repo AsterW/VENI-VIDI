@@ -9,6 +9,8 @@ import DCFrame
 import Foundation
 import UIKit
 
+// MARK: - SimpleListContainerModel
+
 class SimpleListContainerModel: VVContainerModel {
     var entries: [JournalEntry]?
     var currentTimeLabel: DateComponents?
@@ -112,6 +114,8 @@ class SimpleListContainerModel: VVContainerModel {
     override func cmDidLoad() {
         super.cmDidLoad()
 
+        containerTableView?.dc_delegate = self
+
         subscribeEvent(TimelinePickerCell.timelineTypeChanged) { [weak self] (type: String) in
             self?.type = type
             self?.needReloadData()
@@ -147,4 +151,26 @@ class SimpleListContainerModel: VVContainerModel {
             }
         }
     }
+}
+
+// MARK: DCTableViewDelegate, UITableViewDelegate
+
+extension SimpleListContainerModel: DCTableViewDelegate, UITableViewDelegate {
+    func dc_tableView(_: UITableView, editingStyleForRowAt _: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+
+    func dc_tableView(_ tableView: UITableView, commit editStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editStyle == .delete {
+            guard let table = tableView as? DCContainerTableView else { return }
+            guard let cellModel = table.getCellModel(indexPath) as? TimelineCellModel else { return }
+            guard let id = cellModel.entryId else { return }
+            _ = dataService.deleteJournalEntry(withUUID: id)
+            removeSubmodel(cellModel)
+
+            needAnimateUpdate()
+        }
+    }
+
+    public func tableView(_: UITableView, commit _: UITableViewCell.EditingStyle, forRowAt _: IndexPath) {}
 }
