@@ -19,7 +19,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let viewController = ViewController()
         let mainNavigationController = UINavigationController(rootViewController: viewController)
-        window?.rootViewController = mainNavigationController
+        let tabBarVC = UITabBarController()
+        let shelfVC = ShelfViewController()
+        mainNavigationController.title = "Timeline"
+        shelfVC.title = "Shelf"
+        tabBarVC.setViewControllers([mainNavigationController, shelfVC], animated: false)
+        tabBarVC.modalPresentationStyle = .fullScreen
+        tabBarVC.selectedViewController = mainNavigationController
+        tabBarVC.tabBar.barTintColor = .white
+        tabBarVC.tabBar.barStyle = .default
+        tabBarVC.tabBar.tintColor = .systemYellow
+
+        if let items = tabBarVC.tabBar.items {
+            let images = ["house", "star"]
+
+            for index in 0 ..< items.count {
+                items[index].image = UIImage(systemName: images[index])
+            }
+        }
+
+        window?.rootViewController = tabBarVC
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
 
