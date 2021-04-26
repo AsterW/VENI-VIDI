@@ -12,6 +12,7 @@ import UIKit
 class DetailedEntryViewController: DCViewController {
     var entryData = EntryData()
     var entryId: UUID?
+    var timelineCM = TimelineCellModel()
     let detailCM = DetailedEntryContainerModel()
 
     override func viewWillAppear(_: Bool) {
