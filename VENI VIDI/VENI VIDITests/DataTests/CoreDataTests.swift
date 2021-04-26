@@ -41,6 +41,8 @@ class CoreDataTests: XCTestCase {
 
     // MARK: - Journal Entry Test Cases
 
+    // TODO: - Break down large tests into smaller tests
+
     func testCreateJournalEntry() {
         let entry0 = dataService.createJournalEntry()
         XCTAssertNotNil(entry0, "entry0 should not be nil")
@@ -95,6 +97,7 @@ class CoreDataTests: XCTestCase {
         XCTAssertTrue(entry1.favorite == true)
     }
 
+    // swiftlint:disable:next function_body_length
     func testUpdateJournalEntry() {
         let entry0 = dataService.createJournalEntry()
         XCTAssertNotNil(entry0, "entry0 should not be nil")
@@ -109,20 +112,26 @@ class CoreDataTests: XCTestCase {
         let image2 = UIImage(named: "TestImage2")
         XCTAssertNotNil(image1)
         XCTAssertNotNil(image2)
-        XCTAssertTrue(dataService.updateJournalEntry(withUUID: entry0.id ?? UUID(),
-                                                     aboutWork: "Interstellar",
-                                                     withType: .movie,
-                                                     withCoverImage: image1,
-                                                     withStartDate: date1,
-                                                     withFinishDate: date2,
-                                                     withEntryTitle: "Impressive",
-                                                     withEntryContent: "I don't know what to say",
-                                                     withQuote: "This is another quote from the movie",
-                                                     atLongitude: 3.14,
-                                                     atLatitude: -6.28,
-                                                     withTags: [tag1, tag2],
-                                                     withRating: 7,
-                                                     isFavorite: true))
+        let queryResult0 = dataService.updateJournalEntry(withUUID: entry0.id ?? UUID(),
+                                                          aboutWork: "Interstellar",
+                                                          withType: .movie,
+                                                          withCoverImage: image1,
+                                                          withStartDate: date1,
+                                                          withFinishDate: date2,
+                                                          withEntryTitle: "Impressive",
+                                                          withEntryContent: "I don't know what to say",
+                                                          withQuote: "This is another quote from the movie",
+                                                          atLongitude: 3.14,
+                                                          atLatitude: -6.28,
+                                                          withTags: [tag1, tag2],
+                                                          withRating: 7,
+                                                          isFavorite: true)
+        switch queryResult0 {
+        case let .failure(error):
+            XCTFail(error.localizedDescription)
+        default:
+            break
+        }
         XCTAssertTrue(entry0.worksTitle == "Interstellar")
         XCTAssertEqual(entry0.journalType, .movie)
         XCTAssertNotNil(entry0.image)
@@ -170,20 +179,26 @@ class CoreDataTests: XCTestCase {
 
         let date3 = Date(timeIntervalSince1970: 20060)
         let tag3 = dataService.createNewTag("NVM")
-        XCTAssertTrue(dataService.updateJournalEntry(withUUID: entry1.id ?? UUID(),
-                                                     aboutWork: "Hitman",
-                                                     withType: .game,
-                                                     withCoverImage: image2,
-                                                     withStartDate: date1,
-                                                     withFinishDate: date3,
-                                                     withEntryTitle: "Not bad",
-                                                     withEntryContent: "Just okay",
-                                                     withQuote: "bbbbb",
-                                                     atLongitude: -6.7,
-                                                     atLatitude: 239_432,
-                                                     withTags: [tag1, tag3],
-                                                     withRating: 4,
-                                                     isFavorite: false))
+        let queryResult1 = dataService.updateJournalEntry(withUUID: entry1.id ?? UUID(),
+                                                          aboutWork: "Hitman",
+                                                          withType: .game,
+                                                          withCoverImage: image2,
+                                                          withStartDate: date1,
+                                                          withFinishDate: date3,
+                                                          withEntryTitle: "Not bad",
+                                                          withEntryContent: "Just okay",
+                                                          withQuote: "bbbbb",
+                                                          atLongitude: -6.7,
+                                                          atLatitude: 239_432,
+                                                          withTags: [tag1, tag3],
+                                                          withRating: 4,
+                                                          isFavorite: false)
+        switch queryResult1 {
+        case let .failure(error):
+            XCTFail(error.localizedDescription)
+        default:
+            break
+        }
         XCTAssertTrue(entry1.worksTitle == "Hitman")
         XCTAssertEqual(entry1.journalType, .game)
         XCTAssertTrue(entry1.image == image2?.pngData())
@@ -200,17 +215,31 @@ class CoreDataTests: XCTestCase {
     }
 
     func testUpdateJournalEntryWithoutUUID() {
-        XCTAssertTrue(dataService.updateJournalEntry(withUUID: nil,
-                                                     aboutWork: "Interstellar",
-                                                     withType: .movie,
-                                                     withEntryTitle: "Impressive",
-                                                     withEntryContent: "I don't know what to say",
-                                                     withQuote: "This is another quote from the movie",
-                                                     atLongitude: 3.14,
-                                                     atLatitude: -6.28,
-                                                     withTags: [],
-                                                     withRating: 7,
-                                                     isFavorite: true))
+        let queryResult = dataService.updateJournalEntry(withUUID: nil,
+                                                         aboutWork: "Interstellar",
+                                                         withType: .movie,
+                                                         withEntryTitle: "Impressive",
+                                                         withEntryContent: "I don't know what to say",
+                                                         withQuote: "This is another quote from the movie",
+                                                         atLongitude: 3.14,
+                                                         atLatitude: -6.28,
+                                                         withTags: [],
+                                                         withRating: 7,
+                                                         isFavorite: true)
+        switch queryResult {
+        case let .failure(error):
+            XCTFail(error.localizedDescription)
+        case let .success(entry):
+            XCTAssertEqual(entry.worksTitle, "Interstellar")
+            XCTAssertEqual(entry.journalType, .movie)
+            XCTAssertEqual(entry.entryTitle, "Impressive")
+            XCTAssertEqual(entry.entryContent, "I don't know what to say")
+            XCTAssertEqual(entry.quote, "This is another quote from the movie")
+            XCTAssertEqual(entry.longitude, 3.14)
+            XCTAssertEqual(entry.latitude, -6.28)
+            XCTAssertEqual(entry.rating, 0)
+            XCTAssertEqual(entry.favorite, true)
+        }
     }
 
     func testDeleteJournalEntry() {
@@ -292,17 +321,23 @@ class CoreDataTests: XCTestCase {
         XCTAssertNotNil(entry1.id, "entry1.id should not be nil")
         let date3 = Date(timeIntervalSince1970: 20060)
         let tag3 = dataService.createNewTag("NVM")
-        XCTAssertTrue(dataService.updateJournalEntry(withUUID: entry1.id ?? UUID(),
-                                                     aboutWork: "Hitman",
-                                                     withCoverImage: image2,
-                                                     withStartDate: date1,
-                                                     withFinishDate: date3,
-                                                     withEntryTitle: "Not bad",
-                                                     withEntryContent: "Just okay",
-                                                     atLongitude: -6.7,
-                                                     atLatitude: 239_432,
-                                                     withTags: [tag1, tag3],
-                                                     isFavorite: false))
+        let queryResult = dataService.updateJournalEntry(withUUID: entry1.id ?? UUID(),
+                                                         aboutWork: "Hitman",
+                                                         withCoverImage: image2,
+                                                         withStartDate: date1,
+                                                         withFinishDate: date3,
+                                                         withEntryTitle: "Not bad",
+                                                         withEntryContent: "Just okay",
+                                                         atLongitude: -6.7,
+                                                         atLatitude: 239_432,
+                                                         withTags: [tag1, tag3],
+                                                         isFavorite: false)
+        switch queryResult {
+        case let .failure(error):
+            XCTFail(error.localizedDescription)
+        default:
+            break
+        }
         let fetchedEntry1 = dataService.fetchJournalEntryWithUUID(entry1.id!)
         XCTAssertTrue(entry1 == fetchedEntry1)
     }
@@ -325,20 +360,26 @@ class CoreDataTests: XCTestCase {
         XCTAssertNotNil(image1)
         XCTAssertNotNil(image2)
 
-        XCTAssertTrue(dataService.updateJournalEntry(withUUID: entry0.id ?? UUID(),
-                                                     aboutWork: "Interstellar",
-                                                     withType: .movie,
-                                                     withCoverImage: image1,
-                                                     withStartDate: date1,
-                                                     withFinishDate: date2,
-                                                     withEntryTitle: "Impressive",
-                                                     withEntryContent: "I don't know what to say",
-                                                     withQuote: "This is another quote from the movie",
-                                                     atLongitude: 3.14,
-                                                     atLatitude: -6.28,
-                                                     withTags: [tag1, tag2],
-                                                     withRating: 7,
-                                                     isFavorite: true))
+        let queryResult = dataService.updateJournalEntry(withUUID: entry0.id ?? UUID(),
+                                                         aboutWork: "Interstellar",
+                                                         withType: .movie,
+                                                         withCoverImage: image1,
+                                                         withStartDate: date1,
+                                                         withFinishDate: date2,
+                                                         withEntryTitle: "Impressive",
+                                                         withEntryContent: "I don't know what to say",
+                                                         withQuote: "This is another quote from the movie",
+                                                         atLongitude: 3.14,
+                                                         atLatitude: -6.28,
+                                                         withTags: [tag1, tag2],
+                                                         withRating: 7,
+                                                         isFavorite: true)
+        switch queryResult {
+        case let .failure(error):
+            XCTFail(error.localizedDescription)
+        default:
+            break
+        }
         XCTAssertTrue(entry0.worksTitle == "Interstellar")
         XCTAssertEqual(entry0.journalType, .movie)
         XCTAssertNotNil(entry0.image)
