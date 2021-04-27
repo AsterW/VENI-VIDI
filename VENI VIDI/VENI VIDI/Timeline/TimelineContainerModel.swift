@@ -122,7 +122,7 @@ class SimpleListContainerModel: VVContainerModel {
         }
 
         print("load Timeline")
-        containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
+        containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 150, right: 0)
 
         getEntryData()
 
