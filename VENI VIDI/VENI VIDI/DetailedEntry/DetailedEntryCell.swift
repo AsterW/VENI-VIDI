@@ -50,7 +50,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
     let tagView: UIScrollView = {
         let tagView = UIScrollView()
-        tagView.backgroundColor = .systemYellow
+        // tagView.backgroundColor = .systemYellow
         return tagView
     }()
 
@@ -66,12 +66,13 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
     }()
 
     // user's comment for this movie/book
-    let comment: UITextView = {
-        let comment = UITextView()
-        comment.backgroundColor = UIColor.systemGray6
+    let comment: NewTextView = {
+        let comment = NewTextView()
+        comment.textAlignment = .center
+        // comment.backgroundColor = UIColor.systemGray6
         comment.layer.cornerRadius = 10
-        comment.font = UIFont.systemFont(ofSize: 18, weight: .regular)
-        comment.textColor = UIColor.systemGray
+        comment.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        comment.textColor = UIColor.systemYellow
         comment.isEditable = false
         return comment
     }()
@@ -121,27 +122,34 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
     func createTags() {
         clearTagView()
-//        let fakeTag = ["aaaaaaaaaaa", "bbbbbbbbbbbb", "ccc", "dddd", "eeeee", "a", "bb", "ccc", "dddd", "eeeee", "ccc", "dddd", "eeeee", "a"]
+//        let fakeTag = ["Disney", "Chinese", "Children", "U12", "Human", "Category 1", "Comedy", "Cartoon"]
 //
 //        var xOffset: CGFloat = tagView.bounds.minX + 5
 //        let yOffset: CGFloat = tagView.bounds.minY + 5
 //        let padding: CGFloat = 5
-
+//
 //        for string in fakeTag {
 //            let tagLabel = UILabel()
-//            tagLabel.backgroundColor = .white
+//
 //            tagLabel.text = string
 //
-//            tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width, height: 30)
+//            tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width + 3, height: 30)
 //            xOffset += padding + tagLabel.frame.size.width
 //
 //            tagView.addSubview(tagLabel)
+//
+//            tagLabel.layer.cornerRadius = 15
+//            tagLabel.layer.masksToBounds = true
+//            tagLabel.backgroundColor = .systemGray6
+//            tagLabel.textColor = .systemBlue
 //        }
 //
 //        let addButton = UIButton()
 //        tagView.addSubview(addButton)
 //        addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
-//        addButton.setImage(UIImage(systemName: "star"), for: .normal)
+//        // addButton.setImage(UIImage(systemName: "star"), for: .normal)
+//        addButton.setTitle(String(fakeTag.count), for: .normal)
+//        addButton.setTitleColor(.systemYellow, for: .normal)
 //        xOffset += padding + addButton.frame.size.width
 //
 //        tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
@@ -154,29 +162,27 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
             for string in cellModel.tags {
                 let tagLabel = UILabel()
-                tagLabel.backgroundColor = .white
+                tagLabel.backgroundColor = .systemYellow
                 tagLabel.text = string
-                tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width, height: 30)
+                tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width + 5, height: 30)
                 xOffset += padding + tagLabel.frame.size.width
 
                 tagView.addSubview(tagLabel)
-                tagLabel.frame.size = tagLabel.intrinsicContentSize
+                tagLabel.layer.cornerRadius = 15
+                tagLabel.layer.masksToBounds = true
+                tagLabel.backgroundColor = .systemGray6
+                tagLabel.textColor = .systemBlue
             }
-            let addButton = UIButton()
-            tagView.addSubview(addButton)
-            addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
-            addButton.setImage(UIImage(systemName: "add"), for: .normal)
-
-            tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
-        } else {
-            print("x is \(xOffset)")
-            let addButton = UIButton()
-            tagView.addSubview(addButton)
-            addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
-            addButton.setImage(UIImage(systemName: "star"), for: .normal)
-
-            tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
         }
+//        else {
+//            print("x is \(xOffset)")
+//            let addButton = UIButton()
+//            tagView.addSubview(addButton)
+//            addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
+//            addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+//
+//            tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
+//        }
     }
 
     @objc

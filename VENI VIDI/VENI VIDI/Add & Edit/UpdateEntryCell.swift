@@ -250,36 +250,101 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
                 subview.removeFromSuperview()
             }
         }
+        print(tagView.subviews.count)
     }
 
     func createTagView() {
         print("!!!!!!!!!!!!!!!!!!!")
         clearTagView()
+
+        // tagView.frame=CGRect(x: <#T##CGFloat#>, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
+
         var xOffset: CGFloat = tagView.bounds.minX + 5
         var yOffset: CGFloat = tagView.bounds.minY + 5
         let padding: CGFloat = 5
         if !cellModel.tags.isEmpty {
+            print(cellModel.tags.count)
             for string in cellModel.tags {
                 let tagLabel = UILabel()
+
                 tagLabel.backgroundColor = .white
                 tagLabel.text = string
-
-                if xOffset + tagLabel.intrinsicContentSize.width >= tagView.frame.maxX {
+                tagLabel.textColor = .systemBlue
+                if xOffset + tagLabel.intrinsicContentSize.width + 20 >= contentView.frame.width - 140 {
                     xOffset = tagView.bounds.minX + 5
                     yOffset += 35
                 }
-                tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width, height: 30)
-                xOffset += padding + tagLabel.frame.size.width
 
-                tagView.addSubview(tagLabel)
+                // tagView.addSubview(tagLabel)
+
+                tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width, height: 30)
+                let tagV = CustomTagView()
+                tagView.addSubview(tagV)
+
+                tagV.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width + 20, height: 30)
+                tagV.backgroundColor = .white
+                tagV.layer.cornerRadius = 15
+                tagV.layer.masksToBounds = true
+                tagV.tagLabel.frame = CGRect(x: 0, y: 0, width: tagLabel.intrinsicContentSize.width, height: 30)
+                tagV.tagLabel.text = tagLabel.text
+                tagV.tagLabel.textColor = .systemBlue
+                tagLabel.layer.cornerRadius = 15
+                tagLabel.layer.masksToBounds = true
+
+                tagV.cancel.frame = CGRect(x: tagV.bounds.width - 20, y: 0, width: 15, height: 15)
+                tagV.cancel.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+                // tagV.cancel.layer.cornerRadius = 7.5
+                tagV.cancel.addTarget(self, action: #selector(removeTag(_:)), for: .touchUpInside)
+
+                xOffset += padding + tagLabel.intrinsicContentSize.width + 20
             }
-        } else {
-            let addButton = UIButton()
-            tagView.addSubview(addButton)
-            addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
-            addButton.setImage(UIImage(systemName: "star"), for: .normal)
-            print(tagView.subviews.count)
         }
+        let addButton = UIButton()
+        tagView.addSubview(addButton)
+        addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
+        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addButton.backgroundColor = .systemGray4
+        addButton.layer.cornerRadius = 15
+
+        addButton.addTarget(self, action: #selector(addTag(_:)), for: .touchUpInside)
+        print(tagView.subviews.count)
+    }
+
+    @objc
+    func removeTag(_ sender: UIButton) {
+        sender.superview?.removeFromSuperview()
+        cellModel.service.removeTag(<#T##tag: Tag##Tag#>, fromJournalEntry: <#T##JournalEntry#>)
+    }
+
+    @objc
+    func addTag(_ sender: UIButton) {
+        let count = tagView.subviews.count
+        var xCor = sender.frame.minX
+        let yCor = sender.frame.minY
+        print(tagView.subviews[count - 1].description)
+
+        sender.removeFromSuperview()
+
+        print("x is \(xCor), y is \(yCor)")
+        let newTag = UITextView()
+        newTag.delegate = self
+        tagView.addSubview(newTag)
+        newTag.frame = CGRect(x: xCor, y: yCor, width: 60, height: 30)
+        newTag.layer
+            .cornerRadius = 15
+        newTag.backgroundColor = .systemGray2
+        newTag.becomeFirstResponder()
+
+        xCor += 65
+        let addButton = UIButton()
+        tagView.addSubview(addButton)
+        addButton.frame = CGRect(x: xCor, y: yCor, width: 30, height: 30)
+        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addButton.backgroundColor = .systemGray4
+        addButton.layer.cornerRadius = 15
+
+        addButton.addTarget(self, action: #selector(addTag(_:)), for: .touchUpInside)
+        print(tagView.subviews.count)
     }
 
     func setFavoriteImage() {
@@ -347,9 +412,16 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             newQuote = ""
         }
 
-        if let tag = comment.text {
-            let entryTag = Tag()
-            entryTag.name = tag
+        var newTags: [Tag] = []
+        for subview in tagView.subviews {
+            print(subview.description)
+            if let label = subview as? UITextView {
+                if let text = label.text {
+                    print(text)
+                    let tag = cellModel.service.createNewTag(text)
+                    newTags.append(tag)
+                }
+            }
         }
 
         guard newTitle != "" else { return }
@@ -361,6 +433,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
                                                  withEntryTitle: newTitle,
                                                  withEntryContent: newContent,
                                                  withQuote: newQuote,
+                                                 withTags: newTags,
                                                  withRating: stars.rating,
                                                  isFavorite: favorite)
 

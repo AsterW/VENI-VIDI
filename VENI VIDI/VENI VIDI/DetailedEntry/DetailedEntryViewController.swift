@@ -31,8 +31,15 @@ class DetailedEntryViewController: DCViewController {
                 detailCM.entryId = id
                 detailCM.nav = navigationController
 
-                if let tags = entry.tags {
-                    detailCM.tags = tags.allObjects as? [String] ?? []
+                if let array = entry.tags?.allObjects as? [Tag] {
+                    var tags: [String] = []
+                    for tag in array {
+                        if let string = tag.name {
+                            print(string)
+                            tags.append(string)
+                        }
+                    }
+                    detailCM.tags = tags
                 }
             }
         }
@@ -75,8 +82,15 @@ class DetailedEntryViewController: DCViewController {
                 detailCM.entryId = id
                 detailCM.nav = navigationController
 
-                if let tags = entry.tags {
-                    detailCM.tags = tags.allObjects as? [String] ?? []
+                if let array = entry.tags?.allObjects as? [Tag] {
+                    var tags: [String] = []
+                    for tag in array {
+                        if let string = tag.name {
+                            print(string)
+                            tags.append(string)
+                        }
+                    }
+                    detailCM.tags = tags
                 }
             }
         }

@@ -39,8 +39,15 @@ class UpdateEnrtyViewController: DCViewController {
                 newEntryCM.favorite = entry.favorite
                 newEntryCM.type = entry.journalType
 
-                if let tags = entry.tags {
-                    newEntryCM.tags = tags.allObjects as? [String] ?? []
+                if let array = entry.tags?.allObjects as? [Tag] {
+                    var tags: [String] = []
+                    for tag in array {
+                        if let string = tag.name {
+                            print(string)
+                            tags.append(string)
+                        }
+                    }
+                    newEntryCM.tags = tags
                 }
             }
         }
