@@ -11,7 +11,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // let vc = TimelineViewController()
         let vc = LaungchController() // swiftlint:disable:this identifier_name
         navigationController?.setViewControllers([vc], animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true

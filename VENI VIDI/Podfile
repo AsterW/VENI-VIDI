@@ -6,7 +6,7 @@ target 'VENI VIDI' do
   use_frameworks!
 
   # Pods for VENI VIDI
-pod 'DCFrame'
+pod 'DCFrame', :git => 'https://github.com/AsterW/DCFrame.git'
 pod 'Cosmos'
 pod 'SnapKit'
 pod 'SwiftFormat/CLI'

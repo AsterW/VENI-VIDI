@@ -10,6 +10,7 @@ import SnapKit
 import UIKit
 
 class ShelfCell: DCCell<ShelfCellModel>, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    static let entrySelected = DCEventID()
     var entries: [JournalEntry]?
     var sections = 0
 
@@ -61,7 +62,6 @@ class ShelfCell: DCCell<ShelfCellModel>, UICollectionViewDelegate, UICollectionV
 
     func resize() {
         guard var count = entries?.count else { return }
-        print("COUNT" + String(count))
         let offset = count % 3 != 0 ? 1 : 0
         count /= 3
         count += offset
@@ -84,14 +84,6 @@ class ShelfCell: DCCell<ShelfCellModel>, UICollectionViewDelegate, UICollectionV
             flowLayout.scrollDirection = .vertical
             flowLayout.minimumInteritemSpacing = 15
             flowLayout.itemSize = CGSize(width: 100, height: 100 * 16 / 9 + 36)
-//            if let count = entries?.count {
-//                let totalCellWidth = 120 * count
-//                let totalSpacingWidth = 30 * (count - 1)
-//
-//                let leftInset = (collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2
-//                let rightInset = leftInset
-//                flowLayout.sectionInset = UIEdgeInsets(top: 0, left: leftInset, bottom: 0, right: rightInset)
-//            }
         }
         separator.backgroundColor = .systemGray6
         contentView.addSubview(titleLabel)
@@ -136,5 +128,10 @@ class ShelfCell: DCCell<ShelfCellModel>, UICollectionViewDelegate, UICollectionV
             shelfCell.setPlaceHolder()
         }
         return shelfCell
+    }
+
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let entry = entries?[indexPath.item] else { return }
+        sendEvent(Self.entrySelected, data: entry.id)
     }
 }

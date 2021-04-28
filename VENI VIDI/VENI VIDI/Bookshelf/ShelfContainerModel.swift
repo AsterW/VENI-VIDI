@@ -59,7 +59,7 @@ class ShelfContainerModel: VVContainerModel {
 
         getEntryData()
 
-        containerTableView?.contentInset = UIEdgeInsets(top: 100, left: 0, bottom: 100, right: 0)
+        containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 100, right: 0)
 
         if let entriesToDisplay = entries {
             for item in entriesToDisplay {

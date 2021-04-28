@@ -20,6 +20,14 @@ class ShelfViewController: DCViewController {
         super.viewDidLoad()
 
         title = "Shelf"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.tintColor = .systemYellow
         loadCM(shelfCM)
+
+        EDC.subscribeEvent(ShelfCell.entrySelected, target: self) { [weak self] (id: UUID) in
+            let detailedViewController = DetailedEntryViewController()
+            detailedViewController.entryId = id
+            self?.navigationController?.pushViewController(detailedViewController, animated: true)
+        }
     }
 }
