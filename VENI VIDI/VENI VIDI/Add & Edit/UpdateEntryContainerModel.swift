@@ -28,7 +28,7 @@ class UpdateEntryContainerModel: VVContainerModel {
     override func cmDidLoad() {
         super.cmDidLoad()
 
-        containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
+        containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 100, right: 0)
 
         newEntryModel.nav = nav
         newEntryModel.service = dataService

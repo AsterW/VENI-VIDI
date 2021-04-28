@@ -17,6 +17,10 @@
 		77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8CE2611BC7E00F32F19 /* SearchCellModel.swift */; };
 		77ABC8D42611BCA200F32F19 /* SearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8D32611BCA200F32F19 /* SearchResultCell.swift */; };
 		77E8EB7426366E8600DBDA5E /* ShelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8EB7326366E8600DBDA5E /* ShelfViewController.swift */; };
+		77E8EB8326370E7400DBDA5E /* ShelfCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8EB8226370E7400DBDA5E /* ShelfCollectionCell.swift */; };
+		77E8EB8826370E8000DBDA5E /* ShelfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8EB8726370E8000DBDA5E /* ShelfCell.swift */; };
+		77E8EB8D26370EA900DBDA5E /* ShelfCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8EB8C26370EA900DBDA5E /* ShelfCellModel.swift */; };
+		77E8EB9226370EBE00DBDA5E /* ShelfContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8EB9126370EBE00DBDA5E /* ShelfContainerModel.swift */; };
 		9214F13A263476AA00FD7510 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9214F139263476AA00FD7510 /* .swiftlint.yml */; };
 		9214F17B26347B7A00FD7510 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 9214F17A26347B7A00FD7510 /* .swiftformat */; };
 		9214F1992634898C00FD7510 /* DataServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214F1982634898C00FD7510 /* DataServiceError.swift */; };
@@ -115,6 +119,10 @@
 		77ABC8CE2611BC7E00F32F19 /* SearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellModel.swift; sourceTree = "<group>"; };
 		77ABC8D32611BCA200F32F19 /* SearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCell.swift; sourceTree = "<group>"; };
 		77E8EB7326366E8600DBDA5E /* ShelfViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfViewController.swift; sourceTree = "<group>"; };
+		77E8EB8226370E7400DBDA5E /* ShelfCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfCollectionCell.swift; sourceTree = "<group>"; };
+		77E8EB8726370E8000DBDA5E /* ShelfCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfCell.swift; sourceTree = "<group>"; };
+		77E8EB8C26370EA900DBDA5E /* ShelfCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfCellModel.swift; sourceTree = "<group>"; };
+		77E8EB9126370EBE00DBDA5E /* ShelfContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfContainerModel.swift; sourceTree = "<group>"; };
 		9214F139263476AA00FD7510 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9214F17A26347B7A00FD7510 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		9214F1982634898C00FD7510 /* DataServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceError.swift; sourceTree = "<group>"; };
@@ -254,6 +262,10 @@
 			isa = PBXGroup;
 			children = (
 				77E8EB7326366E8600DBDA5E /* ShelfViewController.swift */,
+				77E8EB8226370E7400DBDA5E /* ShelfCollectionCell.swift */,
+				77E8EB8726370E8000DBDA5E /* ShelfCell.swift */,
+				77E8EB8C26370EA900DBDA5E /* ShelfCellModel.swift */,
+				77E8EB9126370EBE00DBDA5E /* ShelfContainerModel.swift */,
 			);
 			path = Bookshelf;
 			sourceTree = "<group>";
@@ -707,9 +719,11 @@
 				77ABC8C52611AC8A00F32F19 /* BookInfoModel.swift in Sources */,
 				925FB5CD2624B4C600F0176D /* QueryContentType.swift in Sources */,
 				92FD9C7B26123457005D6C2A /* TMDBMovieSearchAgent.swift in Sources */,
+				77E8EB8826370E8000DBDA5E /* ShelfCell.swift in Sources */,
 				92F8A85B262DD7C4003068AC /* JournalEntryType.swift in Sources */,
 				92EE2D2F2626017500AB89FD /* QueryAgentError.swift in Sources */,
 				E0DA6EB625E8DF26002451BC /* DetailedEntryCell.swift in Sources */,
+				77E8EB9226370EBE00DBDA5E /* ShelfContainerModel.swift in Sources */,
 				92F7EA7B25D782350039DF3C /* ViewController.swift in Sources */,
 				E08E2011262B9BF30092BD31 /* TagCell.swift in Sources */,
 				92FD9C8026123466005D6C2A /* IGDBSearchAgent.swift in Sources */,
@@ -732,6 +746,7 @@
 				770297CF25EB929500A72E5E /* DCViewController.swift in Sources */,
 				9214F1992634898C00FD7510 /* DataServiceError.swift in Sources */,
 				77ABC8D42611BCA200F32F19 /* SearchResultCell.swift in Sources */,
+				77E8EB8D26370EA900DBDA5E /* ShelfCellModel.swift in Sources */,
 				E0ABE9EC25F67F91009E1AF2 /* UpdateEntryContainerModel.swift in Sources */,
 				92EE2D34262601B700AB89FD /* TMDBTVSearchAgent.swift in Sources */,
 				92F7EA7725D782350039DF3C /* AppDelegate.swift in Sources */,
@@ -739,6 +754,7 @@
 				E029AB18261FF4B50016463C /* Launching Page.swift in Sources */,
 				E029AB49262193F10016463C /* ExtensionNav.swift in Sources */,
 				92E4EB1F261384CE00B6EA70 /* DataServiceDelegate.swift in Sources */,
+				77E8EB8326370E7400DBDA5E /* ShelfCollectionCell.swift in Sources */,
 				92FD9C762612342B005D6C2A /* GoogleBooksSearchAgent.swift in Sources */,
 				925FB5C12624A41E00F0176D /* SearchAgentProtocols.swift in Sources */,
 				925FB5D22624B69900F0176D /* QueryResult.swift in Sources */,
