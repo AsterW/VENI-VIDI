@@ -68,10 +68,6 @@ class SearchCell: DCBaseCell {
         sendEvent(Self.searchChanged, data: text)
     }
 
-//    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-//        shareData(searchBar.text, to: Self.searchText)
-//    }
-
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         shareData(searchBar.text, to: Self.searchText)
         sendEvent(Self.cancelSearch, data: searchBar.text)
@@ -95,6 +91,10 @@ class SearchCell: DCBaseCell {
             self?.sendEvent(Self.cancelSearch, data: volume.title)
         }
     }
+
+    override func touchesBegan(_: Set<UITouch>, with _: UIEvent?) {
+        searchBar.endEditing(true)
+    }
 }
 
 // MARK: UISearchBarDelegate
@@ -102,6 +102,11 @@ class SearchCell: DCBaseCell {
 extension SearchCell: UISearchBarDelegate {
     func searchBar(_: UISearchBar, textDidChange searchText: String) {
         self.searchText = searchText
+        textChanged(searchText)
+    }
+
+    func searchBarSearchButtonClicked(_: UISearchBar) {
+        searchBar.endEditing(true)
         textChanged(searchText)
     }
 }

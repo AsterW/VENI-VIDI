@@ -15,8 +15,10 @@ class UpdateEnrtyViewController: DCViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("Update Entry")
-        navigationController?.navigationBar.prefersLargeTitles = true
+
         title = "Entry Info"
+        hideKeyboardWhenTappedAround()
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         let newEntryCM = UpdateEntryContainerModel()
         newEntryCM.nav = navigationController
@@ -40,20 +42,6 @@ class UpdateEnrtyViewController: DCViewController {
                 newEntryCM.type = entry.journalType
             }
         }
-//        else{//Create a new entry, load that empty entry and perform update
-//            print("Creating new entry")
-//            let newEntry = dataService.createJournalEntry()
-//            if let id=newEntry.id{
-//                newEntryCM.entryId=id
-//                if let entry=dataService.fetchJournalEntryWithUUID(id){
-//                    newEntryCM.entryTitle=entry.worksTitle
-//                    newEntryCM.comment=entry.entryContent
-//                    if let imageData=entry.image{
-//                        newEntryCM.poster=UIImage(data: imageData)
-//                    }
-//                }
-//            }
-//        }
 
         loadCM(newEntryCM)
     }
