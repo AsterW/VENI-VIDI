@@ -10,13 +10,12 @@ import UIKit
 
 class CustomTagView: UIView {
 
-    var tagLabel = UILabel()
+    var tagLabel = UITextView()
     var cancel = UIButton()
 
     // initWithFrame to init view from code
     override init(frame: CGRect) {
         super.init(frame: frame)
-        print("!!!!\(frame.width)")
         setupView()
     }
 

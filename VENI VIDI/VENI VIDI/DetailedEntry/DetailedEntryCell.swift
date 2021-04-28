@@ -159,11 +159,11 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
         let padding: CGFloat = 5
 
         if !cellModel.tags.isEmpty {
-
             for string in cellModel.tags {
                 let tagLabel = UILabel()
-                tagLabel.backgroundColor = .systemYellow
                 tagLabel.text = string
+
+                // swiftlint:disable:next line_length
                 tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width + 5, height: 30)
                 xOffset += padding + tagLabel.frame.size.width
 
@@ -173,6 +173,8 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
                 tagLabel.backgroundColor = .systemGray6
                 tagLabel.textColor = .systemBlue
             }
+            tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
+            print("Content size is \(tagView.contentSize.width)")
         }
 //        else {
 //            print("x is \(xOffset)")

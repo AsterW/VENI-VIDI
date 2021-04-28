@@ -62,6 +62,7 @@ class LaungchController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
 
+    // swiftlint:disable:next function_body_length
     override func viewDidLoad() {
         super.viewDidLoad()
         entries = []
