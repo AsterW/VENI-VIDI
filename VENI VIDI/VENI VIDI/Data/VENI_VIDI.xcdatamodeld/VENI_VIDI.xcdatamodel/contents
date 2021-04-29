@@ -18,11 +18,12 @@
         <relationship name="tags" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tag" inverseName="entries" inverseEntity="Tag"/>
     </entity>
     <entity name="Tag" representedClassName="Tag" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <relationship name="entries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntry" inverseName="tags" inverseEntity="JournalEntry"/>
     </entity>
     <elements>
         <element name="JournalEntry" positionX="115.0895080566406" positionY="-222.790283203125" width="128" height="254"/>
-        <element name="Tag" positionX="-63" positionY="63" width="128" height="14"/>
+        <element name="Tag" positionX="-63" positionY="63" width="128" height="74"/>
     </elements>
 </model>

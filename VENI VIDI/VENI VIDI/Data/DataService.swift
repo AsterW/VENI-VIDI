@@ -37,8 +37,7 @@ extension DataService {
             let tags = try managedObjectContext.fetch(fetchRequest)
             return tags
         } catch {
-            print("Unexpected error at fetchAllTags(): \(error)")
-            return []
+            fatalError(error.localizedDescription)
         }
     }
 
@@ -59,14 +58,51 @@ extension DataService {
     }
 
     func createNewTag(_ tagText: String) -> Tag {
-        // swiftlint:disable:next force_cast
-        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag
+        // let newTag = Tag(context: self.managedObjectContext)
         // swiftlint:disable:next line_length
         // Solution from https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
-        // let newTag = Tag(context: self.managedObjectContext)
+        // swiftlint:disable:next force_cast
+        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag
+
         newTag.name = tagText
+        newTag.id = UUID()
         coreDataStack.saveContext()
         return newTag
+    }
+
+    // swiftlint:disable:next identifier_name
+    func renameTagWithUUID(_ id: UUID, withNewName newName: String) -> Tag? {
+        guard let tag = fetchTagWithUUID(id) else {
+            return nil
+        }
+        tag.name = newName
+        coreDataStack.saveContext()
+        return tag
+    }
+
+    // swiftlint:disable:next identifier_name
+    func fetchTagWithUUID(_ id: UUID) -> Tag? {
+        do {
+            let fetchRequest = NSFetchRequest<Tag>(entityName: "Tag")
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+            let tag = try managedObjectContext.fetch(fetchRequest)[0]
+            return tag
+        } catch {
+            print("Unexpected error at fetchTagWithUUID(): \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    // swiftlint:disable:next identifier_name
+    func deleteTagWithUUID(_ id: UUID) -> Bool {
+        guard let tag = fetchTagWithUUID(id) else {
+            print("Received invalid UUID for deleteTag()")
+            return false
+        }
+
+        managedObjectContext.delete(tag)
+        coreDataStack.saveContext()
+        return true
     }
 }
 
@@ -86,7 +122,7 @@ extension DataService {
         do {
             try fetchedResultsController?.performFetch()
         } catch {
-            fatalError("Failed to fetch entities: \(error)")
+            fatalError("Failed to fetch entities: \(error.localizedDescription)")
         }
         return fetchedResultsController?.fetchedObjects
     }
@@ -102,7 +138,7 @@ extension DataService {
             let entry = try managedObjectContext.fetch(fetchRequest)[0]
             return entry
         } catch {
-            print("Unexpected error at fetchJournalEntries(): \(error)")
+            print("Unexpected error at fetchJournalEntryWithUUID(): \(error.localizedDescription)")
             return nil
         }
     }
@@ -164,7 +200,7 @@ extension DataService {
         case let .success(journalEntry):
             return journalEntry
         case let .failure(error):
-            print(error)
+            print(error.localizedDescription)
             return newJournalEntry
         }
     }

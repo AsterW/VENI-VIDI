@@ -21,18 +21,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         return poster
     }()
 
-    // user-defined title for this entry
-    let titleLabel: UILabel = {
-        let titleLabel = UILabel()
-//        titleLabel.backgroundColor = UIColor.systemGray6
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
-//        titleLabel.textColor = .systemYellow
-        titleLabel.textAlignment = NSTextAlignment.center
-        titleLabel.layer.masksToBounds = true
-        titleLabel.layer.cornerRadius = 6
-        return titleLabel
-    }()
-
     // user's rating for this movie/book
     let stars: CosmosView = {
         let stars = CosmosView()
@@ -82,6 +70,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
     let dateLabel: UILabel = {
         let dateLabel = UILabel()
         dateLabel.textAlignment = .center
+        dateLabel.textColor = .systemYellow
         return dateLabel
     }()
 
@@ -97,7 +86,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         super.setupUI()
 
         contentView.addSubview(poster)
-        contentView.addSubview(titleLabel)
         contentView.addSubview(stars)
         contentView.addSubview(favoriteButton)
         setFavoriteImage()
@@ -121,13 +109,11 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel> {
         stars.frame = CGRect(x: left, y: 285, width: (bounds.width - 145) / 3, height: 30)
         favoriteButton.frame = CGRect(x: left + (bounds.width - 30) / 3, y: 285, width: (bounds.width - 30) / 3, height: 30)
         dateLabel.frame = CGRect(x: left + 2 * (bounds.width - 30) / 3, y: 285, width: (bounds.width - 30) / 3, height: 30)
-        titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 50)
         comment.frame = CGRect(x: left, y: 330, width: bounds.width - 30, height: 335)
     }
 
     override func cellModelDidUpdate() {
         super.cellModelDidUpdate()
-        titleLabel.text = cellModel.entryTitle
         poster.image = cellModel.posterImage
         smallPoster.image = cellModel.posterImage
         comment.text = cellModel.comment
