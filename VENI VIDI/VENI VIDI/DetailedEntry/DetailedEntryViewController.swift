@@ -29,6 +29,19 @@ class DetailedEntryViewController: DCViewController {
                 }
                 detailCM.stars = Double(entry.rating)
                 detailCM.favorite = entry.favorite
+                detailCM.entryId = id
+                detailCM.nav = navigationController
+
+                if let array = entry.tags?.allObjects as? [Tag] {
+                    var tags: [String] = []
+                    for tag in array {
+                        if let string = tag.name {
+                            print(string)
+                            tags.append(string)
+                        }
+                    }
+                    detailCM.tags = tags
+                }
             }
         }
 
@@ -45,7 +58,9 @@ class DetailedEntryViewController: DCViewController {
                 if (navigationController?.viewControllers[count - 2] as? LaungchController) != nil {
                     navigationItem.hidesBackButton = true
 
-                    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Timeline", style: .plain, target: self, action: #selector(backToTimeline))
+                    navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Timeline",
+                                                                       style: .plain, target: self,
+                                                                       action: #selector(backToTimeline))
                 } else {}
             }
         }
@@ -65,13 +80,28 @@ class DetailedEntryViewController: DCViewController {
                 }
                 detailCM.stars = Double(entry.rating)
                 detailCM.favorite = entry.favorite
+                detailCM.entryId = id
+                detailCM.nav = navigationController
+
+                if let array = entry.tags?.allObjects as? [Tag] {
+                    var tags: [String] = []
+                    for tag in array {
+                        if let string = tag.name {
+                            print(string)
+                            tags.append(string)
+                        }
+                    }
+                    detailCM.tags = tags
+                }
             }
         }
 
         loadCM(detailCM)
 
         // nav bar item to edit
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(onEdit))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit,
+                                                            target: self,
+                                                            action: #selector(onEdit))
     }
 
     @objc

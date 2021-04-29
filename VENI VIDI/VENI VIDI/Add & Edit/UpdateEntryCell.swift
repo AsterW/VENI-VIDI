@@ -10,9 +10,13 @@ import DCFrame
 import Foundation
 import SnapKit
 
-// swiftlint:disable:next line_length
-class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+// swiftlint:disable:next type_body_length
+class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
+    UITextViewDelegate, UINavigationControllerDelegate,
+    UIImagePickerControllerDelegate {
     static let titleText = DCSharedDataID()
+
+    var width: CGFloat = 0
 
     var navigationController: UINavigationController = {
         let navigationController = UINavigationController()
@@ -49,6 +53,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         comment.accessibilityLabel = "Entry Note"
         comment.layer.cornerRadius = 6
         comment.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        comment.textColor = .systemYellow
         return comment
     }()
 
@@ -93,11 +98,18 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         return quote
     }()
 
+    let tagView: UIScrollView = {
+        let tagView = UIScrollView()
+        tagView.backgroundColor = .systemGray6
+        tagView.layer.cornerRadius = 6
+        return tagView
+    }()
+
     override func setupUI() {
         super.setupUI()
 
         comment.delegate = self
-        comment.textColor = UIColor.systemGray2
+        comment.textColor = UIColor.systemYellow
 
         contentView.addSubview(poster)
         contentView.addSubview(favoriteButton)
@@ -113,17 +125,28 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         contentView.addSubview(quoteLabel)
         contentView.addSubview(quote)
         contentView.addSubview(submitButton)
+
+        contentView.addSubview(tagView)
     }
 
     // swiftlint:disable:next function_body_length
     override func layoutSubviews() {
         super.layoutSubviews()
+        width = contentView.bounds.width
+        print(width)
 
         poster.snp.makeConstraints { make in
             make.top.equalTo(10)
             make.height.equalTo(240)
             make.width.equalTo(135)
             make.left.equalTo(15)
+        }
+
+        tagView.snp.makeConstraints { make in
+            make.top.equalTo(poster.snp.bottom).offset(-110)
+            make.height.equalTo(110)
+            make.width.equalToSuperview().offset(-180)
+            make.right.equalTo(-15)
         }
 
         favoriteButton.snp.makeConstraints { make in
@@ -225,6 +248,133 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
         stars.rating = cellModel.rating ?? 0
         favorite = cellModel.favorite
         setFavoriteImage()
+        createTagView()
+    }
+
+    func clearTagView() {
+        if !tagView.subviews.isEmpty {
+            for subview in tagView.subviews {
+                subview.removeFromSuperview()
+            }
+        }
+        print(tagView.subviews.count)
+    }
+
+    // swiftlint:disable:next function_body_length
+    func createTagView() {
+        clearTagView()
+
+        var xOffset: CGFloat = tagView.bounds.minX + 5
+        var yOffset: CGFloat = tagView.bounds.minY + 5
+        let padding: CGFloat = 5
+        if !cellModel.tags.isEmpty {
+            print("There are \(cellModel.tags.count) tags")
+            for string in cellModel.tags {
+                let tagLabel = UILabel()
+
+                tagLabel.backgroundColor = .white
+                tagLabel.text = string
+                tagLabel.textColor = .systemBlue
+                print("contentView width is \(contentView.frame.width)")
+                if xOffset + tagLabel.intrinsicContentSize.width + 20 >= 210 {
+                    xOffset = tagView.bounds.minX + 5
+                    yOffset += 35
+                }
+
+                // tagView.addSubview(tagLabel)
+//                tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width, height: 30)
+                let tagV = CustomTagView()
+                tagView.addSubview(tagV)
+
+                tagV.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width + 20, height: 30)
+                tagV.backgroundColor = .white
+                tagV.layer.cornerRadius = 15
+                tagV.layer.masksToBounds = true
+                tagV.tagLabel.frame = CGRect(x: 0, y: 0, width: tagLabel.intrinsicContentSize.width + 5, height: 30)
+                tagV.tagLabel.text = tagLabel.text
+                tagV.tagLabel.textColor = .systemBlue
+                tagLabel.layer.cornerRadius = 15
+                tagLabel.layer.masksToBounds = true
+
+                tagV.cancel.frame = CGRect(x: tagV.bounds.width - 20, y: 0, width: 15, height: 15)
+                tagV.cancel.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+                tagV.cancel.addTarget(self, action: #selector(removeTag(_:)), for: .touchUpInside)
+
+                xOffset += padding + tagLabel.intrinsicContentSize.width + 20
+            }
+        }
+        let addButton = UIButton()
+        tagView.addSubview(addButton)
+        if xOffset + 30 >= width - 180 {
+            xOffset = 5
+            yOffset += 35
+        }
+        addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
+        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addButton.backgroundColor = .systemGray4
+        addButton.layer.cornerRadius = 15
+
+        addButton.addTarget(self, action: #selector(addTag(_:)), for: .touchUpInside)
+        tagView.contentSize = CGSize(width: width - 180, height: yOffset + 35)
+    }
+
+    @objc
+    func removeTag(_ sender: UIButton) {
+        var string: String = ""
+        if let csTag = sender.superview as? CustomTagView {
+            string = csTag.tagLabel.text ?? ""
+        }
+        sender.superview?.removeFromSuperview()
+        cellModel.tags = cellModel.tags.filter { $0 != string }
+        print(cellModel.tags.count)
+        createTagView()
+    }
+
+    @objc
+    func addTag(_ sender: UIButton) {
+        let count = tagView.subviews.count
+        var xCor = sender.frame.minX
+        var yCor = sender.frame.minY
+        print(tagView.subviews[count - 1].description)
+
+        sender.removeFromSuperview()
+
+        let newTag = CustomTagView()
+        newTag.tagLabel.delegate = self
+        tagView.addSubview(newTag)
+
+        if xCor + 80 >= width - 180 {
+            xCor = 5
+            yCor += 35
+        }
+//
+        newTag.frame = CGRect(x: xCor, y: yCor, width: 80, height: 30)
+        newTag.layer
+            .cornerRadius = 15
+        newTag.tagLabel.frame = CGRect(x: 0, y: 0, width: 60, height: 30)
+        newTag.tagLabel.textColor = .systemBlue
+        newTag.layer.cornerRadius = 15
+        newTag.layer.masksToBounds = true
+
+        newTag.cancel.frame = CGRect(x: newTag.bounds.width - 20, y: 0, width: 15, height: 15)
+        newTag.cancel.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
+        newTag.cancel.addTarget(self, action: #selector(removeTag(_:)), for: .touchUpInside)
+
+        newTag.backgroundColor = .white
+        newTag.tagLabel.becomeFirstResponder()
+
+        xCor += 85
+        let addButton = UIButton()
+        tagView.addSubview(addButton)
+        addButton.frame = CGRect(x: xCor, y: yCor, width: 30, height: 30)
+        addButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        addButton.backgroundColor = .systemGray4
+        addButton.layer.cornerRadius = 15
+
+        addButton.addTarget(self, action: #selector(addTag(_:)), for: .touchUpInside)
+
+        tagView.contentSize = CGSize(width: width - 180, height: yCor + 35)
+        print(tagView.subviews.count)
     }
 
     func setFavoriteImage() {
@@ -237,7 +387,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
 
     @objc
     func favoriteEntry() {
-        print("Click heart")
         if favorite {
             favorite = false
             setFavoriteImage()
@@ -249,7 +398,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
 
     @objc
     func pickImage() {
-        print("Clicked")
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self
@@ -292,6 +440,19 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
             newQuote = ""
         }
 
+        var newTags: [Tag] = []
+        for subview in tagView.subviews {
+            print(subview.description)
+            if let tagV = subview as? CustomTagView {
+                if let text = tagV.tagLabel.text {
+                    if text != "" {
+                        let tag = cellModel.service.createNewTag(text)
+                        newTags.append(tag)
+                    }
+                }
+            }
+        }
+
         guard newTitle != "" else { return }
 
         _ = cellModel.service.updateJournalEntry(withUUID: cellModel.entryId,
@@ -301,6 +462,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>, UITextViewDelegate, UINavig
                                                  withEntryTitle: newTitle,
                                                  withEntryContent: newContent,
                                                  withQuote: newQuote,
+                                                 withTags: newTags,
                                                  withRating: stars.rating,
                                                  isFavorite: favorite)
 

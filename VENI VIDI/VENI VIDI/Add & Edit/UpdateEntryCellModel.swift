@@ -25,6 +25,7 @@ class UpdateEntryCellModel: DCCellModel {
     }()
 
     var entryId: UUID?
+    var tags: [String] = []
 
     required init() {
         super.init()

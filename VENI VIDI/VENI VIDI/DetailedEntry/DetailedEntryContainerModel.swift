@@ -17,11 +17,16 @@ class DetailedEntryContainerModel: DCContainerModel {
     var date: Date?
     var quote: String?
     var favorite: Bool?
+    var entryId: UUID?
+    var nav: UINavigationController?
+
+    var tags: [String] = []
 
     override func tableViewDataWillReload() {
         removeAllSubmodels()
 
         let detailModel = DetailedEntryCellModel()
+        detailModel.nav = nav
         if let title = entryTitle {
             detailModel.entryTitle = title
         } else {
@@ -52,6 +57,12 @@ class DetailedEntryContainerModel: DCContainerModel {
             detailModel.favorite = fav
         }
 
+        if let entryId = entryId {
+            detailModel.id = entryId
+        }
+
+        detailModel.tags = tags
+
         addSubmodel(detailModel)
     }
 
@@ -60,6 +71,7 @@ class DetailedEntryContainerModel: DCContainerModel {
 
         containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
         let detailModel = DetailedEntryCellModel()
+        detailModel.nav = nav
         if let title = entryTitle {
             detailModel.entryTitle = title
         } else {
@@ -85,6 +97,12 @@ class DetailedEntryContainerModel: DCContainerModel {
         if let fav = favorite {
             detailModel.favorite = fav
         }
+
+        if let entryId = entryId {
+            detailModel.id = entryId
+        }
+
+        detailModel.tags = tags
 
         addSubmodel(detailModel)
     }

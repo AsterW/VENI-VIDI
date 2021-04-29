@@ -45,6 +45,7 @@ class TimelineCell: DCCell<TimelineCellModel> {
 
     override func didSelect() {
         super.didSelect()
+
         if let data = cellModel.entryId {
             sendEvent(Self.touch, data: data)
         }

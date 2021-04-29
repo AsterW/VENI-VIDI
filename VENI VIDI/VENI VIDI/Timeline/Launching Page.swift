@@ -63,6 +63,7 @@ class LaungchController: UIViewController {
         tabBarController?.tabBar.isHidden = false
     }
 
+    // swiftlint:disable:next function_body_length
     override func viewDidLoad() {
         super.viewDidLoad()
         entries = []

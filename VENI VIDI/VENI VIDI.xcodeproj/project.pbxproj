@@ -86,6 +86,7 @@
 		E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */; };
 		E0DA6EAF25E8DF19002451BC /* DetailedEntryCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */; };
 		E0DA6EB625E8DF26002451BC /* DetailedEntryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0DA6EB525E8DF26002451BC /* DetailedEntryCell.swift */; };
+		E0E403C4263844FB0057121A /* CustomTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E403C3263844FB0057121A /* CustomTagView.swift */; };
 		E0ECC2C326100F6600BDF4B0 /* VENI_VIDIContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0ECC2C226100F6600BDF4B0 /* VENI_VIDIContainerModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -197,6 +198,7 @@
 		E0DA6EA725E8DAE8002451BC /* DetailedEntryContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEntryContainerModel.swift; sourceTree = "<group>"; };
 		E0DA6EAE25E8DF19002451BC /* DetailedEntryCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEntryCellModel.swift; sourceTree = "<group>"; };
 		E0DA6EB525E8DF26002451BC /* DetailedEntryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedEntryCell.swift; sourceTree = "<group>"; };
+		E0E403C3263844FB0057121A /* CustomTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTagView.swift; sourceTree = "<group>"; };
 		E0ECC2C226100F6600BDF4B0 /* VENI_VIDIContainerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VENI_VIDIContainerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -411,6 +413,7 @@
 				E0ABE9EB25F67F91009E1AF2 /* UpdateEntryContainerModel.swift */,
 				E0ABE9F025F689B3009E1AF2 /* UpdateEntryCellModel.swift */,
 				E0ABE9F525F689DD009E1AF2 /* UpdateEntryCell.swift */,
+				E0E403C3263844FB0057121A /* CustomTagView.swift */,
 			);
 			path = "Add & Edit";
 			sourceTree = "<group>";
@@ -742,6 +745,7 @@
 				E0ABE9F625F689DD009E1AF2 /* UpdateEntryCell.swift in Sources */,
 				7741FD7326122C5300695C7C /* Extensions.swift in Sources */,
 				E029AB2A261FF9E40016463C /* EntryData.swift in Sources */,
+				E0E403C4263844FB0057121A /* CustomTagView.swift in Sources */,
 				E0ABE9F125F689B3009E1AF2 /* UpdateEntryCellModel.swift in Sources */,
 				E08E2007262B9B3E0092BD31 /* TagContainerModel.swift in Sources */,
 				E0DA6E8825E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
@@ -1071,7 +1075,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQ3V95F8D5;
+				DEVELOPMENT_TEAM = Z9CK5335AK;
 				INFOPLIST_FILE = "VENI VIDIUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1093,7 +1097,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQ3V95F8D5;
+				DEVELOPMENT_TEAM = Z9CK5335AK;
 				INFOPLIST_FILE = "VENI VIDIUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (

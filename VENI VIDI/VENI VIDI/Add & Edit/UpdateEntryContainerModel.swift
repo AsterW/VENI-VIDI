@@ -19,6 +19,7 @@ class UpdateEntryContainerModel: VVContainerModel {
     var quote: String?
     var favorite: Bool?
     var type: JournalEntryType?
+    var tags: [String] = []
 
     var entryId: UUID?
 
@@ -63,6 +64,8 @@ class UpdateEntryContainerModel: VVContainerModel {
         if let favorite = favorite {
             newEntryModel.favorite = favorite
         }
+
+        newEntryModel.tags = tags
 
         addSubmodel(searchCM)
         addSubmodel(newEntryModel)
