@@ -18,4 +18,3 @@ protocol DatabaseSearchAgent {
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }
 
-protocol DatabaseSearchAgentWithRecommendation: DatabaseSearchAgent {}
