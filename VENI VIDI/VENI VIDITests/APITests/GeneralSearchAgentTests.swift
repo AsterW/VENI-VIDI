@@ -118,7 +118,7 @@ class GeneralSearchAgentTests: XCTestCase {
     }
 
     func testSearchAllCategories() throws {
-        // TODO:
+        // TODO: include book query agent
         // for index in 1 ... 4 {
         for index in 1 ... 3 {
             expectations.append(expectation(description: "Expectation #\(index)"))
@@ -139,7 +139,8 @@ class GeneralSearchAgentTests: XCTestCase {
         XCTAssertGreaterThan(searchResults[.tvShow]?.count ?? 0, 0)
         XCTAssertGreaterThan(searchResults[.movie]?.count ?? 0, 0)
         XCTAssertGreaterThan(searchResults[.game]?.count ?? 0, 0)
-        XCTAssertGreaterThan(searchResults[.book]?.count ?? 0, 0)
+        // TODO: include book query agent
+//        XCTAssertGreaterThan(searchResults[.book]?.count ?? 0, 0)
     }
 
     func testConsecutiveSearch() throws {
