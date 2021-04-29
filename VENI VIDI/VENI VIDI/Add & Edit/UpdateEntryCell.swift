@@ -305,8 +305,8 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
         }
         let addButton = UIButton()
         tagView.addSubview(addButton)
-        if xOffset + 30 >= 210 {
-            xOffset = tagView.bounds.minX + 5
+        if xOffset + 30 >= width - 180 {
+            xOffset = 5
             yOffset += 35
         }
         addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
@@ -342,25 +342,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
         let newTag = CustomTagView()
         newTag.tagLabel.delegate = self
         tagView.addSubview(newTag)
-
-//        let tagV = CustomTagView()
-//        tagView.addSubview(tagV)
-//
-//        tagV.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width + 20, height: 30)
-//        tagV.backgroundColor = .white
-//        tagV.layer.cornerRadius = 15
-//        tagV.layer.masksToBounds = true
-//        tagV.tagLabel.frame = CGRect(x: 0, y: 0, width: tagLabel.intrinsicContentSize.width, height: 30)
-//        tagV.tagLabel.text = tagLabel.text
-//        tagV.tagLabel.textColor = .systemBlue
-//        tagLabel.layer.cornerRadius = 15
-//        tagLabel.layer.masksToBounds = true
-//
-//        tagV.cancel.frame = CGRect(x: tagV.bounds.width - 20, y: 0, width: 15, height: 15)
-//        tagV.cancel.setImage(UIImage(systemName: "minus.circle.fill"), for: .normal)
-//        // tagV.cancel.layer.cornerRadius = 7.5
-//        tagV.cancel.addTarget(self, action: #selector(removeTag(_:)), for: .touchUpInside)
-//        xOffset += padding + tagLabel.intrinsicContentSize.width + 20
 
         if xCor + 80 >= width - 180 {
             xCor = 5
@@ -406,7 +387,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
 
     @objc
     func favoriteEntry() {
-        print("Click heart")
         if favorite {
             favorite = false
             setFavoriteImage()
@@ -418,7 +398,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
 
     @objc
     func pickImage() {
-        print("Clicked")
         let picker = UIImagePickerController()
         picker.allowsEditing = true
         picker.delegate = self

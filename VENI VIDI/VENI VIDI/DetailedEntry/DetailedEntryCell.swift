@@ -30,7 +30,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
     // user's rating for this movie/book
     let stars: CosmosView = {
         let stars = CosmosView()
-        // stars.backgroundColor=UIColor.systemGray
         stars.isUserInteractionEnabled = false
         stars.layer.cornerRadius = 4
         return stars
@@ -110,37 +109,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
     func createTags() {
         clearTagView()
-//        let fakeTag = ["Disney", "Chinese", "Children", "U12", "Human", "Category 1", "Comedy", "Cartoon"]
-//
-//        var xOffset: CGFloat = tagView.bounds.minX + 5
-//        let yOffset: CGFloat = tagView.bounds.minY + 5
-//        let padding: CGFloat = 5
-//
-//        for string in fakeTag {
-//            let tagLabel = UILabel()
-//
-//            tagLabel.text = string
-//
-//            tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width + 3, height: 30)
-//            xOffset += padding + tagLabel.frame.size.width
-//
-//            tagView.addSubview(tagLabel)
-//
-//            tagLabel.layer.cornerRadius = 15
-//            tagLabel.layer.masksToBounds = true
-//            tagLabel.backgroundColor = .systemGray6
-//            tagLabel.textColor = .systemBlue
-//        }
-//
-//        let addButton = UIButton()
-//        tagView.addSubview(addButton)
-//        addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
-//        // addButton.setImage(UIImage(systemName: "star"), for: .normal)
-//        addButton.setTitle(String(fakeTag.count), for: .normal)
-//        addButton.setTitleColor(.systemYellow, for: .normal)
-//        xOffset += padding + addButton.frame.size.width
-//
-//        tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
 
         var xOffset: CGFloat = tagView.bounds.minX + 5
         let yOffset: CGFloat = tagView.bounds.minY + 5
@@ -162,17 +130,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
                 tagLabel.textColor = .systemBlue
             }
             tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
-            print("Content size is \(tagView.contentSize.width)")
         }
-//        else {
-//            print("x is \(xOffset)")
-//            let addButton = UIButton()
-//            tagView.addSubview(addButton)
-//            addButton.frame = CGRect(x: xOffset, y: yOffset, width: 30, height: 30)
-//            addButton.setImage(UIImage(systemName: "plus"), for: .normal)
-//
-//            tagView.contentSize = CGSize(width: xOffset, height: tagView.frame.height)
-//        }
     }
 
     @objc
@@ -189,7 +147,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
         super.setupUI()
 
         contentView.addSubview(poster)
-        contentView.addSubview(titleLabel)
+//        contentView.addSubview(titleLabel)
         contentView.addSubview(tagView)
         contentView.addSubview(stars)
         contentView.addSubview(favoriteButton)
@@ -214,14 +172,13 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
         quote.frame = CGRect(x: left + 135, y: 80, width: bounds.width - 165, height: 125)
         tagView.frame = CGRect(x: left + 135, y: 220, width: bounds.width - 165, height: 40)
-        tagView.isUserInteractionEnabled = true
         tagView.delegate = self
 
         stars.frame = CGRect(x: left, y: 285, width: (bounds.width - 90) / 2, height: 30)
         dateLabel.frame = CGRect(x: left + (bounds.width - 90) / 2, y: 285, width: (bounds.width - 90) / 2, height: 30)
         favoriteButton.frame = CGRect(x: left + (bounds.width - 90), y: 285, width: 30, height: 30)
         deleteButton.frame = CGRect(x: left + (bounds.width - 60), y: 285, width: 30, height: 30)
-        titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 50)
+//        titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 50)
         comment.frame = CGRect(x: left, y: 330, width: bounds.width - 30, height: 335)
     }
 
@@ -231,7 +188,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
             navigationController = nav
             print(nav.description)
         }
-        titleLabel.text = cellModel.entryTitle
+//        titleLabel.text = cellModel.entryTitle
         poster.image = cellModel.posterImage
         smallPoster.image = cellModel.posterImage
         comment.text = cellModel.comment
