@@ -10,10 +10,10 @@ import Foundation
 class GeneralSearchAgent {
     // MARK: - Properties
 
-    private let searchAgents: [DatabaseSpecificSearchAgent] = [GoogleBooksSearchAgent(),
-                                                               TMDBMovieSearchAgent(),
-                                                               TMDBTVSearchAgent(),
-                                                               IGDBSearchAgent()]
+    private let searchAgents: [DatabaseSearchAgent] = [GoogleBooksSearchAgent(),
+                                                       TMDBMovieSearchAgent(),
+                                                       TMDBTVSearchAgent(),
+                                                       IGDBSearchAgent()]
     private var results: [QueryContentType: [QueryResult]] = [:]
 
     // MARK: - Search Function

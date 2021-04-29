@@ -8,10 +8,14 @@
 import Foundation
 import UIKit
 
-protocol DatabaseSpecificSearchAgent {
+// MARK: - DatabaseSearchAgent
+
+protocol DatabaseSearchAgent {
     var agentType: QueryContentType { get }
 
     func query(withKeyword keyword: String,
                withTimeStamp timeStamp: TimeInterval,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }
+
+protocol DatabaseSearchAgentWithRecommendation: DatabaseSearchAgent {}

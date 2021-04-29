@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TMDBTVSearchAgent: DatabaseSpecificSearchAgent {
+class TMDBTVSearchAgent: DatabaseSearchAgent {
     // MARK: - Properties
 
     internal let agentType: QueryContentType = .tvShow

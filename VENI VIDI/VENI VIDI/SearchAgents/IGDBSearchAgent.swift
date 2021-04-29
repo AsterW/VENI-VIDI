@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class IGDBSearchAgent: DatabaseSpecificSearchAgent {
+class IGDBSearchAgent: DatabaseSearchAgent {
     // MARK: - Properties
 
     internal var agentType: QueryContentType = .game

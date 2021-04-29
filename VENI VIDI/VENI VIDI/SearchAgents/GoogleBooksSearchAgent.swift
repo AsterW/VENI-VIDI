@@ -7,7 +7,7 @@
 
 import Foundation
 
-class GoogleBooksSearchAgent: DatabaseSpecificSearchAgent {
+class GoogleBooksSearchAgent: DatabaseSearchAgent {
     var apiKey: String = ""
     var apiUrl: String = ""
     var agentType: QueryContentType = .book
