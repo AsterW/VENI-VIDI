@@ -14,6 +14,7 @@ struct QueryResult {
     init(withMovieStruct movie: TMDBMovieDataStruct, withTimeStamp timeStamp: TimeInterval) {
         type = .movie
         title = movie.title
+        tmdbId = movie.id
         self.timeStamp = timeStamp
     }
 
@@ -22,12 +23,22 @@ struct QueryResult {
     init(withTVStruct tvShow: TMDBTVDataStruct, withTimeStamp timeStamp: TimeInterval) {
         type = .tvShow
         title = tvShow.name
+        tmdbId = tvShow.id
+        self.timeStamp = timeStamp
+    }
+
+    // MARK: - init from IGBD Data Struct
+
+    init(withIGDBStruct game: IGDBDataStruct, withTimeStamp timeStamp: TimeInterval) {
+        type = .game
+        title = game.name
         self.timeStamp = timeStamp
     }
 
     let type: QueryContentType
     let timeStamp: TimeInterval
+    var tmdbId: Int?
     var title: String
     var coverUrl: String?
-    var cover: UIImage?
+    var description: String = ""
 }

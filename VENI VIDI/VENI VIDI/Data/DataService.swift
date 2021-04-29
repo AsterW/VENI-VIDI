@@ -37,8 +37,7 @@ extension DataService {
             let tags = try managedObjectContext.fetch(fetchRequest)
             return tags
         } catch {
-            print("Unexpected error at fetchAllTags(): \(error)")
-            return []
+            fatalError(error.localizedDescription)
         }
     }
 
@@ -59,14 +58,51 @@ extension DataService {
     }
 
     func createNewTag(_ tagText: String) -> Tag {
-        // swiftlint:disable:next force_cast
-        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag
+        // let newTag = Tag(context: self.managedObjectContext)
         // swiftlint:disable:next line_length
         // Solution from https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
-        // let newTag = Tag(context: self.managedObjectContext)
+        // swiftlint:disable:next force_cast
+        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag
+
         newTag.name = tagText
+        newTag.id = UUID()
         coreDataStack.saveContext()
         return newTag
+    }
+
+    // swiftlint:disable:next identifier_name
+    func renameTagWithUUID(_ id: UUID, withNewName newName: String) -> Tag? {
+        guard let tag = fetchTagWithUUID(id) else {
+            return nil
+        }
+        tag.name = newName
+        coreDataStack.saveContext()
+        return tag
+    }
+
+    // swiftlint:disable:next identifier_name
+    func fetchTagWithUUID(_ id: UUID) -> Tag? {
+        do {
+            let fetchRequest = NSFetchRequest<Tag>(entityName: "Tag")
+            fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+            let tag = try managedObjectContext.fetch(fetchRequest)[0]
+            return tag
+        } catch {
+            print("Unexpected error at fetchTagWithUUID(): \(error.localizedDescription)")
+            return nil
+        }
+    }
+
+    // swiftlint:disable:next identifier_name
+    func deleteTagWithUUID(_ id: UUID) -> Bool {
+        guard let tag = fetchTagWithUUID(id) else {
+            print("Received invalid UUID for deleteTag()")
+            return false
+        }
+
+        managedObjectContext.delete(tag)
+        coreDataStack.saveContext()
+        return true
     }
 }
 
@@ -75,25 +111,33 @@ extension DataService {
 extension DataService {
     /// This function fetches all journal entries that are in the CoreData data storage.
     /// - Returns: All available journal entries.
-    func fetchAllJournalEntries() -> [JournalEntry]? {
+    /// - Parameter category: the type of JournalEntry to query for
+    func fetchAllJournalEntries(withType type: JournalEntryType? = nil) -> [JournalEntry]? {
         let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
+
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "finishDate", ascending: false)]
+        if let targetType = type {
+            fetchRequest.predicate = NSPredicate(format: "journalTypeText = %@", targetType.rawValue)
+        }
+
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                               managedObjectContext: managedObjectContext,
                                                               sectionNameKeyPath: nil,
                                                               cacheName: nil)
         fetchedResultsController?.delegate = self
+
         do {
             try fetchedResultsController?.performFetch()
         } catch {
-            fatalError("Failed to fetch entities: \(error)")
+            fatalError("Failed to fetch entities: \(error.localizedDescription)")
         }
         return fetchedResultsController?.fetchedObjects
     }
 
     /// Fetch for a specific JournalEntry given its id (UUID).
     /// - Parameter id: The UUID that belongs to and identifies the target JournalEntry.
-    /// - Returns: The JournalEntry with the given id (UUID), nil if there's an error when fetching from CoreData data storage.
+    /// - Returns: The JournalEntry with the given id (UUID),
+    ///            nil if there's an error when fetching from CoreData data storage.
     func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? { // swiftlint:disable:this identifier_name
         do {
             let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
@@ -101,7 +145,7 @@ extension DataService {
             let entry = try managedObjectContext.fetch(fetchRequest)[0]
             return entry
         } catch {
-            print("Unexpected error at fetchJournalEntries(): \(error)")
+            print("Unexpected error at fetchJournalEntryWithUUID(): \(error.localizedDescription)")
             return nil
         }
     }
@@ -163,13 +207,14 @@ extension DataService {
         case let .success(journalEntry):
             return journalEntry
         case let .failure(error):
-            print(error)
+            print(error.localizedDescription)
             return newJournalEntry
         }
     }
 
     /// Update the attributes of a JournalEntry, identified by its id (UUID).
-    /// If no id is provided, a new JournalEntry is created to carry the values. If an attribute is not provided, it will not be updated.
+    /// If no id is provided, a new JournalEntry is created to carry the values.
+    /// If an attribute is not provided, it will not be updated.
     /// - Parameters:
     ///   - id: The UUID used for looking up the JournalEntry.
     ///         A new entry will be created if this field is not provided.

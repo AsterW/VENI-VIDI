@@ -24,12 +24,81 @@ class IGDBTests: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() throws {}
+    // MARK: - Behavior Tests
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
+    func testValidQuery() throws {
+        let testExpectation = expectation(description: "IGDB EVE Online test")
+        let timeStamp = Date().timeIntervalSince1970
+        igdbAgent.query(withKeyword: "EVE Online", withTimeStamp: timeStamp) { result in
+            switch result {
+            case let .success(queryResult):
+                print(queryResult)
+                XCTAssertGreaterThan(queryResult.count, 0)
+                XCTAssertEqual(queryResult.first?.timeStamp, timeStamp)
+                // TODO: fix IGDB agent cover issue
+//                XCTAssertNotNil(queryResult.first?.coverUrl)
+//                XCTAssertNotNil(URL(string: queryResult.first?.coverUrl ?? ""))
+                testExpectation.fulfill()
+            case let .failure(error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+
+    func testInvalidQuery() throws {
+        let testExpectation = expectation(description: "IGDB no result test")
+        igdbAgent.query(withKeyword: "qwerzxcvasdfjlk;",
+                        withTimeStamp: Date().timeIntervalSince1970) { result in
+            switch result {
+            case let .success(queryResult):
+                XCTAssertEqual(queryResult.count, 0)
+                testExpectation.fulfill()
+            case let .failure(error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+
+    // MARK: - Performance Tests
+
+    func testPerformanceValidQuery() throws {
         measure {
-            // Put the code you want to measure the time of here.
+            let testExpectation = expectation(description: "IGDB EVE Online test")
+            let timeStamp = Date().timeIntervalSince1970
+            igdbAgent.query(withKeyword: "EVE Online", withTimeStamp: timeStamp) { result in
+                switch result {
+                case let .success(queryResult):
+                    XCTAssertGreaterThan(queryResult.count, 0)
+                    XCTAssertEqual(queryResult.first?.timeStamp, timeStamp)
+                    testExpectation.fulfill()
+                case let .failure(error):
+                    XCTFail(error.localizedDescription)
+                }
+            }
+
+            waitForExpectations(timeout: 10, handler: nil)
+        }
+    }
+
+    func testPerformanceInvalidQuery() throws {
+        measure {
+            let testExpectation = expectation(description: "IGDB no result test")
+            igdbAgent.query(withKeyword: "qwerzxcvasdfjlk;",
+                            withTimeStamp: Date().timeIntervalSince1970) { result in
+                switch result {
+                case let .success(queryResult):
+                    XCTAssertEqual(queryResult.count, 0)
+                    testExpectation.fulfill()
+                case let .failure(error):
+                    XCTFail(error.localizedDescription)
+                }
+            }
+
+            waitForExpectations(timeout: 10, handler: nil)
         }
     }
 }

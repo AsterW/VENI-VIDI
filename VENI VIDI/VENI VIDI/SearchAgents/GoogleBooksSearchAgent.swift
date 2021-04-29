@@ -7,13 +7,12 @@
 
 import Foundation
 
-class GoogleBooksSearchAgent: DatabaseSpecificSearchAgent {
+class GoogleBooksSearchAgent: DatabaseSearchAgent {
     var apiKey: String = ""
     var apiUrl: String = ""
     var agentType: QueryContentType = .book
 
     func query(withKeyword _: String,
                withTimeStamp _: TimeInterval,
-               downloadCoverImage _: Bool,
                withCompletionHandler _: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {}
 }

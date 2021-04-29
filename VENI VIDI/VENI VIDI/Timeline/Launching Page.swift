@@ -43,7 +43,7 @@ class LaungchController: UIViewController {
         let touchLocation = touch.location(in: view)
 
         for item in entryLabels {
-            let labelFrame = item.layer.presentation()!.frame
+            guard let labelFrame = item.layer.presentation()?.frame else { continue }
             if labelFrame.contains(touchLocation) {
                 goToDetailedPage(id: item.id!)
                 return
@@ -60,6 +60,7 @@ class LaungchController: UIViewController {
     override func viewWillDisappear(_: Bool) {
         super.viewWillDisappear(true)
         navigationController?.setNavigationBarHidden(false, animated: true)
+        tabBarController?.tabBar.isHidden = false
     }
 
     // swiftlint:disable:next function_body_length

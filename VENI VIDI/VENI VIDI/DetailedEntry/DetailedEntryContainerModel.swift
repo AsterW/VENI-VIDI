@@ -69,6 +69,7 @@ class DetailedEntryContainerModel: DCContainerModel {
     override func cmDidLoad() {
         super.cmDidLoad()
 
+        containerTableView?.contentInset = UIEdgeInsets(top: 150, left: 0, bottom: 0, right: 0)
         let detailModel = DetailedEntryCellModel()
         detailModel.nav = nav
         if let title = entryTitle {

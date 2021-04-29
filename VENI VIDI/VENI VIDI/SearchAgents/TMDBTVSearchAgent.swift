@@ -8,12 +8,15 @@
 import Foundation
 import UIKit
 
-class TMDBTVSearchAgent: DatabaseSpecificSearchAgent {
+// MARK: - TMDBTVSearchAgent
+
+class TMDBTVSearchAgent: DatabaseSearchAgent {
     // MARK: - Properties
 
     internal let agentType: QueryContentType = .tvShow
 
-    private let apiUrl: String = "https://api.themoviedb.org/3/search/tv"
+    private let searchUrl: String = "https://api.themoviedb.org/3/search/tv"
+    private let itemUrl: String = "https://api.themoviedb.org/3/tv"
     private let apiKey: String = "29748b6586282540605ffb47f2378ad4"
 
     private let imageUrl500 = "https://image.tmdb.org/t/p/w500"
@@ -23,9 +26,8 @@ class TMDBTVSearchAgent: DatabaseSpecificSearchAgent {
 
     func query(withKeyword keyword: String,
                withTimeStamp timeStamp: TimeInterval,
-               downloadCoverImage: Bool = false,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
-        var urlComponents = URLComponents(string: apiUrl)
+        var urlComponents = URLComponents(string: searchUrl)
         urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: apiKey),
                                      URLQueryItem(name: "query", value: keyword)]
 
@@ -47,11 +49,7 @@ class TMDBTVSearchAgent: DatabaseSpecificSearchAgent {
             var queryResults: [QueryResult] = []
             for tvShow in queriedTVShows {
                 var result = QueryResult(withTVStruct: tvShow, withTimeStamp: timeStamp)
-                if downloadCoverImage {
-                    result.cover = self.cacheImage(withPosterPath: tvShow.poster_path)
-                } else {
-                    result.coverUrl = tvShow.poster_path != nil ? self.imageUrl500 + tvShow.poster_path! : ""
-                }
+                result.coverUrl = tvShow.poster_path != nil ? self.imageUrl500 + tvShow.poster_path! : nil
                 queryResults.append(result)
             }
 
@@ -63,7 +61,7 @@ class TMDBTVSearchAgent: DatabaseSpecificSearchAgent {
 
     // MARK: - Helper Function
 
-    func cacheImage(withPosterPath posterPath: String?) -> UIImage? {
+    func retriveCoverImage(withPosterPath posterPath: String?) -> UIImage? {
         if let path = posterPath {
             let imageUrl = URL(string: imageUrl500 + path)
             let data = try? Data(contentsOf: imageUrl!)
@@ -72,12 +70,56 @@ class TMDBTVSearchAgent: DatabaseSpecificSearchAgent {
             return nil
         }
     }
+}
 
-    func retriveImageUrl(withPosterPath posterPath: String?) -> URL? {
-        if let path = posterPath {
-            return URL(string: imageUrl500 + path)
-        } else {
-            return nil
+// MARK: DatabaseRecommendationAgent
+
+extension TMDBTVSearchAgent: DatabaseRecommendationAgent {
+
+    // MARK: - Recommendation Function
+
+    func getRandomRecommendation(withDataStack coreDataStack: CoreDataStack,
+                                 withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+
+        let dataService = DataService(coreDataStack: coreDataStack)
+        let seed = dataService.fetchAllJournalEntries(withType: agentType)?.randomElement()
+        guard let seedEntry = seed else { print("no seed entry found for recommendation"); return }
+        guard let seedTitle = seedEntry.worksTitle else { print("work title should not be empty"); return }
+
+        let timeStamp = Date().timeIntervalSince1970
+
+        query(withKeyword: seedTitle, withTimeStamp: timeStamp) { [self] result in
+            switch result {
+            case let .success(seedQueryResult):
+
+                guard let seedId = seedQueryResult.first?.tmdbId else { completionHandler(.failure(.noData)); return }
+
+                var urlComponents = URLComponents(string: itemUrl + "/\(seedId)/similar")
+                urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
+
+                guard let requestURL = urlComponents?.url?.absoluteURL else { completionHandler(.failure(.urlError)); return }
+
+                let dataTask = URLSession.shared.dataTask(with: requestURL) { data, _, _ in
+                    guard let acquiredData = data else { completionHandler(.failure(.noData)); return }
+                    guard let parsedData = try? JSONDecoder().decode(TMDBTVQueryResults.self, from: acquiredData) else { completionHandler(.failure(.cannotDecodeData)); return }
+                    let queriedTVShows = parsedData.results
+
+                    var queryResults: [QueryResult] = []
+                    for tvShow in queriedTVShows {
+                        var result = QueryResult(withTVStruct: tvShow, withTimeStamp: timeStamp)
+                        result.coverUrl = tvShow.poster_path != nil ? self.imageUrl500 + tvShow.poster_path! : nil
+                        result.description = tvShow.overview
+                        queryResults.append(result)
+                    }
+
+                    completionHandler(.success(queryResults))
+                }
+
+                dataTask.resume()
+
+            case let .failure(error):
+                completionHandler(.failure(error))
+            }
         }
     }
 }

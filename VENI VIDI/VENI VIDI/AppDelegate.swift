@@ -17,9 +17,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_: UIApplication,
                      didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let viewController = ViewController()
-        let mainNavigationController = UINavigationController(rootViewController: viewController)
-        window?.rootViewController = mainNavigationController
+        let timelineVC = ViewController()
+        let timelineNavigationController = UINavigationController(rootViewController: timelineVC)
+        let shelfVC = ShelfViewController()
+        let shelfNavigationController = UINavigationController(rootViewController: shelfVC)
+        let tabBarVC = UITabBarController()
+        timelineNavigationController.title = "Timeline"
+        shelfNavigationController.title = "Shelf"
+        tabBarVC.setViewControllers([timelineNavigationController, shelfNavigationController], animated: false)
+        tabBarVC.modalPresentationStyle = .fullScreen
+        tabBarVC.selectedViewController = timelineNavigationController
+        tabBarVC.tabBar.barTintColor = .white
+        tabBarVC.tabBar.barStyle = .default
+        tabBarVC.tabBar.tintColor = .systemYellow
+        tabBarVC.tabBar.isHidden = true
+
+        if let items = tabBarVC.tabBar.items {
+            let images = ["house", "star"]
+
+            for index in 0 ..< items.count {
+                items[index].image = UIImage(systemName: images[index])
+            }
+        }
+
+        window?.rootViewController = tabBarVC
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
 

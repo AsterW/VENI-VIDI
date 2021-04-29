@@ -27,18 +27,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
         return poster
     }()
 
-    // user-defined title for this entry
-    let titleLabel: UILabel = {
-        let titleLabel = UILabel()
-//        titleLabel.backgroundColor = UIColor.systemGray6
-        titleLabel.font = UIFont.boldSystemFont(ofSize: 20)
-//        titleLabel.textColor = .systemYellow
-        titleLabel.textAlignment = NSTextAlignment.center
-        titleLabel.layer.masksToBounds = true
-        titleLabel.layer.cornerRadius = 6
-        return titleLabel
-    }()
-
     // user's rating for this movie/book
     let stars: CosmosView = {
         let stars = CosmosView()
@@ -203,7 +191,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
         contentView.addSubview(poster)
         contentView.addSubview(titleLabel)
         contentView.addSubview(tagView)
-
         contentView.addSubview(stars)
         contentView.addSubview(favoriteButton)
         setFavoriteImage()
@@ -224,6 +211,7 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
         // poster.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 180)
         smallPoster.frame = CGRect(x: left, y: 80, width: 120, height: 180)
+
         quote.frame = CGRect(x: left + 135, y: 80, width: bounds.width - 165, height: 125)
         tagView.frame = CGRect(x: left + 135, y: 220, width: bounds.width - 165, height: 40)
         tagView.isUserInteractionEnabled = true
@@ -253,8 +241,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
         deleteButton.addTarget(self, action: #selector(deleteEntry), for: .touchUpInside)
 
-//        quote.text = "The Quote from Book. \n Querer es poder."
-
         if let date = cellModel.date {
             let formatter1 = DateFormatter()
             formatter1.dateStyle = .short
@@ -263,8 +249,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
         if let rating = cellModel.rating {
             stars.rating = rating
-        } else {
-            // should throw error
         }
 
         createTags()

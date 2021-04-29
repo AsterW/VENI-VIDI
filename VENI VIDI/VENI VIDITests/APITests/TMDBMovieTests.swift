@@ -28,10 +28,14 @@ class TMDBMovieTests: XCTestCase {
 
     func testValidQuery() throws {
         let testExpectation = expectation(description: "TMDB Movie Interstellar test")
-        tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: Date().timeIntervalSince1970) { result in
+        let timeStamp = Date().timeIntervalSince1970
+        tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: timeStamp) { result in
             switch result {
             case let .success(queryResult):
                 XCTAssertGreaterThan(queryResult.count, 0)
+                XCTAssertEqual(queryResult.first?.timeStamp, timeStamp)
+                XCTAssertNotNil(queryResult.first?.coverUrl)
+                XCTAssertNotNil(URL(string: queryResult.first?.coverUrl ?? ""))
                 testExpectation.fulfill()
             case let .failure(error):
                 XCTFail(error.localizedDescription)

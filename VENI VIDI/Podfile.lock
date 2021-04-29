@@ -7,7 +7,7 @@ PODS:
 
 DEPENDENCIES:
   - Cosmos
-  - DCFrame
+  - DCFrame (from `https://github.com/AsterW/DCFrame.git`)
   - SnapKit
   - SwiftFormat/CLI
   - SwiftLint
@@ -15,10 +15,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Cosmos
-    - DCFrame
     - SnapKit
     - SwiftFormat
     - SwiftLint
+
+EXTERNAL SOURCES:
+  DCFrame:
+    :git: https://github.com/AsterW/DCFrame.git
+
+CHECKOUT OPTIONS:
+  DCFrame:
+    :commit: 6f3a27b4c073759a8e276f6e69d4f94503b6e33d
+    :git: https://github.com/AsterW/DCFrame.git
 
 SPEC CHECKSUMS:
   Cosmos: b5c6a9a637e28a061b54c8f8b1d8529d7d4db73f
@@ -27,6 +35,6 @@ SPEC CHECKSUMS:
   SwiftFormat: 48a96bf55d167e44b8eb825f3dbda0e1204e549a
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 8d3eebf2bdf59ce486737b092e485432900f6727
+PODFILE CHECKSUM: 37df7ce56bda19446f1083d603c4dda4eb771379
 
 COCOAPODS: 1.10.1

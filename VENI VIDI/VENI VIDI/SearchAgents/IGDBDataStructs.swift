@@ -29,3 +29,24 @@ struct IGDBAccessTokenResult: Decodable {
     let expires_in: TimeInterval
     let token_type: String
 }
+
+// MARK: - IGDBQueryResults
+
+struct IGDBQueryResults: Decodable {
+    let results: [IGDBDataStruct]
+}
+
+// MARK: - IGDBDataStruct
+
+struct IGDBDataStruct: Decodable {
+    let id: Int
+    let cover: Int?
+    let name: String
+}
+
+// MARK: - IGDBCoverRequestDataStruct
+
+struct IGDBCoverRequestDataStruct: Decodable {
+    let id: Int
+    let url: String
+}
