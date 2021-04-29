@@ -60,8 +60,8 @@ class IGDBSearchAgent: DatabaseSearchAgent {
 
             for game in queriedGames {
                 var result = QueryResult(withIGDBStruct: game, withTimeStamp: timeStamp)
-                let url = retriveCoverImageUrl(withItemID: game.cover)
-                result.coverUrl = url
+//                let url = retriveCoverImageUrl(withItemID: game.cover)
+//                result.coverUrl = url
                 queryResults.append(result)
             }
 
