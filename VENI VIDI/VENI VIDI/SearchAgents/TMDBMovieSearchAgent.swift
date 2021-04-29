@@ -21,7 +21,9 @@ class TMDBMovieSearchAgent: DatabaseSpecificSearchAgent {
 
     // MARK: - DatabaseSpecificSearchAgent Query Function
 
-    func query(withKeyword keyword: String, withTimeStamp timeStamp: TimeInterval, withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+    func query(withKeyword keyword: String,
+               withTimeStamp timeStamp: TimeInterval,
+               withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
         var urlComponents = URLComponents(string: apiUrl)
         urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: apiKey),
                                      URLQueryItem(name: "query", value: keyword)]

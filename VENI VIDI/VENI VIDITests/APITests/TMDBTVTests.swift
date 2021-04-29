@@ -29,8 +29,7 @@ class TMDBTVTests: XCTestCase {
     func testValidQuery() throws {
         let testExpectation = expectation(description: "TMDB TV Show Sense8 test")
         let timeStamp = Date().timeIntervalSince1970
-        tmdbTVAgent.query(withKeyword: "Sense8", withTimeStamp: timeStamp) {
-            result in
+        tmdbTVAgent.query(withKeyword: "Sense8", withTimeStamp: timeStamp) { result in
             switch result {
             case let .success(queryResult):
                 XCTAssertGreaterThan(queryResult.count, 0)

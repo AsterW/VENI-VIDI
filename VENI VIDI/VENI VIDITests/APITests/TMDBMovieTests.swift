@@ -29,8 +29,7 @@ class TMDBMovieTests: XCTestCase {
     func testValidQuery() throws {
         let testExpectation = expectation(description: "TMDB Movie Interstellar test")
         let timeStamp = Date().timeIntervalSince1970
-        tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: timeStamp) {
-            result in
+        tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: timeStamp) { result in
             switch result {
             case let .success(queryResult):
                 XCTAssertGreaterThan(queryResult.count, 0)
