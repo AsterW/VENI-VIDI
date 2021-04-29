@@ -204,7 +204,7 @@ extension DataServiceTests {
             }
         } else { XCTFail("query result should not be nil") }
 
-        let gameEntries = dataService.fetchAllJournalEntries(withCategory: .game)
+        let gameEntries = dataService.fetchAllJournalEntries(withType: .game)
         if let entries = gameEntries {
             XCTAssertFalse(entries.isEmpty)
             for entry in entries {

@@ -33,6 +33,7 @@
 		925FB5C12624A41E00F0176D /* SearchAgentProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FB5C02624A41E00F0176D /* SearchAgentProtocols.swift */; };
 		925FB5CD2624B4C600F0176D /* QueryContentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FB5CC2624B4C600F0176D /* QueryContentType.swift */; };
 		925FB5D22624B69900F0176D /* QueryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 925FB5D12624B69900F0176D /* QueryResult.swift */; };
+		927D52D6263A5DA700858BDA /* TMDBRecommendationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 927D52D5263A5DA700858BDA /* TMDBRecommendationTests.swift */; };
 		927F7657260E957200CE83B9 /* VENI_VIDI.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 927F7655260E957200CE83B9 /* VENI_VIDI.xcdatamodeld */; };
 		92B4D0E525EC407F0028B7BB /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92B4D0E425EC407F0028B7BB /* CloudKit.framework */; };
 		92D1AB9B2624F73B0015E35E /* TMDBMovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92D1AB9A2624F73B0015E35E /* TMDBMovieTests.swift */; };
@@ -137,6 +138,7 @@
 		925FB5C02624A41E00F0176D /* SearchAgentProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchAgentProtocols.swift; sourceTree = "<group>"; };
 		925FB5CC2624B4C600F0176D /* QueryContentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryContentType.swift; sourceTree = "<group>"; };
 		925FB5D12624B69900F0176D /* QueryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryResult.swift; sourceTree = "<group>"; };
+		927D52D5263A5DA700858BDA /* TMDBRecommendationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRecommendationTests.swift; sourceTree = "<group>"; };
 		927F7656260E957200CE83B9 /* VENI_VIDI.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VENI_VIDI.xcdatamodel; sourceTree = "<group>"; };
 		92B4D0E325EC407D0028B7BB /* VENI VIDI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "VENI VIDI.entitlements"; sourceTree = "<group>"; };
 		92B4D0E425EC407F0028B7BB /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -307,6 +309,7 @@
 				92EE2D3826260A5800AB89FD /* TMDBTVTests.swift */,
 				92EE2D3D26264EA800AB89FD /* GeneralSearchAgentTests.swift */,
 				92EE2D512626685100AB89FD /* IGDBTests.swift */,
+				927D52D5263A5DA700858BDA /* TMDBRecommendationTests.swift */,
 			);
 			path = APITests;
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				9247AF1325FDA517004016C3 /* DataServiceTests.swift in Sources */,
 				92EE2D3E26264EA800AB89FD /* GeneralSearchAgentTests.swift in Sources */,
 				92E088C525FF9C39007EAED1 /* (null) in Sources */,
+				927D52D6263A5DA700858BDA /* TMDBRecommendationTests.swift in Sources */,
 				92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

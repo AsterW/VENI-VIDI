@@ -35,7 +35,9 @@ class DataServiceTests: XCTestCase {
     }
 
     override func tearDown() {
-        super.tearDown()
         coreDataStack = nil
+        dataService = nil
+        secondDataService = nil
+        super.tearDown()
     }
 }

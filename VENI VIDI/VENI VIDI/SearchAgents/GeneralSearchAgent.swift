@@ -57,4 +57,16 @@ class GeneralSearchAgent {
         }
         return results
     }
+
+    func getRecommendation(forContentType contentType: QueryContentType,
+                           withDebugDataStack dataStack: CoreDataStack = CoreDataStack(),
+                           withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+        for searchAgent in searchAgents {
+
+            guard contentType == searchAgent.agentType else { continue }
+            guard let recommendationAgent = searchAgent as? DatabaseRecommendationAgent else { continue }
+
+            recommendationAgent.getRandomRecommendation(withDataStack: dataStack, withCompletionHandler: completionHandler)
+        }
+    }
 }

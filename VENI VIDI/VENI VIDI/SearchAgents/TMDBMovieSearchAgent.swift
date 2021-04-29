@@ -8,12 +8,15 @@
 import Foundation
 import UIKit
 
+// MARK: - TMDBMovieSearchAgent
+
 class TMDBMovieSearchAgent: DatabaseSearchAgent {
     // MARK: - Properties
 
     internal let agentType: QueryContentType = .movie
 
     private let apiUrl: String = "https://api.themoviedb.org/3/search/movie"
+    private let itemUrl: String = "https://api.themoviedb.org/3/movie"
     private let apiKey: String = "29748b6586282540605ffb47f2378ad4"
 
     private let imageUrl500 = "https://image.tmdb.org/t/p/w500"
@@ -63,6 +66,58 @@ class TMDBMovieSearchAgent: DatabaseSearchAgent {
             return URL(string: imageUrl500 + path)
         } else {
             return nil
+        }
+    }
+}
+
+// MARK: DatabaseRecommendationAgent
+
+extension TMDBMovieSearchAgent: DatabaseRecommendationAgent {
+
+    // MARK: - Recommendation Function
+
+    func getRandomRecommendation(withDataStack coreDataStack: CoreDataStack,
+                                 withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+
+        let dataService = DataService(coreDataStack: coreDataStack)
+        let seed = dataService.fetchAllJournalEntries(withType: agentType)?.randomElement()
+        guard let seedEntry = seed else { print("no seed entry found for recommendation"); return }
+        guard let seedTitle = seedEntry.worksTitle else { print("work title should not be empty"); return }
+
+        let timeStamp = Date().timeIntervalSince1970
+
+        query(withKeyword: seedTitle, withTimeStamp: timeStamp) { [self] result in
+            switch result {
+            case let .success(seedQueryResult):
+
+                guard let seedId = seedQueryResult.first?.tmdbId else { completionHandler(.failure(.noData)); return }
+
+                var urlComponents = URLComponents(string: itemUrl + "/\(seedId)/similar")
+                urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
+
+                guard let requestURL = urlComponents?.url?.absoluteURL else { completionHandler(.failure(.urlError)); return }
+
+                let dataTask = URLSession.shared.dataTask(with: requestURL) { data, _, _ in
+                    guard let acquiredData = data else { completionHandler(.failure(.noData)); return }
+                    guard let parsedData = try? JSONDecoder().decode(TMDBMovieQueryResults.self, from: acquiredData) else { completionHandler(.failure(.cannotDecodeData)); return }
+                    let queriedMovies = parsedData.results
+
+                    var queryResults: [QueryResult] = []
+                    for movie in queriedMovies {
+                        var result = QueryResult(withMovieStruct: movie, withTimeStamp: timeStamp)
+                        result.coverUrl = movie.poster_path != nil ? self.imageUrl500 + movie.poster_path! : ""
+                        result.description = movie.overview
+                        queryResults.append(result)
+                    }
+
+                    completionHandler(.success(queryResults))
+                }
+
+                dataTask.resume()
+
+            case let .failure(error):
+                completionHandler(.failure(error))
+            }
         }
     }
 }

@@ -17,3 +17,11 @@ protocol DatabaseSearchAgent {
                withTimeStamp timeStamp: TimeInterval,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }
+
+// MARK: - DatabaseRecommendationAgent
+
+protocol DatabaseRecommendationAgent {
+
+    func getRandomRecommendation(withDataStack coreDataStack: CoreDataStack,
+                                 withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
+}
