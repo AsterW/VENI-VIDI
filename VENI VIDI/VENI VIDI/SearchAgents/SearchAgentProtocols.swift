@@ -17,4 +17,3 @@ protocol DatabaseSearchAgent {
                withTimeStamp timeStamp: TimeInterval,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }
-

@@ -111,14 +111,21 @@ extension DataService {
 extension DataService {
     /// This function fetches all journal entries that are in the CoreData data storage.
     /// - Returns: All available journal entries.
-    func fetchAllJournalEntries() -> [JournalEntry]? {
+    /// - Parameter category: the type of JournalEntry to query for
+    func fetchAllJournalEntries(withType type: JournalEntryType? = nil) -> [JournalEntry]? {
         let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
+
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "finishDate", ascending: false)]
+        if let targetType = type {
+            fetchRequest.predicate = NSPredicate(format: "journalTypeText = %@", targetType.rawValue)
+        }
+
         fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest,
                                                               managedObjectContext: managedObjectContext,
                                                               sectionNameKeyPath: nil,
                                                               cacheName: nil)
         fetchedResultsController?.delegate = self
+
         do {
             try fetchedResultsController?.performFetch()
         } catch {

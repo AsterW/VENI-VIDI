@@ -184,23 +184,33 @@ extension DataServiceTests {
 
     func testFetchAllJournalEntriesWithDefaultSort() {
         let date0 = Date(timeIntervalSince1970: 10080)
-        _ = dataService.createJournalEntry(withFinishDate: date0)
+        _ = dataService.createJournalEntry(withType: .book, withFinishDate: date0)
 
         let date1 = Date(timeIntervalSince1970: 10060)
-        _ = dataService.createJournalEntry(withFinishDate: date1)
+        _ = dataService.createJournalEntry(withType: .movie, withFinishDate: date1)
 
         let date2 = Date(timeIntervalSince1970: 10090)
-        _ = dataService.createJournalEntry(withFinishDate: date2)
+        _ = dataService.createJournalEntry(withType: .game, withFinishDate: date2)
 
-        let entries = dataService.fetchAllJournalEntries()
-        XCTAssertEqual(entries?.count, 3)
-        var carryDate = Date(timeIntervalSince1970: 20000)
-        for entry in entries! {
-            let entryDate = entry.finishDate
-            XCTAssertNotNil(entryDate)
-            XCTAssertGreaterThanOrEqual(carryDate, entryDate!)
-            carryDate = entryDate!
-        }
+        let allEntries = dataService.fetchAllJournalEntries()
+        if let entries = allEntries {
+            XCTAssertEqual(entries.count, 3)
+            var carryDate = Date(timeIntervalSince1970: 20000)
+            for entry in entries {
+                let entryDate = entry.finishDate
+                XCTAssertNotNil(entryDate)
+                XCTAssertGreaterThanOrEqual(carryDate, entryDate!)
+                carryDate = entryDate!
+            }
+        } else { XCTFail("query result should not be nil") }
+
+        let gameEntries = dataService.fetchAllJournalEntries(withCategory: .game)
+        if let entries = gameEntries {
+            XCTAssertFalse(entries.isEmpty)
+            for entry in entries {
+                XCTAssertEqual(entry.journalType, .game)
+            }
+        } else { XCTFail("query result should not be nil") }
     }
 
     // swiftlint:disable:next function_body_length
