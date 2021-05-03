@@ -8,6 +8,7 @@
 import DCFrame
 import Foundation
 import UIKit
+import WidgetKit
 
 // MARK: - SimpleListContainerModel
 
@@ -70,9 +71,6 @@ class SimpleListContainerModel: VVContainerModel {
                     model.picture = UIImage(systemName: "star.fill")
                 }
                 model.rating = Double(item.rating)
-//                if let tags = item.tags {
-//                    model.tags = tags.allObjects as? [String] ?? []
-//                }
                 addSubmodel(model, separator: .bottom, height: 2)
             }
         }
@@ -129,7 +127,16 @@ class SimpleListContainerModel: VVContainerModel {
 
         getEntryData()
 
-        if let entriesToDisplay = entries {
+        if let entriesToDisplay = entries, !entriesToDisplay.isEmpty {
+            let widgetEntry = entriesToDisplay[0]
+            let userDefault = UserDefaults(suiteName: "group.BEST-CSE439S-GROUP.VENI-VIDI.widget")
+            if let widgetTitle = widgetEntry.entryTitle {
+                userDefault?.setValue(widgetTitle, forKey: "title")
+            }
+            if let widgetCover = widgetEntry.image {
+                userDefault?.setValue(widgetCover, forKey: "cover")
+            }
+            WidgetCenter.shared.reloadAllTimelines()
             for item in entriesToDisplay {
                 if type != "all" {
                     if item.journalType.rawValue != type {

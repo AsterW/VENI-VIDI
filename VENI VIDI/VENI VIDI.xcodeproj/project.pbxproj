@@ -12,6 +12,13 @@
 		770297CF25EB929500A72E5E /* DCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770297CE25EB929500A72E5E /* DCViewController.swift */; };
 		7738A4C5262DF32200EA4372 /* TimelinePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7738A4C4262DF32200EA4372 /* TimelinePickerCell.swift */; };
 		7741FD7326122C5300695C7C /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7741FD7226122C5300695C7C /* Extensions.swift */; };
+		7771A745263E4180003DB248 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7771A744263E4180003DB248 /* WidgetKit.framework */; };
+		7771A747263E4180003DB248 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7771A746263E4180003DB248 /* SwiftUI.framework */; };
+		7771A74A263E4180003DB248 /* VVWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7771A749263E4180003DB248 /* VVWidget.swift */; };
+		7771A74D263E4181003DB248 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7771A74C263E4181003DB248 /* Assets.xcassets */; };
+		7771A74F263E4181003DB248 /* VVWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7771A74B263E4180003DB248 /* VVWidget.intentdefinition */; };
+		7771A750263E4181003DB248 /* VVWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 7771A74B263E4180003DB248 /* VVWidget.intentdefinition */; };
+		7771A753263E4181003DB248 /* VVWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7771A743263E4180003DB248 /* VVWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		77ABC8C52611AC8A00F32F19 /* BookInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8C42611AC8A00F32F19 /* BookInfoModel.swift */; };
 		77ABC8CA2611BC4800F32F19 /* SearchCM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8C92611BC4800F32F19 /* SearchCM.swift */; };
 		77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77ABC8CE2611BC7E00F32F19 /* SearchCellModel.swift */; };
@@ -89,6 +96,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7771A751263E4181003DB248 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92F7EA6B25D782350039DF3C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7771A742263E4180003DB248;
+			remoteInfo = VVWidgetExtension;
+		};
 		92F7EA8D25D782380039DF3C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 92F7EA6B25D782350039DF3C /* Project object */;
@@ -105,6 +119,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		7771A754263E4181003DB248 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7771A753263E4181003DB248 /* VVWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0E554AB3C26B5B70137DF6B3 /* Pods_VENI_VIDITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VENI_VIDITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FD5306BACF3ACFEA0C4F6B1 /* Pods-VENI VIDITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VENI VIDITests.debug.xcconfig"; path = "Target Support Files/Pods-VENI VIDITests/Pods-VENI VIDITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +144,14 @@
 		770297CE25EB929500A72E5E /* DCViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DCViewController.swift; sourceTree = "<group>"; };
 		7738A4C4262DF32200EA4372 /* TimelinePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelinePickerCell.swift; sourceTree = "<group>"; };
 		7741FD7226122C5300695C7C /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		7771A743263E4180003DB248 /* VVWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = VVWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7771A744263E4180003DB248 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		7771A746263E4180003DB248 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		7771A749263E4180003DB248 /* VVWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VVWidget.swift; sourceTree = "<group>"; };
+		7771A74B263E4180003DB248 /* VVWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = VVWidget.intentdefinition; sourceTree = "<group>"; };
+		7771A74C263E4181003DB248 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7771A74E263E4181003DB248 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7771A7BF263F26B5003DB248 /* VVWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VVWidgetExtension.entitlements; sourceTree = "<group>"; };
 		77ABC8C42611AC8A00F32F19 /* BookInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookInfoModel.swift; sourceTree = "<group>"; };
 		77ABC8C92611BC4800F32F19 /* SearchCM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCM.swift; sourceTree = "<group>"; };
 		77ABC8CE2611BC7E00F32F19 /* SearchCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCellModel.swift; sourceTree = "<group>"; };
@@ -199,6 +235,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7771A740263E4180003DB248 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7771A747263E4180003DB248 /* SwiftUI.framework in Frameworks */,
+				7771A745263E4180003DB248 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92F7EA7025D782350039DF3C /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,6 +279,8 @@
 				1D53A0B0676FAC0E66A02502 /* Pods_VENI_VIDI.framework */,
 				1B03D9EE258869A92AF5AB57 /* Pods_VENI_VIDI_VENI_VIDIUITests.framework */,
 				0E554AB3C26B5B70137DF6B3 /* Pods_VENI_VIDITests.framework */,
+				7771A744263E4180003DB248 /* WidgetKit.framework */,
+				7771A746263E4180003DB248 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -249,6 +296,17 @@
 				504422FE8B98923DAD1983C6 /* Pods-VENI VIDITests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		7771A748263E4180003DB248 /* VVWidget */ = {
+			isa = PBXGroup;
+			children = (
+				7771A749263E4180003DB248 /* VVWidget.swift */,
+				7771A74B263E4180003DB248 /* VVWidget.intentdefinition */,
+				7771A74C263E4181003DB248 /* Assets.xcassets */,
+				7771A74E263E4181003DB248 /* Info.plist */,
+			);
+			path = VVWidget;
 			sourceTree = "<group>";
 		};
 		77ABC8C32611AC6900F32F19 /* Search */ = {
@@ -315,11 +373,13 @@
 		92F7EA6A25D782350039DF3C = {
 			isa = PBXGroup;
 			children = (
+				7771A7BF263F26B5003DB248 /* VVWidgetExtension.entitlements */,
 				9214F17A26347B7A00FD7510 /* .swiftformat */,
 				9214F139263476AA00FD7510 /* .swiftlint.yml */,
 				92F7EA7525D782350039DF3C /* VENI VIDI */,
 				92F7EA8F25D782380039DF3C /* VENI VIDITests */,
 				92F7EA9A25D782380039DF3C /* VENI VIDIUITests */,
+				7771A748263E4180003DB248 /* VVWidget */,
 				92F7EA7425D782350039DF3C /* Products */,
 				3242CFFF13FCB29CE4C72372 /* Pods */,
 				23602BA1AD916E8C58379DE9 /* Frameworks */,
@@ -332,6 +392,7 @@
 				92F7EA7325D782350039DF3C /* VENI VIDI.app */,
 				92F7EA8C25D782380039DF3C /* VENI VIDITests.xctest */,
 				92F7EA9725D782380039DF3C /* VENI VIDIUITests.xctest */,
+				7771A743263E4180003DB248 /* VVWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -446,6 +507,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7771A742263E4180003DB248 /* VVWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7771A757263E4181003DB248 /* Build configuration list for PBXNativeTarget "VVWidgetExtension" */;
+			buildPhases = (
+				7771A73F263E4180003DB248 /* Sources */,
+				7771A740263E4180003DB248 /* Frameworks */,
+				7771A741263E4180003DB248 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VVWidgetExtension;
+			productName = VVWidgetExtension;
+			productReference = 7771A743263E4180003DB248 /* VVWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		92F7EA7225D782350039DF3C /* VENI VIDI */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 92F7EAA025D782380039DF3C /* Build configuration list for PBXNativeTarget "VENI VIDI" */;
@@ -457,10 +535,12 @@
 				92F7EA7025D782350039DF3C /* Frameworks */,
 				92F7EA7125D782350039DF3C /* Resources */,
 				EC901025AC9C64964B1B9704 /* [CP] Embed Pods Frameworks */,
+				7771A754263E4181003DB248 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7771A752263E4181003DB248 /* PBXTargetDependency */,
 			);
 			name = "VENI VIDI";
 			productName = "VENI VIDI";
@@ -515,6 +595,9 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					7771A742263E4180003DB248 = {
+						CreatedOnToolsVersion = 12.4;
+					};
 					92F7EA7225D782350039DF3C = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -544,11 +627,20 @@
 				92F7EA7225D782350039DF3C /* VENI VIDI */,
 				92F7EA8B25D782380039DF3C /* VENI VIDITests */,
 				92F7EA9625D782380039DF3C /* VENI VIDIUITests */,
+				7771A742263E4180003DB248 /* VVWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7771A741263E4180003DB248 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7771A74D263E4181003DB248 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92F7EA7125D782350039DF3C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -717,6 +809,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7771A73F263E4180003DB248 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7771A74F263E4181003DB248 /* VVWidget.intentdefinition in Sources */,
+				7771A74A263E4180003DB248 /* VVWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		92F7EA6F25D782350039DF3C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -766,6 +867,7 @@
 				925FB5D22624B69900F0176D /* QueryResult.swift in Sources */,
 				77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */,
 				92EE2D4D2626636F00AB89FD /* IGDBDataStructs.swift in Sources */,
+				7771A750263E4181003DB248 /* VVWidget.intentdefinition in Sources */,
 				77E8EB7426366E8600DBDA5E /* ShelfViewController.swift in Sources */,
 				7738A4C5262DF32200EA4372 /* TimelinePickerCell.swift in Sources */,
 				E0DA6EA825E8DAE8002451BC /* DetailedEntryContainerModel.swift in Sources */,
@@ -811,6 +913,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7771A752263E4181003DB248 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7771A742263E4180003DB248 /* VVWidgetExtension */;
+			targetProxy = 7771A751263E4181003DB248 /* PBXContainerItemProxy */;
+		};
 		92F7EA8E25D782380039DF3C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 92F7EA7225D782350039DF3C /* VENI VIDI */;
@@ -843,6 +950,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7771A755263E4181003DB248 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = VVWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQ3V95F8D5;
+				INFOPLIST_FILE = VVWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDI.VVWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7771A756263E4181003DB248 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = VVWidgetExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VQ3V95F8D5;
+				INFOPLIST_FILE = VVWidget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDI.VVWidget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		92F7EA9E25D782380039DF3C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -963,9 +1114,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A7FA7002CFA9184FC68BCF3A /* Pods-VENI VIDI.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "VENI VIDI/VENI VIDI.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQ3V95F8D5;
 				INFOPLIST_FILE = "VENI VIDI/Info.plist";
@@ -976,8 +1129,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -985,9 +1139,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6336FF3F1B0275E343A9D30B /* Pods-VENI VIDI.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "VENI VIDI/VENI VIDI.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VQ3V95F8D5;
 				INFOPLIST_FILE = "VENI VIDI/Info.plist";
@@ -998,8 +1154,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "BEST-CSE439S-GROUP.VENI-VIDI";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1108,6 +1265,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7771A757263E4181003DB248 /* Build configuration list for PBXNativeTarget "VVWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7771A755263E4181003DB248 /* Debug */,
+				7771A756263E4181003DB248 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		92F7EA6E25D782350039DF3C /* Build configuration list for PBXProject "VENI VIDI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -9,6 +9,7 @@ import Cosmos
 import DCFrame
 import Foundation
 import SnapKit
+import WidgetKit
 
 // swiftlint:disable:next type_body_length
 class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
@@ -53,7 +54,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
         comment.accessibilityLabel = "Entry Note"
         comment.layer.cornerRadius = 6
         comment.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        comment.textColor = .systemYellow
         return comment
     }()
 
@@ -109,7 +109,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
         super.setupUI()
 
         comment.delegate = self
-        comment.textColor = UIColor.systemYellow
 
         contentView.addSubview(poster)
         contentView.addSubview(favoriteButton)
@@ -281,8 +280,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
                     yOffset += 35
                 }
 
-                // tagView.addSubview(tagLabel)
-//                tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width, height: 30)
                 let tagV = CustomTagView()
                 tagView.addSubview(tagV)
 
@@ -347,7 +344,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
             xCor = 5
             yCor += 35
         }
-//
+
         newTag.frame = CGRect(x: xCor, y: yCor, width: 80, height: 30)
         newTag.layer
             .cornerRadius = 15
@@ -424,9 +421,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
 
         newTitle = cellModel.entryTitle
 
-        if let image = poster.image {
-            newImage = image
-        }
+        newImage = poster.image ?? UIImage(named: "logo_backgruond")
 
         if let content = comment.text {
             newContent = content
@@ -465,6 +460,11 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
                                                  withTags: newTags,
                                                  withRating: stars.rating,
                                                  isFavorite: favorite)
+
+        let userDefault = UserDefaults(suiteName: "group.BEST-CSE439S-GROUP.VENI-VIDI.widget")
+        userDefault?.setValue(newTitle, forKey: "title")
+        userDefault?.setValue(newImage?.pngData(), forKey: "cover")
+        WidgetCenter.shared.reloadAllTimelines()
 
         _ = navigationController.popViewController(animated: true)
     }
