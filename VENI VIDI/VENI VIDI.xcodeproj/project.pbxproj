@@ -55,7 +55,6 @@
 		92F8A85B262DD7C4003068AC /* JournalEntryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F8A85A262DD7C4003068AC /* JournalEntryType.swift */; };
 		92F8A868262DDCE6003068AC /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F8A867262DDCE6003068AC /* JournalEntry+CoreDataClass.swift */; };
 		92FD9C712612335D005D6C2A /* GeneralSearchAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD9C702612335D005D6C2A /* GeneralSearchAgent.swift */; };
-		92FD9C762612342B005D6C2A /* GoogleBooksSearchAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD9C752612342B005D6C2A /* GoogleBooksSearchAgent.swift */; };
 		92FD9C7B26123457005D6C2A /* TMDBMovieSearchAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD9C7A26123457005D6C2A /* TMDBMovieSearchAgent.swift */; };
 		92FD9C8026123466005D6C2A /* IGDBSearchAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD9C7F26123466005D6C2A /* IGDBSearchAgent.swift */; };
 		92FD9C8E26123706005D6C2A /* TMDBDataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FD9C8D26123706005D6C2A /* TMDBDataStructs.swift */; };
@@ -165,7 +164,6 @@
 		92F8A85A262DD7C4003068AC /* JournalEntryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryType.swift; sourceTree = "<group>"; };
 		92F8A867262DDCE6003068AC /* JournalEntry+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JournalEntry+CoreDataClass.swift"; sourceTree = "<group>"; };
 		92FD9C702612335D005D6C2A /* GeneralSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSearchAgent.swift; sourceTree = "<group>"; };
-		92FD9C752612342B005D6C2A /* GoogleBooksSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleBooksSearchAgent.swift; sourceTree = "<group>"; };
 		92FD9C7A26123457005D6C2A /* TMDBMovieSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBMovieSearchAgent.swift; sourceTree = "<group>"; };
 		92FD9C7F26123466005D6C2A /* IGDBSearchAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IGDBSearchAgent.swift; sourceTree = "<group>"; };
 		92FD9C8D26123706005D6C2A /* TMDBDataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBDataStructs.swift; sourceTree = "<group>"; };
@@ -391,7 +389,6 @@
 				92FD9C702612335D005D6C2A /* GeneralSearchAgent.swift */,
 				925FB5C02624A41E00F0176D /* SearchAgentProtocols.swift */,
 				925FB5D12624B69900F0176D /* QueryResult.swift */,
-				92FD9C752612342B005D6C2A /* GoogleBooksSearchAgent.swift */,
 				92FD9C7A26123457005D6C2A /* TMDBMovieSearchAgent.swift */,
 				92EE2D33262601B700AB89FD /* TMDBTVSearchAgent.swift */,
 				92FD9C8D26123706005D6C2A /* TMDBDataStructs.swift */,
@@ -765,7 +762,6 @@
 				E029AB49262193F10016463C /* ExtensionNav.swift in Sources */,
 				92E4EB1F261384CE00B6EA70 /* DataServiceDelegate.swift in Sources */,
 				77E8EB8326370E7400DBDA5E /* ShelfCollectionCell.swift in Sources */,
-				92FD9C762612342B005D6C2A /* GoogleBooksSearchAgent.swift in Sources */,
 				925FB5C12624A41E00F0176D /* SearchAgentProtocols.swift in Sources */,
 				925FB5D22624B69900F0176D /* QueryResult.swift in Sources */,
 				77ABC8CF2611BC7E00F32F19 /* SearchCellModel.swift in Sources */,

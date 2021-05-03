@@ -79,30 +79,6 @@ class GeneralSearchAgentTests: XCTestCase {
         XCTAssertEqual(searchResults[.game]?.count ?? 0, 0)
     }
 
-    // TODO:
-//    func testSearchBooks() throws {
-//        expectations.append(expectation(description: "Single Book Search - 2001"))
-//        generalSearchAgent.query(withKeyword: "2001", forContentType: .tvShow) { [self] result in
-//            switch result {
-//            case let .success(results):
-//                if let contentType = results.first?.type {
-//                    searchResults[contentType] = results
-//                }
-//                expectations.first?.fulfill()
-//                if !expectations.isEmpty {
-//                expectations.removeFirst()
-//                }
-//            case let .failure(error):
-//                XCTFail(error.localizedDescription)
-//            }
-//        }
-//        waitForExpectations(timeout: 10, handler: nil)
-//        XCTAssertGreaterThan(searchResults[.book]?.count ?? 0, 0)
-//        XCTAssertEqual(searchResults[.tvShow]?.count ?? 0, 0)
-//        XCTAssertEqual(searchResults[.movie]?.count ?? 0, 0)
-//        XCTAssertEqual(searchResults[.game]?.count ?? 0, 0)
-//    }
-
     func testSearchGames() throws {
         expectations.append(expectation(description: "Single Game Search - EVE Online"))
         generalSearchAgent.query(withKeyword: "EVE Online", forContentType: .game) { [self] result in
@@ -127,8 +103,6 @@ class GeneralSearchAgentTests: XCTestCase {
     }
 
     func testSearchAllCategories() throws {
-        // TODO: include book query agent
-        // for index in 1 ... 4 {
         for index in 1 ... 3 {
             expectations.append(expectation(description: "Expectation #\(index)"))
         }
@@ -150,52 +124,7 @@ class GeneralSearchAgentTests: XCTestCase {
         XCTAssertGreaterThan(searchResults[.tvShow]?.count ?? 0, 0)
         XCTAssertGreaterThan(searchResults[.movie]?.count ?? 0, 0)
         XCTAssertGreaterThan(searchResults[.game]?.count ?? 0, 0)
-        // TODO: include book query agent
-//        XCTAssertGreaterThan(searchResults[.book]?.count ?? 0, 0)
     }
-
-//    func testConsecutiveSearch() throws {
-//        for index in 1 ... 4 {
-//            expectations.append(expectation(description: "Expectation #\(index)"))
-//        }
-//
-//        generalSearchAgent.query(withKeyword: "Apple") { [self] result in
-//            switch result {
-//            case .success:
-//                expectations.first?.fulfill()
-//                if !expectations.isEmpty {
-//                expectations.removeFirst()
-//                }
-//            case .failure: break
-//                // TODO: Commented out since not all API agents are finished
-//                // XCTFail(error.localizedDescription)
-//            }
-//        }
-//
-//        let timeStamp = Date().timeIntervalSince1970
-//
-//        generalSearchAgent.query(withKeyword: "Apple") { [self] result in
-//            switch result {
-//            case let .success(results):
-//                if let contentType = results.first?.type {
-//                    searchResults[contentType] = results
-//                }
-//                expectations.first?.fulfill()
-//                if !expectations.isEmpty {
-//                expectations.removeFirst()
-//                }
-//            case .failure: break
-//                // TODO: Commented out since not all API agents are finished
-//                // XCTFail(error.localizedDescription)
-//            }
-//        }
-//        waitForExpectations(timeout: 10, handler: nil)
-//
-//        let results = searchResults.map { _, value in value }.reduce([], +)
-//        for result in results {
-//            XCTAssertGreaterThan(result.timeStamp, timeStamp)
-//        }
-//    }
 
     // MARK: - Performance Tests
 
