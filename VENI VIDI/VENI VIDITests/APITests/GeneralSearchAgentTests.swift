@@ -126,6 +126,39 @@ class GeneralSearchAgentTests: XCTestCase {
         XCTAssertGreaterThan(searchResults[.game]?.count ?? 0, 0)
     }
 
+    func testRandomRecommendation() {
+
+        let coreDataStack = TestCoreDataStack()
+        let dataService = DataService(coreDataStack: coreDataStack)
+
+        dataService.createJournalEntry(aboutWork: "Sense8", withType: .tvShow)
+        dataService.createJournalEntry(aboutWork: "Interstellar", withType: .movie)
+
+        let movieExpectation = expectation(description: "Expection for Interstellar-based random recommendation")
+        let tvShowExpectation = expectation(description: "Expection for Sense8-based random recommendation")
+
+        generalSearchAgent.getRecommendation(forContentType: .movie, withDebugDataStack: coreDataStack) { reuslt in
+            switch reuslt {
+            case let .success(results):
+                XCTAssertGreaterThan(results.count, 0)
+                movieExpectation.fulfill()
+            case let .failure(error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+        generalSearchAgent.getRecommendation(forContentType: .tvShow, withDebugDataStack: coreDataStack) { reuslt in
+            switch reuslt {
+            case let .success(results):
+                XCTAssertGreaterThan(results.count, 0)
+                tvShowExpectation.fulfill()
+            case let .failure(error):
+                XCTFail(error.localizedDescription)
+            }
+        }
+
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+
     // MARK: - Performance Tests
 
     func testPerformanceExample() throws {
