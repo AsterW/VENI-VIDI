@@ -9,6 +9,7 @@ import Cosmos
 import DCFrame
 import Foundation
 import SnapKit
+import WidgetKit
 
 // swiftlint:disable:next type_body_length
 class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
@@ -424,9 +425,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
 
         newTitle = cellModel.entryTitle
 
-        if let image = poster.image {
-            newImage = image
-        }
+        newImage = poster.image ?? UIImage(named: "logo_backgruond")
 
         if let content = comment.text {
             newContent = content
@@ -465,6 +464,11 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
                                                  withTags: newTags,
                                                  withRating: stars.rating,
                                                  isFavorite: favorite)
+
+        let userDefault = UserDefaults(suiteName: "group.BEST-CSE439S-GROUP.VENI-VIDI.widget")
+        userDefault?.setValue(newTitle, forKey: "title")
+        userDefault?.setValue(newImage?.pngData(), forKey: "cover")
+        WidgetCenter.shared.reloadAllTimelines()
 
         _ = navigationController.popViewController(animated: true)
     }
