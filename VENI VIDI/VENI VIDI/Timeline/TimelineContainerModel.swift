@@ -71,9 +71,6 @@ class SimpleListContainerModel: VVContainerModel {
                     model.picture = UIImage(systemName: "star.fill")
                 }
                 model.rating = Double(item.rating)
-//                if let tags = item.tags {
-//                    model.tags = tags.allObjects as? [String] ?? []
-//                }
                 addSubmodel(model, separator: .bottom, height: 2)
             }
         }
@@ -130,7 +127,7 @@ class SimpleListContainerModel: VVContainerModel {
 
         getEntryData()
 
-        if let entriesToDisplay = entries {
+        if let entriesToDisplay = entries, !entriesToDisplay.isEmpty {
             let widgetEntry = entriesToDisplay[0]
             let userDefault = UserDefaults(suiteName: "group.BEST-CSE439S-GROUP.VENI-VIDI.widget")
             if let widgetTitle = widgetEntry.entryTitle {

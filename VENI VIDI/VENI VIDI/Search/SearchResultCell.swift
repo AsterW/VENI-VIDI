@@ -53,6 +53,7 @@ class SearchResultCell: DCCell<SearchResultCellModel> {
     override func cellModelDidLoad() {
         super.cellModelDidLoad()
         titleView.text = cellModel.title
+        titleView.font = UIFont.systemFont(ofSize: 20)
         let str = cellModel.coverURL.replacingOccurrences(of: "http:", with: "https:")
         guard let url = URL(string: str) else { return }
 
