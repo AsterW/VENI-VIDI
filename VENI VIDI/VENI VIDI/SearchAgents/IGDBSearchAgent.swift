@@ -44,7 +44,11 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         urlRequest.addValue(clientID, forHTTPHeaderField: "Client-iD")
         urlRequest.httpBody = Data("fields id,name,cover; search \"\(keyword)\";".utf8)
 
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { [self] data, _, _ in
+        var queriedGames: [IGDBDataStruct] = []
+
+        let dispatchGroup = DispatchGroup()
+        dispatchGroup.enter()
+        let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
 
             guard let acquiredData = data else {
                 completionHandler(.failure(.noData))
@@ -55,19 +59,45 @@ class IGDBSearchAgent: DatabaseSearchAgent {
                 return
             }
 
-            let queriedGames = parsedData
-            var queryResults: [QueryResult] = []
+            queriedGames = parsedData
+            dispatchGroup.leave()
+        }
 
-            for game in queriedGames {
-                var result = QueryResult(withIGDBStruct: game, withTimeStamp: timeStamp)
-//                let url = retriveCoverImageUrl(withItemID: game.cover)
-//                result.coverUrl = url
-                queryResults.append(result)
+        dataTask.resume()
+        dispatchGroup.wait()
+
+        var queryResults: [QueryResult] = []
+        for game in queriedGames {
+
+            var result = QueryResult(withIGDBStruct: game, withTimeStamp: timeStamp)
+
+            guard let requestUrl = URL(string: coverRequestUrl) else { dispatchGroup.leave(); return }
+            var urlRequest = URLRequest(url: requestUrl)
+
+            urlRequest.httpMethod = "POST"
+            urlRequest.addValue("text/plain", forHTTPHeaderField: "Content-Type")
+            urlRequest.addValue(accessToken, forHTTPHeaderField: "Authorization")
+            urlRequest.addValue(clientID, forHTTPHeaderField: "Client-ID")
+            urlRequest.httpBody = Data("fields url; where game = \(game.id);".utf8)
+
+            let dispatchGroup = DispatchGroup()
+            dispatchGroup.enter()
+
+            let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
+                guard let acquiredData = data else { dispatchGroup.leave(); return }
+                guard let parsedData =
+                    try? JSONDecoder().decode([IGDBCoverRequestDataStruct].self, from: acquiredData).first else { dispatchGroup.leave(); return }
+                result.coverUrl = parsedData.url
+                dispatchGroup.leave()
             }
 
-            completionHandler(.success(queryResults))
+            dataTask.resume()
+            dispatchGroup.wait()
+
+            queryResults.append(result)
         }
-        dataTask.resume()
+
+        completionHandler(.success(queryResults))
     }
 
     // MARK: - Helper Functions for Access Token
@@ -117,35 +147,5 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { _, _, _ in }
 
         dataTask.resume()
-    }
-
-    // MARK: - Helper Function for Retrive Cover Url
-
-    func retriveCoverImageUrl(withItemID itemID: Int?) -> String? {
-        // swiftlint:disable:next identifier_name
-        guard let id = itemID else {
-            print("retriveCoverImageUrl returns due to nil input")
-            return nil
-        }
-        guard let requestUrl = URL(string: coverRequestUrl) else { fatalError() }
-        var urlRequest = URLRequest(url: requestUrl)
-
-        urlRequest.httpMethod = "POST"
-        urlRequest.addValue("text/plain", forHTTPHeaderField: "Content-Type")
-        urlRequest.addValue(accessToken, forHTTPHeaderField: "Authorization")
-        urlRequest.addValue(clientID, forHTTPHeaderField: "Client-iD")
-        urlRequest.httpBody = Data("fields url; where game = \(id);".utf8)
-
-        var urlToReturn: String?
-
-        let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
-            guard let acquiredData = data else { return }
-            guard let parsedData =
-                try? JSONDecoder().decode(IGDBCoverRequestDataStruct.self, from: acquiredData) else { return }
-            urlToReturn = parsedData.url
-        }
-
-        dataTask.resume()
-        return urlToReturn
     }
 }

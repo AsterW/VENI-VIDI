@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol DataServiceDelegate: class {
+protocol DataServiceDelegate: AnyObject {
     func fetchAllJournalEntriesResultDidChange(_ result: [JournalEntry])
 }
