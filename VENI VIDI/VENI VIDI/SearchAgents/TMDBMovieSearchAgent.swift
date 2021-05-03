@@ -77,20 +77,14 @@ extension TMDBMovieSearchAgent: DatabaseRecommendationAgent {
     // MARK: - Recommendation Function
 
     func getRandomRecommendation(withDataStack coreDataStack: CoreDataStack = CoreDataStack(),
-                                 withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+                                 withCompletionHandler completionHandler:
+                                 @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
 
         let dataService = DataService(coreDataStack: coreDataStack)
         let seed = dataService.fetchAllJournalEntries(withType: agentType)?.randomElement()
 
-        guard let seedEntry = seed else {
-            completionHandler(.failure(.noData))
-            return
-        }
-
-        guard let seedTitle = seedEntry.worksTitle else {
-            completionHandler(.failure(.noData))
-            return
-        }
+        guard let seedEntry = seed else { completionHandler(.failure(.noData)); return }
+        guard let seedTitle = seedEntry.worksTitle else { completionHandler(.failure(.noData)); return }
 
         var seedTMDBId: Int?
         let timeStamp = Date().timeIntervalSince1970
@@ -119,22 +113,17 @@ extension TMDBMovieSearchAgent: DatabaseRecommendationAgent {
 
         dispatchGroup.wait()
 
-        guard let seedId = seedTMDBId else {
-            completionHandler(.failure(.noData))
-            return
-        }
+        guard let seedId = seedTMDBId else { completionHandler(.failure(.noData)); return }
 
         var urlComponents = URLComponents(string: itemUrl + "/\(seedId)/similar")
         urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: apiKey)]
 
-        guard let requestURL = urlComponents?.url?.absoluteURL else {
-            completionHandler(.failure(.urlError))
-            return
-        }
+        guard let requestURL = urlComponents?.url?.absoluteURL else { completionHandler(.failure(.urlError)); return }
 
         let dataTask = URLSession.shared.dataTask(with: requestURL) { data, _, _ in
             guard let acquiredData = data else { completionHandler(.failure(.noData)); return }
-            guard let parsedData = try? JSONDecoder().decode(TMDBMovieQueryResults.self, from: acquiredData) else { completionHandler(.failure(.cannotDecodeData)); return }
+            guard let parsedData = try? JSONDecoder().decode(TMDBMovieQueryResults.self, from: acquiredData)
+            else { completionHandler(.failure(.cannotDecodeData)); return }
             let queriedMovies = parsedData.results
 
             var queryResults: [QueryResult] = []

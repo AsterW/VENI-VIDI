@@ -329,7 +329,6 @@ extension DataService {
             delegate?.fetchAllJournalEntriesResultDidChange(updatedJournalEntries)
         } else {
             print("Error: NSFetchedResultsController has a NSFetchRequestResult type different from JournalEntry.")
-            // swiftlint:disable:previous line_length
         }
     }
 }

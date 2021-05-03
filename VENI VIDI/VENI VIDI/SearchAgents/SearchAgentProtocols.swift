@@ -23,5 +23,6 @@ protocol DatabaseSearchAgent {
 protocol DatabaseRecommendationAgent {
 
     func getRandomRecommendation(withDataStack coreDataStack: CoreDataStack,
-                                 withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
+                                 withCompletionHandler completionHandler:
+                                 @escaping (Result<[QueryResult], QueryAgentError>) -> Void)
 }

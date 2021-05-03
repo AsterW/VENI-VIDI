@@ -32,15 +32,13 @@ class IGDBSearchAgent: DatabaseSearchAgent {
 
     // MARK: - DatabaseSpecificSearchAgent Query Function
 
+    // swiftlint:disable:next function_body_length
     func query(withKeyword keyword: String,
                withTimeStamp timeStamp: TimeInterval,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
-        guard let targetUrl = URL(string: gameSearchUrl) else {
-            completionHandler(.failure(.urlError))
-            return
-        }
-        var urlRequest = URLRequest(url: targetUrl)
 
+        guard let targetUrl = URL(string: gameSearchUrl) else { completionHandler(.failure(.urlError)); return }
+        var urlRequest = URLRequest(url: targetUrl)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("text/plain", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue(accessToken, forHTTPHeaderField: "Authorization")
@@ -52,15 +50,9 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
-
-            guard let acquiredData = data else {
-                completionHandler(.failure(.noData))
-                return
-            }
-            guard let parsedData = try? JSONDecoder().decode([IGDBDataStruct].self, from: acquiredData) else {
-                completionHandler(.failure(.cannotDecodeData))
-                return
-            }
+            guard let acquiredData = data else { completionHandler(.failure(.noData)); return }
+            guard let parsedData = try? JSONDecoder().decode([IGDBDataStruct].self, from: acquiredData)
+            else { completionHandler(.failure(.cannotDecodeData)); return }
 
             queriedGames = parsedData
             dispatchGroup.leave()
@@ -89,7 +81,8 @@ class IGDBSearchAgent: DatabaseSearchAgent {
             let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
                 guard let acquiredData = data else { dispatchGroup.leave(); return }
                 guard let parsedData =
-                    try? JSONDecoder().decode([IGDBCoverRequestDataStruct].self, from: acquiredData).first else { dispatchGroup.leave(); return }
+                    try? JSONDecoder().decode([IGDBCoverRequestDataStruct].self, from: acquiredData).first
+                else { dispatchGroup.leave(); return }
                 result.coverUrl = parsedData.url
                 dispatchGroup.leave()
             }
