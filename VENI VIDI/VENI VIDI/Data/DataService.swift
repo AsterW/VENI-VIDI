@@ -17,7 +17,7 @@ final class DataService: NSObject, NSFetchedResultsControllerDelegate {
     private let managedObjectContext: NSManagedObjectContext
     private let coreDataStack: CoreDataStack
     private var fetchedResultsController: NSFetchedResultsController<JournalEntry>?
-    weak var delegate: DataServiceDelegate?
+    weak var delegate: DataServiceDelegate!
 
     // MARK: - Initializers
 
