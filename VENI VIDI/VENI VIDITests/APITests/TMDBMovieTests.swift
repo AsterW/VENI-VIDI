@@ -14,21 +14,22 @@ class TMDBMovieTests: XCTestCase {
 
     var tmdbMovieAgent: TMDBMovieSearchAgent!
 
-    override func setUpWithError() throws {
+    override func setUp() {
         super.setUp()
         tmdbMovieAgent = TMDBMovieSearchAgent()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         tmdbMovieAgent = nil
         super.tearDown()
     }
 
     // MARK: - Behavior Tests
 
-    func testValidQuery() throws {
+    func testValidQuery() {
         let testExpectation = expectation(description: "TMDB Movie Interstellar test")
         let timeStamp = Date().timeIntervalSince1970
+
         tmdbMovieAgent.query(withKeyword: "Interstellar", withTimeStamp: timeStamp) { result in
             switch result {
             case let .success(queryResult):
@@ -45,8 +46,9 @@ class TMDBMovieTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
 
-    func testInvalidQuery() throws {
+    func testInvalidQuery() {
         let testExpectation = expectation(description: "TMDB Movie no result test")
+
         tmdbMovieAgent.query(withKeyword: "qwerzxcvasdfjlk;", withTimeStamp: Date().timeIntervalSince1970) { result in
             switch result {
             case let .success(queryResult):
@@ -83,7 +85,7 @@ class TMDBMovieTests: XCTestCase {
 
     // MARK: - Performance Tests
 
-    func testPerformanceValidQuery() throws {
+    func testPerformanceValidQuery() {
         measure {
             let testExpectation = expectation(description: "TMDB Movie Interstellar test")
 
@@ -101,7 +103,7 @@ class TMDBMovieTests: XCTestCase {
         }
     }
 
-    func testPerformanceInvalidQuery() throws {
+    func testPerformanceInvalidQuery() {
         measure {
             let testExpectation = expectation(description: "TMDB Movie no result test")
 

@@ -50,6 +50,7 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         let dispatchGroup = DispatchGroup()
         dispatchGroup.enter()
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
+
             guard let acquiredData = data else { completionHandler(.failure(.noData)); return }
             guard let parsedData = try? JSONDecoder().decode([IGDBDataStruct].self, from: acquiredData)
             else { completionHandler(.failure(.cannotDecodeData)); return }
@@ -68,7 +69,6 @@ class IGDBSearchAgent: DatabaseSearchAgent {
 
             guard let requestUrl = URL(string: coverRequestUrl) else { dispatchGroup.leave(); return }
             var urlRequest = URLRequest(url: requestUrl)
-
             urlRequest.httpMethod = "POST"
             urlRequest.addValue("text/plain", forHTTPHeaderField: "Content-Type")
             urlRequest.addValue(accessToken, forHTTPHeaderField: "Authorization")
@@ -77,7 +77,6 @@ class IGDBSearchAgent: DatabaseSearchAgent {
 
             let dispatchGroup = DispatchGroup()
             dispatchGroup.enter()
-
             let dataTask = URLSession.shared.dataTask(with: urlRequest) { data, _, _ in
                 guard let acquiredData = data else { dispatchGroup.leave(); return }
                 guard let parsedData =
@@ -106,18 +105,14 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         revokeAccessToken()
         let accessTokenIssueRequest = IGDBAccessTokenIssueRequest(withClientID: clientID,
                                                                   withClientSecret: clientSecret)
-        guard let targetUrl = URL(string: accessTokenRequestUrl) else {
-            print("IGDBSearchAgent cannot generate URL from accessTokenRequestUrl")
-            return
-        }
+        guard let targetUrl = URL(string: accessTokenRequestUrl)
+        else { print("IGDBSearchAgent cannot generate URL from accessTokenRequestUrl"); return }
         var urlRequest = URLRequest(url: targetUrl)
-
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpBody = try? JSONEncoder().encode(accessTokenIssueRequest)
 
         let dispatchGroup = DispatchGroup()
-
         dispatchGroup.enter()
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { [self] data, _, _ in
             guard let receivedData = data else { return }
@@ -129,7 +124,6 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         }
 
         dataTask.resume()
-
         dispatchGroup.wait()
     }
 
@@ -137,14 +131,13 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         var urlComponents = URLComponents(string: accessTokenRevokeUrl)
         urlComponents?.queryItems = [URLQueryItem(name: "client_id", value: clientID),
                                      URLQueryItem(name: "token", value: "Bearer \(privateToken)")]
-        guard let requestURL = urlComponents?.url?.absoluteURL else { return }
 
+        guard let requestURL = urlComponents?.url?.absoluteURL else { return }
         var urlRequest = URLRequest(url: requestURL)
         urlRequest.httpMethod = "POST"
         urlRequest.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
 
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { _, _, _ in }
-
         dataTask.resume()
     }
 }

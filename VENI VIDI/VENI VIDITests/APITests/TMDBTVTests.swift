@@ -14,21 +14,22 @@ class TMDBTVTests: XCTestCase {
 
     var tmdbTVAgent: TMDBTVSearchAgent!
 
-    override func setUpWithError() throws {
+    override func setUp() {
         super.setUp()
         tmdbTVAgent = TMDBTVSearchAgent()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         tmdbTVAgent = nil
         super.tearDown()
     }
 
     // MARK: - Behavior Tests
 
-    func testValidQuery() throws {
+    func testValidQuery() {
         let testExpectation = expectation(description: "TMDB TV Show Sense8 test")
         let timeStamp = Date().timeIntervalSince1970
+
         tmdbTVAgent.query(withKeyword: "Sense8", withTimeStamp: timeStamp) { result in
             switch result {
             case let .success(queryResult):
@@ -45,7 +46,7 @@ class TMDBTVTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
 
-    func testInvalidQuery() throws {
+    func testInvalidQuery() {
         let testExpectation = expectation(description: "TMDB TV Show no result test")
 
         tmdbTVAgent.query(withKeyword: "qwerzxcvasdfjlk;",
@@ -85,7 +86,7 @@ class TMDBTVTests: XCTestCase {
 
     // MARK: - Performance Tests
 
-    func testPerformanceValidQuery() throws {
+    func testPerformanceValidQuery() {
         measure {
             let testExpectation = expectation(description: "TMDB TV Show Sense8 test")
 
@@ -104,7 +105,7 @@ class TMDBTVTests: XCTestCase {
         }
     }
 
-    func testPerformanceInvalidQuery() throws {
+    func testPerformanceInvalidQuery() {
         measure {
             let testExpectation = expectation(description: "TMDB TV Show no result test")
 

@@ -17,7 +17,7 @@ class TMDBRecommendationTests: XCTestCase {
     var testDataStack: CoreDataStack!
     var dataService: DataService!
 
-    override func setUpWithError() throws {
+    override func setUp() {
         super.setUp()
         testDataStack = TestCoreDataStack()
         dataService = DataService(coreDataStack: testDataStack)
@@ -25,7 +25,7 @@ class TMDBRecommendationTests: XCTestCase {
         tmdbMovieAgent = TMDBMovieSearchAgent()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         tmdbTVAgent = nil
         testDataStack = nil
         dataService = nil
@@ -39,6 +39,7 @@ class TMDBRecommendationTests: XCTestCase {
         dataService.createJournalEntry(aboutWork: "Sense8", withType: .tvShow)
 
         let testExpectation = expectation(description: "TMDB TV Show get recommendation from Sense8")
+
         tmdbTVAgent.getRandomRecommendation(withDataStack: testDataStack) { result in
             switch result {
             case let .success(results):
@@ -57,6 +58,7 @@ class TMDBRecommendationTests: XCTestCase {
         dataService.createJournalEntry(aboutWork: "Interstellar", withType: .movie)
 
         let testExpectation = expectation(description: "TMDB Movie get recommendation from Interstellar")
+
         tmdbMovieAgent.getRandomRecommendation(withDataStack: testDataStack) { result in
             switch result {
             case let .success(results):

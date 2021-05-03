@@ -27,23 +27,20 @@ class TMDBMovieSearchAgent: DatabaseSearchAgent {
     func query(withKeyword keyword: String,
                withTimeStamp timeStamp: TimeInterval,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+
         var urlComponents = URLComponents(string: apiUrl)
         urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: apiKey),
                                      URLQueryItem(name: "query", value: keyword)]
 
-        guard let requestURL = urlComponents?.url?.absoluteURL else { completionHandler(.failure(.urlError))
-            return
-        }
+        guard let requestURL = urlComponents?.url?.absoluteURL
+        else { completionHandler(.failure(.urlError)); return }
 
         let dataTask = URLSession.shared.dataTask(with: requestURL) { data, _, _ in
-            guard let acquiredData = data else {
-                completionHandler(.failure(.noData))
-                return
-            }
-            guard let parsedData = try? JSONDecoder().decode(TMDBMovieQueryResults.self, from: acquiredData) else {
-                completionHandler(.failure(.cannotDecodeData))
-                return
-            }
+
+            guard let acquiredData = data else { completionHandler(.failure(.noData)); return }
+            guard let parsedData = try? JSONDecoder().decode(TMDBMovieQueryResults.self, from: acquiredData)
+            else { completionHandler(.failure(.cannotDecodeData)); return }
+
             let queriedMovies = parsedData.results
 
             var queryResults: [QueryResult] = []
@@ -121,12 +118,14 @@ extension TMDBMovieSearchAgent: DatabaseRecommendationAgent {
         guard let requestURL = urlComponents?.url?.absoluteURL else { completionHandler(.failure(.urlError)); return }
 
         let dataTask = URLSession.shared.dataTask(with: requestURL) { data, _, _ in
+
             guard let acquiredData = data else { completionHandler(.failure(.noData)); return }
             guard let parsedData = try? JSONDecoder().decode(TMDBMovieQueryResults.self, from: acquiredData)
             else { completionHandler(.failure(.cannotDecodeData)); return }
-            let queriedMovies = parsedData.results
 
+            let queriedMovies = parsedData.results
             var queryResults: [QueryResult] = []
+
             for movie in queriedMovies {
                 var result = QueryResult(withMovieStruct: movie, withTimeStamp: timeStamp)
                 result.coverUrl = movie.poster_path != nil ? self.imageUrl500 + movie.poster_path! : ""

@@ -21,7 +21,6 @@ import Foundation
 import UIKit
 
 class CoreDataStack: NSObject {
-    override public init() {}
 
     public lazy var storeContainer: NSPersistentContainer = {
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer

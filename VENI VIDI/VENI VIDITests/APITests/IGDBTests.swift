@@ -14,21 +14,22 @@ class IGDBTests: XCTestCase {
 
     var igdbAgent: IGDBSearchAgent!
 
-    override func setUpWithError() throws {
+    override func setUp() {
         super.setUp()
         igdbAgent = IGDBSearchAgent()
     }
 
-    override func tearDownWithError() throws {
+    override func tearDown() {
         igdbAgent = nil
         super.tearDown()
     }
 
     // MARK: - Behavior Tests
 
-    func testValidQuery() throws {
+    func testValidQuery() {
         let testExpectation = expectation(description: "IGDB EVE Online test")
         let timeStamp = Date().timeIntervalSince1970
+
         igdbAgent.query(withKeyword: "EVE Online", withTimeStamp: timeStamp) { result in
             switch result {
             case let .success(queryResult):
@@ -45,8 +46,9 @@ class IGDBTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
 
-    func testInvalidQuery() throws {
+    func testInvalidQuery() {
         let testExpectation = expectation(description: "IGDB no result test")
+
         igdbAgent.query(withKeyword: "qwerzxcvasdfjlk;",
                         withTimeStamp: Date().timeIntervalSince1970) { result in
             switch result {
@@ -63,10 +65,11 @@ class IGDBTests: XCTestCase {
 
     // MARK: - Performance Tests
 
-    func testPerformanceValidQuery() throws {
+    func testPerformanceValidQuery() {
         measure {
             let testExpectation = expectation(description: "IGDB EVE Online test")
             let timeStamp = Date().timeIntervalSince1970
+
             igdbAgent.query(withKeyword: "EVE Online", withTimeStamp: timeStamp) { result in
                 switch result {
                 case let .success(queryResult):
@@ -82,9 +85,10 @@ class IGDBTests: XCTestCase {
         }
     }
 
-    func testPerformanceInvalidQuery() throws {
+    func testPerformanceInvalidQuery() {
         measure {
             let testExpectation = expectation(description: "IGDB no result test")
+
             igdbAgent.query(withKeyword: "qwerzxcvasdfjlk;",
                             withTimeStamp: Date().timeIntervalSince1970) { result in
                 switch result {

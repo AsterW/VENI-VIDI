@@ -27,26 +27,22 @@ class TMDBTVSearchAgent: DatabaseSearchAgent {
     func query(withKeyword keyword: String,
                withTimeStamp timeStamp: TimeInterval,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+
         var urlComponents = URLComponents(string: searchUrl)
         urlComponents?.queryItems = [URLQueryItem(name: "api_key", value: apiKey),
                                      URLQueryItem(name: "query", value: keyword)]
 
-        guard let requestURL = urlComponents?.url?.absoluteURL else { completionHandler(.failure(.urlError))
-            return
-        }
+        guard let requestURL = urlComponents?.url?.absoluteURL
+        else { completionHandler(.failure(.urlError)); return }
 
         let dataTask = URLSession.shared.dataTask(with: requestURL) { data, _, _ in
-            guard let acquiredData = data else {
-                completionHandler(.failure(.noData))
-                return
-            }
-            guard let parsedData = try? JSONDecoder().decode(TMDBTVQueryResults.self, from: acquiredData) else {
-                completionHandler(.failure(.cannotDecodeData))
-                return
-            }
-            let queriedTVShows = parsedData.results
+            guard let acquiredData = data else { completionHandler(.failure(.noData)); return }
+            guard let parsedData = try? JSONDecoder().decode(TMDBTVQueryResults.self, from: acquiredData)
+            else { completionHandler(.failure(.cannotDecodeData)); return }
 
+            let queriedTVShows = parsedData.results
             var queryResults: [QueryResult] = []
+
             for tvShow in queriedTVShows {
                 var result = QueryResult(withTVStruct: tvShow, withTimeStamp: timeStamp)
                 result.coverUrl = tvShow.poster_path != nil ? self.imageUrl500 + tvShow.poster_path! : nil
@@ -94,6 +90,7 @@ extension TMDBTVSearchAgent: DatabaseRecommendationAgent {
 
         dispatchGroup.enter()
         query(withKeyword: seedTitle, withTimeStamp: timeStamp) { result in
+
             switch result {
             case let .success(seedQueryResult):
                 if let seedId = seedQueryResult.first?.tmdbId {
@@ -103,6 +100,7 @@ extension TMDBTVSearchAgent: DatabaseRecommendationAgent {
                     completionHandler(.failure(.noData))
                     return
                 }
+
             case let .failure(error):
                 completionHandler(.failure(error))
                 return
@@ -117,6 +115,7 @@ extension TMDBTVSearchAgent: DatabaseRecommendationAgent {
         guard let requestURL = urlComponents?.url?.absoluteURL else { completionHandler(.failure(.urlError)); return }
 
         let dataTask = URLSession.shared.dataTask(with: requestURL) { data, _, _ in
+
             guard let acquiredData = data else { completionHandler(.failure(.noData)); return }
             guard let parsedData = try? JSONDecoder().decode(TMDBTVQueryResults.self, from: acquiredData)
             else { completionHandler(.failure(.cannotDecodeData)); return }

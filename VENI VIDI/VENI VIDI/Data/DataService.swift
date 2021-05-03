@@ -112,8 +112,8 @@ extension DataService {
     /// - Returns: All available journal entries.
     /// - Parameter category: the type of JournalEntry to query for
     func fetchAllJournalEntries(withType type: JournalEntryType? = nil) -> [JournalEntry]? {
-        let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
 
+        let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "finishDate", ascending: false)]
         if let targetType = type {
             fetchRequest.predicate = NSPredicate(format: "journalTypeText = %@", targetType.rawValue)
@@ -252,9 +252,7 @@ extension DataService {
         let entry: JournalEntry
 
         if let entryId = id {
-            guard let fetchedEntry = fetchJournalEntryWithUUID(entryId) else {
-                return .failure(.invalidUUID)
-            }
+            guard let fetchedEntry = fetchJournalEntryWithUUID(entryId) else { return .failure(.invalidUUID) }
             entry = fetchedEntry
         } else {
             entry = createJournalEntry()
@@ -309,6 +307,7 @@ extension DataService {
     /// Delete a JournalEntry given its id (UUID).
     /// - Parameter id: UUID of the JournalEntry that should be deleted.
     /// - Returns: True if the entry is deleted, false if the id (UUID) does not match any existing entry.
+    @discardableResult
     func deleteJournalEntry(withUUID id: UUID) -> Bool { // swiftlint:disable:this identifier_name
         guard let entry = fetchJournalEntryWithUUID(id) else {
             print("Received invalid UUID for deleteJournalEntry()")

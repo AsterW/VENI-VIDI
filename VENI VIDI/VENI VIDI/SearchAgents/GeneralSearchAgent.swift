@@ -10,9 +10,7 @@ import Foundation
 class GeneralSearchAgent {
     // MARK: - Properties
 
-    private let searchAgents: [DatabaseSearchAgent] = [TMDBMovieSearchAgent(),
-                                                       TMDBTVSearchAgent(),
-                                                       IGDBSearchAgent()]
+    private let searchAgents: [DatabaseSearchAgent] = [TMDBMovieSearchAgent(), TMDBTVSearchAgent(), IGDBSearchAgent()]
     private var results: [QueryContentType: [QueryResult]] = [:]
 
     // MARK: - Search Function
@@ -20,6 +18,7 @@ class GeneralSearchAgent {
     func query(withKeyword keyword: String,
                forContentType contentType: QueryContentType,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+
         query(withKeyword: keyword,
               forContentTypes: Set([contentType]),
               withCompletionHandler: completionHandler)
@@ -28,11 +27,13 @@ class GeneralSearchAgent {
     func query(withKeyword keyword: String,
                forContentTypes contentTypes: Set<QueryContentType> = Set([.book, .game, .movie, .tvShow]),
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
+
         for searchAgent in searchAgents {
             let agentType = searchAgent.agentType
             guard contentTypes.contains(agentType) else { continue }
 
-            searchAgent.query(withKeyword: keyword, withTimeStamp: Date().timeIntervalSince1970) { [self] result in
+            searchAgent.query(withKeyword: keyword,
+                              withTimeStamp: Date().timeIntervalSince1970) { [self] result in
 
                 switch result {
                 case let .success(queryResult):
@@ -61,8 +62,8 @@ class GeneralSearchAgent {
                            withDebugDataStack dataStack: CoreDataStack = CoreDataStack(),
                            withCompletionHandler completionHandler:
                            @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
-        for searchAgent in searchAgents {
 
+        for searchAgent in searchAgents {
             guard contentType == searchAgent.agentType else { continue }
             guard let recommendationAgent = searchAgent as? DatabaseRecommendationAgent else { continue }
 
