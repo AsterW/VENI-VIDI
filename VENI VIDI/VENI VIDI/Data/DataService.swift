@@ -326,10 +326,9 @@ extension DataService {
 extension DataService {
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if let updatedJournalEntries = controller.fetchedObjects as? [JournalEntry] {
-            print("DataService delegate call with argument \(updatedJournalEntries)")
             delegate?.fetchAllJournalEntriesResultDidChange(updatedJournalEntries)
         } else {
-            print("Error: NSFetchedResultsController has a NSFetchRequestResult type different from JournalEntry.") // DEBUG
+            print("Error: NSFetchedResultsController has a NSFetchRequestResult type different from JournalEntry.")
             // swiftlint:disable:previous line_length
         }
     }

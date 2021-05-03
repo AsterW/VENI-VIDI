@@ -32,7 +32,6 @@ class IGDBTests: XCTestCase {
         igdbAgent.query(withKeyword: "EVE Online", withTimeStamp: timeStamp) { result in
             switch result {
             case let .success(queryResult):
-                print(queryResult)
                 XCTAssertGreaterThan(queryResult.count, 0)
                 XCTAssertEqual(queryResult.first?.timeStamp, timeStamp)
                 XCTAssertNotNil(queryResult.first?.coverUrl)

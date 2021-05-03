@@ -35,7 +35,10 @@ class IGDBSearchAgent: DatabaseSearchAgent {
     func query(withKeyword keyword: String,
                withTimeStamp timeStamp: TimeInterval,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
-        guard let targetUrl = URL(string: gameSearchUrl) else { fatalError() }
+        guard let targetUrl = URL(string: gameSearchUrl) else {
+            completionHandler(.failure(.urlError))
+            return
+        }
         var urlRequest = URLRequest(url: targetUrl)
 
         urlRequest.httpMethod = "POST"
@@ -110,7 +113,10 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         revokeAccessToken()
         let accessTokenIssueRequest = IGDBAccessTokenIssueRequest(withClientID: clientID,
                                                                   withClientSecret: clientSecret)
-        guard let targetUrl = URL(string: accessTokenRequestUrl) else { fatalError() }
+        guard let targetUrl = URL(string: accessTokenRequestUrl) else {
+            print("IGDBSearchAgent cannot generate URL from accessTokenRequestUrl")
+            return
+        }
         var urlRequest = URLRequest(url: targetUrl)
 
         urlRequest.httpMethod = "POST"
@@ -121,9 +127,9 @@ class IGDBSearchAgent: DatabaseSearchAgent {
 
         dispatchGroup.enter()
         let dataTask = URLSession.shared.dataTask(with: urlRequest) { [self] data, _, _ in
-            guard let receivedData = data else { fatalError() }
+            guard let receivedData = data else { return }
             guard let parsedData = try? JSONDecoder().decode(IGDBAccessTokenResult.self,
-                                                             from: receivedData) else { fatalError() }
+                                                             from: receivedData) else { return }
             privateToken = parsedData.access_token
             accessTokenExpirationDate = Date(timeIntervalSinceNow: parsedData.expires_in)
             dispatchGroup.leave()
@@ -138,7 +144,7 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         var urlComponents = URLComponents(string: accessTokenRevokeUrl)
         urlComponents?.queryItems = [URLQueryItem(name: "client_id", value: clientID),
                                      URLQueryItem(name: "token", value: "Bearer \(privateToken)")]
-        guard let requestURL = urlComponents?.url?.absoluteURL else { fatalError() }
+        guard let requestURL = urlComponents?.url?.absoluteURL else { return }
 
         var urlRequest = URLRequest(url: requestURL)
         urlRequest.httpMethod = "POST"
