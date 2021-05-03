@@ -13,20 +13,14 @@ class TMDBTVTests: XCTestCase {
     // MARK: - Properties and Set Up
 
     var tmdbTVAgent: TMDBTVSearchAgent!
-    var coreDataStack: CoreDataStack!
-    var dataService: DataService!
 
     override func setUpWithError() throws {
         super.setUp()
         tmdbTVAgent = TMDBTVSearchAgent()
-        coreDataStack = TestCoreDataStack()
-        dataService = DataService(coreDataStack: coreDataStack)
     }
 
     override func tearDownWithError() throws {
         tmdbTVAgent = nil
-        coreDataStack = nil
-        dataService = nil
         super.tearDown()
     }
 
@@ -69,6 +63,9 @@ class TMDBTVTests: XCTestCase {
     }
 
     func testRandomRecommendation() {
+
+        let coreDataStack = TestCoreDataStack()
+        let dataService = DataService(coreDataStack: coreDataStack)
 
         dataService.createJournalEntry(aboutWork: "Sense8", withType: .tvShow)
 

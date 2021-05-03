@@ -13,20 +13,14 @@ class TMDBMovieTests: XCTestCase {
     // MARK: - Properties and Set Up
 
     var tmdbMovieAgent: TMDBMovieSearchAgent!
-    var coreDataStack: CoreDataStack!
-    var dataService: DataService!
 
     override func setUpWithError() throws {
         super.setUp()
         tmdbMovieAgent = TMDBMovieSearchAgent()
-        coreDataStack = TestCoreDataStack()
-        dataService = DataService(coreDataStack: coreDataStack)
     }
 
     override func tearDownWithError() throws {
         tmdbMovieAgent = nil
-        coreDataStack = nil
-        dataService = nil
         super.tearDown()
     }
 
@@ -67,6 +61,9 @@ class TMDBMovieTests: XCTestCase {
     }
 
     func testRandomRecommendation() {
+
+        let coreDataStack = TestCoreDataStack()
+        let dataService = DataService(coreDataStack: coreDataStack)
 
         dataService.createJournalEntry(aboutWork: "Interstellar", withType: .movie)
 
