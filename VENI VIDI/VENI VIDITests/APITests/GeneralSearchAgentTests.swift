@@ -41,7 +41,9 @@ class GeneralSearchAgentTests: XCTestCase {
                     searchResults[contentType] = results
                 }
                 expectations.first?.fulfill()
-                expectations.removeFirst()
+                if !expectations.isEmpty {
+                    expectations.removeFirst()
+                }
             case let .failure(error):
                 XCTFail(error.localizedDescription)
             }
@@ -62,7 +64,10 @@ class GeneralSearchAgentTests: XCTestCase {
                     searchResults[contentType] = results
                 }
                 expectations.first?.fulfill()
-                expectations.removeFirst()
+
+                if !expectations.isEmpty {
+                    expectations.removeFirst()
+                }
             case let .failure(error):
                 XCTFail(error.localizedDescription)
             }
@@ -84,7 +89,9 @@ class GeneralSearchAgentTests: XCTestCase {
 //                    searchResults[contentType] = results
 //                }
 //                expectations.first?.fulfill()
+//                if !expectations.isEmpty {
 //                expectations.removeFirst()
+//                }
 //            case let .failure(error):
 //                XCTFail(error.localizedDescription)
 //            }
@@ -105,7 +112,9 @@ class GeneralSearchAgentTests: XCTestCase {
                     searchResults[contentType] = results
                 }
                 expectations.first?.fulfill()
-                expectations.removeFirst()
+                if !expectations.isEmpty {
+                    expectations.removeFirst()
+                }
             case let .failure(error):
                 XCTFail(error.localizedDescription)
             }
@@ -130,7 +139,9 @@ class GeneralSearchAgentTests: XCTestCase {
                     searchResults[contentType] = results
                 }
                 expectations.first?.fulfill()
-                expectations.removeFirst()
+                if !expectations.isEmpty {
+                    expectations.removeFirst()
+                }
             case let .failure(error):
                 XCTFail(error.localizedDescription)
             }
@@ -152,7 +163,9 @@ class GeneralSearchAgentTests: XCTestCase {
 //            switch result {
 //            case .success:
 //                expectations.first?.fulfill()
+//                if !expectations.isEmpty {
 //                expectations.removeFirst()
+//                }
 //            case .failure: break
 //                // TODO: Commented out since not all API agents are finished
 //                // XCTFail(error.localizedDescription)
@@ -168,7 +181,9 @@ class GeneralSearchAgentTests: XCTestCase {
 //                    searchResults[contentType] = results
 //                }
 //                expectations.first?.fulfill()
+//                if !expectations.isEmpty {
 //                expectations.removeFirst()
+//                }
 //            case .failure: break
 //                // TODO: Commented out since not all API agents are finished
 //                // XCTFail(error.localizedDescription)
