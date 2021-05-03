@@ -58,7 +58,6 @@
 		92F7EA7E25D782350039DF3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA7C25D782350039DF3C /* Main.storyboard */; };
 		92F7EA8325D782380039DF3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA8225D782380039DF3C /* Assets.xcassets */; };
 		92F7EA8625D782380039DF3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */; };
-		92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */; };
 		92F7EA9C25D782380039DF3C /* VENI_VIDIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */; };
 		92F8A85B262DD7C4003068AC /* JournalEntryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F8A85A262DD7C4003068AC /* JournalEntryType.swift */; };
 		92F8A868262DDCE6003068AC /* JournalEntry+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92F8A867262DDCE6003068AC /* JournalEntry+CoreDataClass.swift */; };
@@ -195,7 +194,6 @@
 		92F7EA8525D782380039DF3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		92F7EA8725D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92F7EA8C25D782380039DF3C /* VENI VIDITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VENI VIDITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENI_VIDITests.swift; sourceTree = "<group>"; };
 		92F7EA9225D782380039DF3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		92F7EA9725D782380039DF3C /* VENI VIDIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "VENI VIDIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92F7EA9B25D782380039DF3C /* VENI_VIDIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VENI_VIDIUITests.swift; sourceTree = "<group>"; };
@@ -434,7 +432,6 @@
 			children = (
 				92D1AB992624F7230015E35E /* APITests */,
 				922A3A08260EAB3D0094544E /* DataTests */,
-				92F7EA9025D782380039DF3C /* VENI_VIDITests.swift */,
 				92F7EA9225D782380039DF3C /* Info.plist */,
 			);
 			path = "VENI VIDITests";
@@ -905,7 +902,6 @@
 				92EE2D3E26264EA800AB89FD /* GeneralSearchAgentTests.swift in Sources */,
 				92E088C525FF9C39007EAED1 /* (null) in Sources */,
 				927D52D6263A5DA700858BDA /* TMDBRecommendationTests.swift in Sources */,
-				92F7EA9125D782380039DF3C /* VENI_VIDITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1232,7 +1228,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z9CK5335AK;
+				DEVELOPMENT_TEAM = VQ3V95F8D5;
 				INFOPLIST_FILE = "VENI VIDIUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1254,7 +1250,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = Z9CK5335AK;
+				DEVELOPMENT_TEAM = VQ3V95F8D5;
 				INFOPLIST_FILE = "VENI VIDIUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
