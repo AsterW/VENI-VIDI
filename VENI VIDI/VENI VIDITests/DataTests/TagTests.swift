@@ -71,4 +71,26 @@ extension DataServiceTests {
         XCTAssertTrue(fetchedTagNames.contains("another tag"))
         XCTAssertTrue(fetchedTagNames.contains("one more tag"))
     }
+
+    func testEntryAddRemoveTags() {
+        let tag1 = dataService.createNewTag("tag 1")
+        let tag2 = dataService.createNewTag("tag 2")
+        let tag3 = dataService.createNewTag("tag 3")
+
+        let entry0 = dataService.createJournalEntry()
+
+        dataService.addTag(tag1, toJournalEntry: entry0)
+        XCTAssertEqual(entry0.tags?.count, 1)
+
+        dataService.addTags([tag2, tag3], toJournalEntry: entry0)
+        XCTAssertEqual(entry0.tags?.count, 3)
+
+        dataService.removeTag(tag3, fromJournalEntry: entry0)
+        XCTAssertEqual(entry0.tags?.count, 2)
+        XCTAssertTrue(entry0.tags?.contains(tag1) ?? false)
+        XCTAssertTrue(entry0.tags?.contains(tag2) ?? false)
+
+        dataService.removeTags([tag1, tag2], fromJournalEntry: entry0)
+        XCTAssertEqual(entry0.tags?.count, 0)
+    }
 }
