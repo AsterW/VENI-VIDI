@@ -56,10 +56,8 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
     let comment: NewTextView = {
         let comment = NewTextView()
         comment.textAlignment = .center
-        // comment.backgroundColor = UIColor.systemGray6
         comment.layer.cornerRadius = 10
         comment.font = UIFont.systemFont(ofSize: 20, weight: .regular)
-        comment.textColor = UIColor.systemYellow
         comment.isEditable = false
         return comment
     }()
@@ -147,7 +145,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
         super.setupUI()
 
         contentView.addSubview(poster)
-//        contentView.addSubview(titleLabel)
         contentView.addSubview(tagView)
         contentView.addSubview(stars)
         contentView.addSubview(favoriteButton)
@@ -167,7 +164,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
         print(bounds)
         let left: CGFloat = 15
 
-        // poster.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 180)
         smallPoster.frame = CGRect(x: left, y: 80, width: 120, height: 180)
 
         quote.frame = CGRect(x: left + 135, y: 80, width: bounds.width - 165, height: 125)
@@ -178,7 +174,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
         dateLabel.frame = CGRect(x: left + (bounds.width - 90) / 2, y: 285, width: (bounds.width - 90) / 2, height: 30)
         favoriteButton.frame = CGRect(x: left + (bounds.width - 90), y: 285, width: 30, height: 30)
         deleteButton.frame = CGRect(x: left + (bounds.width - 60), y: 285, width: 30, height: 30)
-//        titleLabel.frame = CGRect(x: left, y: 15, width: bounds.width - 30, height: 50)
         comment.frame = CGRect(x: left, y: 330, width: bounds.width - 30, height: 335)
     }
 
@@ -188,11 +183,10 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
             navigationController = nav
             print(nav.description)
         }
-//        titleLabel.text = cellModel.entryTitle
         poster.image = cellModel.posterImage
         smallPoster.image = cellModel.posterImage
         comment.text = cellModel.comment
-        quote.text = cellModel.quote
+        quote.text = #" "\#(cellModel.quote)" "#
         favorite = cellModel.favorite
         setFavoriteImage()
 
