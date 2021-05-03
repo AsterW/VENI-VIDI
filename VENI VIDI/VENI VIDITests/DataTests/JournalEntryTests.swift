@@ -9,7 +9,16 @@
 import UIKit
 import XCTest
 
-extension DataServiceTests {
+extension DataServiceTests: DataServiceDelegate {
+
+    func fetchAllJournalEntriesResultDidChange(_ result: [JournalEntry]) {
+        updatedEntries = result
+        expectations.first?.fulfill()
+        if !expectations.isEmpty {
+            expectations.removeFirst()
+        }
+    }
+
     // MARK: - Journal Entry Test Cases
 
     func testCreateEmptyJournalEntry() {
@@ -331,5 +340,19 @@ extension DataServiceTests {
         let entry1 = secondDataService.createJournalEntry()
         XCTAssertNotNil(entry1)
         XCTAssertEqual(dataService.fetchAllJournalEntries()?.count, 2)
+    }
+
+    func testJournalEntryBackgroundUpdate() {
+
+        dataService.delegate = self
+        dataService.createJournalEntry(withEntryTitle: "entry1")
+
+        _ = dataService.fetchAllJournalEntries()
+
+        expectations.append(expectation(description: "Expect call back for new jouranl entries"))
+        secondDataService.createJournalEntry(withEntryTitle: "entry2")
+
+        waitForExpectations(timeout: 10, handler: nil)
+        XCTAssertEqual(updatedEntries.count, 2)
     }
 }
