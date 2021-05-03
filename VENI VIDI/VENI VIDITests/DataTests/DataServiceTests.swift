@@ -26,6 +26,8 @@ class DataServiceTests: XCTestCase {
     var coreDataStack: CoreDataStack!
     var dataService: DataService!
     var secondDataService: DataService!
+    var updatedEntries: [JournalEntry] = []
+    var expectations: [XCTestExpectation] = []
 
     override func setUp() {
         super.setUp()

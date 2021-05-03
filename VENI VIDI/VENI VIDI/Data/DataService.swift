@@ -37,7 +37,8 @@ extension DataService {
             let tags = try managedObjectContext.fetch(fetchRequest)
             return tags
         } catch {
-            fatalError(error.localizedDescription)
+            print(error.localizedDescription)
+            return []
         }
     }
 
@@ -72,9 +73,7 @@ extension DataService {
 
     // swiftlint:disable:next identifier_name
     func renameTagWithUUID(_ id: UUID, withNewName newName: String) -> Tag? {
-        guard let tag = fetchTagWithUUID(id) else {
-            return nil
-        }
+        guard let tag = fetchTagWithUUID(id) else { return nil }
         tag.name = newName
         coreDataStack.saveContext()
         return tag
@@ -88,7 +87,7 @@ extension DataService {
             let tag = try managedObjectContext.fetch(fetchRequest)[0]
             return tag
         } catch {
-            print("Unexpected error at fetchTagWithUUID(): \(error.localizedDescription)")
+            print(error.localizedDescription)
             return nil
         }
     }
@@ -129,7 +128,8 @@ extension DataService {
         do {
             try fetchedResultsController?.performFetch()
         } catch {
-            fatalError("Failed to fetch entities: \(error.localizedDescription)")
+            print(error.localizedDescription)
+            return nil
         }
         return fetchedResultsController?.fetchedObjects
     }
@@ -145,7 +145,7 @@ extension DataService {
             let entry = try managedObjectContext.fetch(fetchRequest)[0]
             return entry
         } catch {
-            print("Unexpected error at fetchJournalEntryWithUUID(): \(error.localizedDescription)")
+            print(error.localizedDescription)
             return nil
         }
     }
@@ -189,7 +189,7 @@ extension DataService {
         newJournalEntry.id = UUID()
         coreDataStack.saveContext()
 
-        let result = updateJournalEntry(withUUID: newJournalEntry.id ?? UUID(),
+        let result = updateJournalEntry(withUUID: newJournalEntry.id,
                                         aboutWork: work,
                                         withType: type,
                                         withCoverImage: coverImage,
