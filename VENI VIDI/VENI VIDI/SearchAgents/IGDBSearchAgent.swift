@@ -65,7 +65,11 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         dispatchGroup.wait()
 
         var queryResults: [QueryResult] = []
-        for game in queriedGames[..<candidateSize] {
+        if queriedGames.count > candidateSize {
+            queriedGames = [IGDBDataStruct](queriedGames[..<candidateSize])
+        }
+
+        for game in queriedGames {
 
             var result = QueryResult(withIGDBStruct: game, withTimeStamp: timeStamp)
 
