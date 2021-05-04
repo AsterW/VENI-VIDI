@@ -50,6 +50,7 @@
 --smarttabs enabled
 --stripunusedargs always
 --structthreshold 0
+--swiftversion 5.3
 --tabwidth unspecified
 --trailingclosures 
 --trimwhitespace always

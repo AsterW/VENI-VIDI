@@ -167,7 +167,7 @@ class SimpleListContainerModel: VVContainerModel {
 
 extension SimpleListContainerModel: DCTableViewDelegate, UITableViewDelegate {
     func dc_tableView(_: UITableView, editingStyleForRowAt _: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
+        .delete
     }
 
     func dc_tableView(_ tableView: UITableView, commit editStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

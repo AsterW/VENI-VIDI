@@ -33,7 +33,7 @@ class TimelineViewController: DCViewController {
 
         EDC.subscribeEvent(TimelineCell.touch, target: self) { [weak self] (data: UUID) in
             print("pushing View Controller")
-            guard let `self` = self else {
+            guard let self = self else {
                 return
             }
             let detailedVC = DetailedEntryViewController()

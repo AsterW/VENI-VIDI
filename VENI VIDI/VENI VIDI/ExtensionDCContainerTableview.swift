@@ -11,7 +11,7 @@ import UIKit
 
 extension DCContainerTableView {
     func tableView(_: UITableView, canEditRowAt _: IndexPath) -> Bool {
-        return true
+        true
     }
 
     func tableView(_: UITableView, commit _: UITableViewCell.EditingStyle, forRowAt _: IndexPath) {

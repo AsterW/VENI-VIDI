@@ -34,7 +34,7 @@ class SearchCM: DCContainerModel {
 
     private func handleEvents() {
         subscribeEvent(SearchCell.searchChanged) { [weak self] (text: String) in
-            guard let `self` = self else {
+            guard let self = self else {
                 return
             }
             if text != "" {

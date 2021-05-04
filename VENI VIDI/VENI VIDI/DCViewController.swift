@@ -51,7 +51,7 @@ class DCViewController: UIViewController {
     }
 
     public func navbarHeight() -> CGFloat {
-        return statusBarHeight() + 44
+        statusBarHeight() + 44
     }
 
     public func safeBottomMargin() -> CGFloat {

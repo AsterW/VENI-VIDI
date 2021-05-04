@@ -20,7 +20,7 @@ class TimelinePickerCell: DCBaseCell {
                                                 ("TV Shows", "tvShow")]
 
     private lazy var timelinePicker: UISegmentedControl = {
-        let timelinePicker = UISegmentedControl(items: segments.map { $0.0 })
+        let timelinePicker = UISegmentedControl(items: segments.map(\.0))
         timelinePicker.selectedSegmentIndex = 0
         timelinePicker.addTarget(self, action: #selector(TimelinePickerCell.changeTimelineType(_:)), for: .valueChanged)
         contentView.addSubview(timelinePicker)

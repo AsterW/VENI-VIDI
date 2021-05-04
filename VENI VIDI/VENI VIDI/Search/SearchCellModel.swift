@@ -34,7 +34,7 @@ class SearchCell: DCBaseCell {
     }()
 
     private lazy var searchPicker: UISegmentedControl = {
-        let searchPicker = UISegmentedControl(items: segments.map { $0.0 })
+        let searchPicker = UISegmentedControl(items: segments.map(\.0))
         searchPicker.selectedSegmentIndex = 0
         searchPicker.addTarget(self, action: #selector(SearchCell.changeSearchType(_:)), for: .valueChanged)
         contentView.addSubview(searchPicker)
