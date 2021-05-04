@@ -227,7 +227,7 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
 
             guard let type = volume.type else { return }
 
-            self?.cellModel.type = JournalEntryType(rawValue: type)!
+            self?.cellModel.type = JournalEntryType(rawValue: type) ?? .none
 
             task.resume()
         }

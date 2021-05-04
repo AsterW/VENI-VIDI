@@ -71,7 +71,6 @@ class DetailedEntryViewController: DCViewController {
         // swiftlint:disable:next identifier_name
         if let id = entryId {
             if let entry = dataService.fetchJournalEntryWithUUID(id) {
-//                title = entry.worksTitle
                 detailCM.entryTitle = entry.worksTitle
                 detailCM.comment = entry.entryContent
                 detailCM.quote = entry.quote

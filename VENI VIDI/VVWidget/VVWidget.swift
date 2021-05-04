@@ -31,7 +31,7 @@ struct Provider: IntentTimelineProvider {
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
         let currentDate = Date()
         for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
+            guard let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate) else { continue }
             let entry = SimpleEntry(date: entryDate, title: title, cover: coverImage, configuration: configuration)
             entries.append(entry)
         }
@@ -101,25 +101,13 @@ struct VVWidgetEntryView: View {
                         .clipped()
                         .padding(.trailing, 12)
                         .opacity(0.5)
-//                            .padding(.trailing, 30)
-//                            .padding(.top, 15)
-//                        Text(entry.title)
-//                            .rotationEffect(.degrees(-90))
-//                            .fixedSize()
-//                            .lineLimit(nil)
-//                            .fixedSize(horizontal: false, vertical: true)
-//                            .frame(width: rec.size.width / 2, height: rec.size.height - 60)
-//                            .multilineTextAlignment(.leading)
                     Image(uiImage: entry.cover)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(10)
                         .frame(width: geo.size.width, height: geo.size.height - 24)
-//                            .padding(.trailing, 30)
-//                            .padding(.top, 15)
                         .padding(.trailing, 12)
                         .padding(.vertical, 12)
-                    //                        .padding(UIEdgeInsets(top: 5, left: 50, bottom: 5, right: 5))
                 }
             }
         }

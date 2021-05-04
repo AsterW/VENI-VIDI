@@ -29,8 +29,6 @@ class DetailedEntryContainerModel: DCContainerModel {
         detailModel.nav = nav
         if let title = entryTitle {
             detailModel.entryTitle = title
-        } else {
-            // throw error
         }
 
         if let image = poster {
@@ -74,8 +72,6 @@ class DetailedEntryContainerModel: DCContainerModel {
         detailModel.nav = nav
         if let title = entryTitle {
             detailModel.entryTitle = title
-        } else {
-            // throw error
         }
 
         if let image = poster {

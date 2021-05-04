@@ -50,12 +50,30 @@ class ShelfCollectionCell: UICollectionViewCell {
     }
 
     func set(withEntry entry: JournalEntry) {
-
         if let imageData = entry.image {
             cover.image = UIImage(data: imageData)
         }
 
         title.text = entry.entryTitle
+        title.font = UIFont.systemFont(ofSize: 16)
+    }
+
+    func setRecommendation(withEntry entry: QueryResult) {
+        guard let str = entry.coverUrl else { return }
+        let decryptedStr = str.replacingOccurrences(of: "http:", with: "https:")
+        guard let url = URL(string: decryptedStr) else { return }
+
+        let task = URLSession.shared.dataTask(with: url) { data, _, _ in
+            guard let data = data else { return }
+            DispatchQueue.main.async {
+                guard let image = UIImage(data: data) else { return }
+                self.cover.image = image
+            }
+        }
+
+        task.resume()
+
+        title.text = entry.title
         title.font = UIFont.systemFont(ofSize: 16)
     }
 

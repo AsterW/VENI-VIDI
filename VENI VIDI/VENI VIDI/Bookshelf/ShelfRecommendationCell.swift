@@ -1,17 +1,17 @@
 //
-//  ShelfCell.swift
+//  ShelfRecommendationCell.swift
 //  VENI VIDI
 //
-//  Created by MonAster on 2021/4/26.
+//  Created by MonAster on 2021/5/3.
 //
 
 import DCFrame
 import SnapKit
 import UIKit
 
-class ShelfCell: DCCell<ShelfCellModel>, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ShelfRecommendationCell: DCCell<ShelfRecommendationCellModel>, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     static let entrySelected = DCEventID()
-    var entries: [JournalEntry]?
+    var entries: [QueryResult]?
     var sections = 0
 
     private let titleLabel = UILabel()
@@ -27,12 +27,6 @@ class ShelfCell: DCCell<ShelfCellModel>, UICollectionViewDelegate, UICollectionV
     override func cellModelDidLoad() {
         super.cellModelDidLoad()
 
-        if entries == [] {
-            isHidden = true
-        } else {
-            isHidden = false
-        }
-
         titleLabel.text = cellModel.title
 
         entries = cellModel.entries
@@ -44,12 +38,6 @@ class ShelfCell: DCCell<ShelfCellModel>, UICollectionViewDelegate, UICollectionV
 
     override func cellModelDidUpdate() {
         super.cellModelDidUpdate()
-
-        if entries == [] {
-            isHidden = true
-        } else {
-            isHidden = false
-        }
 
         titleLabel.text = cellModel.title
 
@@ -119,15 +107,10 @@ class ShelfCell: DCCell<ShelfCellModel>, UICollectionViewDelegate, UICollectionV
         guard let shelfCell = cell as? ShelfCollectionCell else { return cell }
 
         if let entry = entries?[indexPath.item] {
-            shelfCell.set(withEntry: entry)
+            shelfCell.setRecommendation(withEntry: entry)
         } else {
             shelfCell.setPlaceHolder()
         }
         return shelfCell
-    }
-
-    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let entry = entries?[indexPath.item] else { return }
-        sendEvent(Self.entrySelected, data: entry.id)
     }
 }
