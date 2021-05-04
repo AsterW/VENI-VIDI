@@ -24,6 +24,8 @@ class IGDBSearchAgent: DatabaseSearchAgent {
     private let accessTokenRequestUrl: String = "https://id.twitch.tv/oauth2/token"
     private let accessTokenRevokeUrl: String = "https://id.twitch.tv/oauth2/revoke"
 
+    private let candidateSize: Int = 5
+
     // MARK: - Destructor
 
     deinit {
@@ -62,7 +64,7 @@ class IGDBSearchAgent: DatabaseSearchAgent {
         dispatchGroup.wait()
 
         var queryResults: [QueryResult] = []
-        for game in queriedGames {
+        for game in queriedGames[..<candidateSize] {
 
             var result = QueryResult(withIGDBStruct: game, withTimeStamp: timeStamp)
 
