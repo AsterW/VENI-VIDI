@@ -116,8 +116,8 @@ class ShelfContainerModel: VVContainerModel {
                 }
                 self.currentTimeTag = timeStamp
                 var recommendationEntries = volumes
-                if volumes.count > 15 {
-                    recommendationEntries = Array(volumes.prefix(15))
+                if volumes.count > 6 {
+                    recommendationEntries = Array(volumes.prefix(6))
                 }
                 switch type {
                 case .movie:

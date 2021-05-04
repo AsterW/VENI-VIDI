@@ -16,8 +16,7 @@ class SearchCM: DCContainerModel {
     private var searchType = "book"
     private let segments: [(String, String)] = [("Books", "book"),
                                                 ("Movies", "movie"),
-                                                ("TV Shows", "show"),
-                                                ("Games", "game")]
+                                                ("TV Shows", "show")]
 
     override func cmDidLoad() {
         super.cmDidLoad()
@@ -46,6 +45,8 @@ class SearchCM: DCContainerModel {
                     self.getMovies(with: text, type: .movie)
                 case "show":
                     self.getMovies(with: text, type: .tvShow)
+                case "game":
+                    self.getGames(with: text)
                 default:
                     self.getBooks(with: text)
                 }
@@ -135,6 +136,40 @@ class SearchCM: DCContainerModel {
                     default:
                         resultModel.volume = EntryData(withTitle: volume.title, image: image, asType: .movie)
                     }
+                    self?.searchResultCM.addSubmodel(resultModel)
+                }
+            }
+            self?.needAnimateUpdate()
+        }
+    }
+
+    func getGames(with text: String) {
+        let generalSearchAgent = GeneralSearchAgent()
+        let timeStamp = NSDate().timeIntervalSince1970
+        generalSearchAgent.query(withKeyword: text, forContentType: .game) { [weak self] result in
+            switch result {
+            case let .failure(error):
+                print(error)
+                self?.searchResultCM.removeAllSubmodels()
+            case let .success(volumes):
+                var i = 0 // swiftlint:disable:this identifier_name
+                guard let tag = self?.currentTimeTag, timeStamp >= tag else {
+                    return
+                }
+                self?.currentTimeTag = timeStamp
+                self?.searchResultCM.removeAllSubmodels()
+                for volume in volumes {
+                    if i == 5 {
+                        break
+                    }
+                    let resultModel = SearchResultCellModel()
+                    resultModel.title = volume.title
+                    i += 1
+                    guard let image = volume.coverUrl else {
+                        continue
+                    }
+                    resultModel.coverURL = image
+                    resultModel.volume = EntryData(withTitle: volume.title, image: image, asType: .game)
                     self?.searchResultCM.addSubmodel(resultModel)
                 }
             }

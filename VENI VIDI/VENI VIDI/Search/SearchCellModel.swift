@@ -21,8 +21,7 @@ class SearchCell: DCBaseCell {
 
     private let segments: [(String, String)] = [("Books", "book"),
                                                 ("Movies", "movie"),
-                                                ("TV Shows", "show"),
-                                                ("Games", "game")]
+                                                ("TV Shows", "show")]
 
     private lazy var searchBar: UISearchBar = {
         let view = UISearchBar()

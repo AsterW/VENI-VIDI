@@ -17,8 +17,7 @@ class TimelinePickerCell: DCBaseCell {
     private let segments: [(String, String)] = [("All", "all"),
                                                 ("Books", "book"),
                                                 ("Movies", "movie"),
-                                                ("TV Shows", "tvShow"),
-                                                ("Games", "game")]
+                                                ("TV Shows", "tvShow")]
 
     private lazy var timelinePicker: UISegmentedControl = {
         let timelinePicker = UISegmentedControl(items: segments.map { $0.0 })
