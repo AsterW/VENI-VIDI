@@ -59,7 +59,7 @@ class SimpleListContainerModel: VVContainerModel {
                 }
 
                 let model = TimelineCellModel()
-                // swiftlint:disable:next identifier_name
+
                 if let id = item.id {
                     model.entryId = id
                 }
@@ -76,7 +76,6 @@ class SimpleListContainerModel: VVContainerModel {
         }
     }
 
-    // swiftlint:disable:next cyclomatic_complexity
     func createTimeLabel(date: DateComponents) {
         let timeModel = TimeLabelCellModel()
         switch date.month {
@@ -145,7 +144,7 @@ class SimpleListContainerModel: VVContainerModel {
                 }
 
                 let model = TimelineCellModel()
-                // swiftlint:disable:next identifier_name
+
                 if let id = item.id {
                     model.entryId = id
                 }

@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let vc = LaungchController() // swiftlint:disable:this identifier_name
+        let vc = LaungchController()
         navigationController?.setViewControllers([vc], animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.tintColor = .systemYellow

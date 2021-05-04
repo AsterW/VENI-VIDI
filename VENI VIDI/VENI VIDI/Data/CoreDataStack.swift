@@ -24,7 +24,6 @@ class CoreDataStack: NSObject {
 
     public lazy var storeContainer: NSPersistentContainer = {
         (UIApplication.shared.delegate as! AppDelegate).persistentContainer
-        // swiftlint:disable:previous force_cast
     }()
 
     public lazy var mainContext: NSManagedObjectContext = {

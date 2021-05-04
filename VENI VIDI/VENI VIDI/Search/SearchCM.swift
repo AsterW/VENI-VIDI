@@ -75,7 +75,7 @@ class SearchCM: DCContainerModel {
                 print(error)
                 self?.searchResultCM.removeAllSubmodels()
             case let .success(volumes):
-                var i = 0 // swiftlint:disable:this identifier_name
+                var i = 0
                 guard let tag = self?.currentTimeTag, timeStamp >= tag else {
                     return
                 }
@@ -110,7 +110,7 @@ class SearchCM: DCContainerModel {
                 print(error)
                 self?.searchResultCM.removeAllSubmodels()
             case let .success(volumes):
-                var i = 0 // swiftlint:disable:this identifier_name
+                var i = 0
                 guard let tag = self?.currentTimeTag, timeStamp >= tag else {
                     return
                 }
@@ -152,7 +152,7 @@ class SearchCM: DCContainerModel {
                 print(error)
                 self?.searchResultCM.removeAllSubmodels()
             case let .success(volumes):
-                var i = 0 // swiftlint:disable:this identifier_name
+                var i = 0
                 guard let tag = self?.currentTimeTag, timeStamp >= tag else {
                     return
                 }

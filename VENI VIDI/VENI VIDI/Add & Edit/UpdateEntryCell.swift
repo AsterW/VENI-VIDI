@@ -11,7 +11,6 @@ import Foundation
 import SnapKit
 import WidgetKit
 
-// swiftlint:disable:next type_body_length
 class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
     UITextViewDelegate, UINavigationControllerDelegate,
     UIImagePickerControllerDelegate {
@@ -128,7 +127,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
         contentView.addSubview(tagView)
     }
 
-    // swiftlint:disable:next function_body_length
     override func layoutSubviews() {
         super.layoutSubviews()
         width = contentView.bounds.width
@@ -259,7 +257,6 @@ class UpdateEntryCell: DCCell<UpdateEntryCellModel>,
         print(tagView.subviews.count)
     }
 
-    // swiftlint:disable:next function_body_length
     func createTagView() {
         clearTagView()
 

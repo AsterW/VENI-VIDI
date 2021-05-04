@@ -65,7 +65,7 @@ struct VolumeInfo: Decodable {
 // MARK: - Volume
 
 struct Volume: Decodable {
-    let id: String // swiftlint:disable:this identifier_name
+    let id: String
     let volumeInfo: VolumeInfo
 }
 

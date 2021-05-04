@@ -116,7 +116,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
                 let tagLabel = UILabel()
                 tagLabel.text = string
 
-                // swiftlint:disable:next line_length
                 tagLabel.frame = CGRect(x: xOffset, y: yOffset, width: tagLabel.intrinsicContentSize.width + 5, height: 30)
                 xOffset += padding + tagLabel.frame.size.width
 

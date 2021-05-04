@@ -9,7 +9,7 @@ import DCFrame
 import Foundation
 import UIKit
 class TagCellModel: DCCellModel {
-    // swiftlint:disable:next identifier_name
+
     var id: UUID?
     var tags: [String] = []
 

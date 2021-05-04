@@ -5,8 +5,6 @@
 //  Created by 雲無心 on 4/13/21.
 //
 
-// swiftlint:disable identifier_name
-
 import Foundation
 
 // MARK: - IGDBAccessTokenIssueRequest

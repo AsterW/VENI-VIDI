@@ -16,7 +16,7 @@ class DetailedEntryViewController: DCViewController {
 
     override func viewWillAppear(_: Bool) {
         let dataService = DataService(coreDataStack: CoreDataStack())
-        // swiftlint:disable:next identifier_name
+
         if let id = entryId {
             if let entry = dataService.fetchJournalEntryWithUUID(id) {
                 title = entry.worksTitle
@@ -68,7 +68,7 @@ class DetailedEntryViewController: DCViewController {
         print("Entry Id is \(String(describing: entryId))")
 
         let dataService = DataService(coreDataStack: CoreDataStack())
-        // swiftlint:disable:next identifier_name
+
         if let id = entryId {
             if let entry = dataService.fetchJournalEntryWithUUID(id) {
                 detailCM.entryTitle = entry.worksTitle
@@ -106,7 +106,7 @@ class DetailedEntryViewController: DCViewController {
     @objc
     func onEdit() {
         let updateEntryVC = UpdateEnrtyViewController()
-        // swiftlint:disable:next identifier_name
+
         if let id = entryId {
             updateEntryVC.entryId = id
         }

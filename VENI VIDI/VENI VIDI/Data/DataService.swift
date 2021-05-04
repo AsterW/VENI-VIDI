@@ -67,7 +67,6 @@ extension DataService {
         return newTag
     }
 
-    // swiftlint:disable:next identifier_name
     func renameTagWithUUID(_ id: UUID, withNewName newName: String) -> Tag? {
         guard let tag = fetchTagWithUUID(id) else { return nil }
         tag.name = newName
@@ -75,7 +74,6 @@ extension DataService {
         return tag
     }
 
-    // swiftlint:disable:next identifier_name
     func fetchTagWithUUID(_ id: UUID) -> Tag? {
         do {
             let fetchRequest = NSFetchRequest<Tag>(entityName: "Tag")
@@ -88,7 +86,6 @@ extension DataService {
         }
     }
 
-    // swiftlint:disable:next identifier_name
     func deleteTagWithUUID(_ id: UUID) -> Bool {
         guard let tag = fetchTagWithUUID(id) else {
             print("Received invalid UUID for deleteTag()")
@@ -134,7 +131,7 @@ extension DataService {
     /// - Parameter id: The UUID that belongs to and identifies the target JournalEntry.
     /// - Returns: The JournalEntry with the given id (UUID),
     ///            nil if there's an error when fetching from CoreData data storage.
-    func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? { // swiftlint:disable:this identifier_name
+    func fetchJournalEntryWithUUID(_ id: UUID) -> JournalEntry? {
         do {
             let fetchRequest = NSFetchRequest<JournalEntry>(entityName: "JournalEntry")
             fetchRequest.predicate = NSPredicate(format: "id == %@", id as CVarArg)
@@ -176,7 +173,7 @@ extension DataService {
                             withTags tags: [Tag] = [],
                             withRating rating: Double = 0,
                             isFavorite favorite: Bool? = false) -> JournalEntry {
-        // swiftlint:disable:next line_length force_cast
+
         let newJournalEntry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: managedObjectContext) as! JournalEntry
         newJournalEntry.id = UUID()
         coreDataStack.saveContext()
@@ -226,7 +223,7 @@ extension DataService {
     ///   - favorite: User favorite or not.
     /// - Returns: A Result object that contains either the updated JournalEntry or an error value.
     @discardableResult
-    func updateJournalEntry(withUUID id: UUID? = nil, // swiftlint:disable:this identifier_name
+    func updateJournalEntry(withUUID id: UUID? = nil,
                             aboutWork work: String? = nil,
                             withType type: JournalEntryType? = nil,
                             withCoverImage coverImage: UIImage? = nil,
@@ -300,7 +297,7 @@ extension DataService {
     /// - Parameter id: UUID of the JournalEntry that should be deleted.
     /// - Returns: True if the entry is deleted, false if the id (UUID) does not match any existing entry.
     @discardableResult
-    func deleteJournalEntry(withUUID id: UUID) -> Bool { // swiftlint:disable:this identifier_name
+    func deleteJournalEntry(withUUID id: UUID) -> Bool {
         guard let entry = fetchJournalEntryWithUUID(id) else {
             print("Received invalid UUID for deleteJournalEntry()")
             return false

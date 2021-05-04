@@ -10,8 +10,6 @@ import UIKit
 
 // MARK: - TMDBMovieQueryResults
 
-// swiftlint:disable identifier_name
-
 struct TMDBMovieQueryResults: Decodable {
     let page: Int
     let total_results: Int

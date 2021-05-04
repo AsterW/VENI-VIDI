@@ -8,8 +8,6 @@
 import CoreData
 import UIKit
 
-// swiftlint:disable line_length
-
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?

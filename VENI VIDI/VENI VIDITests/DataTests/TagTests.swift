@@ -21,7 +21,7 @@ extension DataServiceTests {
 
     func testRenameTag() {
         let tag = dataService.createNewTag("a tag")
-        // swiftlint:disable:next identifier_name
+
         guard let id = tag.id else { XCTFail("Tag.id should not be nil"); return }
         let renamedTag = dataService.renameTagWithUUID(id, withNewName: "a new name")
 
@@ -32,7 +32,7 @@ extension DataServiceTests {
 
     func testDeleteTag() {
         let tag = dataService.createNewTag("a tag")
-        // swiftlint:disable:next identifier_name
+
         guard let id = tag.id else { XCTFail("Tag.id should not be nil"); return }
         XCTAssertTrue(dataService.deleteTagWithUUID(id))
 
@@ -49,7 +49,7 @@ extension DataServiceTests {
 
         var fetchedTagUUIDs = Set<UUID>()
         for tag in fetchedTags {
-            // swiftlint:disable:next identifier_name
+
             guard let id = tag.id else { XCTFail("Tag.id should not be nil"); return }
             fetchedTagUUIDs.insert(id)
         }

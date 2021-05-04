@@ -77,7 +77,6 @@ extension DataServiceTests: DataServiceDelegate {
         XCTAssertTrue(entry1.favorite == true)
     }
 
-    // swiftlint:disable:next function_body_length
     func testUpdateJournalEntry() {
         let entry0 = dataService.createJournalEntry()
         XCTAssertNotNil(entry0, "entry0 should not be nil")
@@ -222,7 +221,6 @@ extension DataServiceTests: DataServiceDelegate {
         } else { XCTFail("query result should not be nil") }
     }
 
-    // swiftlint:disable:next function_body_length
     func testFetchJournalEntryWithUUID() {
         let entry0 = dataService.createJournalEntry()
         let fetchedEntry0 = dataService.fetchJournalEntryWithUUID(entry0.id!)
@@ -270,7 +268,6 @@ extension DataServiceTests: DataServiceDelegate {
         XCTAssertTrue(entry1 == fetchedEntry1)
     }
 
-    // swiftlint:disable:next function_body_length
     func testCrossDataServiceAccess() {
         XCTAssertFalse(dataService === secondDataService)
 

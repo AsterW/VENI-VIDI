@@ -8,7 +8,6 @@
 @testable import VENI_VIDI
 import XCTest
 
-// swiftlint:disable:next type_name
 class VENI_VIDIUITests: XCTestCase {
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -16,7 +15,6 @@ class VENI_VIDIUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
-        // swiftlint:disable:next line_length
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
@@ -39,7 +37,7 @@ class VENI_VIDIUITests: XCTestCase {
 
         // Tab on a certain entry, try to edit/re-rate a movie
         let tablesQuery = app.tables
-        // swiftlint:disable:next line_length
+
         tablesQuery/*@START_MENU_TOKEN@*/ .cells.staticTexts["Avengers"]/*[[".cells.staticTexts[\"Avengers\"]",".staticTexts[\"Avengers\"]"],[[[-1,1],[-1,0]]],[1]]@END_MENU_TOKEN@*/ .tap()
 
         XCTAssert(app.staticTexts["3/18/21"].exists)
@@ -50,7 +48,7 @@ class VENI_VIDIUITests: XCTestCase {
         let editButton = app.navigationBars["VENI_VIDI.DetailedEntryView"].buttons["Edit"]
         editButton.tap()
         app.navigationBars["VENI_VIDI.UpdateEnrtyView"].buttons["Back"].tap()
-        // swiftlint:disable:next line_length
+
         tablesQuery/*@START_MENU_TOKEN@*/ .otherElements["Rating"]/*[[".cells.otherElements[\"Rating\"]",".otherElements[\"Rating\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/ .tap()
 
         backButton.tap()

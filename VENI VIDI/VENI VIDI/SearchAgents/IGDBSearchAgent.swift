@@ -34,7 +34,6 @@ class IGDBSearchAgent: DatabaseSearchAgent {
 
     // MARK: - DatabaseSpecificSearchAgent Query Function
 
-    // swiftlint:disable:next function_body_length
     func query(withKeyword keyword: String,
                withTimeStamp timeStamp: TimeInterval,
                withCompletionHandler completionHandler: @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
