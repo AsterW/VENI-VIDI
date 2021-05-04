@@ -13,6 +13,8 @@ class GeneralSearchAgent {
     private let searchAgents: [DatabaseSearchAgent] = [TMDBMovieSearchAgent(), TMDBTVSearchAgent(), IGDBSearchAgent()]
     private var results: [QueryContentType: [QueryResult]] = [:]
 
+    internal lazy var coreDataStack = CoreDataStack()
+
     // MARK: - Search Function
 
     func query(withKeyword keyword: String,
@@ -59,7 +61,6 @@ class GeneralSearchAgent {
     }
 
     func getRecommendation(forContentType contentType: QueryContentType,
-                           withDebugDataStack dataStack: CoreDataStack = CoreDataStack(),
                            withCompletionHandler completionHandler:
                            @escaping (Result<[QueryResult], QueryAgentError>) -> Void) {
 
@@ -67,7 +68,7 @@ class GeneralSearchAgent {
             guard contentType == searchAgent.agentType else { continue }
             guard let recommendationAgent = searchAgent as? DatabaseRecommendationAgent else { continue }
 
-            recommendationAgent.getRandomRecommendation(withDataStack: dataStack,
+            recommendationAgent.getRandomRecommendation(withDataStack: coreDataStack,
                                                         withCompletionHandler: completionHandler)
         }
     }
