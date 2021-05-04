@@ -1,20 +1,20 @@
 //
-//  ShelfCellModel.swift
+//  ShelfRecommendationCellModel.swift
 //  VENI VIDI
 //
-//  Created by MonAster on 2021/4/26.
+//  Created by MonAster on 2021/5/3.
 //
 
 import DCFrame
 
-class ShelfCellModel: DCCellModel {
+class ShelfRecommendationCellModel: DCCellModel {
 
     var title = "Shelf"
-    var entries: [JournalEntry]?
+    var entries: [QueryResult]?
 
     required init() {
         super.init()
-        cellClass = ShelfCell.self
+        cellClass = ShelfRecommendationCell.self
         guard var count = entries?.count else { return }
         count /= 3 + 1
         cellHeight = CGFloat(50 + 250 * count)
@@ -24,16 +24,12 @@ class ShelfCellModel: DCCellModel {
         cellHeight = height
     }
 
-    func set(withType type: JournalEntryType, withEntries entries: [JournalEntry]) {
+    func set(withType type: JournalEntryType, withEntries entries: [QueryResult]) {
         switch type {
-        case .book:
-            title = "Books"
         case .movie:
-            title = "Movies"
+            title = "Recommended Movies"
         case .tvShow:
-            title = "TV Shows"
-        case .game:
-            title = "Games"
+            title = "Recommended TV Shows"
         default:
             title = "Recommendations"
         }

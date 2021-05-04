@@ -29,11 +29,6 @@ class CustomTagView: UIView {
         backgroundColor = .systemPink
         addSubview(tagLabel)
         addSubview(cancel)
-//        cancel.addTarget(self, action: #selector(removeTag), for: .touchUpInside)
-//        textView.frame = CGRect(x: frame.minX, y: frame.minY, width: frame.width - 30, height: 30)
-//        textView.backgroundColor = .systemRed
-//        cancel.frame = CGRect(x: frame.maxX - 30, y: frame.minY, width: 30, height: 30)
-//        cancel.setImage(UIImage(systemName: "star"), for: .normal)
     }
 
     @objc

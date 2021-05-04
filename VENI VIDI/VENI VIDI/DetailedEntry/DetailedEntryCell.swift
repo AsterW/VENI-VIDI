@@ -37,7 +37,6 @@ class DetailedEntryCell: DCCell<DetailedEntryCellModel>,
 
     let tagView: UIScrollView = {
         let tagView = UIScrollView()
-        // tagView.backgroundColor = .systemYellow
         return tagView
     }()
 

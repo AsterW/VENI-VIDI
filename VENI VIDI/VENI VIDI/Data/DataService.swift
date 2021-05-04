@@ -59,11 +59,7 @@ extension DataService {
     }
 
     func createNewTag(_ tagText: String) -> Tag {
-        // let newTag = Tag(context: self.managedObjectContext)
-        // swiftlint:disable:next line_length
-        // Solution from https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
-        // swiftlint:disable:next force_cast
-        let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as! Tag
+        guard let newTag = NSEntityDescription.insertNewObject(forEntityName: "Tag", into: managedObjectContext) as? Tag else { return Tag() }
 
         newTag.name = tagText
         newTag.id = UUID()
@@ -180,12 +176,8 @@ extension DataService {
                             withTags tags: [Tag] = [],
                             withRating rating: Double = 0,
                             isFavorite favorite: Bool? = false) -> JournalEntry {
-        // let newJournalEntry = JournalEntry(context: self.managedObjectContext)
         // swiftlint:disable:next line_length force_cast
         let newJournalEntry = NSEntityDescription.insertNewObject(forEntityName: "JournalEntry", into: managedObjectContext) as! JournalEntry
-        // swiftlint:disable:next line_length
-        // Solution from https://stackoverflow.com/questions/60228931/no-nsentitydescriptions-in-any-model-claim-the-nsmanagedobject-subclass-priorit
-
         newJournalEntry.id = UUID()
         coreDataStack.saveContext()
 

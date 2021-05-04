@@ -69,12 +69,12 @@ class TMDBMovieTests: XCTestCase {
 
         dataService.createJournalEntry(aboutWork: "Interstellar", withType: .movie)
 
-        let expectation = expectation(description: "Expection for Interstellar-based random recommendation")
+        let testExpectation = expectation(description: "Expection for Interstellar-based random recommendation")
         tmdbMovieAgent.getRandomRecommendation(withDataStack: coreDataStack) { reuslt in
             switch reuslt {
             case let .success(results):
                 XCTAssertGreaterThan(results.count, 0)
-                expectation.fulfill()
+                testExpectation.fulfill()
             case let .failure(error):
                 XCTFail(error.localizedDescription)
             }

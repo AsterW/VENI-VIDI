@@ -23,12 +23,12 @@ struct TMDBMovieQueryResults: Decodable {
 
 struct TMDBMovieDataStruct: Decodable {
     let title: String
-    let id: Int!
+    let id: Int
     let poster_path: String?
     let release_date: String
     let vote_average: Double
     let overview: String
-    let vote_count: Int!
+    let vote_count: Int
 }
 
 // MARK: - TMDBTVQueryResults
@@ -44,10 +44,10 @@ struct TMDBTVQueryResults: Decodable {
 
 struct TMDBTVDataStruct: Decodable {
     let name: String
-    let id: Int!
+    let id: Int
     let poster_path: String?
     let first_air_date: String
     let vote_average: Double
     let overview: String
-    let vote_count: Int!
+    let vote_count: Int
 }

@@ -91,7 +91,6 @@ extension TMDBMovieSearchAgent: DatabaseRecommendationAgent {
         query(withKeyword: seedTitle, withTimeStamp: timeStamp) { result in
             switch result {
             case let .success(seedQueryResult):
-
                 if let seedId = seedQueryResult.first?.tmdbId {
                     seedTMDBId = seedId
                     dispatchGroup.leave()

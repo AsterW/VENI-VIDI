@@ -28,6 +28,9 @@
 		77E8EB8826370E8000DBDA5E /* ShelfCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8EB8726370E8000DBDA5E /* ShelfCell.swift */; };
 		77E8EB8D26370EA900DBDA5E /* ShelfCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8EB8C26370EA900DBDA5E /* ShelfCellModel.swift */; };
 		77E8EB9226370EBE00DBDA5E /* ShelfContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8EB9126370EBE00DBDA5E /* ShelfContainerModel.swift */; };
+		77E8F66C2640BA6400DC40A7 /* ShelfRecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8F66B2640BA6400DC40A7 /* ShelfRecommendationCell.swift */; };
+		77E8F6722640BA7800DC40A7 /* ShelfRecommendationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8F6712640BA7800DC40A7 /* ShelfRecommendationCellModel.swift */; };
+		77E8F6A42640CF8900DC40A7 /* ShowRecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8F6A32640CF8900DC40A7 /* ShowRecommendationCell.swift */; };
 		9214F13A263476AA00FD7510 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9214F139263476AA00FD7510 /* .swiftlint.yml */; };
 		9214F17B26347B7A00FD7510 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 9214F17A26347B7A00FD7510 /* .swiftformat */; };
 		9214F1992634898C00FD7510 /* DataServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214F1982634898C00FD7510 /* DataServiceError.swift */; };
@@ -71,7 +74,6 @@
 		E029AB4126207DA40016463C /* FloatingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029AB4026207DA40016463C /* FloatingLabel.swift */; };
 		E029AB49262193F10016463C /* ExtensionNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = E029AB48262193F10016463C /* ExtensionNav.swift */; };
 		E0358079261B4A96006534A1 /* ExtensionDCContainerTableview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */; };
-		E0358081261B5FBF006534A1 /* Extension3.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0358080261B5FBF006534A1 /* Extension3.swift */; };
 		E05A00282608F37F00533A4C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E05A00272608F37F00533A4C /* Date.swift */; };
 		E08E2007262B9B3E0092BD31 /* TagContainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E2006262B9B3E0092BD31 /* TagContainerModel.swift */; };
 		E08E200C262B9BBF0092BD31 /* TagCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E08E200B262B9BBF0092BD31 /* TagCellModel.swift */; };
@@ -161,6 +163,9 @@
 		77E8EB8726370E8000DBDA5E /* ShelfCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfCell.swift; sourceTree = "<group>"; };
 		77E8EB8C26370EA900DBDA5E /* ShelfCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfCellModel.swift; sourceTree = "<group>"; };
 		77E8EB9126370EBE00DBDA5E /* ShelfContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfContainerModel.swift; sourceTree = "<group>"; };
+		77E8F66B2640BA6400DC40A7 /* ShelfRecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfRecommendationCell.swift; sourceTree = "<group>"; };
+		77E8F6712640BA7800DC40A7 /* ShelfRecommendationCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfRecommendationCellModel.swift; sourceTree = "<group>"; };
+		77E8F6A32640CF8900DC40A7 /* ShowRecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRecommendationCell.swift; sourceTree = "<group>"; };
 		9214F139263476AA00FD7510 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9214F17A26347B7A00FD7510 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		9214F1982634898C00FD7510 /* DataServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceError.swift; sourceTree = "<group>"; };
@@ -210,7 +215,6 @@
 		E029AB4026207DA40016463C /* FloatingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingLabel.swift; sourceTree = "<group>"; };
 		E029AB48262193F10016463C /* ExtensionNav.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionNav.swift; sourceTree = "<group>"; };
 		E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDCContainerTableview.swift; sourceTree = "<group>"; };
-		E0358080261B5FBF006534A1 /* Extension3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension3.swift; sourceTree = "<group>"; };
 		E05A00272608F37F00533A4C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		E08E2006262B9B3E0092BD31 /* TagContainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagContainerModel.swift; sourceTree = "<group>"; };
 		E08E200B262B9BBF0092BD31 /* TagCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCellModel.swift; sourceTree = "<group>"; };
@@ -327,7 +331,10 @@
 				77E8EB8226370E7400DBDA5E /* ShelfCollectionCell.swift */,
 				77E8EB8726370E8000DBDA5E /* ShelfCell.swift */,
 				77E8EB8C26370EA900DBDA5E /* ShelfCellModel.swift */,
+				77E8F66B2640BA6400DC40A7 /* ShelfRecommendationCell.swift */,
+				77E8F6712640BA7800DC40A7 /* ShelfRecommendationCellModel.swift */,
 				77E8EB9126370EBE00DBDA5E /* ShelfContainerModel.swift */,
+				77E8F6A32640CF8900DC40A7 /* ShowRecommendationCell.swift */,
 			);
 			path = Bookshelf;
 			sourceTree = "<group>";
@@ -418,7 +425,6 @@
 				77ABC8C32611AC6900F32F19 /* Search */,
 				7741FD7226122C5300695C7C /* Extensions.swift */,
 				E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */,
-				E0358080261B5FBF006534A1 /* Extension3.swift */,
 				E029AB48262193F10016463C /* ExtensionNav.swift */,
 				E0D8B79A26274B4D0084CFE0 /* ExtensionTextView.swift */,
 			);
@@ -822,9 +828,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77E8F6A42640CF8900DC40A7 /* ShowRecommendationCell.swift in Sources */,
 				9247AF1B25FDA860004016C3 /* DataService.swift in Sources */,
 				77ABC8C52611AC8A00F32F19 /* BookInfoModel.swift in Sources */,
 				925FB5CD2624B4C600F0176D /* QueryContentType.swift in Sources */,
+				77E8F66C2640BA6400DC40A7 /* ShelfRecommendationCell.swift in Sources */,
 				92FD9C7B26123457005D6C2A /* TMDBMovieSearchAgent.swift in Sources */,
 				77E8EB8826370E8000DBDA5E /* ShelfCell.swift in Sources */,
 				92F8A85B262DD7C4003068AC /* JournalEntryType.swift in Sources */,
@@ -840,11 +848,11 @@
 				E0ABE9F625F689DD009E1AF2 /* UpdateEntryCell.swift in Sources */,
 				7741FD7326122C5300695C7C /* Extensions.swift in Sources */,
 				E029AB2A261FF9E40016463C /* EntryData.swift in Sources */,
+				77E8F6722640BA7800DC40A7 /* ShelfRecommendationCellModel.swift in Sources */,
 				E0E403C4263844FB0057121A /* CustomTagView.swift in Sources */,
 				E0ABE9F125F689B3009E1AF2 /* UpdateEntryCellModel.swift in Sources */,
 				E08E2007262B9B3E0092BD31 /* TagContainerModel.swift in Sources */,
 				E0DA6E8825E8D93A002451BC /* TimeLabelCellModel.swift in Sources */,
-				E0358081261B5FBF006534A1 /* Extension3.swift in Sources */,
 				92F8A868262DDCE6003068AC /* JournalEntry+CoreDataClass.swift in Sources */,
 				E0DA6E7725E8D8AC002451BC /* TimelineContainerModel.swift in Sources */,
 				92FD9C8E26123706005D6C2A /* TMDBDataStructs.swift in Sources */,
@@ -957,7 +965,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = VVWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQ3V95F8D5;
+				DEVELOPMENT_TEAM = PA92LX384T;
 				INFOPLIST_FILE = VVWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -979,7 +987,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = VVWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQ3V95F8D5;
+				DEVELOPMENT_TEAM = PA92LX384T;
 				INFOPLIST_FILE = VVWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1120,7 +1128,7 @@
 				CODE_SIGN_ENTITLEMENTS = "VENI VIDI/VENI VIDI.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQ3V95F8D5;
+				DEVELOPMENT_TEAM = PA92LX384T;
 				INFOPLIST_FILE = "VENI VIDI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1131,7 +1139,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1145,7 +1153,7 @@
 				CODE_SIGN_ENTITLEMENTS = "VENI VIDI/VENI VIDI.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VQ3V95F8D5;
+				DEVELOPMENT_TEAM = PA92LX384T;
 				INFOPLIST_FILE = "VENI VIDI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1156,7 +1164,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
