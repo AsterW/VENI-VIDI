@@ -125,8 +125,9 @@ struct VVWidget: Widget {
             VVWidgetEntryView(entry: entry)
                 .background(Color("WidgetBackground"))
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("VENI VIDI")
+        .description("This is a VENI VIDI widget. ")
+        .supportedFamilies([.systemSmall])
     }
 }
 

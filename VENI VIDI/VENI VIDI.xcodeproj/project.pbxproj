@@ -337,6 +337,17 @@
 			path = Bookshelf;
 			sourceTree = "<group>";
 		};
+		77E8F6CA2641025D00DC40A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7741FD7226122C5300695C7C /* Extensions.swift */,
+				E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */,
+				E029AB48262193F10016463C /* ExtensionNav.swift */,
+				E0D8B79A26274B4D0084CFE0 /* ExtensionTextView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		922A3A08260EAB3D0094544E /* DataTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,6 +424,7 @@
 				92F7EA8225D782380039DF3C /* Assets.xcassets */,
 				92F7EA8425D782380039DF3C /* LaunchScreen.storyboard */,
 				92F7EA8725D782380039DF3C /* Info.plist */,
+				77E8F6CA2641025D00DC40A7 /* Extensions */,
 				77E8EB7226366E5F00DBDA5E /* Bookshelf */,
 				92FD9C6F261232B4005D6C2A /* SearchAgents */,
 				E0ABE9E225F67F13009E1AF2 /* Add & Edit */,
@@ -420,10 +432,6 @@
 				E0DA6E9C25E8DA80002451BC /* DetailedEntry */,
 				E0DA6E2F25E8D64B002451BC /* Timeline */,
 				77ABC8C32611AC6900F32F19 /* Search */,
-				7741FD7226122C5300695C7C /* Extensions.swift */,
-				E0358078261B4A96006534A1 /* ExtensionDCContainerTableview.swift */,
-				E029AB48262193F10016463C /* ExtensionNav.swift */,
-				E0D8B79A26274B4D0084CFE0 /* ExtensionTextView.swift */,
 			);
 			path = "VENI VIDI";
 			sourceTree = "<group>";

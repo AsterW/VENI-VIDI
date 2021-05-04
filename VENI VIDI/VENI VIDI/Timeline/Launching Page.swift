@@ -10,7 +10,7 @@ import Foundation
 import SnapKit
 import UIKit
 
-class LaungchController: UIViewController {
+class LaunchController: UIViewController {
     var entries: [JournalEntry] = []
     var entryLabels: [FloatLabel] = []
     var clicked: Bool = false
@@ -29,12 +29,26 @@ class LaungchController: UIViewController {
         detailedViewController.entryId = id
 
         navigationController?.pushViewController(detailedViewController, animated: true)
+        navigationController?.viewControllers.removeAll(where: { vc -> Bool in
+            if vc.isKind(of: LaunchController.self) || vc.isKind(of: LaunchController.self) {
+                return true
+            } else {
+                return false
+            }
+        })
     }
 
     func gotoTimeline() {
         print("Timeline")
         let timelineVC = TimelineViewController()
         navigationController?.pushViewController(timelineVC, animated: true)
+        navigationController?.viewControllers.removeAll(where: { vc -> Bool in
+            if vc.isKind(of: LaunchController.self) || vc.isKind(of: LaunchController.self) {
+                return true
+            } else {
+                return false
+            }
+        })
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with _: UIEvent?) {

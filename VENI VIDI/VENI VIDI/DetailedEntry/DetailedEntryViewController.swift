@@ -55,7 +55,7 @@ class DetailedEntryViewController: DCViewController {
         // check the previous controller
         if let count = navigationController?.viewControllers.count {
             if count >= 2 {
-                if (navigationController?.viewControllers[count - 2] as? LaungchController) != nil {
+                if (navigationController?.viewControllers[count - 2] as? LaunchController) != nil {
                     navigationItem.hidesBackButton = true
 
                     navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Timeline",
