@@ -31,7 +31,6 @@
 		77E8F66C2640BA6400DC40A7 /* ShelfRecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8F66B2640BA6400DC40A7 /* ShelfRecommendationCell.swift */; };
 		77E8F6722640BA7800DC40A7 /* ShelfRecommendationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8F6712640BA7800DC40A7 /* ShelfRecommendationCellModel.swift */; };
 		77E8F6A42640CF8900DC40A7 /* ShowRecommendationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77E8F6A32640CF8900DC40A7 /* ShowRecommendationCell.swift */; };
-		9214F13A263476AA00FD7510 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 9214F139263476AA00FD7510 /* .swiftlint.yml */; };
 		9214F17B26347B7A00FD7510 /* .swiftformat in Resources */ = {isa = PBXBuildFile; fileRef = 9214F17A26347B7A00FD7510 /* .swiftformat */; };
 		9214F1992634898C00FD7510 /* DataServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9214F1982634898C00FD7510 /* DataServiceError.swift */; };
 		923B57A8263A3D27007AFC27 /* JournalEntryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 923B57A7263A3D27007AFC27 /* JournalEntryTests.swift */; };
@@ -166,7 +165,6 @@
 		77E8F66B2640BA6400DC40A7 /* ShelfRecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfRecommendationCell.swift; sourceTree = "<group>"; };
 		77E8F6712640BA7800DC40A7 /* ShelfRecommendationCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShelfRecommendationCellModel.swift; sourceTree = "<group>"; };
 		77E8F6A32640CF8900DC40A7 /* ShowRecommendationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowRecommendationCell.swift; sourceTree = "<group>"; };
-		9214F139263476AA00FD7510 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		9214F17A26347B7A00FD7510 /* .swiftformat */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftformat; sourceTree = "<group>"; };
 		9214F1982634898C00FD7510 /* DataServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataServiceError.swift; sourceTree = "<group>"; };
 		923B57A7263A3D27007AFC27 /* JournalEntryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalEntryTests.swift; sourceTree = "<group>"; };
@@ -382,7 +380,6 @@
 			children = (
 				7771A7BF263F26B5003DB248 /* VVWidgetExtension.entitlements */,
 				9214F17A26347B7A00FD7510 /* .swiftformat */,
-				9214F139263476AA00FD7510 /* .swiftlint.yml */,
 				92F7EA7525D782350039DF3C /* VENI VIDI */,
 				92F7EA8F25D782380039DF3C /* VENI VIDITests */,
 				92F7EA9A25D782380039DF3C /* VENI VIDIUITests */,
@@ -536,7 +533,6 @@
 			buildPhases = (
 				D4676D1F0F4F2C3B0838392B /* [CP] Check Pods Manifest.lock */,
 				92FD9CEA26124DCF005D6C2A /* SwiftFormat */,
-				9214F14C2634798500FD7510 /* SwiftLint */,
 				92F7EA6F25D782350039DF3C /* Sources */,
 				92F7EA7025D782350039DF3C /* Frameworks */,
 				92F7EA7125D782350039DF3C /* Resources */,
@@ -652,7 +648,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9214F17B26347B7A00FD7510 /* .swiftformat in Resources */,
-				9214F13A263476AA00FD7510 /* .swiftlint.yml in Resources */,
 				92F7EA8625D782380039DF3C /* LaunchScreen.storyboard in Resources */,
 				92F7EA8325D782380039DF3C /* Assets.xcassets in Resources */,
 				92F7EA7E25D782350039DF3C /* Main.storyboard in Resources */,
@@ -697,24 +692,6 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
-		};
-		9214F14C2634798500FD7510 /* SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = SwiftLint;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\" \"$SRCROOT\"\n";
 		};
 		92FD9CEA26124DCF005D6C2A /* SwiftFormat */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -965,7 +942,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = VVWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PA92LX384T;
+				DEVELOPMENT_TEAM = VQ3V95F8D5;
 				INFOPLIST_FILE = VVWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -987,7 +964,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_ENTITLEMENTS = VVWidgetExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PA92LX384T;
+				DEVELOPMENT_TEAM = VQ3V95F8D5;
 				INFOPLIST_FILE = VVWidget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1128,7 +1105,7 @@
 				CODE_SIGN_ENTITLEMENTS = "VENI VIDI/VENI VIDI.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PA92LX384T;
+				DEVELOPMENT_TEAM = VQ3V95F8D5;
 				INFOPLIST_FILE = "VENI VIDI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1153,7 +1130,7 @@
 				CODE_SIGN_ENTITLEMENTS = "VENI VIDI/VENI VIDI.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PA92LX384T;
+				DEVELOPMENT_TEAM = VQ3V95F8D5;
 				INFOPLIST_FILE = "VENI VIDI/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
 				LD_RUNPATH_SEARCH_PATHS = (

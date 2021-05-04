@@ -10,7 +10,6 @@ pod 'DCFrame', :git => 'https://github.com/AsterW/DCFrame.git'
 pod 'Cosmos'
 pod 'SnapKit'
 pod 'SwiftFormat/CLI'
-pod 'SwiftLint'
 
   target 'VENI VIDITests' do
     inherit! :search_paths
